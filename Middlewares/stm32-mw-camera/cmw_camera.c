@@ -48,6 +48,9 @@
 #if defined (USE_VD5943_SENSOR)
 #include "cmw_vd5943.h"
 #endif
+#if defined(USE_IMX219_SENSOR)
+#include "cmw_imx219.h"
+#endif
 #include "assert.h"
 
 typedef struct
@@ -103,6 +106,9 @@ static union
 #if defined(USE_VD5943_SENSOR)
   CMW_VD5943_t vd5943_bsp;
 #endif
+#if defined(USE_IMX219_SENSOR)
+  CMW_IMX219_t imx219_bsp;
+#endif
 } camera_bsp;
 
 int is_camera_init = 0;
@@ -111,6 +117,9 @@ int is_pipe1_2_shared = 0;
 
 #if defined(USE_IMX335_SENSOR)
 static int32_t CMW_CAMERA_IMX335_Init( CMW_Sensor_Init_t *initSensors_params);
+#endif
+#if defined(USE_IMX219_SENSOR)
+static int32_t CMW_CAMERA_IMX219_Init( CMW_Sensor_Init_t *initSensors_params);
 #endif
 #if defined(USE_VD55G1_SENSOR)
 static int32_t CMW_CAMERA_VD55G1_Init( CMW_Sensor_Init_t *initSensors_params);
@@ -137,6 +146,34 @@ static void CMW_CAMERA_EnableGPIOs(void);
 static void CMW_CAMERA_PwrDown(void);
 static int32_t CMW_CAMERA_SetPipe(DCMIPP_HandleTypeDef *hdcmipp, uint32_t pipe, CMW_DCMIPP_Conf_t *p_conf, uint32_t *pitch);
 static int CMW_CAMERA_Probe_Sensor(CMW_Sensor_Init_t *initValues, CMW_Sensor_Name_t *sensorName);
+
+#if defined(USE_IMX219_SENSOR)
+static void CMW_CAMERA_IMX219_SelectDefaultMode(CMW_Sensor_Init_t *initSensors_params)
+{
+  /*
+   * When the application does not request a specific source mode, prefer the
+   * highest-FOV mode that can sustain the requested frame rate.
+   *
+   *  - <= 15 fps: use the full 3280x2464 array
+   *  - > 15 fps : use 1640x1232 2x2 binning for full FOV at 30 fps
+   */
+  if ((initSensors_params->width != 0U) && (initSensors_params->height != 0U))
+  {
+    return;
+  }
+
+  if (initSensors_params->fps <= 15)
+  {
+    initSensors_params->width = IMX219_MODE_FULL_WIDTH;
+    initSensors_params->height = IMX219_MODE_FULL_HEIGHT;
+  }
+  else
+  {
+    initSensors_params->width = IMX219_MODE_BINNED_WIDTH;
+    initSensors_params->height = IMX219_MODE_BINNED_HEIGHT;
+  }
+}
+#endif
 
 DCMIPP_HandleTypeDef* CMW_CAMERA_GetDCMIPPHandle(void)
 {
@@ -308,6 +345,14 @@ static int CMW_CAMERA_Probe_Sensor(CMW_Sensor_Init_t *initValues, CMW_Sensor_Nam
   if (ret == CMW_ERROR_NONE)
   {
     *sensorName = CMW_IMX335_Sensor;
+    return ret;
+  }
+#endif
+#if defined(USE_IMX219_SENSOR)
+  ret = CMW_CAMERA_IMX219_Init(initValues);
+  if (ret == CMW_ERROR_NONE)
+  {
+    *sensorName = CMW_IMX219_Sensor;
     return ret;
   }
 #endif
@@ -1962,6 +2007,120 @@ static int32_t CMW_CAMERA_IMX335_Init(CMW_Sensor_Init_t *initSensors_params)
 }
 #endif
 
+#if defined(USE_IMX219_SENSOR)
+static int32_t CMW_CAMERA_IMX219_Init(CMW_Sensor_Init_t *initSensors_params)
+{
+  int32_t ret = CMW_ERROR_NONE;
+  DCMIPP_CSI_ConfTypeDef csi_conf = { 0 };
+  DCMIPP_CSI_PIPE_ConfTypeDef csi_pipe_conf = { 0 };
+  uint32_t dt_format = 0;
+  uint32_t dt = 0;
+  CMW_IMX219_config_t default_sensor_config;
+  CMW_IMX219_config_t *sensor_config;
+
+  memset(&camera_bsp, 0, sizeof(camera_bsp));
+  camera_bsp.imx219_bsp.Address     = CAMERA_IMX219_ADDRESS;
+  camera_bsp.imx219_bsp.Init        = CMW_I2C_INIT;
+  camera_bsp.imx219_bsp.DeInit      = CMW_I2C_DEINIT;
+  camera_bsp.imx219_bsp.ReadReg     = CMW_I2C_READREG16;
+  camera_bsp.imx219_bsp.WriteReg    = CMW_I2C_WRITEREG16;
+  camera_bsp.imx219_bsp.GetTick     = BSP_GetTick;
+  camera_bsp.imx219_bsp.Delay       = HAL_Delay;
+  camera_bsp.imx219_bsp.ShutdownPin = CMW_CAMERA_ShutdownPin;
+  camera_bsp.imx219_bsp.EnablePin   = CMW_CAMERA_EnablePin;
+  camera_bsp.imx219_bsp.hdcmipp     = &hcamera_dcmipp;
+  camera_bsp.imx219_bsp.appliHelpers.SetSensorGain     = CB_ISP_SetSensorGain;
+  camera_bsp.imx219_bsp.appliHelpers.GetSensorGain     = CB_ISP_GetSensorGain;
+  camera_bsp.imx219_bsp.appliHelpers.SetSensorExposure = CB_ISP_SetSensorExposure;
+  camera_bsp.imx219_bsp.appliHelpers.GetSensorExposure = CB_ISP_GetSensorExposure;
+  camera_bsp.imx219_bsp.appliHelpers.GetSensorInfo     = CB_ISP_GetSensorInfo;
+
+  ret = CMW_IMX219_Probe(&camera_bsp.imx219_bsp, &Camera_Drv);
+  if (ret != CMW_ERROR_NONE)
+  {
+    return CMW_ERROR_COMPONENT_FAILURE;
+  }
+
+  if ((connected_sensor != CMW_IMX219_Sensor) && (connected_sensor != CMW_UNKNOWN_Sensor))
+  {
+    /* If the selected sensor in the application side has selected a different sensor than IMX219 */
+    return CMW_ERROR_COMPONENT_FAILURE;
+  }
+
+  CMW_CAMERA_IMX219_SelectDefaultMode(initSensors_params);
+
+  CMW_IMX219_SetDefaultSensorValues(&default_sensor_config);
+  initSensors_params->sensor_config = initSensors_params->sensor_config ? initSensors_params->sensor_config : &default_sensor_config;
+  sensor_config = (CMW_IMX219_config_t *)(initSensors_params->sensor_config);
+
+  ret = Camera_Drv.Init(&camera_bsp, initSensors_params);
+  if (ret != CMW_ERROR_NONE)
+  {
+    return CMW_ERROR_COMPONENT_FAILURE;
+  }
+
+  ret = Camera_Drv.SetFrequency(&camera_bsp, IMX219_INCK_24MHZ);
+  if (ret != CMW_ERROR_NONE)
+  {
+    return CMW_ERROR_COMPONENT_FAILURE;
+  }
+
+  ret = Camera_Drv.SetFramerate(&camera_bsp, initSensors_params->fps);
+  if (ret != CMW_ERROR_NONE)
+  {
+    return CMW_ERROR_COMPONENT_FAILURE;
+  }
+
+  switch (sensor_config->pixel_format)
+  {
+    case CMW_PIXEL_FORMAT_DEFAULT:
+    case CMW_PIXEL_FORMAT_RAW10:
+    {
+      dt_format = DCMIPP_CSI_DT_BPP10;
+      dt = DCMIPP_DT_RAW10;
+      break;
+    }
+    default:
+      return CMW_ERROR_COMPONENT_FAILURE;
+  }
+
+  /*
+   * IMX219 D-PHY: 2 data lanes @ 912 Mbps/lane.
+   * DCMIPP_CSI_PHY_BT_900 (900 Mbps) is the closest supported rate and
+   * the STM32N6 D-PHY receiver locks correctly at this setting.
+   */
+  csi_conf.NumberOfLanes  = DCMIPP_CSI_TWO_DATA_LANES;
+  csi_conf.DataLaneMapping = DCMIPP_CSI_PHYSICAL_DATA_LANES;
+  csi_conf.PHYBitrate     = DCMIPP_CSI_PHY_BT_900;
+  ret = HAL_DCMIPP_CSI_SetConfig(&hcamera_dcmipp, &csi_conf);
+  if (ret != HAL_OK)
+  {
+    return CMW_ERROR_PERIPH_FAILURE;
+  }
+
+  ret = HAL_DCMIPP_CSI_SetVCConfig(&hcamera_dcmipp, DCMIPP_VIRTUAL_CHANNEL0, dt_format);
+  if (ret != HAL_OK)
+  {
+    return CMW_ERROR_PERIPH_FAILURE;
+  }
+
+  csi_pipe_conf.DataTypeMode = DCMIPP_DTMODE_DTIDA;
+  csi_pipe_conf.DataTypeIDA  = dt;
+  csi_pipe_conf.DataTypeIDB  = 0;
+  /* Pre-initialize CSI config for all the pipes */
+  for (uint32_t i = DCMIPP_PIPE0; i <= DCMIPP_PIPE2; i++)
+  {
+    ret = HAL_DCMIPP_CSI_PIPE_SetConfig(&hcamera_dcmipp, i, &csi_pipe_conf);
+    if (ret != HAL_OK)
+    {
+      return CMW_ERROR_PERIPH_FAILURE;
+    }
+  }
+
+  return ret;
+}
+#endif
+
 static int32_t CMW_CAMERA_SetPipe(DCMIPP_HandleTypeDef *hdcmipp, uint32_t pipe, CMW_DCMIPP_Conf_t *p_conf, uint32_t *pitch)
 {
   DCMIPP_DecimationConfTypeDef dec_conf = { 0 };
@@ -2203,6 +2362,11 @@ int32_t CMW_CAMERA_SetDefaultSensorValues( CMW_Advanced_Config_t *advanced_confi
 #if defined(USE_VD5943_SENSOR)
   case CMW_VD5943_Sensor:
     CMW_VD5943_SetDefaultSensorValues(&advanced_config->config_sensor.vd5943_config);
+    break;
+#endif
+#if defined(USE_IMX219_SENSOR)
+  case CMW_IMX219_Sensor:
+    CMW_IMX219_SetDefaultSensorValues(&advanced_config->config_sensor.imx219_config);
     break;
 #endif
   default:

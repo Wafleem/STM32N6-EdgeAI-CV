@@ -1,0 +1,34 @@
+# Local agent/editor state
+.claude/
+.vscode/
+.idea/
+
+# OS clutter
+Thumbs.db
+.DS_Store
+
+# CMake / Ninja scratch
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+build.ninja
+.ninja_deps
+.ninja_log
+
+# STM32 / GNU build outputs
+Application/*/build/
+Application/*/Debug/
+Application/*/Release/
+
+*.o
+*.d
+*.su
+*.lst
+*.map
+*.elf
+*.bin
+
+# Signing / flashing outputs that are regenerated locally
+*_sign.bin
+*_sign.hex

@@ -64,7 +64,8 @@ typedef enum {
   CMW_VD55G1_Sensor,
   CMW_VD65G4_Sensor,
   CMW_VD1943_Sensor,
-  CMW_VD5943_Sensor
+  CMW_VD5943_Sensor,
+  CMW_IMX219_Sensor
 } CMW_Sensor_Name_t;
 
 typedef struct
@@ -113,6 +114,11 @@ typedef struct
   uint32_t pixel_format; /*!< This parameter can be a value from @ref CMW_PIXEL_FORMAT */
 } CMW_OV5640_config_t;
 
+typedef struct
+{
+  uint32_t pixel_format; /*!< This parameter can be a value from @ref CMW_PIXEL_FORMAT */
+} CMW_IMX219_config_t;
+
 
 typedef struct
 {
@@ -126,6 +132,7 @@ typedef struct
     CMW_VD1943_config_t vd1943_config;
     CMW_VD5943_config_t vd5943_config;
     CMW_OV5640_config_t ov5640_config;
+    CMW_IMX219_config_t imx219_config;
   } config_sensor;
 } CMW_Advanced_Config_t;
 

@@ -36,6 +36,8 @@ extern "C" {
 #define CAMERA_VD56G3_ADDRESS          0x20U
 #define CAMERA_VD56G3_FREQ_IN_HZ       12000000U
 #define CAMERA_VD1943_ADDRESS          0x20U
+#define CAMERA_IMX219_ADDRESS          0x20U  /* 7-bit 0x10 shifted left: 0x10 << 1 = 0x20 */
+#define CAMERA_IMX219_FREQ_IN_HZ       24000000U
 
 #if defined (STM32N657xx)
 

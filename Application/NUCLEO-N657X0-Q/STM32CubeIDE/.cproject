@@ -79,6 +79,7 @@
 									<listOptionValue builtIn="false" value="../../../../STM32Cube_FW_N6/Drivers/BSP/Components/aps256xx"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/imx335"/>
+									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/imx219"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd6g"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd55g1"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd1943"/>
@@ -217,6 +218,7 @@
 									<listOptionValue builtIn="false" value="../../../../STM32Cube_FW_N6/Drivers/BSP/Components/aps256xx"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/imx335"/>
+									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/imx219"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd6g"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd55g1"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd1943"/>
@@ -350,6 +352,7 @@
 									<listOptionValue builtIn="false" value="../../../../STM32Cube_FW_N6/Drivers/BSP/Components/aps256xx"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/imx335"/>
+									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/imx219"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd6g"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd55g1"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd1943"/>
@@ -484,6 +487,7 @@
 									<listOptionValue builtIn="false" value="../../../../STM32Cube_FW_N6/Drivers/BSP/Components/aps256xx"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/imx335"/>
+									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/imx219"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd6g"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd55g1"/>
 									<listOptionValue builtIn="false" value="../../../../Middlewares/stm32-mw-camera/sensors/vd1943"/>
