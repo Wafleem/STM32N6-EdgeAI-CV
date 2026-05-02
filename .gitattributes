@@ -1,0 +1,36 @@
+# Default text handling
+* text=auto
+
+# Keep source and build metadata normalized with LF in the repository
+*.c text eol=lf
+*.h text eol=lf
+*.s text eol=lf
+*.S text eol=lf
+*.ld text eol=lf
+*.mk text eol=lf
+Makefile text eol=lf
+*.cmake text eol=lf
+CMakeLists.txt text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.xml text eol=lf
+*.project text eol=lf
+*.cproject text eol=lf
+*.conf text eol=lf
+*.txt text eol=lf
+
+# Treat generated firmware artifacts and media as binary
+*.bin binary
+*.hex binary
+*.a binary
+*.lib binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.bmp binary
+*.svg binary
