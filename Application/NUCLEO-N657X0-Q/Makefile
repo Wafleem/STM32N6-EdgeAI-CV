@@ -45,7 +45,7 @@ OPT = -Os -g3
 #######################################
 # Build path
 BUILD_TOP = build
-BUILD_DIR = $(BUILD_TOP)/Application/NUCLEO-N657X0-Q
+BUILD_DIR = $(BUILD_TOP)
 
 ######################################
 # source
@@ -218,8 +218,8 @@ C_INCLUDES += -I../../Middlewares/stedgeai-lib/Npu/Devices/STM32N6xx
 C_INCLUDES += -I../../STM32Cube_FW_N6/Utilities/lcd
 C_INCLUDES += -I../../STM32Cube_FW_N6/Drivers/BSP/Components/aps256xx
 
-ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fstack-usage -fdata-sections -ffunction-sections -fcyclomatic-complexity
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fstack-usage -fdata-sections -ffunction-sections -fcyclomatic-complexity
+ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 # Generate dependency information
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 
@@ -259,22 +259,36 @@ sign: $(BUILD_DIR)/$(TARGET)_sign.hex
 #######################################
 # build the application
 #######################################
-OBJECTS = $(addprefix $(BUILD_DIR)/, $(C_SOURCES:.c=.o))
-OBJECTS += $(addprefix $(BUILD_DIR)/,$(ASM_SOURCES:.s=.o))
-OBJECTS += $(addprefix $(BUILD_DIR)/,$(ASM_SOURCES_S:.S=.o))
+sanitize_path = $(patsubst ../../%,%,$1)
+object_path_from_c = $(BUILD_DIR)/$(call sanitize_path,$(1:.c=.o))
+object_path_from_s = $(BUILD_DIR)/$(call sanitize_path,$(1:.s=.o))
+object_path_from_S = $(BUILD_DIR)/$(call sanitize_path,$(1:.S=.o))
 
+OBJECTS = $(foreach src,$(C_SOURCES),$(call object_path_from_c,$(src)))
+OBJECTS += $(foreach src,$(ASM_SOURCES),$(call object_path_from_s,$(src)))
+OBJECTS += $(foreach src,$(ASM_SOURCES_S),$(call object_path_from_S,$(src)))
 
-$(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR)
-	@mkdir -p $(dir $@)
-	$($(quiet)CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+define make-c-rule
+$(call object_path_from_c,$(1)): $(1) Makefile | $(BUILD_DIR)
+	@mkdir -p $$(dir $$@)
+	$$($(quiet)CC) -c $$(CFLAGS) -Wa,-a,-ad,-alms=$$(BUILD_DIR)/$$(notdir $$(<:.c=.lst)) $$< -o $$@
+endef
 
-$(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
-	@mkdir -p $(dir $@)
-	$($(quiet)CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+define make-S-rule
+$(call object_path_from_S,$(1)): $(1) Makefile | $(BUILD_DIR)
+	@mkdir -p $$(dir $$@)
+	$$($(quiet)CC) -c $$(CFLAGS) -Wa,-a,-ad,-alms=$$(BUILD_DIR)/$$(notdir $$(<:.S=.lst)) $$< -o $$@
+endef
 
-$(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
-	@mkdir -p $(dir $@)
-	$($(quiet)AS) -c $(CFLAGS) $< -o $@
+define make-s-rule
+$(call object_path_from_s,$(1)): $(1) Makefile | $(BUILD_DIR)
+	@mkdir -p $$(dir $$@)
+	$$($(quiet)AS) -c $$(CFLAGS) $$< -o $$@
+endef
+
+$(foreach src,$(C_SOURCES),$(eval $(call make-c-rule,$(src))))
+$(foreach src,$(ASM_SOURCES),$(eval $(call make-s-rule,$(src))))
+$(foreach src,$(ASM_SOURCES_S),$(eval $(call make-S-rule,$(src))))
 
 $(BUILD_DIR)/$(TARGET).list: $(OBJECTS)
 	$(file > $@, $(OBJECTS))

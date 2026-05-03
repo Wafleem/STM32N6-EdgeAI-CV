@@ -22,6 +22,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32n6xx_hal.h"
+#include <math.h>
 
 /** @addtogroup STM32N6xx_HAL_Driver
   * @{

@@ -248,7 +248,7 @@ Navigate to `Application/<board_name>/` and run the following commands (ensure r
     ```
 3. In a separate terminal, launch a GDB session to load the firmware:
     ```bash
-    $ arm-none-eabi-gdb build/Application/<board_name>/Project.elf
+    $ arm-none-eabi-gdb build/Project.elf
     (gdb) target remote :61234
     (gdb) monitor reset
     (gdb) load
@@ -275,15 +275,62 @@ Ensure all required tools are in your PATH, then build the project:
 make -j8
 ```
 
+On Windows, you can use the local helper instead of managing the ST tool paths manually:
+
+```powershell
+.\build.ps1
+```
+
+The helper defaults to a single compile job on Windows for reliability. If your machine handles parallel builds cleanly, you can raise it manually:
+
+```powershell
+.\build.ps1 -Jobs 2
+```
+
 #### Program the Firmware in the External Flash
 
 After building the application, you must sign the binary file:
 
 ```bash
-STM32_SigningTool_CLI -bin build/Application/<board_name>/Project.bin -nk -t ssbl -hv 2.3 -o build/Application/<board_name>/Project_sign.bin
+STM32_SigningTool_CLI -bin build/Project.bin -nk -t ssbl -hv 2.3 -o build/Project_sign.bin
 ```
 
 Program the signed binary at address `0x70100000`, as well as the FSBL and network parameters.
+
+On Windows, the helper can run the build, signing, and flashing sequence for you:
+
+```powershell
+.\flash.ps1
+```
+
+Recommended Windows workflow for the Nucleo board:
+
+1. Put the board in [development mode](#boot-modes).
+2. Connect `CN9` to your PC for ST-LINK access.
+3. Build:
+   ```powershell
+   .\build.ps1
+   ```
+4. Sign:
+   ```powershell
+   .\scripts\stm32n6.ps1 -Action sign
+   ```
+5. First-time programming:
+   ```powershell
+   .\flash.ps1
+   ```
+6. Later application-only updates:
+   ```powershell
+   .\flash.ps1 -AppOnly
+   ```
+7. Move the board to [boot from flash](#boot-modes) mode and power-cycle it.
+8. For the default Nucleo `UVCL` build, connect `CN8` to your host PC and open a camera viewer.
+
+Artifacts produced by the Windows helper:
+
+- `Application/<board_name>/build/Project.elf`
+- `Application/<board_name>/build/Project.bin`
+- `Application/<board_name>/build/Project_sign.bin`
 
 On STM32N6570-DK:
 
@@ -294,7 +341,7 @@ export DKEL="<STM32CubeProgrammer_N6 Install Folder>/bin/ExternalLoader/MX66UW1G
 STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $DKEL -hardRst -w FSBL/ai_fsbl.hex
 
 # Adjust build path as needed
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $DKEL -hardRst -w build/Application/STM32N6570-DK/Project_sign.bin 0x70100000
+STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $DKEL -hardRst -w build/Project_sign.bin 0x70100000
 
 # Network parameters
 STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $DKEL -hardRst -w Model/STM32N6570-DK/network_data.hex
@@ -309,7 +356,7 @@ export NUEL="<STM32CubeProgrammer_N6 Install Folder>/bin/ExternalLoader/MX25UM51
 STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w FSBL/ai_fsbl.hex
 
 # Adjust build path as needed
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w build/Application/NUCLEO-N657X0-Q/Project_sign.bin 0x70100000
+STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w build/Project_sign.bin 0x70100000
 
 # Network parameters
 STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w Model/NUCLEO-N657X0-Q/network_data.hex
@@ -318,6 +365,20 @@ STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w Model/NUCLEO
 __Note__: Only the application binary needs to be programmed if `fsbl` and `network_data.hex` have already been programmed.
 
 Set your board to [boot from flash](#boot-modes) mode and power cycle to boot from external flash.
+
+For `NUCLEO-N657X0-Q` with the default `UVCL` interface, expected behavior after a successful flash is:
+
+1. The board boots from external flash.
+2. `CN8` enumerates on the host PC as a USB video device.
+3. A camera app on the host PC shows the processed video stream.
+
+If flashing succeeds but you do not get video output, check these first:
+
+1. The board is really in boot-from-flash mode after programming.
+2. `FSBL/ai_fsbl.hex` and `Model/<board_name>/network_data.hex` were flashed at least once.
+3. You are using `Project_sign.bin`, not the unsigned `Project.bin`.
+4. `CN9` is used for ST-LINK flashing and `CN8` is used for the USB camera stream.
+5. Your camera hardware path is valid for the selected sensor and interface.
 
 ---
 

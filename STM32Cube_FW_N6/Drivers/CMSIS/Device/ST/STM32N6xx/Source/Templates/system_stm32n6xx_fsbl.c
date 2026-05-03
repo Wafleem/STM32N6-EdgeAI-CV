@@ -336,7 +336,7 @@ void SystemCoreClockUpdate(void)
   uint32_t pllp1 = 0;
   uint32_t pllp2 = 0;
   uint32_t pllcfgr, pllsource, pllbypass, ic_divider;
-  float_t pllvco;
+  float pllvco;
 
   /* Get CPUCLK source -------------------------------------------------------*/
   switch (RCC->CFGR1 & RCC_CFGR1_CPUSWS)
@@ -456,8 +456,8 @@ void SystemCoreClockUpdate(void)
     {
       /* Compte PLL output frequency (Integer and fractional modes) */
       /* PLLVCO = (Freq * (DIVN + (FRACN / 0x1000000) / DIVM) / (DIVP1 * DIVP2)) */
-      pllvco = ((float_t)sysclk * ((float_t)plln + ((float_t)pllfracn/(float_t)0x1000000UL))) / (float_t)pllm;
-      sysclk = (uint32_t)((float_t)(pllvco/(((float_t)pllp1) * ((float_t)pllp2))));
+      pllvco = ((float)sysclk * ((float)plln + ((float)pllfracn/(float)0x1000000UL))) / (float)pllm;
+      sysclk = (uint32_t)((float)(pllvco/(((float)pllp1) * ((float)pllp2))));
     }
     /* Apply IC1 divider */
     ic_divider = (READ_BIT(RCC->IC1CFGR, RCC_IC1CFGR_IC1INT) >> RCC_IC1CFGR_IC1INT_Pos) + 1UL;

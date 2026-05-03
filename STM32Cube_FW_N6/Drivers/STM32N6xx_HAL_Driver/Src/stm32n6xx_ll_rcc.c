@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32n6xx_ll_rcc.h"
 #include "stm32n6xx_ll_bus.h"
+#include <math.h>
 #ifdef  USE_FULL_ASSERT
 #include "stm32_assert.h"
 #else
