@@ -1,8 +1,20 @@
-# __Object Detection Getting Started__
+# STM32N6 EdgeAI CV
 
 ---
 
-This project provides a real-time embedded environment for STM32N6 microcontroller to execute [STEdgeAI](https://www.st.com/en/development-tools/stedgeai-core.html) generated models, specifically targeting the object detection application. The code prioritizes clarity and understandability over performance, making it an ideal starting point for further development.
+This repository is a customized STM32N6 object-detection bring-up project based on ST's `STM32N6-GettingStarted-ObjectDetection` example. The goal is to keep the original sample easy to recognize while making this fork practical for our hardware path: `NUCLEO-N657X0-Q`, USB/UVC output, and Raspberry Pi style Sony IMX219 camera modules.
+
+The application runs a [STEdgeAI](https://www.st.com/en/development-tools/stedgeai-core.html) generated object-detection model on the STM32N6 NPU, captures frames through DCMIPP/CSI, and streams the processed output over USB/UVC or to the SPI display configuration.
+
+Current working target:
+
+- Board: `NUCLEO-N657X0-Q`
+- Camera: Sony `IMX219`, including the Arducam Raspberry Pi IMX219 module tested during bring-up
+- Output: USB/UVC from `CN8`
+- Debug/programming: ST-LINK on `CN9`
+- Programmer used during validation: STM32CubeProgrammer `v2.19`
+
+The fork now includes additional camera boot tracing and IMX219-specific integration fixes that helped validate the camera from first I2C chip-ID read through DCMIPP CSI pipe start.
 
 ![Image sample](_htmresc/sample.PNG)
 Detected classes and confidence level are displayed on the bounding boxes.
@@ -16,8 +28,10 @@ This README provides an overview of the application. Additional documentation is
 ## Table of Contents
 
 - [Features Demonstrated](#features-demonstrated)
+- [Project Customizations](#project-customizations)
 - [Models](#models)
 - [Hardware Support](#hardware-support)
+- [Camera Support](#camera-support)
 - [Tools Version](#tools-version)
 - [Boot Modes](#boot-modes)
 - [Quickstart using stm32ai-modelzoo-services](#quickstart-using-stm32ai-modelzoo-services)
@@ -63,6 +77,30 @@ This README provides an overview of the application. Additional documentation is
 
 ---
 
+## Project Customizations
+
+This fork keeps the ST sample structure, but adds the pieces needed for the current Nucleo plus IMX219 workflow:
+
+- Windows helper scripts for repeatable build, sign, and flash flows.
+- Nucleo USB/UVC bring-up notes for `CN8` video streaming and `CN9` ST-LINK programming.
+- More explicit boot diagnostics over the serial console at `115200` baud.
+- Sensor probe tracing for each supported camera path so startup failures are visible instead of ending at a generic assert.
+- IMX219 bring-up tracing for power, reset, I2C bus registration, chip-ID reads, register-table setup, CSI config, and camera start.
+- IMX219 camera integration work for Raspberry Pi style modules, including the CMW-to-component pixel-format mapping required by the low-level IMX219 driver.
+
+The most useful successful boot signs are:
+
+```text
+TRACE: IMX219_ReadID: combined id=0x0219
+TRACE: CMW_CAMERA_Probe_Sensor: selected IMX219
+TRACE: CMW_CAMERA_Start: Camera_Drv.Start ret=0
+TRACE: CameraPipeline_DisplayPipe_Start: ret=0
+```
+
+If the board reaches those lines, the sensor is responding on I2C and the camera pipeline has moved beyond the early boot failures that originally blocked USB/UVC enumeration.
+
+---
+
 ## Models
 
 | Model | Board | Inference time |
@@ -93,6 +131,7 @@ Supported camera modules:
 - [STEVAL-55G1MBI](https://www.st.com/en/evaluation-tools/steval-55g1mbi.html)
 - [STEVAL-66GYMAI](https://www.st.com/en/evaluation-tools/steval-66gymai.html)
 - [STEVAL-1943-MC1](https://www.st.com/en/evaluation-tools/steval-1943-mc1.html)
+- Sony IMX219 modules supported by this fork, including the Arducam Raspberry Pi IMX219 module used during validation.
 
 For the Nucleo board, one of the following displays is required:
 
@@ -108,10 +147,41 @@ NUCLEO-N657X0-Q board with SPI display.
 
 ---
 
+## Camera Support
+
+The original ST sample supports several camera modules. This fork adds practical bring-up support for the IMX219 path used by common Raspberry Pi camera modules.
+
+| Sensor | Status in this fork | Notes |
+| :----- | :------------------ | :---- |
+| IMX219 | Working on `NUCLEO-N657X0-Q` | Validated with an Arducam Raspberry Pi IMX219 module. Expected chip ID is `0x0219`. |
+| IMX335 | Preserved from ST sample | Original ST/DK path remains in the tree. |
+| VD55G1 / VD66GY / VD1943 | Preserved from ST sample | Probe paths are still present and now report trace output during startup. |
+
+### IMX219 Notes
+
+The IMX219 driver stack has two layers that use different pixel-format constants:
+
+- The camera middleware layer uses `CMW_PIXEL_FORMAT_RAW10`.
+- The low-level IMX219 component driver expects `IMX219_RAW_RGGB10`.
+
+This fork bridges those values before calling the low-level driver. Without that mapping, the sensor can be detected correctly over I2C but still fail during initialization with an unsupported pixel-format error.
+
+For the tested Arducam module, the expected startup path is:
+
+1. Power and reset are asserted by the board support layer.
+2. The camera responds to the IMX219 chip-ID read with `0x0219`.
+3. The driver selects the binned `1640x1232 @ 30 fps` mode for the default Nucleo flow.
+4. RAW10 output is configured for the CSI/DCMIPP pipeline.
+5. USB/UVC enumerates from `CN8` after the application reaches the display pipeline startup.
+
+If the board flashes correctly but no USB camera appears, check the serial trace first. A camera init failure can stop the application before the USB video device ever enumerates.
+
+---
+
 ## Tools Version
 
 - [STM32CubeIDE](https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-ides/stm32cubeide.html) (__v1.17.0__)
-- [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) (__v2.18.0__)
+- [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) (__v2.19.0__ validated for this fork)
 - [STEdgeAI](https://www.st.com/en/development-tools/stedgeai-core.html) (__v4.0.0__)
 
 ---
