@@ -5,6 +5,9 @@ param(
     [ValidateSet("UVCL", "SPI")]
     [string]$Interface = "UVCL",
 
+    [ValidateSet("Generic", "SafalObb")]
+    [string]$ModelProfile = "Generic",
+
     [int]$Jobs = 1,
 
     [switch]$AppOnly,
@@ -18,5 +21,6 @@ $action = if ($AppOnly) { "flash-app" } else { "flash-all" }
     -Board $Board `
     -Action $action `
     -Interface $Interface `
+    -ModelProfile $ModelProfile `
     -Jobs $Jobs `
     -Clean:$Clean

@@ -23,7 +23,15 @@ rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(su
 # target
 ######################################
 TARGET = Project
-MODEL_DIR = ../../Model/NUCLEO-N657X0-Q
+MODEL_DIR_GENERIC = ../../Model/NUCLEO-N657X0-Q
+MODEL_DIR_SAFAL_OBB = ../../Model/NUCLEO-N657X0-Q_SafalObb
+ifeq ($(APP_MODEL_PROFILE),1)
+PROFILE_NAME = SafalObb
+MODEL_DIR = $(MODEL_DIR_SAFAL_OBB)
+else
+PROFILE_NAME = Generic
+MODEL_DIR = $(MODEL_DIR_GENERIC)
+endif
 BINARY_DIR = Binary
 # SPI or UVCL
 SCR_LIB_SCREEN_ITF := UVCL
@@ -33,6 +41,9 @@ C_DEFS += -DAPP_GIT_SHA1_STRING=\"$(APP_GIT_SHA1_STRING)\"
 endif
 ifdef APP_VERSION_STRING
 C_DEFS += -DAPP_VERSION_STRING=\"$(APP_VERSION_STRING)\"
+endif
+ifdef APP_MODEL_PROFILE
+C_DEFS += -DAPP_MODEL_PROFILE=$(APP_MODEL_PROFILE)
 endif
 
 ######################################
@@ -44,7 +55,7 @@ OPT = -Os -g3
 # paths
 #######################################
 # Build path
-BUILD_TOP = build
+BUILD_TOP = build/$(PROFILE_NAME)
 BUILD_DIR = $(BUILD_TOP)
 
 ######################################

@@ -8,6 +8,9 @@ param(
     [ValidateSet("UVCL", "SPI")]
     [string]$Interface = "UVCL",
 
+    [ValidateSet("Generic", "SafalObb")]
+    [string]$ModelProfile = "Generic",
+
     [int]$Jobs = 1,
 
     [switch]$Clean
@@ -170,15 +173,25 @@ function Add-PathEntry {
 
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $appDir = Join-Path $repoRoot ("Application\" + $Board)
-$buildDir = Join-Path $appDir "build"
+$buildDir = Join-Path $appDir ("build\" + $ModelProfile)
 $projectBin = Join-Path $buildDir "Project.bin"
 $projectElf = Join-Path $buildDir "Project.elf"
 $signedBin = Join-Path $buildDir "Project_sign.bin"
 $fsblHex = Join-Path $repoRoot "FSBL\ai_fsbl.hex"
-$networkHex = Join-Path $repoRoot ("Model\" + $Board + "\network_data.hex")
+$modelDirName = if ($ModelProfile -eq "SafalObb") {
+    "{0}_SafalObb" -f $Board
+} else {
+    $Board
+}
+$modelDir = Join-Path $repoRoot ("Model\" + $modelDirName)
+$networkHex = Join-Path $modelDir "network_data.hex"
 
 if (-not (Test-Path -LiteralPath $appDir -PathType Container)) {
     throw "Unsupported board path: $appDir"
+}
+
+if (-not (Test-Path -LiteralPath $modelDir -PathType Container)) {
+    throw "Model artifacts not found for profile '$ModelProfile': $modelDir"
 }
 
 $makeExe = Get-PreferredCubeIdeTool -DisplayName "GNU make" -CommandNames @("make.exe", "make")
@@ -228,6 +241,9 @@ function Invoke-Build {
     if ($Board -eq "NUCLEO-N657X0-Q") {
         $makeArgs += ("SCR_LIB_SCREEN_ITF={0}" -f $Interface)
     }
+
+    $profileValue = if ($ModelProfile -eq "Generic") { 0 } else { 1 }
+    $makeArgs += ("APP_MODEL_PROFILE={0}" -f $profileValue)
 
     Invoke-External -FilePath $makeExe -Arguments $makeArgs
 

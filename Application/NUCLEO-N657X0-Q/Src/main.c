@@ -15,6 +15,7 @@
  *
  ******************************************************************************
  */
+#include <math.h>
 #include <string.h>
 #include <unistd.h>
 
@@ -115,6 +116,8 @@ const uint32_t colors[NUMBER_COLORS] = {
   od_yolo_d_pp_static_param_t pp_params;
 #elif POSTPROCESS_TYPE == POSTPROCESS_OD_BLAZEFACE_UI
   od_blazeface_pp_static_param_t pp_params;
+#elif POSTPROCESS_TYPE == POSTPROCESS_CUSTOM
+  od_obb_custom_pp_static_param_t pp_params;
 #else
   #error "PostProcessing type not supported"
 #endif
@@ -124,19 +127,30 @@ volatile int32_t cameraFrameReceived;
 stai_ptr nn_in;
 void* pp_input;
 od_pp_out_t pp_output;
+static float nn_input_scale = 0.0f;
+static int32_t nn_input_zero_point = 0;
 
 #define ALIGN_TO_16(value) (((value) + 15) & ~15)
 
 /* When NN input dimensions are not a multiple of 16, the DCMIPP output needs cropping */
 #if (STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL) != ALIGN_TO_16(STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL)
 #define DCMIPP_NN_NEEDS_CROP 1
+#else
+#define DCMIPP_NN_NEEDS_CROP 0
+#endif
+
+#if APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
+#define NN_INPUT_NEEDS_PREPROC 1
+#else
+#define NN_INPUT_NEEDS_PREPROC DCMIPP_NN_NEEDS_CROP
+#endif
+
+#if NN_INPUT_NEEDS_PREPROC
 #define DCMIPP_OUT_NN_LEN (ALIGN_TO_16(STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL) * STAI_NETWORK_IN_1_HEIGHT)
 #define DCMIPP_OUT_NN_BUFF_LEN (DCMIPP_OUT_NN_LEN + 32 - DCMIPP_OUT_NN_LEN%32)
 
 __attribute__ ((aligned (32)))
 static uint8_t dcmipp_out_nn[DCMIPP_OUT_NN_BUFF_LEN];
-#else
-#define DCMIPP_NN_NEEDS_CROP 0
 #endif
 
 /* model */
@@ -164,6 +178,59 @@ static void IAC_Config(void);
 static void Display_WelcomeScreen(void);
 static void Hardware_init(void);
 static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_size *number_output, int32_t nn_out_len[]);
+#if NN_INPUT_NEEDS_PREPROC
+static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uint32_t src_stride);
+#endif
+
+#if NN_INPUT_NEEDS_PREPROC
+static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uint32_t src_stride)
+{
+  const uint32_t row_bytes = STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL;
+
+#if APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
+  int8_t *dst_i8 = (int8_t *)dst;
+  float scaled_full_range = nn_input_scale * 255.0f;
+
+  for (uint32_t y = 0; y < STAI_NETWORK_IN_1_HEIGHT; y++)
+  {
+    const uint8_t *src_row = src + (y * src_stride);
+    int8_t *dst_row = dst_i8 + (y * row_bytes);
+
+    if ((nn_input_zero_point == -128) && (scaled_full_range > 0.999f) && (scaled_full_range < 1.001f))
+    {
+      for (uint32_t x = 0; x < row_bytes; x++)
+      {
+        dst_row[x] = (int8_t)((int32_t)src_row[x] - 128);
+      }
+    }
+    else
+    {
+      for (uint32_t x = 0; x < row_bytes; x++)
+      {
+        float normalized = (float)src_row[x] / 255.0f;
+        int32_t quantized = (int32_t)lroundf(normalized / nn_input_scale) + nn_input_zero_point;
+
+        if (quantized < -128)
+        {
+          quantized = -128;
+        }
+        else if (quantized > 127)
+        {
+          quantized = 127;
+        }
+
+        dst_row[x] = (int8_t)quantized;
+      }
+    }
+  }
+#else
+  for (uint32_t y = 0; y < STAI_NETWORK_IN_1_HEIGHT; y++)
+  {
+    memcpy(dst + (y * row_bytes), src + (y * src_stride), row_bytes);
+  }
+#endif
+}
+#endif
 
 
 /**
@@ -221,7 +288,7 @@ int main(void)
   {
     CameraPipeline_IspUpdate();
 
-#if DCMIPP_NN_NEEDS_CROP
+#if NN_INPUT_NEEDS_PREPROC
     /* Start NN camera single capture Snapshot into intermediate buffer */
     CameraPipeline_NNPipe_Start(dcmipp_out_nn, CMW_MODE_SNAPSHOT);
 #else
@@ -234,13 +301,14 @@ int main(void)
 
     uint32_t ts[2] = { 0 };
 
-#if DCMIPP_NN_NEEDS_CROP
+#if NN_INPUT_NEEDS_PREPROC
     /*
-     * Crop the image: the DCMIPP hardware requires output dimensions to be
-     * multiples of 16, so we crop the padded buffer into the NN input buffer.
+     * Crop/copy/quantize the camera frame into the NN input buffer.
+     * The DCMIPP hardware may pad each row to a 16-byte boundary, and the
+     * Safal OBB model also needs uint8 camera bytes remapped into signed int8.
      */
     SCB_InvalidateDCache_by_Addr(dcmipp_out_nn, sizeof(dcmipp_out_nn));
-    img_crop(dcmipp_out_nn, nn_in, pitch_nn, STAI_NETWORK_IN_1_WIDTH, STAI_NETWORK_IN_1_HEIGHT, STAI_NETWORK_IN_1_CHANNEL);
+    PreprocessCameraFrameToNNInput(dcmipp_out_nn, nn_in, pitch_nn);
     SCB_CleanInvalidateDCache_by_Addr(nn_in, nn_in_len);
 #endif
 
@@ -324,6 +392,12 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
   assert(ret == STAI_SUCCESS);
   assert(info.n_inputs == 1);
   *number_output = STAI_NETWORK_OUT_NUM;
+  nn_input_scale = info.inputs[0].scale.data[0];
+  nn_input_zero_point = info.inputs[0].zeropoint.data[0];
+
+#if APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
+  assert(info.inputs[0].format == STAI_FORMAT_S8);
+#endif
 
   /* Get the input buffer size & address */
   *nn_in_length = info.inputs[0].size_bytes;

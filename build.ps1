@@ -5,6 +5,9 @@ param(
     [ValidateSet("UVCL", "SPI")]
     [string]$Interface = "UVCL",
 
+    [ValidateSet("Generic", "SafalObb")]
+    [string]$ModelProfile = "Generic",
+
     [int]$Jobs = 1,
 
     [switch]$Clean
@@ -14,5 +17,6 @@ param(
     -Board $Board `
     -Action build `
     -Interface $Interface `
+    -ModelProfile $ModelProfile `
     -Jobs $Jobs `
     -Clean:$Clean

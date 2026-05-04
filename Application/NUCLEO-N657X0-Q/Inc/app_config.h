@@ -29,6 +29,16 @@
 #define ASPECT_RATIO_CROP       (1) /* Crop both pipes to nn input aspect ratio; Original aspect ratio kept */
 #define ASPECT_RATIO_FIT        (2) /* Resize both pipe to NN input aspect ratio; Original aspect ratio not kept */
 #define ASPECT_RATIO_FULLSCREEN (3) /* Resize camera image to NN input size and display a maximized image. See Doc/Build-Options.md#aspect-ratio-mode */
+
+#define APP_MODEL_PROFILE_GENERIC   (0)
+#define APP_MODEL_PROFILE_SAFAL_OBB (1)
+
+#ifndef APP_MODEL_PROFILE
+  #define APP_MODEL_PROFILE APP_MODEL_PROFILE_SAFAL_OBB
+#endif
+
+#if APP_MODEL_PROFILE == APP_MODEL_PROFILE_GENERIC
+
 #define ASPECT_RATIO_MODE ASPECT_RATIO_FULLSCREEN
 
 /* Model Related Info */
@@ -66,5 +76,36 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 /* Display */
 #define WELCOME_MSG_1         "quantized_tiny_yolo_v2_224_.tflite"
 #define WELCOME_MSG_2         ((char *[2]) {"Model Running in STM32 MCU", "internal memory"})
+
+#elif APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
+
+#define ASPECT_RATIO_MODE ASPECT_RATIO_CROP
+
+/* Model Related Info */
+#define POSTPROCESS_TYPE POSTPROCESS_CUSTOM
+
+#define COLOR_BGR (0)
+#define COLOR_RGB (1)
+#define COLOR_MODE COLOR_RGB
+
+#define NB_CLASSES 2
+#define CLASSES_TABLE const char* classes_table[NB_CLASSES] = {\
+"blue", "red"}
+
+/* Ultralytics OBB export: [cx, cy, w, h, cls..., angle] */
+#define AI_OD_OBB_PP_NB_CLASSES         (NB_CLASSES)
+#define AI_OD_OBB_PP_TOTAL_BOXES        (8400)
+#define AI_OD_OBB_PP_CANDIDATES_LIMIT   (160)
+#define AI_OD_OBB_PP_CONF_THRESHOLD     (0.45f)
+#define AI_OD_OBB_PP_IOU_THRESHOLD      (0.35f)
+#define AI_OD_OBB_PP_MAX_BOXES_LIMIT    (20)
+
+/* Display */
+#define WELCOME_MSG_1         "Safal red/blue OBB target"
+#define WELCOME_MSG_2         ((char *[2]) {"Custom OBB postprocess enabled", "Regenerate Model/* from the Jetson ONNX"})
+
+#else
+  #error "Unsupported APP_MODEL_PROFILE value."
+#endif
 
 #endif
