@@ -1,21 +1,19 @@
 # Safal OBB Porting Notes
 
-This repo is now prepared for a custom Ultralytics OBB deployment path on STM32N6.
+This repo is now prepared for a custom Ultralytics OBB deployment path on the NUCLEO-N657X0-Q STM32N6 target.
 
 The key point is that Safal's Jetson launch path does **not** use a standard YOLO detect model. It launches `yolov8_modular_node` without a model override in [stm.launch.safal.py](</C:/Users/saysa/Documents/Robomaster_CodeStuff/cv_detection/CV_Detection/yolov8_ros/launch/stm.launch.safal.py:214>), and the default model comes from [yolov8_node.py](</C:/Users/saysa/Documents/Robomaster_CodeStuff/cv_detection/CV_Detection/yolov8_ros/yolov8_ros/yolov8_node.py:301>). That default is `model_test/best-roboflow-nitish-obb.engine` with `task="obb"` in [yolov8_node.py](</C:/Users/saysa/Documents/Robomaster_CodeStuff/cv_detection/CV_Detection/yolov8_ros/yolov8_ros/yolov8_node.py:309>) and [yolov8_node.py](</C:/Users/saysa/Documents/Robomaster_CodeStuff/cv_detection/CV_Detection/yolov8_ros/yolov8_ros/yolov8_node.py:329>).
 
 ## What Was Added Here
 
-- `POSTPROCESS_CUSTOM` is now enabled in both board configs.
+- `POSTPROCESS_CUSTOM` is enabled in the Nucleo board config.
 - A custom OBB postprocess decoder lives in [app_postprocess_template.c](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Middlewares/ai-postprocessing-wrapper/app_postprocess_template.c:1).
 - The decoder expects an exported Ultralytics OBB inference tensor in the standard exported format:
   - decoded `cx, cy, w, h`
   - per-class confidences
   - final angle channel
 - The decoder converts rotated boxes into axis-aligned rectangles so the existing STM32 ROI drawing path still works.
-- Both board apps now accept the custom postprocess parameter type in:
-  - [NUCLEO main.c](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Application/NUCLEO-N657X0-Q/Src/main.c:89)
-  - [DK main.c](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Application/STM32N6570-DK/Src/main.c:80)
+- The Nucleo app accepts the custom postprocess parameter type in [Application/NUCLEO-N657X0-Q/Src/main.c](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Application/NUCLEO-N657X0-Q/Src/main.c:89).
 
 ## Benchmark-Accurate Source Model
 
@@ -46,18 +44,11 @@ python Model/export-ultralytics-obb-to-onnx.py \
 
 2. Generate the STM32 model artifacts with STEdgeAI.
 
-For NUCLEO:
+For NUCLEO-N657X0-Q:
 
 ```bash
 cd Model
 ./generate-n6-model_NUCLEO-N657X0-Q_safal-obb.sh safal_red_blue_obb.onnx
-```
-
-For DK:
-
-```bash
-cd Model
-./generate-n6-model_STM32N6570-DK_safal-obb.sh safal_red_blue_obb.onnx
 ```
 
 3. Rebuild and flash the full project, not `AppOnly`.
@@ -66,7 +57,7 @@ The model weights live in `Model/<board>/network_data.hex`, so a model swap requ
 
 ## Current STM32 Assumptions
 
-Both board configs are currently set up for the intended Safal-style benchmark target:
+The Nucleo board config is currently set up for the intended Safal-style benchmark target:
 
 - `NB_CLASSES = 2`
 - class names are `blue`, `red`

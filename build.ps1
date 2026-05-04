@@ -1,5 +1,5 @@
 param(
-    [ValidateSet("NUCLEO-N657X0-Q", "STM32N6570-DK")]
+    [ValidateSet("NUCLEO-N657X0-Q")]
     [string]$Board = "NUCLEO-N657X0-Q",
 
     [ValidateSet("UVCL", "SPI")]

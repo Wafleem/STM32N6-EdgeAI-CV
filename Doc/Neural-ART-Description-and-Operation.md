@@ -22,7 +22,7 @@ Two main RAM types are available:
 - NPURAM (AXISRAM3 to AXISRAM6): optimized for Neural-ART access.
 - AXISRAM1 and AXISRAM2: general-purpose RAM.
 
-This GettingStarted project provides example memory pools for both boards: [NUCLEO-N657X0-Q](../Model/my_mpools/stm32n6-app2_NUCLEO-N657X0-Q.mpool) and [STM32N6570-DK](../Model/my_mpools/stm32n6-app2_STM32N6570-DK.mpool).
+This project provides an example memory pool for [NUCLEO-N657X0-Q](../Model/my_mpools/stm32n6-app2_NUCLEO-N657X0-Q.mpool).
 
 The diagram below illustrates interactions among hardware blocks, the application, inference, and memory layout:
 

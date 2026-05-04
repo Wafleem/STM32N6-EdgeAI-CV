@@ -1,5 +1,5 @@
 param(
-    [ValidateSet("NUCLEO-N657X0-Q", "STM32N6570-DK")]
+    [ValidateSet("NUCLEO-N657X0-Q")]
     [string]$Board = "NUCLEO-N657X0-Q",
 
     [ValidateSet("build", "sign", "flash-app", "flash-all")]
@@ -217,12 +217,7 @@ if ($Action -in @("sign", "flash-app", "flash-all")) {
         -CommandNames @("STM32_SigningTool_CLI.exe", "STM32_SigningTool_CLI") `
         -CandidateFiles @((Join-Path $programmerBin "STM32_SigningTool_CLI.exe"))
 
-    $loaderName = if ($Board -eq "NUCLEO-N657X0-Q") {
-        "MX25UM51245G_STM32N6570-NUCLEO.stldr"
-    } else {
-        "MX66UW1G45G_STM32N6570-DK.stldr"
-    }
-
+    $loaderName = "MX25UM51245G_STM32N6570-NUCLEO.stldr"
     $externalLoader = Join-Path $programmerBin ("ExternalLoader\" + $loaderName)
     if (-not (Test-Path -LiteralPath $externalLoader -PathType Leaf)) {
         throw "Could not find external loader: $externalLoader"
@@ -238,9 +233,7 @@ function Invoke-Build {
     Write-Step "Building $Board ($Interface)"
     $makeArgs = @("-C", $appDir, ("-j{0}" -f $Jobs))
 
-    if ($Board -eq "NUCLEO-N657X0-Q") {
-        $makeArgs += ("SCR_LIB_SCREEN_ITF={0}" -f $Interface)
-    }
+    $makeArgs += ("SCR_LIB_SCREEN_ITF={0}" -f $Interface)
 
     $profileValue = if ($ModelProfile -eq "Generic") { 0 } else { 1 }
     $makeArgs += ("APP_MODEL_PROFILE={0}" -f $profileValue)

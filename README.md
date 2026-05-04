@@ -23,7 +23,6 @@ This README provides an overview of the application. Additional documentation is
 - [Quickstart using stm32ai-modelzoo-services](#quickstart-using-stm32ai-modelzoo-services)
 - [Quickstart using Prebuilt Binaries](#quickstart-using-prebuilt-binaries)
   - [Programming with STM32CubeProgrammer UI](#how-to-program-hex-files-using-stm32cubeprogrammer-ui)
-  - [Programming STM32N6570-DK via Command Line](#how-to-program-hex-files-on-stm32n6570-dk-using-command-line)
   - [Programming NUCLEO-N657X0-Q via Command Line](#how-to-program-hex-files-on-nucleo-n657x0-q-using-command-line)
 - [Quickstart using Source Code](#quickstart-using-source-code)
   - [Build and Run - Dev Mode](#application-build-and-run---dev-mode)
@@ -39,7 +38,6 @@ This README provides an overview of the application. Additional documentation is
 
 **Documentation Folder:**
 
-- [Application Overview](Doc/Application-Overview.md)
 - [Boot Overview](Doc/Boot-Overview.md)
 - [Camera Build Options](Doc/Build-Options.md#cameras-module)
 - [Camera Orientation](Doc/Build-Options.md#camera-orientation)
@@ -67,7 +65,6 @@ This README provides an overview of the application. Additional documentation is
 
 | Model | Board | Inference time |
 | :---- | :---- | -------------: |
-| st_yolo_x_nano_480_1.0_0.25_3_st_int8.tflite | STM32N6570-DK | 29 ms |
 | quantized_tiny_yolo_v2_224_.tflite | NUCLEO-N657X0-Q SPI | 30 ms |
 | quantized_tiny_yolo_v2_224_.tflite | NUCLEO-N657X0-Q UVCL | 27 ms |
 
@@ -75,17 +72,11 @@ This README provides an overview of the application. Additional documentation is
 
 ## Hardware Support
 
-Supported development platforms:
+Supported development platform:
 
-- [STM32N6570-DK](https://www.st.com/en/evaluation-tools/stm32n6570-dk.html) Discovery Board
-  - Connect to the onboard ST-LINK debug adapter (CN6) using a __USB-C to USB-C cable__ for sufficient power.
-  - OTP fuses are configured for xSPI IOs to achieve maximum speed (200MHz) on xSPI interfaces.
 - [NUCLEO-N657X0-Q](https://www.st.com/en/evaluation-tools/nucleo-n657x0-q.html) Nucleo Board
   - Connect to the onboard ST-LINK debug adapter (CN9) using a __USB-C to USB-C cable__ for sufficient power.
   - OTP fuses are configured for xSPI IOs to achieve maximum speed (200MHz) on xSPI interfaces.
-
-![Board](_htmresc/STM32N6570-DK.png)
-STM32N6570-DK board with MB1854B IMX335.
 
 Supported camera modules:
 
@@ -124,10 +115,10 @@ Development Mode: used for loading firmware into RAM during a debug session or f
 
 Boot from Flash: used to boot firmware from external flash.
 
-|                  | STM32N6570-DK                                                                | NUCLEO-N657X0-Q                                                                  |
-| -------------    | -------------                                                                |-----------------                                                                 |
-| Boot from flash  | ![STM32N6570-DK Boot from flash](_htmresc/STM32N6570-DK_Boot_from_flash.png) | ![NUCLEO-N657X0-Q Boot from flash](_htmresc/NUCLEO-N657X0-Q_Boot_from_flash.png) |
-| Development mode | ![STM32N6570-DK Development mode](_htmresc/STM32N6570-DK_Dev_mode.png)       | ![NUCLEO-N657X0-Q Development mode](_htmresc/NUCLEO-N657X0-Q_Dev_mode.png)       |
+For NUCLEO-N657X0-Q:
+
+- Boot from flash: ![NUCLEO-N657X0-Q Boot from flash](_htmresc/NUCLEO-N657X0-Q_Boot_from_flash.png)
+- Development mode: ![NUCLEO-N657X0-Q Development mode](_htmresc/NUCLEO-N657X0-Q_Dev_mode.png)
 
 ---
 
@@ -135,7 +126,7 @@ Boot from Flash: used to boot firmware from external flash.
 
 This application is a C-based project required by the deployment service in the [ModelZoo](https://github.com/STMicroelectronics/stm32ai-modelzoo-services/tree/main). The ModelZoo enables you to train, evaluate, and automatically deploy any supported model.
 
-To deploy your model using the ModelZoo, refer to the [Deployment README for STM32N6](https://github.com/STMicroelectronics/stm32ai-modelzoo-services/blob/main/object_detection/docs/README_DEPLOYMENT_STM32N6.md) for detailed instructions on deploying to either the STM32N6570-DK or the NUCLEO-N657X0-Q.
+To deploy your model using the ModelZoo, refer to the [Deployment README for STM32N6](https://github.com/STMicroelectronics/stm32ai-modelzoo-services/blob/main/object_detection/docs/README_DEPLOYMENT_STM32N6.md) for detailed instructions on deploying to the NUCLEO-N657X0-Q.
 
 __Note__: This C-based application is referenced as a submodule of the ModelZoo repository at `application_code/object_detection`.
 
@@ -147,16 +138,6 @@ The prebuilt binaries are an assembly of several binaries:
   - FSBL (First Stage Boot Loader, loading the application from flash to RAM)
   - The application
   - The weights of the neural network model
-
-### STM32N6570-DK
-
-To program the board's external flash, follow these steps:
-
-1. Set the board to [development mode](#boot-modes).
-2. Program `Binary/STM32N6570-DK/STM32N6570-DK_GettingStarted_ObjectDetection.hex`.
-3. Set the board to [boot from flash mode](#boot-modes).
-4. Power cycle the board.
-5. Place a person in front of the camera to detect them.
 
 ### NUCLEO-N657X0-Q USB/UVC
 
@@ -185,18 +166,6 @@ To program the board's external flash, follow these steps:
 ### How to Program Hex Files Using STM32CubeProgrammer UI
 
 See [How to program hex files STM32CubeProgrammer](Doc/Program-Hex-Files-STM32CubeProgrammer.md).
-
----
-
-### How to Program Hex Files on STM32N6570-DK Using Command Line
-
-Ensure the STM32CubeProgrammer `bin` folder is in your PATH.
-
-```bash
-export DKEL="<STM32CubeProgrammer_N6 Install Folder>/bin/ExternalLoader/MX66UW1G45G_STM32N6570-DK.stldr"
-
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $DKEL -hardRst -w Binary/STM32N6570-DK/STM32N6570-DK_GettingStarted_ObjectDetection.hex
-```
 
 ---
 
@@ -331,21 +300,6 @@ Artifacts produced by the Windows helper:
 - `Application/<board_name>/build/Project.elf`
 - `Application/<board_name>/build/Project.bin`
 - `Application/<board_name>/build/Project_sign.bin`
-
-On STM32N6570-DK:
-
-```bash
-export DKEL="<STM32CubeProgrammer_N6 Install Folder>/bin/ExternalLoader/MX66UW1G45G_STM32N6570-DK.stldr"
-
-# First Stage Boot Loader
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $DKEL -hardRst -w FSBL/ai_fsbl.hex
-
-# Adjust build path as needed
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $DKEL -hardRst -w build/Project_sign.bin 0x70100000
-
-# Network parameters
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $DKEL -hardRst -w Model/STM32N6570-DK/network_data.hex
-```
 
 On NUCLEO-N657X0-Q:
 

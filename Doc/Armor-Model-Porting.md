@@ -22,7 +22,6 @@ That makes it the best fit for the STM32N6 object-detection app because the app 
 Board-specific generation scripts were added:
 
 - `Model/generate-n6-model_NUCLEO-N657X0-Q_armor-detect.sh`
-- `Model/generate-n6-model_STM32N6570-DK_armor-detect.sh`
 
 They follow the same flow as the stock model scripts:
 
@@ -34,13 +33,7 @@ They follow the same flow as the stock model scripts:
 
 Once `stedgeai generate` succeeds, update the active board `app_config.h` to use YOLOv8 object detection.
 
-For the Nucleo board:
-
 - `Application/NUCLEO-N657X0-Q/Inc/app_config.h`
-
-For the DK board:
-
-- `Application/STM32N6570-DK/Inc/app_config.h`
 
 Expected starting values:
 

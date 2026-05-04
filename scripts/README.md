@@ -56,18 +56,12 @@ Clean and rebuild:
 .\build.ps1 -Clean
 ```
 
-Build the discovery board:
-
-```powershell
-.\scripts\stm32n6.ps1 -Board STM32N6570-DK
-```
-
 ## What It Detects Automatically
 
 - STM32CubeIDE bundled `make`, `sh`, and `arm-none-eabi-gcc`
 - STM32CubeProgrammer CLI
 - STM32 signing tool
-- The correct external loader for each board
+- The correct external loader for the Nucleo board
 
 ## Notes
 

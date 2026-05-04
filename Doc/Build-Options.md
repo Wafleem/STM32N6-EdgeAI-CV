@@ -11,15 +11,14 @@ This documentation explains those features and how to modify them.
 
 ## Cameras module
 
-The application is compatible with 3 cameras:
+The application is compatible with these cameras:
 
-- MB1854B IMX335 (Default Camera provided with the MB1939 STM32N6570-DK board)
 - ST VD66GY
 - ST VD55G1
 - ST VD1943
 
 By default, the app is built to support the 3 cameras in the same binary. It dynamically detects which sensor is connected.
-To remove support for specific sensors, delete the corresponding defines in [Inc/Application/STM32N6570-DK/Inc/cmw_camera_conf.h](../Application/STM32N6570-DK/Inc/cmw_camera_conf.h#L44) or [Inc/Application/NUCLEO-N657X0-Q/Inc/cmw_camera_conf.h](../Application/NUCLEO-N657X0-Q/Inc/cmw_camera_conf.h#L44).
+To remove support for specific sensors, delete the corresponding defines in [Inc/Application/NUCLEO-N657X0-Q/Inc/cmw_camera_conf.h](../Application/NUCLEO-N657X0-Q/Inc/cmw_camera_conf.h#L44).
 
 ## Camera Orientation
 
@@ -30,7 +29,7 @@ Cameras allow you to flip the image along 2 axes.
 - CMW_MIRRORFLIP_FLIP_MIRROR: Flip Both axis
 - CMW_MIRRORFLIP_NONE: Default
 
-1. Open [Inc/Application/STM32N6570-DK/Inc/app_config.h](../Application/STM32N6570-DK/Inc/app_config.h) or [Inc/Application/NUCLEO-N657X0-Q/Inc/app_config.h](../Application/NUCLEO-N657X0-Q/Inc/app_config.h)
+1. Open [Inc/Application/NUCLEO-N657X0-Q/Inc/app_config.h](../Application/NUCLEO-N657X0-Q/Inc/app_config.h)
 
 2. Change CAMERA_FLIP define:
 
@@ -63,7 +62,7 @@ To fit the camera image to the NN input and to the display 3 options are provide
 
 ![ASPECT_RATIO_FIT](../_htmresc/ASPECT_RATIO_MODE3.png)
 
-1. Open [Inc/Application/STM32N6570-DK/Inc/app_config.h](../Application/STM32N6570-DK/Inc/app_config.h) or [Inc/Application/NUCLEO-N657X0-Q/Inc/app_config.h](../Application/NUCLEO-N657X0-Q/Inc/app_config.h)
+1. Open [Inc/Application/NUCLEO-N657X0-Q/Inc/app_config.h](../Application/NUCLEO-N657X0-Q/Inc/app_config.h)
 2. Change ASPECT_RATIO_MODE:
 
 ```C
