@@ -44,6 +44,7 @@ This README provides an overview of the application. Additional documentation is
 - [Aspect Ratio Mode](Doc/Build-Options.md#aspect-ratio-mode)
 - [Neural-ART: Description and Operation](Doc/Neural-ART-Description-and-Operation.md)
 - [Deploying your Quantized Model](Doc/Deploy-your-Quantized-Model.md)
+- [Safal OBB Porting Notes](Doc/Safal-OBB-Porting.md)
 - [Programming Hex Files with STM32CubeProgrammer](Doc/Program-Hex-Files-STM32CubeProgrammer.md)
 
 ---
@@ -67,6 +68,13 @@ This README provides an overview of the application. Additional documentation is
 | :---- | :---- | -------------: |
 | quantized_tiny_yolo_v2_224_.tflite | NUCLEO-N657X0-Q SPI | 30 ms |
 | quantized_tiny_yolo_v2_224_.tflite | NUCLEO-N657X0-Q UVCL | 27 ms |
+
+Available local build profiles:
+
+- `Generic`: the upstream tiny YOLOv2 example, using [Model/NUCLEO-N657X0-Q](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Model/NUCLEO-N657X0-Q)
+- `SafalObb`: the Nitish/Safal RoboMaster OBB port, using [Model/NUCLEO-N657X0-Q_SafalObb](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Model/NUCLEO-N657X0-Q_SafalObb)
+
+The `SafalObb` profile uses the same Nitish checkpoint lineage as Safal's deployed Jetson OBB engine, exported at `320x320` for Nucleo memory fit. See [Safal OBB Porting Notes](Doc/Safal-OBB-Porting.md).
 
 ---
 
@@ -187,7 +195,7 @@ STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w Binary/NUCLE
 
 ## Quickstart using Source Code
 
-Before building and running the application, you must program `Model/<board_name>/network_data.hex` (model weights and biases). This only needs to be done once unless you change the AI model. See [Quickstart using prebuilt binaries](#quickstart-using-prebuilt-binaries) for details.
+Before building and running the application, you must program the matching profile's `network_data.hex` (model weights and biases). This only needs to be done once unless you change the AI model. See [Quickstart using prebuilt binaries](#quickstart-using-prebuilt-binaries) for details.
 
 For more information about boot modes, see [Boot Overview](Doc/Boot-Overview.md).
 
@@ -250,6 +258,13 @@ On Windows, you can use the local helper instead of managing the ST tool paths m
 .\build.ps1
 ```
 
+To select a different local model profile:
+
+```powershell
+.\build.ps1 -ModelProfile Generic
+.\build.ps1 -ModelProfile SafalObb
+```
+
 The helper defaults to a single compile job on Windows for reliability. If your machine handles parallel builds cleanly, you can raise it manually:
 
 ```powershell
@@ -276,30 +291,36 @@ Recommended Windows workflow for the Nucleo board:
 
 1. Put the board in [development mode](#boot-modes).
 2. Connect `CN9` to your PC for ST-LINK access.
-3. Build:
+3. Pick a model profile and build:
    ```powershell
-   .\build.ps1
+   .\build.ps1 -ModelProfile Generic
+   .\build.ps1 -ModelProfile SafalObb
    ```
 4. Sign:
    ```powershell
-   .\scripts\stm32n6.ps1 -Action sign
+   .\scripts\stm32n6.ps1 -Action sign -ModelProfile Generic
+   .\scripts\stm32n6.ps1 -Action sign -ModelProfile SafalObb
    ```
-5. First-time programming:
+5. First-time programming for that same profile:
    ```powershell
-   .\flash.ps1
+   .\flash.ps1 -ModelProfile Generic
+   .\flash.ps1 -ModelProfile SafalObb
    ```
 6. Later application-only updates:
    ```powershell
-   .\flash.ps1 -AppOnly
+   .\flash.ps1 -AppOnly -ModelProfile Generic
+   .\flash.ps1 -AppOnly -ModelProfile SafalObb
    ```
 7. Move the board to [boot from flash](#boot-modes) mode and power-cycle it.
 8. For the default Nucleo `UVCL` build, connect `CN8` to your host PC and open a camera viewer.
 
+If you change model profiles or regenerate model artifacts, do a full flash again instead of `-AppOnly`.
+
 Artifacts produced by the Windows helper:
 
-- `Application/<board_name>/build/Project.elf`
-- `Application/<board_name>/build/Project.bin`
-- `Application/<board_name>/build/Project_sign.bin`
+- `Application/<board_name>/build/<ModelProfile>/Project.elf`
+- `Application/<board_name>/build/<ModelProfile>/Project.bin`
+- `Application/<board_name>/build/<ModelProfile>/Project_sign.bin`
 
 On NUCLEO-N657X0-Q:
 

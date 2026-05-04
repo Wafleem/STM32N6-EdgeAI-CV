@@ -2,12 +2,35 @@
 
 Some features are enabled using build options or using `app_config.h`:
 
+- [Model Profile](#model-profile)
 - [Cameras module](#cameras-module)
 - [Camera Orientation](#camera-orientation)
 - [Aspect Ratio Mode](#aspect-ratio-mode)
 - [Image preprocessing](#image-preprocessing)
 
 This documentation explains those features and how to modify them.
+
+## Model Profile
+
+The local Windows helpers support two model profiles:
+
+- `Generic`: upstream tiny YOLOv2 example
+- `SafalObb`: Nitish/Safal RoboMaster OBB profile, exported at `320x320` for Nucleo
+
+Examples:
+
+```powershell
+.\build.ps1 -ModelProfile Generic
+.\build.ps1 -ModelProfile SafalObb
+.\flash.ps1 -ModelProfile SafalObb
+```
+
+At compile time, the profile is selected with `APP_MODEL_PROFILE` in [app_config.h](../Application/NUCLEO-N657X0-Q/Inc/app_config.h).
+
+The corresponding generated model artifacts live in:
+
+- `Model/NUCLEO-N657X0-Q`
+- `Model/NUCLEO-N657X0-Q_SafalObb`
 
 ## Cameras module
 

@@ -139,11 +139,7 @@ static int32_t nn_input_zero_point = 0;
 #define DCMIPP_NN_NEEDS_CROP 0
 #endif
 
-#if APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
-#define NN_INPUT_NEEDS_PREPROC 1
-#else
 #define NN_INPUT_NEEDS_PREPROC DCMIPP_NN_NEEDS_CROP
-#endif
 
 #if NN_INPUT_NEEDS_PREPROC
 #define DCMIPP_OUT_NN_LEN (ALIGN_TO_16(STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL) * STAI_NETWORK_IN_1_HEIGHT)
@@ -188,9 +184,17 @@ static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uin
   const uint32_t row_bytes = STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL;
 
 #if APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
+  if (STAI_NETWORK_IN_1_FORMAT == STAI_FORMAT_U8)
+  {
+    for (uint32_t y = 0; y < STAI_NETWORK_IN_1_HEIGHT; y++)
+    {
+      memcpy(dst + (y * row_bytes), src + (y * src_stride), row_bytes);
+    }
+    return;
+  }
+
   int8_t *dst_i8 = (int8_t *)dst;
   float scaled_full_range = nn_input_scale * 255.0f;
-
   for (uint32_t y = 0; y < STAI_NETWORK_IN_1_HEIGHT; y++)
   {
     const uint8_t *src_row = src + (y * src_stride);
@@ -396,7 +400,7 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
   nn_input_zero_point = info.inputs[0].zeropoint.data[0];
 
 #if APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
-  assert(info.inputs[0].format == STAI_FORMAT_S8);
+  assert((info.inputs[0].format == STAI_FORMAT_U8) || (info.inputs[0].format == STAI_FORMAT_S8));
 #endif
 
   /* Get the input buffer size & address */

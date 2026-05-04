@@ -40,6 +40,10 @@
   #error "AI_OD_OBB_PP_CANDIDATES_LIMIT must be defined for POSTPROCESS_CUSTOM."
 #endif
 
+#ifndef AI_OD_OBB_PP_IGNORE_CLASS_INDEX
+  #define AI_OD_OBB_PP_IGNORE_CLASS_INDEX (0xFFFFFFFFU)
+#endif
+
 typedef struct
 {
   float32_t x1;
@@ -124,37 +128,42 @@ static int32_t select_output_layout(const stai_tensor *tensor,
                                     od_obb_custom_pp_static_param_t *params)
 {
   uint32_t shape_size = tensor->shape.size;
-  uint32_t dim0;
-  uint32_t dim1;
+  uint32_t start_dim;
   uint32_t channels;
   uint32_t boxes;
+  uint32_t dim_index;
 
-  if ((tensor->flags & STAI_FLAG_HAS_BATCH) && (shape_size >= 3U))
-  {
-    dim0 = (uint32_t)tensor->shape.data[shape_size - 2U];
-    dim1 = (uint32_t)tensor->shape.data[shape_size - 1U];
-  }
-  else if (shape_size >= 2U)
-  {
-    dim0 = (uint32_t)tensor->shape.data[shape_size - 2U];
-    dim1 = (uint32_t)tensor->shape.data[shape_size - 1U];
-  }
-  else
+  if (shape_size < 2U)
   {
     return AI_OD_POSTPROCESS_ERROR;
   }
 
-  if (dim0 <= dim1)
+  start_dim = (tensor->flags & STAI_FLAG_HAS_BATCH) ? 1U : 0U;
+  if ((shape_size - start_dim) < 2U)
   {
-    channels = dim0;
-    boxes = dim1;
+    return AI_OD_POSTPROCESS_ERROR;
+  }
+
+  boxes = 1U;
+  if (tensor->flags & STAI_FLAG_CHANNEL_FIRST)
+  {
+    channels = (uint32_t)tensor->shape.data[start_dim];
     params->output_is_channel_last = 0U;
+
+    for (dim_index = start_dim + 1U; dim_index < shape_size; dim_index++)
+    {
+      boxes *= (uint32_t)tensor->shape.data[dim_index];
+    }
   }
   else
   {
-    channels = dim1;
-    boxes = dim0;
     params->output_is_channel_last = 1U;
+
+    for (dim_index = start_dim; dim_index < (shape_size - 1U); dim_index++)
+    {
+      boxes *= (uint32_t)tensor->shape.data[dim_index];
+    }
+    channels = (uint32_t)tensor->shape.data[shape_size - 1U];
   }
 
   if ((channels < 6U) || (boxes == 0U))
@@ -302,6 +311,11 @@ static int32_t build_candidate(const int8_t *tensor,
   }
 
   if ((best_class < 0) || (best_conf < params->conf_threshold))
+  {
+    return AI_OD_POSTPROCESS_ERROR;
+  }
+
+  if ((uint32_t)best_class == AI_OD_OBB_PP_IGNORE_CLASS_INDEX)
   {
     return AI_OD_POSTPROCESS_ERROR;
   }
