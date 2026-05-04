@@ -92,16 +92,16 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 #define CLASSES_TABLE const char* classes_table[NB_CLASSES] = {\
 "blue", "red"}
 
-/* Safal Jetson model lineage: best-roboflow-nitish-obb exported at 320x320. */
+/* Safal Jetson model lineage: best-roboflow-nitish-obb exported at 384x384. */
 #define AI_OD_OBB_PP_NB_CLASSES         (NB_CLASSES)
-#define AI_OD_OBB_PP_TOTAL_BOXES        (2100)
+#define AI_OD_OBB_PP_TOTAL_BOXES        (3024)
 #define AI_OD_OBB_PP_CANDIDATES_LIMIT   (160)
 #define AI_OD_OBB_PP_CONF_THRESHOLD     (0.45f)
 #define AI_OD_OBB_PP_IOU_THRESHOLD      (0.35f)
 #define AI_OD_OBB_PP_MAX_BOXES_LIMIT    (20)
 
 /* Display */
-#define WELCOME_MSG_1         "Nitish Safal OBB 320"
+#define WELCOME_MSG_1         "Nitish Safal OBB 384"
 #define WELCOME_MSG_2         ((char *[2]) {"blue/red armor from Safal Jetson lineage", "Regenerate Model/* from the Nitish checkpoint"})
 
 #else

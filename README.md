@@ -45,6 +45,7 @@ This README provides an overview of the application. Additional documentation is
 - [Neural-ART: Description and Operation](Doc/Neural-ART-Description-and-Operation.md)
 - [Deploying your Quantized Model](Doc/Deploy-your-Quantized-Model.md)
 - [Safal OBB Porting Notes](Doc/Safal-OBB-Porting.md)
+- [Safal OBB Porting Log](Doc/Safal-OBB-Porting-Log.md)
 - [Programming Hex Files with STM32CubeProgrammer](Doc/Program-Hex-Files-STM32CubeProgrammer.md)
 
 ---
@@ -74,7 +75,7 @@ Available local build profiles:
 - `Generic`: the upstream tiny YOLOv2 example, using [Model/NUCLEO-N657X0-Q](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Model/NUCLEO-N657X0-Q)
 - `SafalObb`: the Nitish/Safal RoboMaster OBB port, using [Model/NUCLEO-N657X0-Q_SafalObb](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Model/NUCLEO-N657X0-Q_SafalObb)
 
-The `SafalObb` profile uses the same Nitish checkpoint lineage as Safal's deployed Jetson OBB engine, exported at `320x320` for Nucleo memory fit. See [Safal OBB Porting Notes](Doc/Safal-OBB-Porting.md).
+The `SafalObb` profile uses the same Nitish checkpoint lineage as Safal's deployed Jetson OBB engine, exported at `384x384` for Nucleo memory fit. See [Safal OBB Porting Notes](Doc/Safal-OBB-Porting.md).
 
 ---
 
