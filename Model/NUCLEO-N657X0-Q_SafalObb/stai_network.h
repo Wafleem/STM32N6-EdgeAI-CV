@@ -388,11 +388,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_OUT_1_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_OUT_1_SCALES \
   { \
-    2.57553458213806 \
+    2.24017095565796 \
   }
 #define STAI_NETWORK_OUT_1_OFFSETS \
   { \
-    -106 \
+    -124 \
   }
 
 /********************************** WEIGHTS **********************************/
@@ -404,7 +404,7 @@ STAI_API_DECLARE_END
   }
 #define STAI_NETWORK_WEIGHTS_NAMES \
   { \
-    "Conv2D_10_weights", "Conv2D_17_weights", "Conv2D_24_weights", "Conv2D_32_weights", "Conv2D_39_weights", "Conv2D_50_weights", "Conv2D_57_weights", "Conv2D_64_weights", "Conv2D_72_weights", "Conv2D_79_weights", "Conv2D_90_weights", "Conv2D_97_weights", "Conv2D_104_weights", "Conv2D_112_weights", "Conv2D_119_weights", "Conv2D_126_weights", "Conv2D_133_weights", "Conv2D_143_weights", "Conv2D_150_weights", "Conv2D_161_weights", "Conv2D_169_weights", "Conv2D_176_weights", "Conv2D_183_weights", "Conv2D_191_weights", "Conv2D_198_weights", "Conv2D_205_weights", "Conv2D_212_weights", "Conv2D_222_weights", "Conv2D_229_weights", "Conv2D_240_weights", "Conv2D_248_weights", "Conv2D_255_weights", "Conv2D_262_weights", "Conv2D_269_weights", "Conv2D_277_weights", "Conv2D_302_weights", "Conv2D_308_weights", "Conv2D_315_weights", "Conv2D_322_weights", "Conv2D_331_weights", "Conv2D_339_weights", "Conv2D_346_weights", "Conv2D_357_weights", "Conv2D_366_weights", "Conv2D_374_weights", "Conv2D_381_weights", "Conv2D_392_weights", "Conv2D_399_weights", "Conv2D_406_weights", "Conv2D_413_weights", "Conv2D_424_weights", "Conv2D_438_weights", "Conv2D_445_weights", "Conv2D_449_weights", "Conv2D_456_weights", "Conv2D_463_weights", "Conv2D_467_weights", "Conv2D_475_weights", "Conv2D_483_weights", "Conv2D_490_weights", "Conv2D_501_weights", "Conv2D_508_weights", "Conv2D_515_weights", "Conv2D_522_weights", "Conv2D_533_weights", "Conv2D_547_weights", "Conv2D_554_weights", "Conv2D_558_weights", "Conv2D_565_weights", "Conv2D_572_weights", "Conv2D_576_weights", "Conv2D_584_weights", "Conv2D_592_weights", "Conv2D_599_weights", "Conv2D_606_weights", "Conv2D_613_weights", "Conv2D_623_weights", "Conv2D_630_weights", "Conv2D_641_weights", "Conv2D_649_weights", "Conv2D_656_weights", "Conv2D_663_weights", "Conv2D_670_weights", "Sub_676_param1", "Conv2D_689_weights", "Conv2D_703_weights", "Conv2D_710_weights", "Conv2D_716_weights", "Conv2D_723_weights", "Conv2D_730_weights", "Conv2D_738_weights", "Div_747_param1", "Add_766_param1", "Mul_770_param1", "Conv2D_296_weights_inflated_934", "Conv2D_417_weights_inflated_936", "Conv2D_431_weights_inflated_938", "Conv2D_526_weights_inflated_940", "Conv2D_540_weights_inflated_942", "Conv2D_682_weights_inflated_944", "Conv2D_696_weights_inflated_946", "MaxPool_258_decomposed_pad_pad_kern_700", "MaxPool_259_decomposed_pad_pad_kern_710", "MaxPool_260_decomposed_pad_pad_kern_720", "Gemm_283_gemm_11_1_conv_43_Dummy_BIAS", "Gemm_283_gemm_7_0_conv_36_Dummy_BIAS", "Gemm_291_gemm_27_1_conv_57_Dummy_BIAS", "Gemm_291_gemm_23_0_conv_50_Dummy_BIAS", "Identity_inserted_id2536_3176_atonn_internal_scale", "Identity_inserted_id2536_3176_atonn_internal_offset", "Gemm_283_gemm_11_1_reshape_w_42_3180_atonn_internal_scale", "Gemm_283_gemm_11_1_reshape_w_42_3180_atonn_internal_offset", "Gemm_283_gemm_11_1_conv_43_3184_atonn_internal_scale", "Gemm_283_gemm_11_1_conv_43_3184_atonn_internal_offset", "Identity_inserted_id2540_3188_atonn_internal_scale", "Identity_inserted_id2540_3188_atonn_internal_offset", "Gemm_283_gemm_7_0_reshape_w_35_3192_atonn_internal_scale", "Gemm_283_gemm_7_0_reshape_w_35_3192_atonn_internal_offset", "Gemm_283_gemm_7_0_conv_36_3196_atonn_internal_scale", "Gemm_283_gemm_7_0_conv_36_3196_atonn_internal_offset", "Mul_286_mul_sub2__3200_atonn_internal_scale", "Mul_286_mul_sub2__3200_atonn_internal_offset", "Softmax_289_3204_atonn_internal_scale", "Softmax_289_3204_atonn_internal_offset", "Identity_inserted_id2558_3208_atonn_internal_scale", "Identity_inserted_id2558_3208_atonn_internal_offset", "Gemm_291_gemm_27_1_reshape_w_56_3212_atonn_internal_scale", "Gemm_291_gemm_27_1_reshape_w_56_3212_atonn_internal_offset", "Gemm_291_gemm_27_1_conv_57_3216_atonn_internal_scale", "Gemm_291_gemm_27_1_conv_57_3216_atonn_internal_offset", "Identity_inserted_id2560_3220_atonn_internal_scale", "Identity_inserted_id2560_3220_atonn_internal_offset", "Gemm_291_gemm_23_0_reshape_w_49_3224_atonn_internal_scale", "Gemm_291_gemm_23_0_reshape_w_49_3224_atonn_internal_offset", "Gemm_291_gemm_23_0_conv_50_3228_atonn_internal_scale", "Gemm_291_gemm_23_0_conv_50_3228_atonn_internal_offset", "Sigmoid_675_3428_atonn_internal_scale", "Sigmoid_675_3428_atonn_internal_offset", "QuantizeLinear_inserted_id2938_3432_atonn_internal_scale", "QuantizeLinear_inserted_id2938_3432_atonn_internal_offset", "QuantizeLinear_inserted_id2936_3436_atonn_internal_scale", "QuantizeLinear_inserted_id2936_3436_atonn_internal_offset", "Identity_inserted_id2940_3444_atonn_internal_scale", "Identity_inserted_id2940_3444_atonn_internal_offset", "Softmax_737_3448_atonn_internal_scale", "Softmax_737_3448_atonn_internal_offset", "QuantizeLinear_inserted_id2956_3464_atonn_internal_scale", "QuantizeLinear_inserted_id2956_3464_atonn_internal_offset" \
+    "Conv2D_10_weights", "Conv2D_17_weights", "Conv2D_24_weights", "Conv2D_32_weights", "Conv2D_39_weights", "Conv2D_50_weights", "Conv2D_57_weights", "Conv2D_64_weights", "Conv2D_72_weights", "Conv2D_79_weights", "Conv2D_90_weights", "Conv2D_97_weights", "Conv2D_104_weights", "Conv2D_112_weights", "Conv2D_119_weights", "Conv2D_126_weights", "Conv2D_133_weights", "Conv2D_143_weights", "Conv2D_150_weights", "Conv2D_161_weights", "Conv2D_169_weights", "Conv2D_176_weights", "Conv2D_183_weights", "Conv2D_191_weights", "Conv2D_198_weights", "Conv2D_205_weights", "Conv2D_212_weights", "Conv2D_222_weights", "Conv2D_229_weights", "Conv2D_240_weights", "Conv2D_248_weights", "Conv2D_255_weights", "Conv2D_262_weights", "Conv2D_269_weights", "Conv2D_277_weights", "Conv2D_302_weights", "Conv2D_308_weights", "Conv2D_315_weights", "Conv2D_322_weights", "Conv2D_331_weights", "Conv2D_339_weights", "Conv2D_346_weights", "Conv2D_357_weights", "Conv2D_366_weights", "Conv2D_374_weights", "Conv2D_381_weights", "Conv2D_392_weights", "Conv2D_399_weights", "Conv2D_406_weights", "Conv2D_413_weights", "Conv2D_424_weights", "Conv2D_438_weights", "Conv2D_445_weights", "Conv2D_449_weights", "Conv2D_456_weights", "Conv2D_463_weights", "Conv2D_467_weights", "Conv2D_475_weights", "Conv2D_483_weights", "Conv2D_490_weights", "Conv2D_501_weights", "Conv2D_508_weights", "Conv2D_515_weights", "Conv2D_522_weights", "Conv2D_533_weights", "Conv2D_547_weights", "Conv2D_554_weights", "Conv2D_558_weights", "Conv2D_565_weights", "Conv2D_572_weights", "Conv2D_576_weights", "Conv2D_584_weights", "Conv2D_592_weights", "Conv2D_599_weights", "Conv2D_606_weights", "Conv2D_613_weights", "Conv2D_623_weights", "Conv2D_630_weights", "Conv2D_641_weights", "Conv2D_649_weights", "Conv2D_656_weights", "Conv2D_663_weights", "Conv2D_670_weights", "Sub_676_param1", "Conv2D_689_weights", "Conv2D_703_weights", "Conv2D_710_weights", "Conv2D_716_weights", "Conv2D_723_weights", "Conv2D_730_weights", "Conv2D_738_weights", "Div_747_param1", "Add_766_param1", "Mul_770_param1", "Conv2D_296_weights_inflated_934", "Conv2D_417_weights_inflated_936", "Conv2D_431_weights_inflated_938", "Conv2D_526_weights_inflated_940", "Conv2D_540_weights_inflated_942", "Conv2D_682_weights_inflated_944", "Conv2D_696_weights_inflated_946", "MaxPool_258_decomposed_pad_pad_kern_700", "MaxPool_259_decomposed_pad_pad_kern_710", "MaxPool_260_decomposed_pad_pad_kern_720", "Gemm_283_gemm_11_1_conv_43_Dummy_BIAS", "Gemm_283_gemm_7_0_conv_36_Dummy_BIAS", "Gemm_291_gemm_27_1_conv_57_Dummy_BIAS", "Gemm_291_gemm_23_0_conv_50_Dummy_BIAS", "Identity_inserted_id2540_3172_atonn_internal_scale", "Identity_inserted_id2540_3172_atonn_internal_offset", "Gemm_283_gemm_11_1_reshape_w_42_3176_atonn_internal_scale", "Gemm_283_gemm_11_1_reshape_w_42_3176_atonn_internal_offset", "Gemm_283_gemm_11_1_conv_43_3180_atonn_internal_scale", "Gemm_283_gemm_11_1_conv_43_3180_atonn_internal_offset", "Identity_inserted_id2544_3184_atonn_internal_scale", "Identity_inserted_id2544_3184_atonn_internal_offset", "Gemm_283_gemm_7_0_reshape_w_35_3188_atonn_internal_scale", "Gemm_283_gemm_7_0_reshape_w_35_3188_atonn_internal_offset", "Gemm_283_gemm_7_0_conv_36_3192_atonn_internal_scale", "Gemm_283_gemm_7_0_conv_36_3192_atonn_internal_offset", "Mul_286_mul_sub2__3196_atonn_internal_scale", "Mul_286_mul_sub2__3196_atonn_internal_offset", "Softmax_289_3200_atonn_internal_scale", "Softmax_289_3200_atonn_internal_offset", "Identity_inserted_id2562_3204_atonn_internal_scale", "Identity_inserted_id2562_3204_atonn_internal_offset", "Gemm_291_gemm_27_1_reshape_w_56_3208_atonn_internal_scale", "Gemm_291_gemm_27_1_reshape_w_56_3208_atonn_internal_offset", "Gemm_291_gemm_27_1_conv_57_3212_atonn_internal_scale", "Gemm_291_gemm_27_1_conv_57_3212_atonn_internal_offset", "Identity_inserted_id2564_3216_atonn_internal_scale", "Identity_inserted_id2564_3216_atonn_internal_offset", "Gemm_291_gemm_23_0_reshape_w_49_3220_atonn_internal_scale", "Gemm_291_gemm_23_0_reshape_w_49_3220_atonn_internal_offset", "Gemm_291_gemm_23_0_conv_50_3224_atonn_internal_scale", "Gemm_291_gemm_23_0_conv_50_3224_atonn_internal_offset", "Sigmoid_675_3424_atonn_internal_scale", "Sigmoid_675_3424_atonn_internal_offset", "QuantizeLinear_inserted_id2930_3428_atonn_internal_scale", "QuantizeLinear_inserted_id2930_3428_atonn_internal_offset", "QuantizeLinear_inserted_id2928_3432_atonn_internal_scale", "QuantizeLinear_inserted_id2928_3432_atonn_internal_offset", "Identity_inserted_id2932_3440_atonn_internal_scale", "Identity_inserted_id2932_3440_atonn_internal_offset", "Softmax_737_3444_atonn_internal_scale", "Softmax_737_3444_atonn_internal_offset", "QuantizeLinear_inserted_id2952_3460_atonn_internal_scale", "QuantizeLinear_inserted_id2952_3460_atonn_internal_offset" \
   }
 #define STAI_NETWORK_WEIGHTS_FORMATS \
   { \
@@ -3096,7 +3096,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_109_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_109_NAME "Identity_inserted_id2536_3176_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_109_NAME "Identity_inserted_id2540_3172_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_109_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_109_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_109_SIZE (1)
@@ -3118,7 +3118,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_110_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_110_NAME "Identity_inserted_id2536_3176_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_110_NAME "Identity_inserted_id2540_3172_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_110_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_110_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_110_SIZE (1)
@@ -3140,7 +3140,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_111_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_111_NAME "Gemm_283_gemm_11_1_reshape_w_42_3180_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_111_NAME "Gemm_283_gemm_11_1_reshape_w_42_3176_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_111_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_111_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_111_SIZE (1)
@@ -3162,7 +3162,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_112_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_112_NAME "Gemm_283_gemm_11_1_reshape_w_42_3180_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_112_NAME "Gemm_283_gemm_11_1_reshape_w_42_3176_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_112_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_112_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_112_SIZE (1)
@@ -3184,7 +3184,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_113_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_113_NAME "Gemm_283_gemm_11_1_conv_43_3184_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_113_NAME "Gemm_283_gemm_11_1_conv_43_3180_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_113_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_113_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_113_SIZE (1)
@@ -3206,7 +3206,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_114_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_114_NAME "Gemm_283_gemm_11_1_conv_43_3184_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_114_NAME "Gemm_283_gemm_11_1_conv_43_3180_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_114_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_114_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_114_SIZE (1)
@@ -3228,7 +3228,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_115_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_115_NAME "Identity_inserted_id2540_3188_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_115_NAME "Identity_inserted_id2544_3184_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_115_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_115_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_115_SIZE (1)
@@ -3250,7 +3250,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_116_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_116_NAME "Identity_inserted_id2540_3188_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_116_NAME "Identity_inserted_id2544_3184_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_116_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_116_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_116_SIZE (1)
@@ -3272,7 +3272,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_117_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_117_NAME "Gemm_283_gemm_7_0_reshape_w_35_3192_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_117_NAME "Gemm_283_gemm_7_0_reshape_w_35_3188_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_117_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_117_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_117_SIZE (1)
@@ -3294,7 +3294,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_118_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_118_NAME "Gemm_283_gemm_7_0_reshape_w_35_3192_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_118_NAME "Gemm_283_gemm_7_0_reshape_w_35_3188_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_118_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_118_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_118_SIZE (1)
@@ -3316,7 +3316,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_119_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_119_NAME "Gemm_283_gemm_7_0_conv_36_3196_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_119_NAME "Gemm_283_gemm_7_0_conv_36_3192_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_119_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_119_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_119_SIZE (1)
@@ -3338,7 +3338,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_120_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_120_NAME "Gemm_283_gemm_7_0_conv_36_3196_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_120_NAME "Gemm_283_gemm_7_0_conv_36_3192_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_120_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_120_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_120_SIZE (1)
@@ -3360,7 +3360,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_121_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_121_NAME "Mul_286_mul_sub2__3200_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_121_NAME "Mul_286_mul_sub2__3196_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_121_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_121_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_121_SIZE (1)
@@ -3382,7 +3382,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_122_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_122_NAME "Mul_286_mul_sub2__3200_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_122_NAME "Mul_286_mul_sub2__3196_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_122_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_122_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_122_SIZE (1)
@@ -3404,7 +3404,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_123_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_123_NAME "Softmax_289_3204_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_123_NAME "Softmax_289_3200_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_123_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_123_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_123_SIZE (1)
@@ -3426,7 +3426,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_124_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_124_NAME "Softmax_289_3204_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_124_NAME "Softmax_289_3200_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_124_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_124_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_124_SIZE (1)
@@ -3448,7 +3448,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_125_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_125_NAME "Identity_inserted_id2558_3208_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_125_NAME "Identity_inserted_id2562_3204_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_125_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_125_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_125_SIZE (1)
@@ -3470,7 +3470,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_126_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_126_NAME "Identity_inserted_id2558_3208_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_126_NAME "Identity_inserted_id2562_3204_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_126_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_126_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_126_SIZE (1)
@@ -3492,7 +3492,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_127_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_127_NAME "Gemm_291_gemm_27_1_reshape_w_56_3212_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_127_NAME "Gemm_291_gemm_27_1_reshape_w_56_3208_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_127_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_127_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_127_SIZE (1)
@@ -3514,7 +3514,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_128_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_128_NAME "Gemm_291_gemm_27_1_reshape_w_56_3212_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_128_NAME "Gemm_291_gemm_27_1_reshape_w_56_3208_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_128_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_128_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_128_SIZE (1)
@@ -3536,7 +3536,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_129_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_129_NAME "Gemm_291_gemm_27_1_conv_57_3216_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_129_NAME "Gemm_291_gemm_27_1_conv_57_3212_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_129_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_129_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_129_SIZE (1)
@@ -3558,7 +3558,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_130_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_130_NAME "Gemm_291_gemm_27_1_conv_57_3216_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_130_NAME "Gemm_291_gemm_27_1_conv_57_3212_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_130_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_130_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_130_SIZE (1)
@@ -3580,7 +3580,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_131_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_131_NAME "Identity_inserted_id2560_3220_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_131_NAME "Identity_inserted_id2564_3216_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_131_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_131_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_131_SIZE (1)
@@ -3602,7 +3602,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_132_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_132_NAME "Identity_inserted_id2560_3220_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_132_NAME "Identity_inserted_id2564_3216_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_132_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_132_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_132_SIZE (1)
@@ -3624,7 +3624,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_133_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_133_NAME "Gemm_291_gemm_23_0_reshape_w_49_3224_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_133_NAME "Gemm_291_gemm_23_0_reshape_w_49_3220_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_133_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_133_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_133_SIZE (1)
@@ -3646,7 +3646,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_134_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_134_NAME "Gemm_291_gemm_23_0_reshape_w_49_3224_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_134_NAME "Gemm_291_gemm_23_0_reshape_w_49_3220_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_134_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_134_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_134_SIZE (1)
@@ -3668,7 +3668,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_135_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_135_NAME "Gemm_291_gemm_23_0_conv_50_3228_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_135_NAME "Gemm_291_gemm_23_0_conv_50_3224_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_135_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_135_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_135_SIZE (1)
@@ -3690,7 +3690,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_136_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_136_NAME "Gemm_291_gemm_23_0_conv_50_3228_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_136_NAME "Gemm_291_gemm_23_0_conv_50_3224_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_136_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_136_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_136_SIZE (1)
@@ -3712,7 +3712,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_137_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_137_NAME "Sigmoid_675_3428_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_137_NAME "Sigmoid_675_3424_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_137_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_137_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_137_SIZE (1)
@@ -3734,7 +3734,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_138_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_138_NAME "Sigmoid_675_3428_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_138_NAME "Sigmoid_675_3424_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_138_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_138_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_138_SIZE (1)
@@ -3756,7 +3756,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_139_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_139_NAME "QuantizeLinear_inserted_id2938_3432_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_139_NAME "QuantizeLinear_inserted_id2930_3428_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_139_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_139_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_139_SIZE (1)
@@ -3778,7 +3778,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_140_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_140_NAME "QuantizeLinear_inserted_id2938_3432_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_140_NAME "QuantizeLinear_inserted_id2930_3428_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_140_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_140_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_140_SIZE (1)
@@ -3800,7 +3800,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_141_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_141_NAME "QuantizeLinear_inserted_id2936_3436_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_141_NAME "QuantizeLinear_inserted_id2928_3432_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_141_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_141_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_141_SIZE (1)
@@ -3822,7 +3822,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_142_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_142_NAME "QuantizeLinear_inserted_id2936_3436_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_142_NAME "QuantizeLinear_inserted_id2928_3432_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_142_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_142_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_142_SIZE (1)
@@ -3844,7 +3844,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_143_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_143_NAME "Identity_inserted_id2940_3444_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_143_NAME "Identity_inserted_id2932_3440_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_143_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_143_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_143_SIZE (1)
@@ -3866,7 +3866,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_144_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_144_NAME "Identity_inserted_id2940_3444_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_144_NAME "Identity_inserted_id2932_3440_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_144_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_144_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_144_SIZE (1)
@@ -3888,7 +3888,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_145_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_145_NAME "Softmax_737_3448_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_145_NAME "Softmax_737_3444_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_145_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_145_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_145_SIZE (1)
@@ -3910,7 +3910,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_146_ALIGNMENT (32)
-#define STAI_NETWORK_WEIGHTS_146_NAME "Softmax_737_3448_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_146_NAME "Softmax_737_3444_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_146_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_146_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_146_SIZE (1)
@@ -3932,7 +3932,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_147_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_147_NAME "QuantizeLinear_inserted_id2956_3464_atonn_internal_scale"
+#define STAI_NETWORK_WEIGHTS_147_NAME "QuantizeLinear_inserted_id2952_3460_atonn_internal_scale"
 #define STAI_NETWORK_WEIGHTS_147_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_147_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_WEIGHTS_147_SIZE (1)
@@ -3954,7 +3954,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_WEIGHTS_148_ALIGNMENT (16)
-#define STAI_NETWORK_WEIGHTS_148_NAME "QuantizeLinear_inserted_id2956_3464_atonn_internal_offset"
+#define STAI_NETWORK_WEIGHTS_148_NAME "QuantizeLinear_inserted_id2952_3460_atonn_internal_offset"
 #define STAI_NETWORK_WEIGHTS_148_FLAGS (STAI_FLAG_PREALLOCATED)
 #define STAI_NETWORK_WEIGHTS_148_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_WEIGHTS_148_SIZE (1)
@@ -3994,26 +3994,26 @@ STAI_API_DECLARE_END
 #endif // LL_ATON_DBG_BUFFER_INFO_EXCLUDED != 0
 
 /******************************** ACTIVATIONS ********************************/
-#define STAI_NETWORK_ACTIVATIONS_NUM (354)
+#define STAI_NETWORK_ACTIVATIONS_NUM (345)
 #define STAI_NETWORK_ACTIVATIONS_ALIGNMENTS \
   { \
-    32, 32, 32, 32, 32, 32, 16, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 16, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 16, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 16, 32, 32, 32, 16, 32, 16, 32, 32, 16, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 16, 32, 32, 32, 16, 32, 32, 32, 32, 32, 16, 16, 32, 16, 16, 32 \
+    32, 32, 32, 32, 32, 32, 32, 32, 16, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 16, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 16, 32, 32, 32, 16, 32, 32, 16, 16, 32, 16, 16, 16, 32, 16, 16, 32, 16, 16, 32, 32, 32, 32, 32, 16, 32, 32, 32, 16, 16, 16, 32, 32, 16, 16, 16, 16, 32 \
   }
 #define STAI_NETWORK_ACTIVATIONS_NAMES \
   { \
-    "Conv2D_10_zero_off_out_61", "Mul_14_out_0", "Mul_21_out_0", "Mul_28_out_0", "Split_31_out_0", "Split_31_out_1", "Split_31_out_1_inserted_out2308", "Split_31_out_0_inserted_out2306", "Mul_36_out_0", "Mul_43_out_0", "Add_46_out_0", "Concat_49_out_0", "Mul_54_out_0", "Conv2D_57_out_0_cp_in_483_cp_in_484_cp_in_485", "Mul_61_out_0", "Mul_68_out_0", "Split_71_out_0", "Split_71_out_1", "Split_71_out_1_inserted_out2340", "Split_71_out_0_inserted_out2338", "Split_71_out_1_inserted_out2328", "Mul_76_out_0", "Mul_83_out_0", "Add_86_out_0", "Concat_89_out_0", "Mul_94_out_0", "Conv2D_97_out_0_cp_in_496_cp_in_497_cp_in_498", "Mul_101_out_0", "Conv2D_104_out_0_cp_in_499_cp_in_500_cp_in_501", "Mul_108_out_0", "Split_111_out_0", "Split_111_out_1", "Split_111_out_1_inserted_out2416", "Split_111_out_0_inserted_out2414", "Split_111_out_1_inserted_out2366", "Conv2D_119_out_0_cp_in_505_cp_in_506_cp_in_507", "Mul_116_out_0_inserted_out2404", "Mul_123_out_0", "Mul_130_out_0", "Mul_137_out_0", "Add_140_out_0", "Mul_147_out_0", "Mul_154_out_0", "Add_157_out_0", "Concat_160_out_0", "Mul_165_out_0", "Concat_168_out_0", "Conv2D_169_out_0_cp_in_523_cp_in_524_cp_in_525", "Mul_173_out_0", "Conv2D_176_out_0_cp_in_526_cp_in_527_cp_in_528", "Mul_180_out_0", "Conv2D_183_out_0_cp_in_529_cp_in_530_cp_in_531", "Mul_187_out_0", "Split_190_out_0", "Split_190_out_1", "Split_190_out_1_inserted_out2442", "Conv2D_198_out_0_cp_in_535_cp_in_536_cp_in_537", "Conv2D_191_out_0_cp_in_532_cp_in_533_cp_in_534", "Mul_195_out_0_inserted_out2464", "Mul_202_out_0", "Conv2D_205_out_0_cp_in_538", "Mul_209_out_0", "Conv2D_212_out_0_cp_in_539", "Mul_216_out_0", "Add_219_out_0", "Conv2D_222_out_0_cp_in_540", "Mul_226_out_0", "Conv2D_229_out_0_cp_in_541", "Mul_233_out_0", "Add_236_out_0", "Concat_239_out_0", "Conv2D_240_out_0_cp_in_542_cp_in_543_cp_in_544", "Mul_244_out_0_inserted_out2474", "Concat_247_out_0", "Conv2D_248_out_0_cp_in_545_cp_in_546_cp_in_547", "Mul_252_out_0", "Conv2D_255_out_0_cp_in_548_cp_in_549_cp_in_550", "Conv2D_255_off_bias_out_346", "Conv2D_255_off_bias_out_346_inserted_out2510", "Conv2D_255_off_bias_out_346_inserted_out2492_inserted_out2496", "MaxPool_258_decomposed_1_out_949", "MaxPool_259_decomposed_pad_out_950", "MaxPool_258_decomposed_1_out_949_inserted_out2512", "MaxPool_259_decomposed_1_out_952", "MaxPool_260_decomposed_pad_out_953", "MaxPool_259_decomposed_1_out_952_inserted_out2514", "MaxPool_260_decomposed_1_out_955", "Concat_261_out_0", "Conv2D_262_out_0_cp_in_554_cp_in_555_cp_in_556", "Mul_266_out_0", "Conv2D_269_out_0_cp_in_557_cp_in_558_cp_in_559", "Mul_273_out_0", "Split_276_out_0", "Split_276_out_1", "Split_276_out_0_inserted_out2584", "Split_276_out_1_inserted_out2528", "Conv2D_277_out_0_cp_in_560_cp_in_561_cp_in_562", "Conv2D_277_off_bias_out_373", "Reshape_280_out_0", "Split_281_out_0", "Split_281_out_1", "Split_281_out_2", "Split_281_out_1_0_1_o", "Split_281_out_2_16_18_o", "Transpose_282_out_0", "Split_281_out_1_0_split_A_3_o_0", "Split_281_out_1_0_split_A_3_o_1", "Transpose_282_out_0_0_2_o", "Split_281_out_2_16_split_B_20_o_0", "Split_281_out_2_16_split_B_20_o_1", "Gemm_283_gemm_11_1_reshape_x_40", "Gemm_283_gemm_7_0_reshape_x_33", "Transpose_282_out_0_0_split_B_4_o_0", "Transpose_282_out_0_0_split_B_4_o_1", "Gemm_291_gemm_27_1_reshape_w_56", "Gemm_291_gemm_23_0_reshape_w_49", "Gemm_283_gemm_11_1_reshape_w_42", "Gemm_283_gemm_7_0_reshape_w_35", "Reshape_295_out_0", "Gemm_283_gemm_11_1_reshape_x_40_inserted_out2536", "Gemm_283_gemm_7_0_reshape_x_33_inserted_out2540", "Gemm_283_gemm_11_1_conv_43", "SCRATCH_Gemm_283_gemm_11_1_conv_43_PORT_OUT", "Gemm_283_gemm_7_0_conv_36", "SCRATCH_Gemm_283_gemm_7_0_conv_36_PORT_OUT", "Conv2D_296_off_bias_out_382", "Gemm_283_out_0_0_14_o", "Gemm_283_out_0_0_10_o", "Gemm_283_matmul_concat_out_6", "Gemm_283_out_0_0_15_o", "Mul_286_out_0", "Mul_286_out_0_cp_in_563_cp_in_564_cp_in_565", "Softmax_289_out_0", "SCRATCH_Softmax_289_PORT_OUT", "Transpose_290_out_0", "Transpose_290_out_0_16_17_o", "Transpose_290_out_0_16_split_A_19_o_0", "Transpose_290_out_0_16_split_A_19_o_1", "Gemm_291_gemm_27_1_reshape_x_54", "Gemm_291_gemm_23_0_reshape_x_47", "Gemm_291_gemm_27_1_reshape_x_54_inserted_out2558", "Gemm_291_gemm_23_0_reshape_x_47_inserted_out2560", "Gemm_291_gemm_27_1_conv_57", "SCRATCH_Gemm_291_gemm_27_1_conv_57_PORT_OUT", "Gemm_291_gemm_23_0_conv_50", "SCRATCH_Gemm_291_gemm_23_0_conv_50_PORT_OUT", "Gemm_291_out_0_16_30_o", "Gemm_291_out_0_16_26_o", "Gemm_291_matmul_concat_out_22", "Reshape_294_out_0", "Add_299_out_0", "Conv2D_302_out_0_cp_in_566_cp_in_567_cp_in_568", "Add_305_out_0", "Conv2D_308_out_0_cp_in_569_cp_in_570_cp_in_571", "Mul_312_out_0", "Conv2D_315_out_0_cp_in_572_cp_in_573_cp_in_574", "Add_318_out_0_inserted_out2586", "Concat_321_out_0", "Conv2D_322_out_0_cp_in_575_cp_in_576_cp_in_577", "Mul_326_out_0", "Mul_326_out_0_inserted_out2790", "Resize_329_resize_NN_expansion_concat_956_out_957", "Resize_329_resize_NN_expansion_concat_956_out_959", "Resize_329_resize_NN_expansion_concat_956_out_959_inserted_out2598", "Concat_330_out_0", "Conv2D_331_out_0_cp_in_578_cp_in_579_cp_in_580", "Mul_335_out_0", "Split_338_out_0", "Split_338_out_1", "Split_338_out_1_inserted_out2624", "Split_338_out_0_inserted_out2622", "Split_338_out_1_inserted_out2608", "Conv2D_339_out_0_cp_in_581_cp_in_582_cp_in_583", "Mul_343_out_0", "Mul_350_out_0", "Add_353_out_0_inserted_out2626", "Concat_356_out_0", "Conv2D_357_out_0_cp_in_587_cp_in_588_cp_in_589", "Mul_361_out_0", "Mul_361_out_0_inserted_out2698", "Resize_364_resize_NN_expansion_concat_960_out_961", "Resize_364_resize_NN_expansion_concat_960_out_963", "Resize_364_resize_NN_expansion_concat_960_out_963_inserted_out2640", "Concat_365_out_0", "Conv2D_366_out_0_cp_in_590_cp_in_591_cp_in_592", "Mul_370_out_0", "Split_373_out_0", "Split_373_out_1", "Split_373_out_1_inserted_out2662", "Split_373_out_0_inserted_out2660", "Split_373_out_1_inserted_out2650", "Mul_378_out_0", "Mul_385_out_0", "Add_388_out_0", "Concat_391_out_0", "Mul_396_out_0", "Conv2D_467_out_0_cp_in_603_cp_in_604_cp_in_605", "Mul_471_out_0", "Conv2D_449_out_0_cp_in_606_cp_in_607_cp_in_608", "Conv2D_399_out_0_cp_in_600_cp_in_601_cp_in_602", "Mul_403_out_0", "Mul_453_out_0", "Concat_474_out_0", "Mul_421_out_0", "Conv2D_406_out_0_cp_in_615", "Conv2D_424_out_0_cp_in_609_cp_in_610_cp_in_611", "Conv2D_456_out_0_cp_in_612_cp_in_613_cp_in_614", "Mul_428_out_0", "Mul_460_out_0", "Conv2D_475_out_0_cp_in_616_cp_in_617_cp_in_618", "Mul_479_out_0", "Conv2D_406_off_bias_out_508", "Mul_435_out_0", "Mul_410_out_0", "Split_482_out_0", "Split_482_out_1", "Conv2D_413_off_bias_out_517", "Split_482_out_0_inserted_out2748", "Split_482_out_1_inserted_out2728", "Reshape_416_out_0", "Split_482_out_1_inserted_out2750", "Reshape_416_out_0_inserted_out2894", "Conv2D_463_off_bias_out_589", "Conv2D_438_out_0_cp_in_622_cp_in_623_cp_in_624", "Reshape_466_out_0", "Conv2D_483_out_0_cp_in_625_cp_in_626_cp_in_627", "Mul_442_out_0", "Conv2D_445_off_bias_out_562", "Mul_487_out_0", "Mul_494_out_0", "Reshape_448_out_0", "Reshape_448_out_0_inserted_out2948", "Add_497_out_0_inserted_out2752", "Concat_500_out_0", "Conv2D_501_out_0_cp_in_634_cp_in_635_cp_in_636", "Mul_505_out_0", "Conv2D_576_out_0_cp_in_640_cp_in_641_cp_in_642", "Mul_580_out_0", "Conv2D_558_out_0_cp_in_643_cp_in_644_cp_in_645", "Conv2D_508_out_0_cp_in_637_cp_in_638_cp_in_639", "Mul_512_out_0", "Mul_562_out_0", "Concat_583_out_0", "Mul_530_out_0", "Conv2D_515_out_0_cp_in_652", "Conv2D_533_out_0_cp_in_646_cp_in_647_cp_in_648", "Conv2D_565_out_0_cp_in_649_cp_in_650_cp_in_651", "Mul_537_out_0", "Mul_569_out_0", "Conv2D_584_out_0_cp_in_653_cp_in_654_cp_in_655", "Mul_588_out_0", "Conv2D_515_off_bias_out_652", "Mul_544_out_0", "Mul_519_out_0", "Split_591_out_0", "Split_591_out_1", "Conv2D_522_off_bias_out_661", "Split_591_out_0_inserted_out2860", "Split_591_out_1_inserted_out2822", "Reshape_525_out_0", "Split_591_out_1_inserted_out2862", "Conv2D_572_out_0_cp_in_656_cp_in_657_cp_in_658", "Reshape_525_out_0_inserted_out2896", "Conv2D_547_out_0_cp_in_659_cp_in_660_cp_in_661", "Conv2D_599_out_0_cp_in_665_cp_in_666_cp_in_667", "Conv2D_572_off_bias_out_733", "Mul_603_out_0", "Conv2D_592_out_0_cp_in_662_cp_in_663_cp_in_664", "Mul_596_out_0", "Mul_551_out_0", "Reshape_575_out_0", "Conv2D_554_out_0_cp_in_668_cp_in_669_cp_in_670", "Mul_596_out_0_inserted_out2850", "Reshape_575_out_0_inserted_out2912", "Conv2D_606_out_0_cp_in_671", "Mul_610_out_0", "Conv2D_554_off_bias_out_706", "Reshape_557_out_0", "Conv2D_613_out_0_cp_in_672", "Mul_617_out_0", "Add_620_out_0", "Conv2D_623_out_0_cp_in_673", "Mul_627_out_0", "Conv2D_630_out_0_cp_in_674", "Mul_634_out_0", "Add_637_out_0", "Concat_640_out_0", "Conv2D_641_out_0_cp_in_675_cp_in_676_cp_in_677", "Mul_645_out_0", "Concat_648_out_0", "Conv2D_649_out_0_cp_in_678_cp_in_679_cp_in_680", "Mul_653_out_0", "Conv2D_716_out_0_cp_in_682", "Conv2D_656_out_0_cp_in_681", "Mul_686_out_0", "Conv2D_716_off_bias_out_904", "Conv2D_656_off_bias_out_832", "Mul_720_out_0", "Conv2D_689_out_0_cp_in_683_cp_in_684_cp_in_685", "Mul_660_out_0", "Conv2D_723_out_0_cp_in_686", "Conv2D_689_off_bias_out_868", "Mul_667_out_0", "Mul_727_out_0", "Conv2D_730_off_bias_out_922", "Mul_693_out_0", "Reshape_673_out_0_inserted_out2898", "Mul_700_out_0", "Reshape_733_out_0", "Mul_707_out_0", "Concat_674_out_0", "Reshape_733_out_0_inserted_out2914", "Concat_734_out_0", "Reshape_735_out_0", "Transpose_736_out_0", "Sigmoid_675_out_0", "Transpose_736_out_0_inserted_out2940", "Conv2D_710_off_bias_out_895", "Sigmoid_675_out_0_inserted_out2920", "Sub_676_out_0", "Sub_676_out_0_inserted_out2938", "Sub_676_out_0_inserted_out2936", "Softmax_737_out_0", "SCRATCH_Softmax_737_PORT_OUT", "Mul_677_out_0_cp_in_694_cp_in_695_cp_in_696", "Sin_680_out_0", "Cos_681_out_0", "Conv2D_738_out_0", "Reshape_713_out_0", "Mul_677_out_0_cp_in_694_cp_in_695_cp_in_696_inserted_out3038", "Conv2D_738_off_bias_out_931", "Reshape_741_out_0", "Reshape_713_out_0_inserted_out2950", "Concat_714_out_0", "Split_742_out_0", "Split_742_out_1", "Sigmoid_715_out_0_inserted_out3036", "Sub_746_out_0", "Add_743_out_0_inserted_out3018", "Div_747_out_0", "Div_747_out_0_inserted_out2956", "Split_748_out_0", "Split_748_out_1", "Mul_761_out_0_cp_in_700_cp_in_701_cp_in_702", "Mul_755_out_0", "Sub_764_out_0", "Mul_749_out_0_cp_in_709_cp_in_710_cp_in_711", "Mul_755_out_0_cp_in_703_cp_in_704", "Mul_755_out_0_cp_in_703_cp_in_704_cp_in_705", "Add_758_out_0_inserted_out3014", "Concat_765_out_0", "Add_766_out_0", "Concat_769_out_0", "Mul_770_out_0_cp_in_712_cp_in_713_cp_in_714" \
+    "Conv2D_10_zero_off_out_61", "Mul_14_out_0", "Mul_21_out_0", "Mul_28_out_0", "Split_31_out_0", "Split_31_out_1", "Mul_36_out_0", "Split_31_out_0_inserted_out2306", "Split_31_out_1_inserted_out2308", "Mul_43_out_0", "Add_46_out_0_inserted_out2310", "Concat_49_out_0", "Mul_54_out_0", "Conv2D_57_out_0_cp_in_483_cp_in_484_cp_in_485", "Mul_61_out_0", "Mul_68_out_0", "Split_71_out_0", "Split_71_out_1", "Split_71_out_1_inserted_out2332", "Split_71_out_1_inserted_out2344", "Mul_76_out_0", "Mul_83_out_0", "Split_71_out_0_inserted_out2342", "Add_86_out_0", "Concat_89_out_0", "Mul_94_out_0", "Conv2D_97_out_0_cp_in_496_cp_in_497_cp_in_498", "Mul_101_out_0", "Conv2D_104_out_0_cp_in_499_cp_in_500_cp_in_501", "Mul_108_out_0", "Split_111_out_0", "Split_111_out_1", "Split_111_out_1_inserted_out2370", "Conv2D_119_out_0_cp_in_505_cp_in_506_cp_in_507", "Split_111_out_0_inserted_out2418", "Split_111_out_1_inserted_out2420", "Mul_116_out_0_inserted_out2408", "Mul_123_out_0", "Mul_130_out_0", "Mul_137_out_0", "Add_140_out_0", "Mul_147_out_0", "Mul_154_out_0", "Add_157_out_0", "Concat_160_out_0", "Mul_165_out_0", "Concat_168_out_0", "Conv2D_169_out_0_cp_in_523_cp_in_524_cp_in_525", "Mul_173_out_0", "Conv2D_176_out_0_cp_in_526_cp_in_527_cp_in_528", "Mul_180_out_0", "Conv2D_183_out_0_cp_in_529_cp_in_530_cp_in_531", "Mul_187_out_0", "Split_190_out_0", "Split_190_out_1", "Split_190_out_1_inserted_out2446", "Conv2D_198_out_0_cp_in_535_cp_in_536_cp_in_537", "Conv2D_191_out_0_cp_in_532_cp_in_533_cp_in_534", "Mul_195_out_0_inserted_out2468", "Mul_202_out_0", "Conv2D_205_out_0_cp_in_538", "Mul_209_out_0", "Conv2D_212_out_0_cp_in_539", "Mul_216_out_0", "Add_219_out_0", "Conv2D_222_out_0_cp_in_540", "Mul_226_out_0", "Conv2D_229_out_0_cp_in_541", "Mul_233_out_0", "Add_236_out_0", "Concat_239_out_0", "Conv2D_240_out_0_cp_in_542_cp_in_543_cp_in_544", "Mul_244_out_0_inserted_out2478", "Concat_247_out_0", "Conv2D_248_out_0_cp_in_545_cp_in_546_cp_in_547", "Mul_252_out_0", "Conv2D_255_out_0_cp_in_548_cp_in_549_cp_in_550", "Conv2D_255_off_bias_out_346", "Conv2D_255_off_bias_out_346_inserted_out2496_inserted_out2500", "Conv2D_255_off_bias_out_346_inserted_out2514", "MaxPool_258_decomposed_1_out_949", "MaxPool_258_decomposed_1_out_949_inserted_out2516", "MaxPool_259_decomposed_1_out_952", "MaxPool_259_decomposed_1_out_952_inserted_out2518", "MaxPool_260_decomposed_1_out_955", "Concat_261_out_0", "Conv2D_262_out_0_cp_in_554_cp_in_555_cp_in_556", "Mul_266_out_0", "Conv2D_269_out_0_cp_in_557_cp_in_558_cp_in_559", "Mul_273_out_0", "Split_276_out_0", "Split_276_out_1", "Split_276_out_1_inserted_out2532", "Conv2D_277_out_0_cp_in_560_cp_in_561_cp_in_562", "Conv2D_277_off_bias_out_373", "Split_276_out_0_inserted_out2588", "Reshape_280_out_0", "Split_281_out_0", "Split_281_out_1", "Split_281_out_2", "Split_281_out_2_16_18_o", "Split_281_out_1_0_1_o", "Split_281_out_2_16_split_B_20_o_0", "Split_281_out_2_16_split_B_20_o_1", "Gemm_291_gemm_23_0_reshape_w_49", "Gemm_291_gemm_27_1_reshape_w_56", "Split_281_out_1_0_split_A_3_o_0", "Split_281_out_1_0_split_A_3_o_1", "Gemm_283_gemm_7_0_reshape_x_33", "Gemm_283_gemm_11_1_reshape_x_40", "Transpose_282_out_0", "Transpose_282_out_0_0_2_o", "Gemm_283_gemm_7_0_reshape_x_33_inserted_out2544", "Gemm_283_gemm_11_1_reshape_x_40_inserted_out2540", "Reshape_295_out_0", "Transpose_282_out_0_0_split_B_4_o_0", "Transpose_282_out_0_0_split_B_4_o_1", "Gemm_283_gemm_7_0_reshape_w_35", "Gemm_283_gemm_11_1_reshape_w_42", "Conv2D_296_off_bias_out_382", "Gemm_283_gemm_7_0_conv_36", "SCRATCH_Gemm_283_gemm_7_0_conv_36_PORT_OUT", "Gemm_283_gemm_11_1_conv_43", "SCRATCH_Gemm_283_gemm_11_1_conv_43_PORT_OUT", "Gemm_283_out_0_0_10_o", "Gemm_283_out_0_0_14_o", "Gemm_283_matmul_concat_out_6", "Gemm_283_out_0_0_15_o", "Mul_286_out_0", "Mul_286_out_0_cp_in_563_cp_in_564_cp_in_565", "Softmax_289_out_0", "SCRATCH_Softmax_289_PORT_OUT", "Transpose_290_out_0", "Transpose_290_out_0_16_17_o", "Transpose_290_out_0_16_split_A_19_o_0", "Transpose_290_out_0_16_split_A_19_o_1", "Gemm_291_gemm_23_0_reshape_x_47", "Gemm_291_gemm_27_1_reshape_x_54", "Gemm_291_gemm_23_0_reshape_x_47_inserted_out2564", "Gemm_291_gemm_27_1_reshape_x_54_inserted_out2562", "Gemm_291_gemm_23_0_conv_50", "SCRATCH_Gemm_291_gemm_23_0_conv_50_PORT_OUT", "Gemm_291_gemm_27_1_conv_57", "SCRATCH_Gemm_291_gemm_27_1_conv_57_PORT_OUT", "Gemm_291_out_0_16_26_o", "Gemm_291_out_0_16_30_o", "Gemm_291_matmul_concat_out_22", "Reshape_294_out_0", "Add_299_out_0", "Conv2D_302_out_0_cp_in_566_cp_in_567_cp_in_568", "Add_305_out_0", "Conv2D_308_out_0_cp_in_569_cp_in_570_cp_in_571", "Mul_312_out_0", "Conv2D_315_out_0_cp_in_572_cp_in_573_cp_in_574", "Add_318_out_0_inserted_out2590", "Concat_321_out_0", "Conv2D_322_out_0_cp_in_575_cp_in_576_cp_in_577", "Mul_326_out_0", "Mul_326_out_0_inserted_out2786", "Resize_329_resize_NN_expansion_concat_956_out_957", "Resize_329_resize_NN_expansion_concat_956_out_959", "Resize_329_resize_NN_expansion_concat_956_out_959_inserted_out2602", "Concat_330_out_0", "Conv2D_331_out_0_cp_in_578_cp_in_579_cp_in_580", "Mul_335_out_0", "Split_338_out_0", "Split_338_out_1", "Split_338_out_1_inserted_out2612", "Split_338_out_1_inserted_out2628", "Conv2D_339_out_0_cp_in_581_cp_in_582_cp_in_583", "Mul_343_out_0", "Mul_350_out_0", "Split_338_out_0_inserted_out2626", "Add_353_out_0", "Concat_356_out_0", "Conv2D_357_out_0_cp_in_587_cp_in_588_cp_in_589", "Mul_361_out_0", "Resize_364_resize_NN_expansion_concat_960_out_961", "Mul_361_out_0_inserted_out2698", "Resize_364_resize_NN_expansion_concat_960_out_963", "Resize_364_resize_NN_expansion_concat_960_out_963_inserted_out2640", "Concat_365_out_0", "Conv2D_366_out_0_cp_in_590_cp_in_591_cp_in_592", "Mul_370_out_0", "Split_373_out_0", "Split_373_out_1", "Split_373_out_1_inserted_out2650", "Split_373_out_1_inserted_out2662", "Mul_378_out_0", "Mul_385_out_0", "Split_373_out_0_inserted_out2660", "Add_388_out_0", "Concat_391_out_0", "Mul_396_out_0", "Conv2D_467_out_0_cp_in_603_cp_in_604_cp_in_605", "Conv2D_399_out_0_cp_in_600_cp_in_601_cp_in_602", "Mul_471_out_0", "Conv2D_449_out_0_cp_in_606_cp_in_607_cp_in_608", "Mul_453_out_0", "Mul_403_out_0", "Conv2D_456_out_0_cp_in_612_cp_in_613_cp_in_614", "Mul_410_out_0", "Mul_460_out_0", "Conv2D_417_off_bias_out_526", "Conv2D_463_off_bias_out_589", "Mul_421_out_0", "Conv2D_424_out_0_cp_in_609_cp_in_610_cp_in_611", "Reshape_466_out_0", "Concat_474_out_0", "Conv2D_475_out_0_cp_in_616_cp_in_617_cp_in_618", "Mul_479_out_0", "Mul_428_out_0", "Split_482_out_0", "Split_482_out_1", "Conv2D_413_off_bias_out_517", "Reshape_416_out_0", "Mul_435_out_0", "Mul_442_out_0", "Split_482_out_0_inserted_out2748", "Split_482_out_1_inserted_out2750", "Conv2D_445_off_bias_out_562", "Split_482_out_1_inserted_out2728", "Conv2D_483_out_0_cp_in_625_cp_in_626_cp_in_627", "Mul_487_out_0", "Mul_494_out_0", "Reshape_448_out_0", "Add_497_out_0", "Reshape_448_out_0_inserted_out2940", "Concat_500_out_0", "Conv2D_501_out_0_cp_in_634_cp_in_635_cp_in_636", "Mul_505_out_0", "Conv2D_576_out_0_cp_in_640_cp_in_641_cp_in_642", "Conv2D_508_out_0_cp_in_637_cp_in_638_cp_in_639", "Mul_580_out_0", "Conv2D_558_out_0_cp_in_643_cp_in_644_cp_in_645", "Mul_562_out_0", "Mul_512_out_0", "Conv2D_565_out_0_cp_in_649_cp_in_650_cp_in_651", "Mul_519_out_0", "Mul_569_out_0", "Conv2D_526_off_bias_out_670", "Conv2D_572_off_bias_out_733", "Mul_530_out_0", "Conv2D_533_out_0_cp_in_646_cp_in_647_cp_in_648", "Reshape_575_out_0", "Concat_583_out_0", "Conv2D_584_out_0_cp_in_653_cp_in_654_cp_in_655", "Mul_588_out_0", "Reshape_575_out_0_inserted_out2904", "Split_591_out_0", "Split_591_out_1", "Reshape_525_out_0_inserted_out2890", "Mul_537_out_0", "Split_591_out_1_inserted_out2818", "Split_591_out_1_inserted_out2858", "Conv2D_592_out_0_cp_in_662_cp_in_663_cp_in_664", "Split_591_out_0_inserted_out2856", "Conv2D_599_out_0_cp_in_665_cp_in_666_cp_in_667", "Mul_603_out_0", "Conv2D_606_out_0_cp_in_671", "Mul_610_out_0", "Mul_544_out_0", "Mul_596_out_0_inserted_out2846", "Mul_551_out_0", "Conv2D_554_out_0_cp_in_668_cp_in_669_cp_in_670", "Conv2D_613_out_0_cp_in_672", "Mul_617_out_0", "Conv2D_554_off_bias_out_706", "Add_620_out_0", "Conv2D_623_out_0_cp_in_673", "Mul_627_out_0", "Conv2D_630_out_0_cp_in_674", "Mul_634_out_0", "Reshape_557_out_0", "Add_637_out_0", "Reshape_557_out_0_inserted_out2942", "Concat_640_out_0", "Conv2D_641_out_0_cp_in_675_cp_in_676_cp_in_677", "Mul_645_out_0", "Concat_648_out_0", "Conv2D_649_out_0_cp_in_678_cp_in_679_cp_in_680", "Mul_653_out_0", "Conv2D_716_out_0_cp_in_682", "Conv2D_656_out_0_cp_in_681", "Conv2D_656_off_bias_out_832", "Mul_720_out_0", "Conv2D_682_off_bias_out_859", "Conv2D_723_out_0_cp_in_686", "Mul_727_out_0", "Mul_686_out_0", "Conv2D_689_out_0_cp_in_683_cp_in_684_cp_in_685", "Mul_660_out_0", "Mul_693_out_0", "Conv2D_663_out_0_cp_in_687", "Mul_700_out_0", "Mul_667_out_0", "Conv2D_730_off_bias_out_922", "Mul_707_out_0", "Conv2D_710_off_bias_out_895", "Reshape_733_out_0", "Reshape_713_out_0", "Reshape_733_out_0_inserted_out2906", "Reshape_673_out_0_inserted_out2892", "Concat_734_out_0", "Reshape_735_out_0", "Reshape_713_out_0_inserted_out2944", "Concat_674_out_0", "Concat_714_out_0", "Transpose_736_out_0", "Sigmoid_715_out_0_inserted_out3032", "Transpose_736_out_0_inserted_out2932", "Sigmoid_675_out_0", "Softmax_737_out_0", "SCRATCH_Softmax_737_PORT_OUT", "Sigmoid_675_out_0_inserted_out2912", "Sub_676_out_0", "Sub_676_out_0_inserted_out2928", "Sub_676_out_0_inserted_out2930", "Conv2D_738_off_bias_out_931", "Reshape_741_out_0", "Mul_677_out_0_cp_in_694_cp_in_695", "Split_742_out_0", "Split_742_out_1", "Mul_677_out_0_cp_in_694_cp_in_695_cp_in_696", "Cos_681_out_0", "Add_743_out_0_inserted_out3014", "Sub_746_out_0", "Sin_680_out_0", "Mul_677_out_0_cp_in_694_cp_in_695_cp_in_696_inserted_out3034", "Div_747_out_0", "Div_747_out_0_inserted_out2952", "Split_748_out_0", "Split_748_out_1", "Mul_749_out_0_cp_in_709_cp_in_710_cp_in_711", "Mul_752_out_0", "Mul_752_out_0_cp_in_706_cp_in_707_cp_in_708", "Mul_755_out_0_cp_in_703_cp_in_704", "Mul_755_out_0_cp_in_703_cp_in_704_cp_in_705", "Mul_761_out_0_cp_in_700_cp_in_701_cp_in_702", "Add_758_out_0", "Sub_764_out_0_inserted_out3010", "Concat_765_out_0", "Add_766_out_0", "Concat_769_out_0", "Mul_770_out_0_cp_in_712_cp_in_713_cp_in_714" \
   }
 #define STAI_NETWORK_ACTIVATIONS_FORMATS \
   { \
-    STAI_FORMAT_U8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S16, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S32, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_FLOAT32, STAI_FORMAT_FLOAT32, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S32, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_FLOAT32, STAI_FORMAT_S8, STAI_FORMAT_FLOAT32, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S16, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S16, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8 \
+    STAI_FORMAT_U8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S16, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S32, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_Q7, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_Q15, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S32, STAI_FORMAT_FLOAT32, STAI_FORMAT_FLOAT32, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S16, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_FLOAT32, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_FLOAT32, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S16, STAI_FORMAT_S8, STAI_FORMAT_S16, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8, STAI_FORMAT_S8 \
   }
 #define STAI_NETWORK_ACTIVATIONS_SIZES \
   { \
-    442368, 589824, 294912, 294912, 147456, 147456, 147456, 147456, 73728, 147456, 147456, 442368, 589824, 147456, 147456, 147456, 73728, 73728, 73728, 73728, 73728, 36864, 73728, 73728, 221184, 294912, 73728, 73728, 73728, 73728, 36864, 36864, 36864, 36864, 36864, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 36864, 36864, 110592, 73728, 73728, 36864, 36864, 36864, 36864, 18432, 18432, 18432, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 18432, 18432, 18432, 55296, 36864, 36864, 18432, 18432, 18432, 18432, 18432, 32768, 18432, 18432, 32768, 18432, 18432, 73728, 36864, 36864, 36864, 36864, 18432, 18432, 18432, 18432, 36864, 36864, 36864, 9216, 9216, 18432, 9216, 18432, 9216, 4608, 4608, 9216, 9216, 9216, 4608, 4608, 4608, 4608, 9216, 9216, 4608, 4608, 18432, 4608, 4608, 20736, 131, 20736, 131, 18432, 20736, 20736, 41472, 41472, 41472, 41472, 41472, 125, 41472, 41472, 20736, 20736, 20736, 20736, 20736, 20736, 9216, 579, 9216, 579, 9216, 9216, 18432, 18432, 18432, 18432, 18432, 36864, 36864, 18432, 18432, 36864, 36864, 36864, 36864, 147456, 147456, 147456, 221184, 73728, 73728, 36864, 36864, 36864, 36864, 36864, 18432, 18432, 36864, 36864, 110592, 73728, 73728, 73728, 294912, 294912, 294912, 589824, 147456, 147456, 73728, 73728, 73728, 73728, 73728, 36864, 73728, 73728, 221184, 147456, 36864, 36864, 147456, 36864, 36864, 147456, 110592, 147456, 36864, 147456, 147456, 147456, 147456, 73728, 73728, 36864, 147456, 36864, 36864, 36864, 2304, 36864, 36864, 2304, 36864, 2304, 147456, 147456, 147456, 18432, 147456, 4608, 18432, 36864, 4608, 4608, 36864, 110592, 73728, 73728, 18432, 18432, 36864, 9216, 9216, 36864, 55296, 73728, 9216, 36864, 36864, 36864, 36864, 36864, 36864, 9216, 36864, 9216, 18432, 18432, 576, 18432, 18432, 576, 18432, 36864, 576, 36864, 9216, 36864, 9216, 9216, 9216, 36864, 36864, 1152, 9216, 36864, 9216, 9216, 1152, 1152, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 18432, 18432, 18432, 55296, 36864, 36864, 9216, 2304, 36864, 9216, 2304, 9216, 9216, 2304, 9216, 9216, 2304, 9216, 9216, 9216, 144, 9216, 9216, 9216, 3024, 9216, 193536, 193536, 193536, 3024, 193536, 288, 3024, 3024, 3024, 3024, 193536, 249, 3024, 3024, 3024, 12096, 288, 3024, 12096, 12096, 288, 6048, 6048, 6048, 6048, 6048, 6048, 6048, 6048, 3024, 3024, 3024, 3024, 3024, 3024, 3024, 3024, 3024, 6048, 6048, 12096, 12096 \
+    442368, 589824, 294912, 294912, 147456, 147456, 73728, 147456, 147456, 147456, 147456, 442368, 589824, 147456, 147456, 147456, 73728, 73728, 73728, 73728, 36864, 73728, 73728, 73728, 221184, 294912, 73728, 73728, 73728, 73728, 36864, 36864, 36864, 18432, 36864, 36864, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 36864, 36864, 110592, 73728, 73728, 36864, 36864, 36864, 36864, 18432, 18432, 18432, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 9216, 18432, 18432, 18432, 55296, 36864, 36864, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 73728, 36864, 36864, 36864, 36864, 18432, 18432, 18432, 36864, 36864, 18432, 36864, 9216, 9216, 18432, 18432, 9216, 9216, 9216, 9216, 9216, 4608, 4608, 4608, 4608, 9216, 9216, 4608, 4608, 18432, 4608, 4608, 4608, 4608, 18432, 20736, 131, 20736, 131, 20736, 20736, 41472, 41472, 41472, 41472, 41472, 125, 41472, 41472, 20736, 20736, 20736, 20736, 20736, 20736, 9216, 579, 9216, 579, 9216, 9216, 18432, 18432, 18432, 18432, 18432, 36864, 36864, 18432, 18432, 36864, 36864, 36864, 36864, 147456, 147456, 147456, 221184, 73728, 73728, 36864, 36864, 36864, 36864, 18432, 18432, 36864, 36864, 36864, 110592, 73728, 73728, 294912, 73728, 294912, 294912, 589824, 147456, 147456, 73728, 73728, 73728, 73728, 36864, 73728, 73728, 73728, 221184, 147456, 36864, 36864, 36864, 147456, 147456, 36864, 147456, 36864, 147456, 147456, 147456, 147456, 147456, 147456, 110592, 73728, 73728, 147456, 36864, 36864, 2304, 2304, 147456, 147456, 36864, 36864, 4608, 36864, 18432, 18432, 36864, 4608, 36864, 4608, 110592, 73728, 73728, 18432, 9216, 18432, 36864, 36864, 9216, 36864, 9216, 36864, 73728, 36864, 73728, 36864, 36864, 55296, 36864, 36864, 36864, 18432, 18432, 576, 36864, 18432, 18432, 9216, 18432, 9216, 9216, 9216, 9216, 36864, 9216, 36864, 1152, 9216, 9216, 1152, 9216, 9216, 9216, 9216, 9216, 1152, 9216, 1152, 18432, 18432, 18432, 55296, 36864, 36864, 9216, 2304, 2304, 9216, 36864, 9216, 9216, 36864, 9216, 2304, 9216, 2304, 9216, 2304, 9216, 9216, 288, 9216, 288, 9216, 144, 193536, 193536, 288, 3024, 6048, 193536, 6048, 193536, 3024, 193536, 249, 3024, 3024, 3024, 3024, 12096, 12096, 3024, 6048, 6048, 3024, 3024, 6048, 6048, 3024, 3024, 6048, 6048, 3024, 3024, 3024, 3024, 3024, 3024, 3024, 3024, 3024, 3024, 6048, 6048, 12096, 12096 \
   }
 #define STAI_NETWORK_ACTIVATIONS_SIZES_BYTES \
   { \
-    442368, 589824, 294912, 294912, 147456, 147456, 147456, 147456, 73728, 147456, 147456, 442368, 589824, 294912, 147456, 147456, 73728, 73728, 73728, 73728, 73728, 36864, 73728, 73728, 221184, 294912, 147456, 73728, 147456, 73728, 36864, 36864, 36864, 36864, 36864, 36864, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 36864, 36864, 110592, 147456, 73728, 73728, 36864, 73728, 36864, 18432, 18432, 18432, 18432, 18432, 9216, 9216, 18432, 9216, 18432, 9216, 9216, 18432, 9216, 18432, 9216, 9216, 18432, 36864, 18432, 55296, 73728, 36864, 36864, 18432, 18432, 18432, 18432, 32768, 18432, 18432, 32768, 18432, 18432, 73728, 73728, 36864, 73728, 36864, 18432, 18432, 18432, 18432, 73728, 36864, 36864, 9216, 9216, 18432, 9216, 18432, 9216, 4608, 4608, 9216, 9216, 9216, 4608, 4608, 4608, 4608, 9216, 9216, 4608, 4608, 18432, 4608, 4608, 20736, 131, 20736, 131, 18432, 20736, 20736, 41472, 41472, 82944, 41472, 41472, 500, 41472, 41472, 20736, 20736, 20736, 20736, 20736, 20736, 9216, 579, 9216, 579, 9216, 9216, 18432, 18432, 18432, 36864, 18432, 73728, 36864, 36864, 18432, 36864, 73728, 36864, 36864, 147456, 147456, 147456, 221184, 147456, 73728, 36864, 36864, 36864, 36864, 36864, 36864, 18432, 36864, 36864, 110592, 147456, 73728, 73728, 294912, 294912, 294912, 589824, 294912, 147456, 73728, 73728, 73728, 73728, 73728, 36864, 73728, 73728, 221184, 147456, 73728, 36864, 294912, 73728, 36864, 147456, 110592, 147456, 73728, 294912, 294912, 147456, 147456, 147456, 73728, 36864, 147456, 36864, 36864, 36864, 2304, 36864, 36864, 2304, 36864, 2304, 147456, 294912, 147456, 36864, 147456, 4608, 18432, 36864, 4608, 4608, 36864, 110592, 147456, 73728, 36864, 18432, 73728, 18432, 9216, 36864, 55296, 73728, 18432, 73728, 73728, 36864, 36864, 73728, 36864, 9216, 36864, 9216, 18432, 18432, 576, 18432, 18432, 576, 18432, 73728, 576, 73728, 18432, 36864, 9216, 18432, 9216, 36864, 36864, 2304, 9216, 36864, 18432, 9216, 1152, 1152, 18432, 9216, 9216, 18432, 9216, 18432, 9216, 9216, 18432, 36864, 18432, 55296, 73728, 36864, 18432, 4608, 36864, 9216, 2304, 9216, 18432, 2304, 18432, 9216, 2304, 9216, 9216, 9216, 144, 9216, 9216, 9216, 3024, 9216, 193536, 193536, 193536, 3024, 193536, 288, 12096, 12096, 3024, 3024, 193536, 996, 3024, 3024, 3024, 24192, 288, 3024, 12096, 12096, 288, 6048, 6048, 6048, 6048, 24192, 6048, 24192, 6048, 3024, 3024, 3024, 6048, 3024, 3024, 6048, 3024, 3024, 6048, 6048, 12096, 12096 \
+    442368, 589824, 294912, 294912, 147456, 147456, 73728, 147456, 147456, 147456, 147456, 442368, 589824, 294912, 147456, 147456, 73728, 73728, 73728, 73728, 36864, 73728, 73728, 73728, 221184, 294912, 147456, 73728, 147456, 73728, 36864, 36864, 36864, 36864, 36864, 36864, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 36864, 36864, 110592, 147456, 73728, 73728, 36864, 73728, 36864, 18432, 18432, 18432, 18432, 18432, 9216, 9216, 18432, 9216, 18432, 9216, 9216, 18432, 9216, 18432, 9216, 9216, 18432, 36864, 18432, 55296, 73728, 36864, 36864, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 18432, 73728, 73728, 36864, 73728, 36864, 18432, 18432, 18432, 73728, 36864, 18432, 36864, 9216, 9216, 18432, 18432, 9216, 9216, 9216, 9216, 9216, 4608, 4608, 4608, 4608, 9216, 9216, 4608, 4608, 18432, 4608, 4608, 4608, 4608, 18432, 20736, 131, 20736, 131, 20736, 20736, 41472, 41472, 82944, 41472, 41472, 500, 41472, 41472, 20736, 20736, 20736, 20736, 20736, 20736, 9216, 579, 9216, 579, 9216, 9216, 18432, 18432, 18432, 36864, 18432, 73728, 36864, 36864, 18432, 36864, 73728, 36864, 36864, 147456, 147456, 147456, 221184, 147456, 73728, 36864, 36864, 36864, 36864, 36864, 18432, 36864, 36864, 36864, 110592, 147456, 73728, 294912, 73728, 294912, 294912, 589824, 294912, 147456, 73728, 73728, 73728, 73728, 36864, 73728, 73728, 73728, 221184, 147456, 73728, 73728, 36864, 294912, 147456, 36864, 294912, 36864, 147456, 147456, 147456, 147456, 294912, 147456, 110592, 147456, 73728, 147456, 36864, 36864, 2304, 2304, 147456, 147456, 36864, 36864, 4608, 36864, 36864, 18432, 36864, 4608, 36864, 4608, 110592, 147456, 73728, 36864, 18432, 18432, 73728, 36864, 9216, 73728, 9216, 36864, 73728, 36864, 73728, 73728, 36864, 55296, 73728, 36864, 36864, 18432, 18432, 576, 36864, 18432, 18432, 18432, 18432, 18432, 9216, 18432, 9216, 36864, 9216, 36864, 2304, 18432, 9216, 1152, 9216, 18432, 9216, 18432, 9216, 1152, 9216, 1152, 18432, 36864, 18432, 55296, 73728, 36864, 18432, 4608, 2304, 9216, 36864, 18432, 9216, 36864, 18432, 2304, 9216, 4608, 9216, 2304, 9216, 9216, 288, 9216, 288, 9216, 144, 193536, 193536, 288, 3024, 6048, 193536, 6048, 193536, 3024, 193536, 996, 12096, 12096, 3024, 3024, 12096, 12096, 6048, 6048, 6048, 3024, 3024, 6048, 24192, 3024, 3024, 24192, 6048, 3024, 3024, 3024, 6048, 3024, 6048, 3024, 3024, 3024, 3024, 6048, 6048, 12096, 12096 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_1_ALIGNMENT (32)
@@ -4059,7 +4059,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_2_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_2_SCALES \
   { \
-    0.310109287500381 \
+    0.36705470085144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_2_OFFSETS \
   { \
@@ -4084,7 +4084,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_3_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_3_SCALES \
   { \
-    0.51011723279953 \
+    0.503091931343079 \
   }
 #define STAI_NETWORK_ACTIVATIONS_3_OFFSETS \
   { \
@@ -4109,7 +4109,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_4_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_4_SCALES \
   { \
-    0.157094851136208 \
+    0.173238158226013 \
   }
 #define STAI_NETWORK_ACTIVATIONS_4_OFFSETS \
   { \
@@ -4134,7 +4134,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_5_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_5_SCALES \
   { \
-    0.157094851136208 \
+    0.173238158226013 \
   }
 #define STAI_NETWORK_ACTIVATIONS_5_OFFSETS \
   { \
@@ -4159,36 +4159,36 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_6_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_6_SCALES \
   { \
-    0.157094851136208 \
+    0.173238158226013 \
   }
 #define STAI_NETWORK_ACTIVATIONS_6_OFFSETS \
   { \
     -126 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_7_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_7_NAME "Split_31_out_1_inserted_out2308"
-#define STAI_NETWORK_ACTIVATIONS_7_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_7_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_7_NAME "Mul_36_out_0"
+#define STAI_NETWORK_ACTIVATIONS_7_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_7_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_7_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_7_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_7_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_7_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_7_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_7_CHANNEL (8)
 #define STAI_NETWORK_ACTIVATIONS_7_HEIGHT (96)
 #define STAI_NETWORK_ACTIVATIONS_7_WIDTH (96)
-#define STAI_NETWORK_ACTIVATIONS_7_BATCH (48)
-#define STAI_NETWORK_ACTIVATIONS_7_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_7_BATCH (8)
+#define STAI_NETWORK_ACTIVATIONS_7_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_7_SHAPE \
   { \
-    1, 16, 96, 96, 48 \
+    1, 96, 96, 8 \
   }
 #define STAI_NETWORK_ACTIVATIONS_7_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_7_SCALES \
   { \
-    0.165872603654861 \
+    0.0511883310973644 \
   }
 #define STAI_NETWORK_ACTIVATIONS_7_OFFSETS \
   { \
-    -125 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_8_ALIGNMENT (32)
@@ -4209,36 +4209,36 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_8_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_8_SCALES \
   { \
-    0.165872603654861 \
+    0.174330189824104 \
   }
 #define STAI_NETWORK_ACTIVATIONS_8_OFFSETS \
   { \
     -125 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_9_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_9_NAME "Mul_36_out_0"
-#define STAI_NETWORK_ACTIVATIONS_9_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_9_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_9_NAME "Split_31_out_1_inserted_out2308"
+#define STAI_NETWORK_ACTIVATIONS_9_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_9_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_9_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_9_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_9_CHANNEL (8)
+#define STAI_NETWORK_ACTIVATIONS_9_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_9_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_9_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_9_HEIGHT (96)
 #define STAI_NETWORK_ACTIVATIONS_9_WIDTH (96)
-#define STAI_NETWORK_ACTIVATIONS_9_BATCH (8)
-#define STAI_NETWORK_ACTIVATIONS_9_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_9_BATCH (48)
+#define STAI_NETWORK_ACTIVATIONS_9_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_9_SHAPE \
   { \
-    1, 96, 96, 8 \
+    1, 16, 96, 96, 48 \
   }
 #define STAI_NETWORK_ACTIVATIONS_9_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_9_SCALES \
   { \
-    0.0541680045425892 \
+    0.174330189824104 \
   }
 #define STAI_NETWORK_ACTIVATIONS_9_OFFSETS \
   { \
-    -123 \
+    -125 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_10_ALIGNMENT (32)
@@ -4259,7 +4259,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_10_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_10_SCALES \
   { \
-    0.119027674198151 \
+    0.118634790182114 \
   }
 #define STAI_NETWORK_ACTIVATIONS_10_OFFSETS \
   { \
@@ -4267,7 +4267,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_11_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_11_NAME "Add_46_out_0"
+#define STAI_NETWORK_ACTIVATIONS_11_NAME "Add_46_out_0_inserted_out2310"
 #define STAI_NETWORK_ACTIVATIONS_11_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_11_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_11_SIZE (147456)
@@ -4284,7 +4284,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_11_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_11_SCALES \
   { \
-    0.165872603654861 \
+    0.174330189824104 \
   }
 #define STAI_NETWORK_ACTIVATIONS_11_OFFSETS \
   { \
@@ -4309,7 +4309,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_12_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_12_SCALES \
   { \
-    0.165872603654861 \
+    0.174330189824104 \
   }
 #define STAI_NETWORK_ACTIVATIONS_12_OFFSETS \
   { \
@@ -4334,7 +4334,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_13_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_13_SCALES \
   { \
-    0.0887372866272926 \
+    0.0827733874320984 \
   }
 #define STAI_NETWORK_ACTIVATIONS_13_OFFSETS \
   { \
@@ -4382,7 +4382,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_15_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_15_SCALES \
   { \
-    0.0465126819908619 \
+    0.0456807911396027 \
   }
 #define STAI_NETWORK_ACTIVATIONS_15_OFFSETS \
   { \
@@ -4407,7 +4407,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_16_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_16_SCALES \
   { \
-    0.0424092821776867 \
+    0.0380850620567799 \
   }
 #define STAI_NETWORK_ACTIVATIONS_16_OFFSETS \
   { \
@@ -4432,7 +4432,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_17_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_17_SCALES \
   { \
-    0.0424092821776867 \
+    0.0380850620567799 \
   }
 #define STAI_NETWORK_ACTIVATIONS_17_OFFSETS \
   { \
@@ -4457,7 +4457,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_18_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_18_SCALES \
   { \
-    0.0424092821776867 \
+    0.0380850620567799 \
   }
 #define STAI_NETWORK_ACTIVATIONS_18_OFFSETS \
   { \
@@ -4465,32 +4465,32 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_19_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_19_NAME "Split_71_out_1_inserted_out2340"
-#define STAI_NETWORK_ACTIVATIONS_19_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_19_NAME "Split_71_out_1_inserted_out2332"
+#define STAI_NETWORK_ACTIVATIONS_19_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_19_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_19_SIZE (73728)
 #define STAI_NETWORK_ACTIVATIONS_19_SIZE_BYTES (73728)
 #define STAI_NETWORK_ACTIVATIONS_19_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_19_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_19_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_19_BATCH (96)
-#define STAI_NETWORK_ACTIVATIONS_19_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_19_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_19_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_19_SHAPE \
   { \
-    1, 32, 48, 48, 96 \
+    1, 48, 48, 32 \
   }
 #define STAI_NETWORK_ACTIVATIONS_19_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_19_SCALES \
   { \
-    0.0495584160089493 \
+    0.0380850620567799 \
   }
 #define STAI_NETWORK_ACTIVATIONS_19_OFFSETS \
   { \
-    -117 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_20_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_20_NAME "Split_71_out_0_inserted_out2338"
+#define STAI_NETWORK_ACTIVATIONS_20_NAME "Split_71_out_1_inserted_out2344"
 #define STAI_NETWORK_ACTIVATIONS_20_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_20_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_20_SIZE (73728)
@@ -4507,7 +4507,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_20_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_20_SCALES \
   { \
-    0.0495584160089493 \
+    0.0529251098632812 \
   }
 #define STAI_NETWORK_ACTIVATIONS_20_OFFSETS \
   { \
@@ -4515,78 +4515,78 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_21_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_21_NAME "Split_71_out_1_inserted_out2328"
+#define STAI_NETWORK_ACTIVATIONS_21_NAME "Mul_76_out_0"
 #define STAI_NETWORK_ACTIVATIONS_21_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_21_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_21_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_21_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_21_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_21_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_21_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_21_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_21_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_21_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_21_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_21_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_21_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_21_SHAPE \
   { \
-    1, 48, 48, 32 \
+    1, 48, 48, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_21_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_21_SCALES \
   { \
-    0.0424092821776867 \
+    0.0320369265973568 \
   }
 #define STAI_NETWORK_ACTIVATIONS_21_OFFSETS \
-  { \
-    -121 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_22_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_22_NAME "Mul_76_out_0"
-#define STAI_NETWORK_ACTIVATIONS_22_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_22_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_22_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_22_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_22_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_22_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_22_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_22_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_22_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_22_SHAPE \
-  { \
-    1, 48, 48, 16 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_22_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_22_SCALES \
-  { \
-    0.0319906994700432 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_22_OFFSETS \
   { \
     -119 \
   }
 
+#define STAI_NETWORK_ACTIVATIONS_22_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_22_NAME "Mul_83_out_0"
+#define STAI_NETWORK_ACTIVATIONS_22_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_22_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_22_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_22_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_22_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_22_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_22_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_22_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_22_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_22_SHAPE \
+  { \
+    1, 48, 48, 32 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_22_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_22_SCALES \
+  { \
+    0.0437145829200745 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_22_OFFSETS \
+  { \
+    -122 \
+  }
+
 #define STAI_NETWORK_ACTIVATIONS_23_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_23_NAME "Mul_83_out_0"
-#define STAI_NETWORK_ACTIVATIONS_23_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_23_NAME "Split_71_out_0_inserted_out2342"
+#define STAI_NETWORK_ACTIVATIONS_23_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_23_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_23_SIZE (73728)
 #define STAI_NETWORK_ACTIVATIONS_23_SIZE_BYTES (73728)
 #define STAI_NETWORK_ACTIVATIONS_23_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_23_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_23_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_23_BATCH (32)
-#define STAI_NETWORK_ACTIVATIONS_23_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_23_BATCH (96)
+#define STAI_NETWORK_ACTIVATIONS_23_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_23_SHAPE \
   { \
-    1, 48, 48, 32 \
+    1, 32, 48, 48, 96 \
   }
 #define STAI_NETWORK_ACTIVATIONS_23_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_23_SCALES \
   { \
-    0.0405921936035156 \
+    0.0529251098632812 \
   }
 #define STAI_NETWORK_ACTIVATIONS_23_OFFSETS \
   { \
-    -121 \
+    -117 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_24_ALIGNMENT (32)
@@ -4607,7 +4607,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_24_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_24_SCALES \
   { \
-    0.0495584160089493 \
+    0.0529251098632812 \
   }
 #define STAI_NETWORK_ACTIVATIONS_24_OFFSETS \
   { \
@@ -4632,7 +4632,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_25_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_25_SCALES \
   { \
-    0.0495584160089493 \
+    0.0529251098632812 \
   }
 #define STAI_NETWORK_ACTIVATIONS_25_OFFSETS \
   { \
@@ -4657,11 +4657,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_26_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_26_SCALES \
   { \
-    0.0455001480877399 \
+    0.0403712056577206 \
   }
 #define STAI_NETWORK_ACTIVATIONS_26_OFFSETS \
   { \
-    -122 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_27_ALIGNMENT (32)
@@ -4705,7 +4705,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_28_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_28_SCALES \
   { \
-    0.0348758697509766 \
+    0.0329833514988422 \
   }
 #define STAI_NETWORK_ACTIVATIONS_28_OFFSETS \
   { \
@@ -4753,11 +4753,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_30_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_30_SCALES \
   { \
-    0.0383580252528191 \
+    0.0345219410955906 \
   }
 #define STAI_NETWORK_ACTIVATIONS_30_OFFSETS \
   { \
-    -121 \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_31_ALIGNMENT (32)
@@ -4778,11 +4778,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_31_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_31_SCALES \
   { \
-    0.0383580252528191 \
+    0.0345219410955906 \
   }
 #define STAI_NETWORK_ACTIVATIONS_31_OFFSETS \
   { \
-    -121 \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_32_ALIGNMENT (32)
@@ -4803,113 +4803,113 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_32_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_32_SCALES \
   { \
-    0.0383580252528191 \
+    0.0345219410955906 \
   }
 #define STAI_NETWORK_ACTIVATIONS_32_OFFSETS \
   { \
-    -121 \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_33_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_33_NAME "Split_111_out_1_inserted_out2416"
-#define STAI_NETWORK_ACTIVATIONS_33_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_33_NAME "Split_111_out_1_inserted_out2370"
+#define STAI_NETWORK_ACTIVATIONS_33_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_33_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_33_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_33_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_33_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_33_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_33_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_33_BATCH (192)
-#define STAI_NETWORK_ACTIVATIONS_33_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_33_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_33_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_33_SHAPE \
   { \
-    1, 64, 24, 24, 192 \
+    1, 24, 24, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_33_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_33_SCALES \
   { \
-    0.0550324022769928 \
+    0.0345219410955906 \
   }
 #define STAI_NETWORK_ACTIVATIONS_33_OFFSETS \
   { \
-    -123 \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_34_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_34_NAME "Split_111_out_0_inserted_out2414"
+#define STAI_NETWORK_ACTIVATIONS_34_NAME "Conv2D_119_out_0_cp_in_505_cp_in_506_cp_in_507"
 #define STAI_NETWORK_ACTIVATIONS_34_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_34_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_34_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_34_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_34_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_34_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_34_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_34_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_34_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_34_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_34_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_34_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_34_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_34_SHAPE \
   { \
-    1, 64, 24, 24, 192 \
+    1, 2, 24, 24, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_34_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_34_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_34_SCALES \
   { \
-    0.0550324022769928 \
   }
 #define STAI_NETWORK_ACTIVATIONS_34_OFFSETS \
   { \
-    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_35_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_35_NAME "Split_111_out_1_inserted_out2366"
-#define STAI_NETWORK_ACTIVATIONS_35_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_35_NAME "Split_111_out_0_inserted_out2418"
+#define STAI_NETWORK_ACTIVATIONS_35_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_35_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_35_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_35_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_35_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_35_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_35_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_35_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_35_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_35_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_35_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_35_SHAPE \
   { \
-    1, 24, 24, 64 \
+    1, 64, 24, 24, 192 \
   }
 #define STAI_NETWORK_ACTIVATIONS_35_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_35_SCALES \
   { \
-    0.0383580252528191 \
+    0.0453817248344421 \
   }
 #define STAI_NETWORK_ACTIVATIONS_35_OFFSETS \
   { \
-    -121 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_36_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_36_NAME "Conv2D_119_out_0_cp_in_505_cp_in_506_cp_in_507"
+#define STAI_NETWORK_ACTIVATIONS_36_NAME "Split_111_out_1_inserted_out2420"
 #define STAI_NETWORK_ACTIVATIONS_36_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_36_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_36_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_36_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_36_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_36_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_36_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_36_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_36_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_36_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_36_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_36_BATCH (192)
 #define STAI_NETWORK_ACTIVATIONS_36_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_36_SHAPE \
   { \
-    1, 2, 24, 24, 16 \
+    1, 64, 24, 24, 192 \
   }
-#define STAI_NETWORK_ACTIVATIONS_36_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_36_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_36_SCALES \
   { \
+    0.0453817248344421 \
   }
 #define STAI_NETWORK_ACTIVATIONS_36_OFFSETS \
   { \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_37_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_37_NAME "Mul_116_out_0_inserted_out2404"
+#define STAI_NETWORK_ACTIVATIONS_37_NAME "Mul_116_out_0_inserted_out2408"
 #define STAI_NETWORK_ACTIVATIONS_37_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_37_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_37_SIZE (18432)
@@ -4926,11 +4926,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_37_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_37_SCALES \
   { \
-    0.0588733740150928 \
+    0.0551312305033207 \
   }
 #define STAI_NETWORK_ACTIVATIONS_37_OFFSETS \
   { \
-    -114 \
+    -113 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_38_ALIGNMENT (32)
@@ -4951,11 +4951,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_38_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_38_SCALES \
   { \
-    0.0220270194113255 \
+    0.0187680907547474 \
   }
 #define STAI_NETWORK_ACTIVATIONS_38_OFFSETS \
   { \
-    -115 \
+    -113 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_39_ALIGNMENT (32)
@@ -4976,11 +4976,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_39_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_39_SCALES \
   { \
-    0.0328269749879837 \
+    0.029235728085041 \
   }
 #define STAI_NETWORK_ACTIVATIONS_39_OFFSETS \
   { \
-    -120 \
+    -118 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_40_ALIGNMENT (32)
@@ -5001,11 +5001,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_40_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_40_SCALES \
   { \
-    0.0327025167644024 \
+    0.0330459140241146 \
   }
 #define STAI_NETWORK_ACTIVATIONS_40_OFFSETS \
   { \
-    -119 \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_41_ALIGNMENT (32)
@@ -5026,11 +5026,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_41_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_41_SCALES \
   { \
-    0.0407988205552101 \
+    0.036197517067194 \
   }
 #define STAI_NETWORK_ACTIVATIONS_41_OFFSETS \
   { \
-    -114 \
+    -113 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_42_ALIGNMENT (32)
@@ -5051,11 +5051,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_42_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_42_SCALES \
   { \
-    0.033356387168169 \
+    0.0303776524960995 \
   }
 #define STAI_NETWORK_ACTIVATIONS_42_OFFSETS \
   { \
-    -120 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_43_ALIGNMENT (32)
@@ -5076,11 +5076,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_43_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_43_SCALES \
   { \
-    0.0537347048521042 \
+    0.0506138429045677 \
   }
 #define STAI_NETWORK_ACTIVATIONS_43_OFFSETS \
   { \
-    -123 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_44_ALIGNMENT (32)
@@ -5101,11 +5101,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_44_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_44_SCALES \
   { \
-    0.0588733740150928 \
+    0.0551312305033207 \
   }
 #define STAI_NETWORK_ACTIVATIONS_44_OFFSETS \
   { \
-    -114 \
+    -113 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_45_ALIGNMENT (32)
@@ -5126,11 +5126,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_45_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_45_SCALES \
   { \
-    0.0588733740150928 \
+    0.0551312305033207 \
   }
 #define STAI_NETWORK_ACTIVATIONS_45_OFFSETS \
   { \
-    -114 \
+    -113 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_46_ALIGNMENT (32)
@@ -5151,11 +5151,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_46_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_46_SCALES \
   { \
-    0.0550324022769928 \
+    0.0453817248344421 \
   }
 #define STAI_NETWORK_ACTIVATIONS_46_OFFSETS \
   { \
-    -123 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_47_ALIGNMENT (32)
@@ -5176,11 +5176,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_47_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_47_SCALES \
   { \
-    0.0550324022769928 \
+    0.0453817248344421 \
   }
 #define STAI_NETWORK_ACTIVATIONS_47_OFFSETS \
   { \
-    -123 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_48_ALIGNMENT (32)
@@ -5224,7 +5224,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_49_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_49_SCALES \
   { \
-    0.0377034395933151 \
+    0.0383891463279724 \
   }
 #define STAI_NETWORK_ACTIVATIONS_49_OFFSETS \
   { \
@@ -5272,7 +5272,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_51_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_51_SCALES \
   { \
-    0.042913019657135 \
+    0.0502765327692032 \
   }
 #define STAI_NETWORK_ACTIVATIONS_51_OFFSETS \
   { \
@@ -5320,7 +5320,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_53_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_53_SCALES \
   { \
-    0.0537229590117931 \
+    0.0560836531221867 \
   }
 #define STAI_NETWORK_ACTIVATIONS_53_OFFSETS \
   { \
@@ -5345,7 +5345,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_54_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_54_SCALES \
   { \
-    0.0537229590117931 \
+    0.0560836531221867 \
   }
 #define STAI_NETWORK_ACTIVATIONS_54_OFFSETS \
   { \
@@ -5370,7 +5370,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_55_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_55_SCALES \
   { \
-    0.0537229590117931 \
+    0.0560836531221867 \
   }
 #define STAI_NETWORK_ACTIVATIONS_55_OFFSETS \
   { \
@@ -5378,7 +5378,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_56_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_56_NAME "Split_190_out_1_inserted_out2442"
+#define STAI_NETWORK_ACTIVATIONS_56_NAME "Split_190_out_1_inserted_out2446"
 #define STAI_NETWORK_ACTIVATIONS_56_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_56_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_56_SIZE (18432)
@@ -5395,7 +5395,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_56_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_56_SCALES \
   { \
-    0.0537229590117931 \
+    0.0560836531221867 \
   }
 #define STAI_NETWORK_ACTIVATIONS_56_OFFSETS \
   { \
@@ -5449,7 +5449,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_59_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_59_NAME "Mul_195_out_0_inserted_out2464"
+#define STAI_NETWORK_ACTIVATIONS_59_NAME "Mul_195_out_0_inserted_out2468"
 #define STAI_NETWORK_ACTIVATIONS_59_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_59_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_59_SIZE (9216)
@@ -5466,7 +5466,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_59_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_59_SCALES \
   { \
-    0.0627044960856438 \
+    0.0628703385591507 \
   }
 #define STAI_NETWORK_ACTIVATIONS_59_OFFSETS \
   { \
@@ -5491,11 +5491,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_60_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_60_SCALES \
   { \
-    0.0290710758417845 \
+    0.0373198390007019 \
   }
 #define STAI_NETWORK_ACTIVATIONS_60_OFFSETS \
   { \
-    -118 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_61_ALIGNMENT (32)
@@ -5539,11 +5539,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_62_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_62_SCALES \
   { \
-    0.0313588380813599 \
+    0.0331209748983383 \
   }
 #define STAI_NETWORK_ACTIVATIONS_62_OFFSETS \
   { \
-    -119 \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_63_ALIGNMENT (32)
@@ -5587,11 +5587,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_64_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_64_SCALES \
   { \
-    0.0368517488241196 \
+    0.0311239082366228 \
   }
 #define STAI_NETWORK_ACTIVATIONS_64_OFFSETS \
   { \
-    -120 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_65_ALIGNMENT (32)
@@ -5612,11 +5612,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_65_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_65_SCALES \
   { \
-    0.0440492145717144 \
+    0.0380896776914597 \
   }
 #define STAI_NETWORK_ACTIVATIONS_65_OFFSETS \
   { \
-    -115 \
+    -113 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_66_ALIGNMENT (32)
@@ -5660,7 +5660,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_67_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_67_SCALES \
   { \
-    0.0290703848004341 \
+    0.0290683209896088 \
   }
 #define STAI_NETWORK_ACTIVATIONS_67_OFFSETS \
   { \
@@ -5708,11 +5708,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_69_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_69_SCALES \
   { \
-    0.0450602956116199 \
+    0.0521774925291538 \
   }
 #define STAI_NETWORK_ACTIVATIONS_69_OFFSETS \
   { \
-    -122 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_70_ALIGNMENT (32)
@@ -5733,7 +5733,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_70_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_70_SCALES \
   { \
-    0.0627044960856438 \
+    0.0628703385591507 \
   }
 #define STAI_NETWORK_ACTIVATIONS_70_OFFSETS \
   { \
@@ -5758,7 +5758,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_71_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_71_SCALES \
   { \
-    0.0627044960856438 \
+    0.0628703385591507 \
   }
 #define STAI_NETWORK_ACTIVATIONS_71_OFFSETS \
   { \
@@ -5789,7 +5789,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_73_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_73_NAME "Mul_244_out_0_inserted_out2474"
+#define STAI_NETWORK_ACTIVATIONS_73_NAME "Mul_244_out_0_inserted_out2478"
 #define STAI_NETWORK_ACTIVATIONS_73_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_73_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_73_SIZE (18432)
@@ -5806,7 +5806,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_73_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_73_SCALES \
   { \
-    0.0537229590117931 \
+    0.0560836531221867 \
   }
 #define STAI_NETWORK_ACTIVATIONS_73_OFFSETS \
   { \
@@ -5831,7 +5831,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_74_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_74_SCALES \
   { \
-    0.0537229590117931 \
+    0.0560836531221867 \
   }
 #define STAI_NETWORK_ACTIVATIONS_74_OFFSETS \
   { \
@@ -5879,11 +5879,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_76_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_76_SCALES \
   { \
-    0.0428314842283726 \
+    0.0490638464689255 \
   }
 #define STAI_NETWORK_ACTIVATIONS_76_OFFSETS \
   { \
-    -121 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_77_ALIGNMENT (32)
@@ -5927,17 +5927,17 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_78_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_78_SCALES \
   { \
-    0.0916524603962898 \
+    0.0908046141266823 \
   }
 #define STAI_NETWORK_ACTIVATIONS_78_OFFSETS \
   { \
-    -6 \
+    5 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_79_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_79_NAME "Conv2D_255_off_bias_out_346_inserted_out2510"
+#define STAI_NETWORK_ACTIVATIONS_79_NAME "Conv2D_255_off_bias_out_346_inserted_out2496_inserted_out2500"
 #define STAI_NETWORK_ACTIVATIONS_79_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_79_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_79_FORMAT (STAI_FORMAT_Q7)
 #define STAI_NETWORK_ACTIVATIONS_79_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_79_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_79_CHANNEL (128)
@@ -5949,20 +5949,18 @@ STAI_API_DECLARE_END
   { \
     1, 12, 12, 128 \
   }
-#define STAI_NETWORK_ACTIVATIONS_79_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_79_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_79_SCALES \
   { \
-    0.0916524603962898 \
   }
 #define STAI_NETWORK_ACTIVATIONS_79_OFFSETS \
   { \
-    -6 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_80_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_80_NAME "Conv2D_255_off_bias_out_346_inserted_out2492_inserted_out2496"
+#define STAI_NETWORK_ACTIVATIONS_80_NAME "Conv2D_255_off_bias_out_346_inserted_out2514"
 #define STAI_NETWORK_ACTIVATIONS_80_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_80_FORMAT (STAI_FORMAT_Q7)
+#define STAI_NETWORK_ACTIVATIONS_80_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_80_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_80_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_80_CHANNEL (128)
@@ -5974,12 +5972,14 @@ STAI_API_DECLARE_END
   { \
     1, 12, 12, 128 \
   }
-#define STAI_NETWORK_ACTIVATIONS_80_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_80_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_80_SCALES \
   { \
+    0.0908046141266823 \
   }
 #define STAI_NETWORK_ACTIVATIONS_80_OFFSETS \
   { \
+    5 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_81_ALIGNMENT (32)
@@ -6000,186 +6000,188 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_81_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_81_SCALES \
   { \
-    0.0916524603962898 \
+    0.0908046141266823 \
   }
 #define STAI_NETWORK_ACTIVATIONS_81_OFFSETS \
   { \
-    -6 \
+    5 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_82_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_82_NAME "MaxPool_259_decomposed_pad_out_950"
-#define STAI_NETWORK_ACTIVATIONS_82_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
-#define STAI_NETWORK_ACTIVATIONS_82_FORMAT (STAI_FORMAT_Q7)
-#define STAI_NETWORK_ACTIVATIONS_82_SIZE (32768)
-#define STAI_NETWORK_ACTIVATIONS_82_SIZE_BYTES (32768)
+#define STAI_NETWORK_ACTIVATIONS_82_NAME "MaxPool_258_decomposed_1_out_949_inserted_out2516"
+#define STAI_NETWORK_ACTIVATIONS_82_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_82_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_82_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_82_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_82_CHANNEL (128)
-#define STAI_NETWORK_ACTIVATIONS_82_HEIGHT (16)
-#define STAI_NETWORK_ACTIVATIONS_82_WIDTH (16)
-#define STAI_NETWORK_ACTIVATIONS_82_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_82_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_82_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_82_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_82_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_82_SHAPE \
   { \
-    1, 128, 16, 16 \
+    1, 12, 12, 128 \
   }
-#define STAI_NETWORK_ACTIVATIONS_82_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_82_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_82_SCALES \
   { \
+    0.0908046141266823 \
   }
 #define STAI_NETWORK_ACTIVATIONS_82_OFFSETS \
   { \
+    5 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_83_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_83_NAME "MaxPool_258_decomposed_1_out_949_inserted_out2512"
-#define STAI_NETWORK_ACTIVATIONS_83_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_83_NAME "MaxPool_259_decomposed_1_out_952"
+#define STAI_NETWORK_ACTIVATIONS_83_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_83_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_83_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_83_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_83_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_83_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_83_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_83_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_83_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_83_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_83_SHAPE \
   { \
-    1, 12, 12, 128 \
+    1, 128, 12, 12 \
   }
 #define STAI_NETWORK_ACTIVATIONS_83_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_83_SCALES \
   { \
-    0.0916524603962898 \
+    0.0908046141266823 \
   }
 #define STAI_NETWORK_ACTIVATIONS_83_OFFSETS \
   { \
-    -6 \
+    5 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_84_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_84_NAME "MaxPool_259_decomposed_1_out_952"
-#define STAI_NETWORK_ACTIVATIONS_84_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
+#define STAI_NETWORK_ACTIVATIONS_84_NAME "MaxPool_259_decomposed_1_out_952_inserted_out2518"
+#define STAI_NETWORK_ACTIVATIONS_84_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_84_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_84_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_84_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_84_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_84_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_84_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_84_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_84_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_84_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_84_SHAPE \
   { \
-    1, 128, 12, 12 \
+    1, 12, 12, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_84_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_84_SCALES \
   { \
-    0.0916524603962898 \
+    0.0908046141266823 \
   }
 #define STAI_NETWORK_ACTIVATIONS_84_OFFSETS \
   { \
-    -6 \
+    5 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_85_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_85_NAME "MaxPool_260_decomposed_pad_out_953"
-#define STAI_NETWORK_ACTIVATIONS_85_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
-#define STAI_NETWORK_ACTIVATIONS_85_FORMAT (STAI_FORMAT_Q7)
-#define STAI_NETWORK_ACTIVATIONS_85_SIZE (32768)
-#define STAI_NETWORK_ACTIVATIONS_85_SIZE_BYTES (32768)
+#define STAI_NETWORK_ACTIVATIONS_85_NAME "MaxPool_260_decomposed_1_out_955"
+#define STAI_NETWORK_ACTIVATIONS_85_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_85_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_85_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_85_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_85_CHANNEL (128)
-#define STAI_NETWORK_ACTIVATIONS_85_HEIGHT (16)
-#define STAI_NETWORK_ACTIVATIONS_85_WIDTH (16)
-#define STAI_NETWORK_ACTIVATIONS_85_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_85_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_85_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_85_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_85_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_85_SHAPE \
   { \
-    1, 128, 16, 16 \
+    1, 12, 12, 128 \
   }
-#define STAI_NETWORK_ACTIVATIONS_85_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_85_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_85_SCALES \
   { \
+    0.0908046141266823 \
   }
 #define STAI_NETWORK_ACTIVATIONS_85_OFFSETS \
   { \
+    5 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_86_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_86_NAME "MaxPool_259_decomposed_1_out_952_inserted_out2514"
+#define STAI_NETWORK_ACTIVATIONS_86_NAME "Concat_261_out_0"
 #define STAI_NETWORK_ACTIVATIONS_86_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_86_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_86_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_86_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_86_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_86_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_86_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_86_CHANNEL (512)
 #define STAI_NETWORK_ACTIVATIONS_86_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_86_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_86_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_86_BATCH (512)
 #define STAI_NETWORK_ACTIVATIONS_86_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_86_SHAPE \
   { \
-    1, 12, 12, 128 \
+    1, 12, 12, 512 \
   }
 #define STAI_NETWORK_ACTIVATIONS_86_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_86_SCALES \
   { \
-    0.0916524603962898 \
+    0.0908046141266823 \
   }
 #define STAI_NETWORK_ACTIVATIONS_86_OFFSETS \
   { \
-    -6 \
+    5 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_87_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_87_NAME "MaxPool_260_decomposed_1_out_955"
-#define STAI_NETWORK_ACTIVATIONS_87_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_87_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_87_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_87_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_87_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_87_NAME "Conv2D_262_out_0_cp_in_554_cp_in_555_cp_in_556"
+#define STAI_NETWORK_ACTIVATIONS_87_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_87_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_87_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_87_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_87_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_87_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_87_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_87_BATCH (128)
-#define STAI_NETWORK_ACTIVATIONS_87_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_87_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_87_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_87_SHAPE \
   { \
-    1, 12, 12, 128 \
+    1, 16, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_87_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_87_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_87_SCALES \
   { \
-    0.0916524603962898 \
   }
 #define STAI_NETWORK_ACTIVATIONS_87_OFFSETS \
   { \
-    -6 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_88_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_88_NAME "Concat_261_out_0"
-#define STAI_NETWORK_ACTIVATIONS_88_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_88_NAME "Mul_266_out_0"
+#define STAI_NETWORK_ACTIVATIONS_88_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_88_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_88_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_88_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_88_CHANNEL (512)
+#define STAI_NETWORK_ACTIVATIONS_88_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_88_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_88_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_88_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_88_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_88_BATCH (512)
-#define STAI_NETWORK_ACTIVATIONS_88_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_88_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_88_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_88_SHAPE \
   { \
-    1, 12, 12, 512 \
+    1, 16, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_88_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_88_SCALES \
   { \
-    0.0916524603962898 \
+    0.039020087569952 \
   }
 #define STAI_NETWORK_ACTIVATIONS_88_OFFSETS \
   { \
-    -6 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_89_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_89_NAME "Conv2D_262_out_0_cp_in_554_cp_in_555_cp_in_556"
+#define STAI_NETWORK_ACTIVATIONS_89_NAME "Conv2D_269_out_0_cp_in_557_cp_in_558_cp_in_559"
 #define STAI_NETWORK_ACTIVATIONS_89_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_89_FORMAT (STAI_FORMAT_Q15)
 #define STAI_NETWORK_ACTIVATIONS_89_SIZE (36864)
@@ -6202,7 +6204,7 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_90_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_90_NAME "Mul_266_out_0"
+#define STAI_NETWORK_ACTIVATIONS_90_NAME "Mul_273_out_0"
 #define STAI_NETWORK_ACTIVATIONS_90_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_90_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_90_SIZE (36864)
@@ -6219,411 +6221,413 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_90_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_90_SCALES \
   { \
-    0.0330567918717861 \
+    0.0630139783024788 \
   }
 #define STAI_NETWORK_ACTIVATIONS_90_OFFSETS \
   { \
-    -120 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_91_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_91_NAME "Conv2D_269_out_0_cp_in_557_cp_in_558_cp_in_559"
+#define STAI_NETWORK_ACTIVATIONS_91_NAME "Split_276_out_0"
 #define STAI_NETWORK_ACTIVATIONS_91_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_91_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_91_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_91_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_91_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_91_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_91_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_91_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_91_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_91_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_91_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_91_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_91_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_91_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 8, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_91_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_91_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_91_SCALES \
   { \
+    0.0630139783024788 \
   }
 #define STAI_NETWORK_ACTIVATIONS_91_OFFSETS \
   { \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_92_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_92_NAME "Mul_273_out_0"
+#define STAI_NETWORK_ACTIVATIONS_92_NAME "Split_276_out_1"
 #define STAI_NETWORK_ACTIVATIONS_92_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_92_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_92_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_92_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_92_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_92_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_92_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_92_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_92_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_92_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_92_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_92_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_92_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 8, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_92_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_92_SCALES \
   { \
-    0.0469059683382511 \
+    0.0630139783024788 \
   }
 #define STAI_NETWORK_ACTIVATIONS_92_OFFSETS \
   { \
-    -122 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_93_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_93_NAME "Split_276_out_0"
-#define STAI_NETWORK_ACTIVATIONS_93_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_93_NAME "Split_276_out_1_inserted_out2532"
+#define STAI_NETWORK_ACTIVATIONS_93_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_93_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_93_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_93_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_93_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_93_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_93_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_93_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_93_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_93_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_93_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_93_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 12, 12, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_93_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_93_SCALES \
   { \
-    0.0469059683382511 \
+    0.0630139783024788 \
   }
 #define STAI_NETWORK_ACTIVATIONS_93_OFFSETS \
   { \
-    -122 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_94_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_94_NAME "Split_276_out_1"
+#define STAI_NETWORK_ACTIVATIONS_94_NAME "Conv2D_277_out_0_cp_in_560_cp_in_561_cp_in_562"
 #define STAI_NETWORK_ACTIVATIONS_94_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_94_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_94_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_94_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_94_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_94_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_94_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_94_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_94_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_94_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_94_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_94_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_94_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_94_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 16, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_94_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_94_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_94_SCALES \
   { \
-    0.0469059683382511 \
   }
 #define STAI_NETWORK_ACTIVATIONS_94_OFFSETS \
   { \
-    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_95_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_95_NAME "Split_276_out_0_inserted_out2584"
-#define STAI_NETWORK_ACTIVATIONS_95_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_95_NAME "Conv2D_277_off_bias_out_373"
+#define STAI_NETWORK_ACTIVATIONS_95_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_95_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_95_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_95_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_95_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_95_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_95_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_95_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_95_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_95_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_95_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_95_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_95_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_95_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_95_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 12, 12, 256 \
   }
 #define STAI_NETWORK_ACTIVATIONS_95_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_95_SCALES \
   { \
-    0.0637626424431801 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_95_OFFSETS \
   { \
-    -56 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_96_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_96_NAME "Split_276_out_1_inserted_out2528"
-#define STAI_NETWORK_ACTIVATIONS_96_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_96_NAME "Split_276_out_0_inserted_out2588"
+#define STAI_NETWORK_ACTIVATIONS_96_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_96_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_96_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_96_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_96_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_96_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_96_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_96_BATCH (128)
-#define STAI_NETWORK_ACTIVATIONS_96_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_96_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_96_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_96_SHAPE \
   { \
-    1, 12, 12, 128 \
+    1, 8, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_96_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_96_SCALES \
   { \
-    0.0469059683382511 \
+    0.0805993303656578 \
   }
 #define STAI_NETWORK_ACTIVATIONS_96_OFFSETS \
   { \
-    -122 \
+    -69 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_97_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_97_NAME "Conv2D_277_out_0_cp_in_560_cp_in_561_cp_in_562"
-#define STAI_NETWORK_ACTIVATIONS_97_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_97_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_97_NAME "Reshape_280_out_0"
+#define STAI_NETWORK_ACTIVATIONS_97_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_97_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_97_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_97_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_97_CHANNEL (256)
-#define STAI_NETWORK_ACTIVATIONS_97_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_97_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_97_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_97_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_97_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_97_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_97_HEIGHT (128)
+#define STAI_NETWORK_ACTIVATIONS_97_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_97_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_97_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_97_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 128, 144, 2 \
   }
-#define STAI_NETWORK_ACTIVATIONS_97_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_97_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_97_SCALES \
   { \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_97_OFFSETS \
   { \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_98_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_98_NAME "Conv2D_277_off_bias_out_373"
+#define STAI_NETWORK_ACTIVATIONS_98_NAME "Split_281_out_0"
 #define STAI_NETWORK_ACTIVATIONS_98_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_98_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_98_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_98_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_98_CHANNEL (256)
-#define STAI_NETWORK_ACTIVATIONS_98_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_98_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_98_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_98_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_98_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_98_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_98_HEIGHT (32)
+#define STAI_NETWORK_ACTIVATIONS_98_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_98_BATCH (2)
 #define STAI_NETWORK_ACTIVATIONS_98_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_98_SHAPE \
   { \
-    1, 12, 12, 256 \
+    1, 32, 144, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_98_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_98_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_98_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_99_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_99_NAME "Reshape_280_out_0"
+#define STAI_NETWORK_ACTIVATIONS_99_NAME "Split_281_out_1"
 #define STAI_NETWORK_ACTIVATIONS_99_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_99_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_99_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_99_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_99_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_99_SIZE_BYTES (9216)
 #define STAI_NETWORK_ACTIVATIONS_99_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_99_HEIGHT (128)
+#define STAI_NETWORK_ACTIVATIONS_99_HEIGHT (32)
 #define STAI_NETWORK_ACTIVATIONS_99_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_99_BATCH (2)
 #define STAI_NETWORK_ACTIVATIONS_99_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_99_SHAPE \
   { \
-    1, 128, 144, 2 \
+    1, 32, 144, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_99_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_99_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_99_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_100_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_100_NAME "Split_281_out_0"
+#define STAI_NETWORK_ACTIVATIONS_100_NAME "Split_281_out_2"
 #define STAI_NETWORK_ACTIVATIONS_100_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_100_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_100_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_100_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_100_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_100_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_100_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_100_HEIGHT (32)
+#define STAI_NETWORK_ACTIVATIONS_100_HEIGHT (64)
 #define STAI_NETWORK_ACTIVATIONS_100_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_100_BATCH (2)
 #define STAI_NETWORK_ACTIVATIONS_100_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_100_SHAPE \
   { \
-    1, 32, 144, 2 \
+    1, 64, 144, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_100_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_100_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_100_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_101_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_101_NAME "Split_281_out_1"
+#define STAI_NETWORK_ACTIVATIONS_101_NAME "Split_281_out_2_16_18_o"
 #define STAI_NETWORK_ACTIVATIONS_101_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_101_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_101_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_101_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_101_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_101_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_101_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_101_HEIGHT (32)
+#define STAI_NETWORK_ACTIVATIONS_101_HEIGHT (64)
 #define STAI_NETWORK_ACTIVATIONS_101_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_101_BATCH (2)
-#define STAI_NETWORK_ACTIVATIONS_101_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_101_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_101_SHAPE \
   { \
-    1, 32, 144, 2 \
+    64, 144, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_101_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_101_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_101_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_102_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_102_NAME "Split_281_out_2"
+#define STAI_NETWORK_ACTIVATIONS_102_NAME "Split_281_out_1_0_1_o"
 #define STAI_NETWORK_ACTIVATIONS_102_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_102_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_102_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_102_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_102_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_102_SIZE_BYTES (9216)
 #define STAI_NETWORK_ACTIVATIONS_102_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_102_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_102_HEIGHT (32)
 #define STAI_NETWORK_ACTIVATIONS_102_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_102_BATCH (2)
-#define STAI_NETWORK_ACTIVATIONS_102_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_102_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_102_SHAPE \
   { \
-    1, 64, 144, 2 \
+    32, 144, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_102_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_102_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_102_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_103_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_103_NAME "Split_281_out_1_0_1_o"
+#define STAI_NETWORK_ACTIVATIONS_103_NAME "Split_281_out_2_16_split_B_20_o_0"
 #define STAI_NETWORK_ACTIVATIONS_103_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_103_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_103_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_103_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_103_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_103_HEIGHT (32)
+#define STAI_NETWORK_ACTIVATIONS_103_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_103_HEIGHT (64)
 #define STAI_NETWORK_ACTIVATIONS_103_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_103_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_103_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_103_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_103_SHAPE \
   { \
-    32, 144, 2 \
+    64, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_103_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_103_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_103_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_104_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_104_NAME "Split_281_out_2_16_18_o"
+#define STAI_NETWORK_ACTIVATIONS_104_NAME "Split_281_out_2_16_split_B_20_o_1"
 #define STAI_NETWORK_ACTIVATIONS_104_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_104_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_104_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_104_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_104_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_104_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_104_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_104_CHANNEL (1)
 #define STAI_NETWORK_ACTIVATIONS_104_HEIGHT (64)
 #define STAI_NETWORK_ACTIVATIONS_104_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_104_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_104_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_104_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_104_SHAPE \
   { \
-    64, 144, 2 \
+    64, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_104_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_104_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_104_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_105_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_105_NAME "Transpose_282_out_0"
+#define STAI_NETWORK_ACTIVATIONS_105_NAME "Gemm_291_gemm_23_0_reshape_w_49"
 #define STAI_NETWORK_ACTIVATIONS_105_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_105_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_105_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_105_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_105_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_105_HEIGHT (144)
-#define STAI_NETWORK_ACTIVATIONS_105_WIDTH (32)
-#define STAI_NETWORK_ACTIVATIONS_105_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_105_CHANNEL (144)
+#define STAI_NETWORK_ACTIVATIONS_105_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_105_WIDTH (1)
+#define STAI_NETWORK_ACTIVATIONS_105_BATCH (144)
 #define STAI_NETWORK_ACTIVATIONS_105_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_105_SHAPE \
   { \
-    1, 144, 32, 2 \
+    64, 1, 1, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_105_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_105_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_105_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_106_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_106_NAME "Split_281_out_1_0_split_A_3_o_0"
+#define STAI_NETWORK_ACTIVATIONS_106_NAME "Gemm_291_gemm_27_1_reshape_w_56"
 #define STAI_NETWORK_ACTIVATIONS_106_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_106_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_106_SIZE (4608)
-#define STAI_NETWORK_ACTIVATIONS_106_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_106_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_106_HEIGHT (32)
-#define STAI_NETWORK_ACTIVATIONS_106_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_106_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_106_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_106_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_106_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_106_CHANNEL (144)
+#define STAI_NETWORK_ACTIVATIONS_106_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_106_WIDTH (1)
+#define STAI_NETWORK_ACTIVATIONS_106_BATCH (144)
+#define STAI_NETWORK_ACTIVATIONS_106_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_106_SHAPE \
   { \
-    32, 144, 1 \
+    64, 1, 1, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_106_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_106_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_106_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_107_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_107_NAME "Split_281_out_1_0_split_A_3_o_1"
+#define STAI_NETWORK_ACTIVATIONS_107_NAME "Split_281_out_1_0_split_A_3_o_0"
 #define STAI_NETWORK_ACTIVATIONS_107_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_107_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_107_SIZE (4608)
@@ -6640,261 +6644,261 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_107_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_107_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_107_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_108_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_108_NAME "Transpose_282_out_0_0_2_o"
+#define STAI_NETWORK_ACTIVATIONS_108_NAME "Split_281_out_1_0_split_A_3_o_1"
 #define STAI_NETWORK_ACTIVATIONS_108_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_108_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_108_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_108_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_108_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_108_HEIGHT (144)
-#define STAI_NETWORK_ACTIVATIONS_108_WIDTH (32)
-#define STAI_NETWORK_ACTIVATIONS_108_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_108_SIZE (4608)
+#define STAI_NETWORK_ACTIVATIONS_108_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_108_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_108_HEIGHT (32)
+#define STAI_NETWORK_ACTIVATIONS_108_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_108_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_108_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_108_SHAPE \
   { \
-    144, 32, 2 \
+    32, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_108_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_108_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_108_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_109_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_109_NAME "Split_281_out_2_16_split_B_20_o_0"
-#define STAI_NETWORK_ACTIVATIONS_109_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_109_NAME "Gemm_283_gemm_7_0_reshape_x_33"
+#define STAI_NETWORK_ACTIVATIONS_109_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_109_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_109_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_109_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_109_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_109_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_109_SIZE (4608)
+#define STAI_NETWORK_ACTIVATIONS_109_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_109_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_109_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_109_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_109_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_109_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_109_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_109_SHAPE \
   { \
-    64, 144, 1 \
+    1, 32, 1, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_109_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_109_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_109_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_110_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_110_NAME "Split_281_out_2_16_split_B_20_o_1"
-#define STAI_NETWORK_ACTIVATIONS_110_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_110_NAME "Gemm_283_gemm_11_1_reshape_x_40"
+#define STAI_NETWORK_ACTIVATIONS_110_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_110_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_110_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_110_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_110_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_110_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_110_SIZE (4608)
+#define STAI_NETWORK_ACTIVATIONS_110_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_110_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_110_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_110_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_110_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_110_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_110_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_110_SHAPE \
   { \
-    64, 144, 1 \
+    1, 32, 1, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_110_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_110_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_110_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_111_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_111_NAME "Gemm_283_gemm_11_1_reshape_x_40"
-#define STAI_NETWORK_ACTIVATIONS_111_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
+#define STAI_NETWORK_ACTIVATIONS_111_NAME "Transpose_282_out_0"
+#define STAI_NETWORK_ACTIVATIONS_111_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_111_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_111_SIZE (4608)
-#define STAI_NETWORK_ACTIVATIONS_111_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_111_CHANNEL (32)
-#define STAI_NETWORK_ACTIVATIONS_111_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_111_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_111_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_111_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_111_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_111_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_111_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_111_WIDTH (32)
+#define STAI_NETWORK_ACTIVATIONS_111_BATCH (2)
 #define STAI_NETWORK_ACTIVATIONS_111_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_111_SHAPE \
   { \
-    1, 32, 1, 144 \
+    1, 144, 32, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_111_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_111_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_111_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_112_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_112_NAME "Gemm_283_gemm_7_0_reshape_x_33"
-#define STAI_NETWORK_ACTIVATIONS_112_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
+#define STAI_NETWORK_ACTIVATIONS_112_NAME "Transpose_282_out_0_0_2_o"
+#define STAI_NETWORK_ACTIVATIONS_112_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_112_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_112_SIZE (4608)
-#define STAI_NETWORK_ACTIVATIONS_112_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_112_CHANNEL (32)
-#define STAI_NETWORK_ACTIVATIONS_112_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_112_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_112_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_112_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_112_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_112_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_112_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_112_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_112_WIDTH (32)
+#define STAI_NETWORK_ACTIVATIONS_112_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_112_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_112_SHAPE \
   { \
-    1, 32, 1, 144 \
+    144, 32, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_112_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_112_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_112_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_113_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_113_NAME "Transpose_282_out_0_0_split_B_4_o_0"
+#define STAI_NETWORK_ACTIVATIONS_113_NAME "Gemm_283_gemm_7_0_reshape_x_33_inserted_out2544"
 #define STAI_NETWORK_ACTIVATIONS_113_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_113_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_113_SIZE (4608)
 #define STAI_NETWORK_ACTIVATIONS_113_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_113_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_113_HEIGHT (144)
-#define STAI_NETWORK_ACTIVATIONS_113_WIDTH (32)
-#define STAI_NETWORK_ACTIVATIONS_113_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_113_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_113_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_113_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_113_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_113_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_113_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_113_SHAPE \
   { \
-    144, 32, 1 \
+    1, 1, 144, 32 \
   }
 #define STAI_NETWORK_ACTIVATIONS_113_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_113_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_113_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_114_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_114_NAME "Transpose_282_out_0_0_split_B_4_o_1"
+#define STAI_NETWORK_ACTIVATIONS_114_NAME "Gemm_283_gemm_11_1_reshape_x_40_inserted_out2540"
 #define STAI_NETWORK_ACTIVATIONS_114_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_114_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_114_SIZE (4608)
 #define STAI_NETWORK_ACTIVATIONS_114_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_114_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_114_HEIGHT (144)
-#define STAI_NETWORK_ACTIVATIONS_114_WIDTH (32)
-#define STAI_NETWORK_ACTIVATIONS_114_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_114_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_114_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_114_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_114_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_114_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_114_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_114_SHAPE \
   { \
-    144, 32, 1 \
+    1, 1, 144, 32 \
   }
 #define STAI_NETWORK_ACTIVATIONS_114_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_114_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_114_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_115_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_115_NAME "Gemm_291_gemm_27_1_reshape_w_56"
+#define STAI_NETWORK_ACTIVATIONS_115_NAME "Reshape_295_out_0"
 #define STAI_NETWORK_ACTIVATIONS_115_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_115_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_115_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_115_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_115_CHANNEL (144)
-#define STAI_NETWORK_ACTIVATIONS_115_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_115_WIDTH (1)
-#define STAI_NETWORK_ACTIVATIONS_115_BATCH (144)
+#define STAI_NETWORK_ACTIVATIONS_115_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_115_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_115_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_115_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_115_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_115_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_115_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_115_SHAPE \
   { \
-    64, 1, 1, 144 \
+    1, 12, 12, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_115_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_115_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_115_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_116_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_116_NAME "Gemm_291_gemm_23_0_reshape_w_49"
+#define STAI_NETWORK_ACTIVATIONS_116_NAME "Transpose_282_out_0_0_split_B_4_o_0"
 #define STAI_NETWORK_ACTIVATIONS_116_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_116_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_116_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_116_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_116_CHANNEL (144)
-#define STAI_NETWORK_ACTIVATIONS_116_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_116_WIDTH (1)
-#define STAI_NETWORK_ACTIVATIONS_116_BATCH (144)
-#define STAI_NETWORK_ACTIVATIONS_116_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_116_SIZE (4608)
+#define STAI_NETWORK_ACTIVATIONS_116_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_116_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_116_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_116_WIDTH (32)
+#define STAI_NETWORK_ACTIVATIONS_116_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_116_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_116_SHAPE \
   { \
-    64, 1, 1, 144 \
+    144, 32, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_116_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_116_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_116_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_117_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_117_NAME "Gemm_283_gemm_11_1_reshape_w_42"
+#define STAI_NETWORK_ACTIVATIONS_117_NAME "Transpose_282_out_0_0_split_B_4_o_1"
 #define STAI_NETWORK_ACTIVATIONS_117_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_117_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_117_SIZE (4608)
 #define STAI_NETWORK_ACTIVATIONS_117_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_117_CHANNEL (32)
-#define STAI_NETWORK_ACTIVATIONS_117_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_117_WIDTH (1)
-#define STAI_NETWORK_ACTIVATIONS_117_BATCH (32)
-#define STAI_NETWORK_ACTIVATIONS_117_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_117_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_117_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_117_WIDTH (32)
+#define STAI_NETWORK_ACTIVATIONS_117_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_117_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_117_SHAPE \
   { \
-    144, 1, 1, 32 \
+    144, 32, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_117_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_117_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_117_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_118_ALIGNMENT (32)
@@ -6915,228 +6919,228 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_118_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_118_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_118_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_119_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_119_NAME "Reshape_295_out_0"
+#define STAI_NETWORK_ACTIVATIONS_119_NAME "Gemm_283_gemm_11_1_reshape_w_42"
 #define STAI_NETWORK_ACTIVATIONS_119_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_119_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_119_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_119_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_119_CHANNEL (128)
-#define STAI_NETWORK_ACTIVATIONS_119_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_119_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_119_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_119_SIZE (4608)
+#define STAI_NETWORK_ACTIVATIONS_119_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_119_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_119_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_119_WIDTH (1)
+#define STAI_NETWORK_ACTIVATIONS_119_BATCH (32)
 #define STAI_NETWORK_ACTIVATIONS_119_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_119_SHAPE \
   { \
-    1, 12, 12, 128 \
+    144, 1, 1, 32 \
   }
 #define STAI_NETWORK_ACTIVATIONS_119_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_119_SCALES \
   { \
-    0.0818443298339844 \
+    0.0970980599522591 \
   }
 #define STAI_NETWORK_ACTIVATIONS_119_OFFSETS \
   { \
-    3 \
+    39 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_120_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_120_NAME "Gemm_283_gemm_11_1_reshape_x_40_inserted_out2536"
+#define STAI_NETWORK_ACTIVATIONS_120_NAME "Conv2D_296_off_bias_out_382"
 #define STAI_NETWORK_ACTIVATIONS_120_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_120_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_120_SIZE (4608)
-#define STAI_NETWORK_ACTIVATIONS_120_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_120_CHANNEL (32)
-#define STAI_NETWORK_ACTIVATIONS_120_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_120_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_120_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_120_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_120_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_120_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_120_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_120_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_120_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_120_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_120_SHAPE \
   { \
-    1, 1, 144, 32 \
+    1, 12, 12, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_120_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_120_SCALES \
   { \
-    0.0818443298339844 \
+    0.0572117827832699 \
   }
 #define STAI_NETWORK_ACTIVATIONS_120_OFFSETS \
   { \
-    3 \
+    -3 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_121_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_121_NAME "Gemm_283_gemm_7_0_reshape_x_33_inserted_out2540"
+#define STAI_NETWORK_ACTIVATIONS_121_NAME "Gemm_283_gemm_7_0_conv_36"
 #define STAI_NETWORK_ACTIVATIONS_121_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_121_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_121_SIZE (4608)
-#define STAI_NETWORK_ACTIVATIONS_121_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_121_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_121_SIZE (20736)
+#define STAI_NETWORK_ACTIVATIONS_121_SIZE_BYTES (20736)
+#define STAI_NETWORK_ACTIVATIONS_121_CHANNEL (144)
 #define STAI_NETWORK_ACTIVATIONS_121_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_121_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_121_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_121_BATCH (144)
 #define STAI_NETWORK_ACTIVATIONS_121_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_121_SHAPE \
   { \
-    1, 1, 144, 32 \
+    1, 1, 144, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_121_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_121_SCALES \
   { \
-    0.0818443298339844 \
+    1.100865483284 \
   }
 #define STAI_NETWORK_ACTIVATIONS_121_OFFSETS \
   { \
-    3 \
+    -38 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_122_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_122_NAME "Gemm_283_gemm_11_1_conv_43"
+#define STAI_NETWORK_ACTIVATIONS_122_NAME "SCRATCH_Gemm_283_gemm_7_0_conv_36_PORT_OUT"
 #define STAI_NETWORK_ACTIVATIONS_122_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_122_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_122_SIZE (20736)
-#define STAI_NETWORK_ACTIVATIONS_122_SIZE_BYTES (20736)
-#define STAI_NETWORK_ACTIVATIONS_122_CHANNEL (144)
+#define STAI_NETWORK_ACTIVATIONS_122_FORMAT (STAI_FORMAT_Q7)
+#define STAI_NETWORK_ACTIVATIONS_122_SIZE (131)
+#define STAI_NETWORK_ACTIVATIONS_122_SIZE_BYTES (131)
+#define STAI_NETWORK_ACTIVATIONS_122_CHANNEL (131)
 #define STAI_NETWORK_ACTIVATIONS_122_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_122_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_122_BATCH (144)
+#define STAI_NETWORK_ACTIVATIONS_122_WIDTH (1)
+#define STAI_NETWORK_ACTIVATIONS_122_BATCH (131)
 #define STAI_NETWORK_ACTIVATIONS_122_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_122_SHAPE \
   { \
-    1, 1, 144, 144 \
+    1, 1, 1, 131 \
   }
-#define STAI_NETWORK_ACTIVATIONS_122_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_122_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_122_SCALES \
   { \
-    1.04615879058838 \
   }
 #define STAI_NETWORK_ACTIVATIONS_122_OFFSETS \
   { \
-    -38 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_123_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_123_NAME "SCRATCH_Gemm_283_gemm_11_1_conv_43_PORT_OUT"
+#define STAI_NETWORK_ACTIVATIONS_123_NAME "Gemm_283_gemm_11_1_conv_43"
 #define STAI_NETWORK_ACTIVATIONS_123_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_123_FORMAT (STAI_FORMAT_Q7)
-#define STAI_NETWORK_ACTIVATIONS_123_SIZE (131)
-#define STAI_NETWORK_ACTIVATIONS_123_SIZE_BYTES (131)
-#define STAI_NETWORK_ACTIVATIONS_123_CHANNEL (131)
+#define STAI_NETWORK_ACTIVATIONS_123_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_123_SIZE (20736)
+#define STAI_NETWORK_ACTIVATIONS_123_SIZE_BYTES (20736)
+#define STAI_NETWORK_ACTIVATIONS_123_CHANNEL (144)
 #define STAI_NETWORK_ACTIVATIONS_123_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_123_WIDTH (1)
-#define STAI_NETWORK_ACTIVATIONS_123_BATCH (131)
+#define STAI_NETWORK_ACTIVATIONS_123_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_123_BATCH (144)
 #define STAI_NETWORK_ACTIVATIONS_123_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_123_SHAPE \
   { \
-    1, 1, 1, 131 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_123_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_123_SCALES \
-  { \
-  }
-#define STAI_NETWORK_ACTIVATIONS_123_OFFSETS \
-  { \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_124_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_124_NAME "Gemm_283_gemm_7_0_conv_36"
-#define STAI_NETWORK_ACTIVATIONS_124_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_124_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_124_SIZE (20736)
-#define STAI_NETWORK_ACTIVATIONS_124_SIZE_BYTES (20736)
-#define STAI_NETWORK_ACTIVATIONS_124_CHANNEL (144)
-#define STAI_NETWORK_ACTIVATIONS_124_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_124_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_124_BATCH (144)
-#define STAI_NETWORK_ACTIVATIONS_124_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_124_SHAPE \
-  { \
     1, 1, 144, 144 \
   }
-#define STAI_NETWORK_ACTIVATIONS_124_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_124_SCALES \
+#define STAI_NETWORK_ACTIVATIONS_123_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_123_SCALES \
   { \
-    1.04615879058838 \
+    1.100865483284 \
   }
-#define STAI_NETWORK_ACTIVATIONS_124_OFFSETS \
+#define STAI_NETWORK_ACTIVATIONS_123_OFFSETS \
   { \
     -38 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_125_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_125_NAME "SCRATCH_Gemm_283_gemm_7_0_conv_36_PORT_OUT"
-#define STAI_NETWORK_ACTIVATIONS_125_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_125_FORMAT (STAI_FORMAT_Q7)
-#define STAI_NETWORK_ACTIVATIONS_125_SIZE (131)
-#define STAI_NETWORK_ACTIVATIONS_125_SIZE_BYTES (131)
-#define STAI_NETWORK_ACTIVATIONS_125_CHANNEL (131)
-#define STAI_NETWORK_ACTIVATIONS_125_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_125_WIDTH (1)
-#define STAI_NETWORK_ACTIVATIONS_125_BATCH (131)
-#define STAI_NETWORK_ACTIVATIONS_125_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_125_SHAPE \
+#define STAI_NETWORK_ACTIVATIONS_124_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_124_NAME "SCRATCH_Gemm_283_gemm_11_1_conv_43_PORT_OUT"
+#define STAI_NETWORK_ACTIVATIONS_124_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_124_FORMAT (STAI_FORMAT_Q7)
+#define STAI_NETWORK_ACTIVATIONS_124_SIZE (131)
+#define STAI_NETWORK_ACTIVATIONS_124_SIZE_BYTES (131)
+#define STAI_NETWORK_ACTIVATIONS_124_CHANNEL (131)
+#define STAI_NETWORK_ACTIVATIONS_124_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_124_WIDTH (1)
+#define STAI_NETWORK_ACTIVATIONS_124_BATCH (131)
+#define STAI_NETWORK_ACTIVATIONS_124_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_124_SHAPE \
   { \
     1, 1, 1, 131 \
   }
-#define STAI_NETWORK_ACTIVATIONS_125_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_125_SCALES \
+#define STAI_NETWORK_ACTIVATIONS_124_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_124_SCALES \
   { \
   }
-#define STAI_NETWORK_ACTIVATIONS_125_OFFSETS \
+#define STAI_NETWORK_ACTIVATIONS_124_OFFSETS \
   { \
   }
 
+#define STAI_NETWORK_ACTIVATIONS_125_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_125_NAME "Gemm_283_out_0_0_10_o"
+#define STAI_NETWORK_ACTIVATIONS_125_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_125_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_125_SIZE (20736)
+#define STAI_NETWORK_ACTIVATIONS_125_SIZE_BYTES (20736)
+#define STAI_NETWORK_ACTIVATIONS_125_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_125_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_125_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_125_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_125_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_125_SHAPE \
+  { \
+    144, 144, 1 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_125_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_125_SCALES \
+  { \
+    1.100865483284 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_125_OFFSETS \
+  { \
+    -38 \
+  }
+
 #define STAI_NETWORK_ACTIVATIONS_126_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_126_NAME "Conv2D_296_off_bias_out_382"
+#define STAI_NETWORK_ACTIVATIONS_126_NAME "Gemm_283_out_0_0_14_o"
 #define STAI_NETWORK_ACTIVATIONS_126_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_126_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_126_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_126_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_126_CHANNEL (128)
-#define STAI_NETWORK_ACTIVATIONS_126_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_126_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_126_BATCH (128)
-#define STAI_NETWORK_ACTIVATIONS_126_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_126_SIZE (20736)
+#define STAI_NETWORK_ACTIVATIONS_126_SIZE_BYTES (20736)
+#define STAI_NETWORK_ACTIVATIONS_126_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_126_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_126_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_126_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_126_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_126_SHAPE \
   { \
-    1, 12, 12, 128 \
+    144, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_126_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_126_SCALES \
   { \
-    0.0619694963097572 \
+    1.100865483284 \
   }
 #define STAI_NETWORK_ACTIVATIONS_126_OFFSETS \
   { \
-    7 \
+    -38 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_127_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_127_NAME "Gemm_283_out_0_0_14_o"
-#define STAI_NETWORK_ACTIVATIONS_127_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_127_NAME "Gemm_283_matmul_concat_out_6"
+#define STAI_NETWORK_ACTIVATIONS_127_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_127_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_127_SIZE (20736)
-#define STAI_NETWORK_ACTIVATIONS_127_SIZE_BYTES (20736)
-#define STAI_NETWORK_ACTIVATIONS_127_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_127_SIZE (41472)
+#define STAI_NETWORK_ACTIVATIONS_127_SIZE_BYTES (41472)
+#define STAI_NETWORK_ACTIVATIONS_127_CHANNEL (2)
 #define STAI_NETWORK_ACTIVATIONS_127_HEIGHT (144)
 #define STAI_NETWORK_ACTIVATIONS_127_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_127_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_127_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_127_SHAPE \
   { \
-    144, 144, 1 \
+    2, 144, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_127_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_127_SCALES \
   { \
-    1.04615879058838 \
+    1.100865483284 \
   }
 #define STAI_NETWORK_ACTIVATIONS_127_OFFSETS \
   { \
@@ -7144,24 +7148,24 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_128_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_128_NAME "Gemm_283_out_0_0_10_o"
-#define STAI_NETWORK_ACTIVATIONS_128_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_128_NAME "Gemm_283_out_0_0_15_o"
+#define STAI_NETWORK_ACTIVATIONS_128_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_128_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_128_SIZE (20736)
-#define STAI_NETWORK_ACTIVATIONS_128_SIZE_BYTES (20736)
-#define STAI_NETWORK_ACTIVATIONS_128_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_128_SIZE (41472)
+#define STAI_NETWORK_ACTIVATIONS_128_SIZE_BYTES (41472)
+#define STAI_NETWORK_ACTIVATIONS_128_CHANNEL (2)
 #define STAI_NETWORK_ACTIVATIONS_128_HEIGHT (144)
 #define STAI_NETWORK_ACTIVATIONS_128_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_128_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_128_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_128_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_128_SHAPE \
   { \
-    144, 144, 1 \
+    1, 2, 144, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_128_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_128_SCALES \
   { \
-    1.04615879058838 \
+    1.100865483284 \
   }
 #define STAI_NETWORK_ACTIVATIONS_128_OFFSETS \
   { \
@@ -7169,49 +7173,49 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_129_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_129_NAME "Gemm_283_matmul_concat_out_6"
+#define STAI_NETWORK_ACTIVATIONS_129_NAME "Mul_286_out_0"
 #define STAI_NETWORK_ACTIVATIONS_129_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
-#define STAI_NETWORK_ACTIVATIONS_129_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_129_FORMAT (STAI_FORMAT_S16)
 #define STAI_NETWORK_ACTIVATIONS_129_SIZE (41472)
-#define STAI_NETWORK_ACTIVATIONS_129_SIZE_BYTES (41472)
+#define STAI_NETWORK_ACTIVATIONS_129_SIZE_BYTES (82944)
 #define STAI_NETWORK_ACTIVATIONS_129_CHANNEL (2)
 #define STAI_NETWORK_ACTIVATIONS_129_HEIGHT (144)
 #define STAI_NETWORK_ACTIVATIONS_129_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_129_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_129_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_129_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_129_SHAPE \
   { \
-    2, 144, 144 \
+    1, 2, 144, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_129_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_129_SCALES \
   { \
-    1.04615879058838 \
+    0.000763166113756597 \
   }
 #define STAI_NETWORK_ACTIVATIONS_129_OFFSETS \
   { \
-    -38 \
+    0 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_130_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_130_NAME "Gemm_283_out_0_0_15_o"
-#define STAI_NETWORK_ACTIVATIONS_130_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
+#define STAI_NETWORK_ACTIVATIONS_130_NAME "Mul_286_out_0_cp_in_563_cp_in_564_cp_in_565"
+#define STAI_NETWORK_ACTIVATIONS_130_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_130_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_130_SIZE (41472)
 #define STAI_NETWORK_ACTIVATIONS_130_SIZE_BYTES (41472)
 #define STAI_NETWORK_ACTIVATIONS_130_CHANNEL (2)
 #define STAI_NETWORK_ACTIVATIONS_130_HEIGHT (144)
 #define STAI_NETWORK_ACTIVATIONS_130_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_130_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_130_BATCH (2)
 #define STAI_NETWORK_ACTIVATIONS_130_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_130_SHAPE \
   { \
-    1, 2, 144, 144 \
+    1, 144, 144, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_130_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_130_SCALES \
   { \
-    1.04615879058838 \
+    0.194607362151146 \
   }
 #define STAI_NETWORK_ACTIVATIONS_130_OFFSETS \
   { \
@@ -7219,57 +7223,55 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_131_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_131_NAME "Mul_286_out_0"
-#define STAI_NETWORK_ACTIVATIONS_131_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
-#define STAI_NETWORK_ACTIVATIONS_131_FORMAT (STAI_FORMAT_S16)
+#define STAI_NETWORK_ACTIVATIONS_131_NAME "Softmax_289_out_0"
+#define STAI_NETWORK_ACTIVATIONS_131_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_131_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_131_SIZE (41472)
-#define STAI_NETWORK_ACTIVATIONS_131_SIZE_BYTES (82944)
+#define STAI_NETWORK_ACTIVATIONS_131_SIZE_BYTES (41472)
 #define STAI_NETWORK_ACTIVATIONS_131_CHANNEL (2)
 #define STAI_NETWORK_ACTIVATIONS_131_HEIGHT (144)
 #define STAI_NETWORK_ACTIVATIONS_131_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_131_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_131_BATCH (2)
 #define STAI_NETWORK_ACTIVATIONS_131_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_131_SHAPE \
   { \
-    1, 2, 144, 144 \
+    1, 144, 144, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_131_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_131_SCALES \
   { \
-    0.000725241145119071 \
+    0.00390625 \
   }
 #define STAI_NETWORK_ACTIVATIONS_131_OFFSETS \
   { \
-    0 \
+    -128 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_132_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_132_NAME "Mul_286_out_0_cp_in_563_cp_in_564_cp_in_565"
+#define STAI_NETWORK_ACTIVATIONS_132_NAME "SCRATCH_Softmax_289_PORT_OUT"
 #define STAI_NETWORK_ACTIVATIONS_132_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_132_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_132_SIZE (41472)
-#define STAI_NETWORK_ACTIVATIONS_132_SIZE_BYTES (41472)
-#define STAI_NETWORK_ACTIVATIONS_132_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_132_HEIGHT (144)
-#define STAI_NETWORK_ACTIVATIONS_132_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_132_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_132_FORMAT (STAI_FORMAT_S32)
+#define STAI_NETWORK_ACTIVATIONS_132_SIZE (125)
+#define STAI_NETWORK_ACTIVATIONS_132_SIZE_BYTES (500)
+#define STAI_NETWORK_ACTIVATIONS_132_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_132_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_132_WIDTH (125)
+#define STAI_NETWORK_ACTIVATIONS_132_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_132_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_132_SHAPE \
   { \
-    1, 144, 144, 2 \
+    1, 1, 125, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_132_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_132_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_132_SCALES \
   { \
-    0.184936478734016 \
   }
 #define STAI_NETWORK_ACTIVATIONS_132_OFFSETS \
   { \
-    -38 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_133_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_133_NAME "Softmax_289_out_0"
+#define STAI_NETWORK_ACTIVATIONS_133_NAME "Transpose_290_out_0"
 #define STAI_NETWORK_ACTIVATIONS_133_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_133_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_133_SIZE (41472)
@@ -7286,7 +7288,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_133_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_133_SCALES \
   { \
-    0.00390625 \
+    0.00392156885936856 \
   }
 #define STAI_NETWORK_ACTIVATIONS_133_OFFSETS \
   { \
@@ -7294,42 +7296,44 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_134_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_134_NAME "SCRATCH_Softmax_289_PORT_OUT"
+#define STAI_NETWORK_ACTIVATIONS_134_NAME "Transpose_290_out_0_16_17_o"
 #define STAI_NETWORK_ACTIVATIONS_134_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_134_FORMAT (STAI_FORMAT_S32)
-#define STAI_NETWORK_ACTIVATIONS_134_SIZE (125)
-#define STAI_NETWORK_ACTIVATIONS_134_SIZE_BYTES (500)
-#define STAI_NETWORK_ACTIVATIONS_134_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_134_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_134_WIDTH (125)
-#define STAI_NETWORK_ACTIVATIONS_134_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_134_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_134_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_134_SIZE (41472)
+#define STAI_NETWORK_ACTIVATIONS_134_SIZE_BYTES (41472)
+#define STAI_NETWORK_ACTIVATIONS_134_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_134_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_134_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_134_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_134_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_134_SHAPE \
   { \
-    1, 1, 125, 1 \
+    144, 144, 2 \
   }
-#define STAI_NETWORK_ACTIVATIONS_134_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_134_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_134_SCALES \
   { \
+    0.00392156885936856 \
   }
 #define STAI_NETWORK_ACTIVATIONS_134_OFFSETS \
   { \
+    -128 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_135_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_135_NAME "Transpose_290_out_0"
+#define STAI_NETWORK_ACTIVATIONS_135_NAME "Transpose_290_out_0_16_split_A_19_o_0"
 #define STAI_NETWORK_ACTIVATIONS_135_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_135_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_135_SIZE (41472)
-#define STAI_NETWORK_ACTIVATIONS_135_SIZE_BYTES (41472)
-#define STAI_NETWORK_ACTIVATIONS_135_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_135_SIZE (20736)
+#define STAI_NETWORK_ACTIVATIONS_135_SIZE_BYTES (20736)
+#define STAI_NETWORK_ACTIVATIONS_135_CHANNEL (1)
 #define STAI_NETWORK_ACTIVATIONS_135_HEIGHT (144)
 #define STAI_NETWORK_ACTIVATIONS_135_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_135_BATCH (2)
-#define STAI_NETWORK_ACTIVATIONS_135_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_135_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_135_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_135_SHAPE \
   { \
-    1, 144, 144, 2 \
+    144, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_135_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_135_SCALES \
@@ -7342,19 +7346,19 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_136_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_136_NAME "Transpose_290_out_0_16_17_o"
+#define STAI_NETWORK_ACTIVATIONS_136_NAME "Transpose_290_out_0_16_split_A_19_o_1"
 #define STAI_NETWORK_ACTIVATIONS_136_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_136_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_136_SIZE (41472)
-#define STAI_NETWORK_ACTIVATIONS_136_SIZE_BYTES (41472)
-#define STAI_NETWORK_ACTIVATIONS_136_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_136_SIZE (20736)
+#define STAI_NETWORK_ACTIVATIONS_136_SIZE_BYTES (20736)
+#define STAI_NETWORK_ACTIVATIONS_136_CHANNEL (1)
 #define STAI_NETWORK_ACTIVATIONS_136_HEIGHT (144)
 #define STAI_NETWORK_ACTIVATIONS_136_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_136_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_136_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_136_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_136_SHAPE \
   { \
-    144, 144, 2 \
+    144, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_136_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_136_SCALES \
@@ -7367,19 +7371,19 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_137_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_137_NAME "Transpose_290_out_0_16_split_A_19_o_0"
-#define STAI_NETWORK_ACTIVATIONS_137_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_137_NAME "Gemm_291_gemm_23_0_reshape_x_47"
+#define STAI_NETWORK_ACTIVATIONS_137_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_137_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_137_SIZE (20736)
 #define STAI_NETWORK_ACTIVATIONS_137_SIZE_BYTES (20736)
-#define STAI_NETWORK_ACTIVATIONS_137_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_137_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_137_CHANNEL (144)
+#define STAI_NETWORK_ACTIVATIONS_137_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_137_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_137_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_137_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_137_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_137_SHAPE \
   { \
-    144, 144, 1 \
+    1, 144, 1, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_137_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_137_SCALES \
@@ -7392,19 +7396,19 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_138_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_138_NAME "Transpose_290_out_0_16_split_A_19_o_1"
-#define STAI_NETWORK_ACTIVATIONS_138_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_138_NAME "Gemm_291_gemm_27_1_reshape_x_54"
+#define STAI_NETWORK_ACTIVATIONS_138_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_138_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_138_SIZE (20736)
 #define STAI_NETWORK_ACTIVATIONS_138_SIZE_BYTES (20736)
-#define STAI_NETWORK_ACTIVATIONS_138_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_138_HEIGHT (144)
+#define STAI_NETWORK_ACTIVATIONS_138_CHANNEL (144)
+#define STAI_NETWORK_ACTIVATIONS_138_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_138_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_138_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_138_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_138_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_138_SHAPE \
   { \
-    144, 144, 1 \
+    1, 144, 1, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_138_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_138_SCALES \
@@ -7417,19 +7421,19 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_139_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_139_NAME "Gemm_291_gemm_27_1_reshape_x_54"
-#define STAI_NETWORK_ACTIVATIONS_139_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
+#define STAI_NETWORK_ACTIVATIONS_139_NAME "Gemm_291_gemm_23_0_reshape_x_47_inserted_out2564"
+#define STAI_NETWORK_ACTIVATIONS_139_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_139_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_139_SIZE (20736)
 #define STAI_NETWORK_ACTIVATIONS_139_SIZE_BYTES (20736)
 #define STAI_NETWORK_ACTIVATIONS_139_CHANNEL (144)
 #define STAI_NETWORK_ACTIVATIONS_139_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_139_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_139_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_139_BATCH (144)
 #define STAI_NETWORK_ACTIVATIONS_139_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_139_SHAPE \
   { \
-    1, 144, 1, 144 \
+    1, 1, 144, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_139_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_139_SCALES \
@@ -7442,19 +7446,19 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_140_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_140_NAME "Gemm_291_gemm_23_0_reshape_x_47"
-#define STAI_NETWORK_ACTIVATIONS_140_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
+#define STAI_NETWORK_ACTIVATIONS_140_NAME "Gemm_291_gemm_27_1_reshape_x_54_inserted_out2562"
+#define STAI_NETWORK_ACTIVATIONS_140_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_140_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_140_SIZE (20736)
 #define STAI_NETWORK_ACTIVATIONS_140_SIZE_BYTES (20736)
 #define STAI_NETWORK_ACTIVATIONS_140_CHANNEL (144)
 #define STAI_NETWORK_ACTIVATIONS_140_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_140_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_140_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_140_BATCH (144)
 #define STAI_NETWORK_ACTIVATIONS_140_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_140_SHAPE \
   { \
-    1, 144, 1, 144 \
+    1, 1, 144, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_140_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_140_SCALES \
@@ -7467,53 +7471,51 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_141_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_141_NAME "Gemm_291_gemm_27_1_reshape_x_54_inserted_out2558"
+#define STAI_NETWORK_ACTIVATIONS_141_NAME "Gemm_291_gemm_23_0_conv_50"
 #define STAI_NETWORK_ACTIVATIONS_141_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_141_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_141_SIZE (20736)
-#define STAI_NETWORK_ACTIVATIONS_141_SIZE_BYTES (20736)
-#define STAI_NETWORK_ACTIVATIONS_141_CHANNEL (144)
+#define STAI_NETWORK_ACTIVATIONS_141_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_141_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_141_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_141_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_141_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_141_BATCH (144)
+#define STAI_NETWORK_ACTIVATIONS_141_BATCH (64)
 #define STAI_NETWORK_ACTIVATIONS_141_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_141_SHAPE \
   { \
-    1, 1, 144, 144 \
+    1, 1, 144, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_141_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_141_SCALES \
   { \
-    0.00392156885936856 \
+    0.0601358525454998 \
   }
 #define STAI_NETWORK_ACTIVATIONS_141_OFFSETS \
   { \
-    -128 \
+    4 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_142_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_142_NAME "Gemm_291_gemm_23_0_reshape_x_47_inserted_out2560"
+#define STAI_NETWORK_ACTIVATIONS_142_NAME "SCRATCH_Gemm_291_gemm_23_0_conv_50_PORT_OUT"
 #define STAI_NETWORK_ACTIVATIONS_142_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_142_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_142_SIZE (20736)
-#define STAI_NETWORK_ACTIVATIONS_142_SIZE_BYTES (20736)
-#define STAI_NETWORK_ACTIVATIONS_142_CHANNEL (144)
+#define STAI_NETWORK_ACTIVATIONS_142_FORMAT (STAI_FORMAT_Q7)
+#define STAI_NETWORK_ACTIVATIONS_142_SIZE (579)
+#define STAI_NETWORK_ACTIVATIONS_142_SIZE_BYTES (579)
+#define STAI_NETWORK_ACTIVATIONS_142_CHANNEL (579)
 #define STAI_NETWORK_ACTIVATIONS_142_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_142_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_142_BATCH (144)
+#define STAI_NETWORK_ACTIVATIONS_142_WIDTH (1)
+#define STAI_NETWORK_ACTIVATIONS_142_BATCH (579)
 #define STAI_NETWORK_ACTIVATIONS_142_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_142_SHAPE \
   { \
-    1, 1, 144, 144 \
+    1, 1, 1, 579 \
   }
-#define STAI_NETWORK_ACTIVATIONS_142_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_142_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_142_SCALES \
   { \
-    0.00392156885936856 \
   }
 #define STAI_NETWORK_ACTIVATIONS_142_OFFSETS \
   { \
-    -128 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_143_ALIGNMENT (32)
@@ -7534,14 +7536,14 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_143_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_143_SCALES \
   { \
-    0.056450430303812 \
+    0.0601358525454998 \
   }
 #define STAI_NETWORK_ACTIVATIONS_143_OFFSETS \
   { \
-    3 \
+    4 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_144_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_144_ALIGNMENT (16)
 #define STAI_NETWORK_ACTIVATIONS_144_NAME "SCRATCH_Gemm_291_gemm_27_1_conv_57_PORT_OUT"
 #define STAI_NETWORK_ACTIVATIONS_144_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_144_FORMAT (STAI_FORMAT_Q7)
@@ -7565,192 +7567,192 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_145_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_145_NAME "Gemm_291_gemm_23_0_conv_50"
+#define STAI_NETWORK_ACTIVATIONS_145_NAME "Gemm_291_out_0_16_26_o"
 #define STAI_NETWORK_ACTIVATIONS_145_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_145_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_145_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_145_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_145_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_145_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_145_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_145_HEIGHT (64)
 #define STAI_NETWORK_ACTIVATIONS_145_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_145_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_145_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_145_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_145_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_145_SHAPE \
   { \
-    1, 1, 144, 64 \
+    64, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_145_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_145_SCALES \
   { \
-    0.056450430303812 \
+    0.0601358525454998 \
   }
 #define STAI_NETWORK_ACTIVATIONS_145_OFFSETS \
   { \
-    3 \
+    4 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_146_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_146_NAME "SCRATCH_Gemm_291_gemm_23_0_conv_50_PORT_OUT"
+#define STAI_NETWORK_ACTIVATIONS_146_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_146_NAME "Gemm_291_out_0_16_30_o"
 #define STAI_NETWORK_ACTIVATIONS_146_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_146_FORMAT (STAI_FORMAT_Q7)
-#define STAI_NETWORK_ACTIVATIONS_146_SIZE (579)
-#define STAI_NETWORK_ACTIVATIONS_146_SIZE_BYTES (579)
-#define STAI_NETWORK_ACTIVATIONS_146_CHANNEL (579)
-#define STAI_NETWORK_ACTIVATIONS_146_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_146_WIDTH (1)
-#define STAI_NETWORK_ACTIVATIONS_146_BATCH (579)
-#define STAI_NETWORK_ACTIVATIONS_146_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_146_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_146_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_146_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_146_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_146_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_146_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_146_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_146_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_146_SHAPE \
   { \
-    1, 1, 1, 579 \
+    64, 144, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_146_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_146_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_146_SCALES \
   { \
+    0.0601358525454998 \
   }
 #define STAI_NETWORK_ACTIVATIONS_146_OFFSETS \
   { \
+    4 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_147_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_147_NAME "Gemm_291_out_0_16_30_o"
-#define STAI_NETWORK_ACTIVATIONS_147_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_147_NAME "Gemm_291_matmul_concat_out_22"
+#define STAI_NETWORK_ACTIVATIONS_147_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_147_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_147_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_147_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_147_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_147_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_147_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_147_CHANNEL (2)
 #define STAI_NETWORK_ACTIVATIONS_147_HEIGHT (64)
 #define STAI_NETWORK_ACTIVATIONS_147_WIDTH (144)
 #define STAI_NETWORK_ACTIVATIONS_147_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_147_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_147_SHAPE \
   { \
-    64, 144, 1 \
+    2, 64, 144 \
   }
 #define STAI_NETWORK_ACTIVATIONS_147_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_147_SCALES \
   { \
-    0.056450430303812 \
+    0.0601358525454998 \
   }
 #define STAI_NETWORK_ACTIVATIONS_147_OFFSETS \
   { \
-    3 \
+    4 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_148_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_148_NAME "Gemm_291_out_0_16_26_o"
-#define STAI_NETWORK_ACTIVATIONS_148_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_148_NAME "Reshape_294_out_0"
+#define STAI_NETWORK_ACTIVATIONS_148_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_148_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_148_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_148_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_148_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_148_HEIGHT (64)
-#define STAI_NETWORK_ACTIVATIONS_148_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_148_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_148_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_148_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_148_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_148_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_148_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_148_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_148_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_148_SHAPE \
   { \
-    64, 144, 1 \
+    1, 128, 12, 12 \
   }
 #define STAI_NETWORK_ACTIVATIONS_148_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_148_SCALES \
   { \
-    0.056450430303812 \
+    0.0601358525454998 \
   }
 #define STAI_NETWORK_ACTIVATIONS_148_OFFSETS \
   { \
-    3 \
+    4 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_149_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_149_NAME "Gemm_291_matmul_concat_out_22"
-#define STAI_NETWORK_ACTIVATIONS_149_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
+#define STAI_NETWORK_ACTIVATIONS_149_NAME "Add_299_out_0"
+#define STAI_NETWORK_ACTIVATIONS_149_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_149_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_149_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_149_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_149_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_149_HEIGHT (64)
-#define STAI_NETWORK_ACTIVATIONS_149_WIDTH (144)
-#define STAI_NETWORK_ACTIVATIONS_149_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_149_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_149_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_149_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_149_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_149_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_149_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_149_SHAPE \
   { \
-    2, 64, 144 \
+    1, 12, 12, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_149_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_149_SCALES \
   { \
-    0.056450430303812 \
+    0.0637617558240891 \
   }
 #define STAI_NETWORK_ACTIVATIONS_149_OFFSETS \
   { \
-    3 \
+    -6 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_150_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_150_NAME "Reshape_294_out_0"
-#define STAI_NETWORK_ACTIVATIONS_150_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
-#define STAI_NETWORK_ACTIVATIONS_150_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_150_NAME "Conv2D_302_out_0_cp_in_566_cp_in_567_cp_in_568"
+#define STAI_NETWORK_ACTIVATIONS_150_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_150_FORMAT (STAI_FORMAT_Q15)
 #define STAI_NETWORK_ACTIVATIONS_150_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_150_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_150_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_150_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_150_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_150_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_150_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_150_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_150_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_150_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_150_SHAPE \
   { \
-    1, 128, 12, 12 \
+    1, 8, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_150_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_150_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_150_SCALES \
   { \
-    0.056450430303812 \
   }
 #define STAI_NETWORK_ACTIVATIONS_150_OFFSETS \
   { \
-    3 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_151_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_151_NAME "Add_299_out_0"
-#define STAI_NETWORK_ACTIVATIONS_151_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_151_NAME "Add_305_out_0"
+#define STAI_NETWORK_ACTIVATIONS_151_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_151_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_151_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_151_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_151_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_151_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_151_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_151_BATCH (128)
-#define STAI_NETWORK_ACTIVATIONS_151_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_151_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_151_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_151_SHAPE \
   { \
-    1, 12, 12, 128 \
+    1, 8, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_151_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_151_SCALES \
   { \
-    0.0569905452430248 \
+    0.063169002532959 \
   }
 #define STAI_NETWORK_ACTIVATIONS_151_OFFSETS \
   { \
-    -20 \
+    -62 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_152_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_152_NAME "Conv2D_302_out_0_cp_in_566_cp_in_567_cp_in_568"
+#define STAI_NETWORK_ACTIVATIONS_152_NAME "Conv2D_308_out_0_cp_in_569_cp_in_570_cp_in_571"
 #define STAI_NETWORK_ACTIVATIONS_152_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_152_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_152_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_152_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_152_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_152_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_152_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_152_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_152_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_152_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_152_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_152_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_152_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 16, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_152_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_152_SCALES \
@@ -7761,44 +7763,44 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_153_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_153_NAME "Add_305_out_0"
+#define STAI_NETWORK_ACTIVATIONS_153_NAME "Mul_312_out_0"
 #define STAI_NETWORK_ACTIVATIONS_153_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_153_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_153_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_153_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_153_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_153_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_153_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_153_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_153_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_153_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_153_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_153_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_153_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 16, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_153_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_153_SCALES \
   { \
-    0.0560604408383369 \
+    0.0715624764561653 \
   }
 #define STAI_NETWORK_ACTIVATIONS_153_OFFSETS \
   { \
-    -42 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_154_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_154_NAME "Conv2D_308_out_0_cp_in_569_cp_in_570_cp_in_571"
+#define STAI_NETWORK_ACTIVATIONS_154_NAME "Conv2D_315_out_0_cp_in_572_cp_in_573_cp_in_574"
 #define STAI_NETWORK_ACTIVATIONS_154_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_154_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_154_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_154_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_154_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_154_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_154_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_154_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_154_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_154_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_154_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_154_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_154_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 8, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_154_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_154_SCALES \
@@ -7809,351 +7811,353 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_155_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_155_NAME "Mul_312_out_0"
+#define STAI_NETWORK_ACTIVATIONS_155_NAME "Add_318_out_0_inserted_out2590"
 #define STAI_NETWORK_ACTIVATIONS_155_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_155_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_155_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_155_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_155_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_155_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_155_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_155_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_155_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_155_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_155_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_155_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_155_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 8, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_155_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_155_SCALES \
   { \
-    0.0306764151901007 \
+    0.0805993303656578 \
   }
 #define STAI_NETWORK_ACTIVATIONS_155_OFFSETS \
   { \
-    -119 \
+    -69 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_156_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_156_NAME "Conv2D_315_out_0_cp_in_572_cp_in_573_cp_in_574"
+#define STAI_NETWORK_ACTIVATIONS_156_NAME "Concat_321_out_0"
 #define STAI_NETWORK_ACTIVATIONS_156_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_156_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_156_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_156_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_156_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_156_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_156_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_156_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_156_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_156_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_156_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_156_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_156_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 16, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_156_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_156_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_156_SCALES \
   { \
+    0.0805993303656578 \
   }
 #define STAI_NETWORK_ACTIVATIONS_156_OFFSETS \
   { \
+    -69 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_157_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_157_NAME "Add_318_out_0_inserted_out2586"
+#define STAI_NETWORK_ACTIVATIONS_157_NAME "Conv2D_322_out_0_cp_in_575_cp_in_576_cp_in_577"
 #define STAI_NETWORK_ACTIVATIONS_157_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_157_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_157_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_157_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_157_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_157_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_157_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_157_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_157_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_157_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_157_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_157_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_157_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_157_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 16, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_157_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_157_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_157_SCALES \
   { \
-    0.0637626424431801 \
   }
 #define STAI_NETWORK_ACTIVATIONS_157_OFFSETS \
   { \
-    -56 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_158_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_158_NAME "Concat_321_out_0"
-#define STAI_NETWORK_ACTIVATIONS_158_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_158_NAME "Mul_326_out_0"
+#define STAI_NETWORK_ACTIVATIONS_158_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_158_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_158_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_158_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_158_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_158_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_158_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_158_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_158_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_158_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_158_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_158_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 12, 12, 256 \
   }
 #define STAI_NETWORK_ACTIVATIONS_158_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_158_SCALES \
   { \
-    0.0637626424431801 \
+    0.0274389218539 \
   }
 #define STAI_NETWORK_ACTIVATIONS_158_OFFSETS \
   { \
-    -56 \
+    -118 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_159_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_159_NAME "Conv2D_322_out_0_cp_in_575_cp_in_576_cp_in_577"
+#define STAI_NETWORK_ACTIVATIONS_159_NAME "Mul_326_out_0_inserted_out2786"
 #define STAI_NETWORK_ACTIVATIONS_159_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_159_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_159_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_159_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_159_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_159_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_159_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_159_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_159_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_159_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_159_BATCH (384)
 #define STAI_NETWORK_ACTIVATIONS_159_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_159_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 256, 12, 12, 384 \
   }
-#define STAI_NETWORK_ACTIVATIONS_159_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_159_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_159_SCALES \
   { \
+    0.0608885250985622 \
   }
 #define STAI_NETWORK_ACTIVATIONS_159_OFFSETS \
   { \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_160_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_160_NAME "Mul_326_out_0"
+#define STAI_NETWORK_ACTIVATIONS_160_NAME "Resize_329_resize_NN_expansion_concat_956_out_957"
 #define STAI_NETWORK_ACTIVATIONS_160_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_160_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_160_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_160_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_160_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_160_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_160_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_160_CHANNEL (1024)
 #define STAI_NETWORK_ACTIVATIONS_160_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_160_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_160_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_160_BATCH (1024)
 #define STAI_NETWORK_ACTIVATIONS_160_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_160_SHAPE \
   { \
-    1, 12, 12, 256 \
+    1, 12, 12, 1024 \
   }
 #define STAI_NETWORK_ACTIVATIONS_160_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_160_SCALES \
   { \
-    0.0262101776897907 \
+    0.0274389218539 \
   }
 #define STAI_NETWORK_ACTIVATIONS_160_OFFSETS \
   { \
-    -117 \
+    -118 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_161_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_161_NAME "Mul_326_out_0_inserted_out2790"
-#define STAI_NETWORK_ACTIVATIONS_161_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_161_NAME "Resize_329_resize_NN_expansion_concat_956_out_959"
+#define STAI_NETWORK_ACTIVATIONS_161_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_161_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_161_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_161_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_161_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_161_SIZE_BYTES (147456)
 #define STAI_NETWORK_ACTIVATIONS_161_CHANNEL (256)
-#define STAI_NETWORK_ACTIVATIONS_161_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_161_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_161_BATCH (384)
-#define STAI_NETWORK_ACTIVATIONS_161_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_161_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_161_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_161_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_161_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_161_SHAPE \
   { \
-    1, 256, 12, 12, 384 \
+    1, 24, 24, 256 \
   }
 #define STAI_NETWORK_ACTIVATIONS_161_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_161_SCALES \
   { \
-    0.0498993508517742 \
+    0.0274389218539 \
   }
 #define STAI_NETWORK_ACTIVATIONS_161_OFFSETS \
   { \
-    -122 \
+    -118 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_162_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_162_NAME "Resize_329_resize_NN_expansion_concat_956_out_957"
+#define STAI_NETWORK_ACTIVATIONS_162_NAME "Resize_329_resize_NN_expansion_concat_956_out_959_inserted_out2602"
 #define STAI_NETWORK_ACTIVATIONS_162_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_162_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_162_SIZE (147456)
 #define STAI_NETWORK_ACTIVATIONS_162_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_162_CHANNEL (1024)
-#define STAI_NETWORK_ACTIVATIONS_162_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_162_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_162_BATCH (1024)
+#define STAI_NETWORK_ACTIVATIONS_162_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_162_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_162_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_162_BATCH (256)
 #define STAI_NETWORK_ACTIVATIONS_162_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_162_SHAPE \
   { \
-    1, 12, 12, 1024 \
+    1, 24, 24, 256 \
   }
 #define STAI_NETWORK_ACTIVATIONS_162_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_162_SCALES \
   { \
-    0.0262101776897907 \
+    0.0383891463279724 \
   }
 #define STAI_NETWORK_ACTIVATIONS_162_OFFSETS \
   { \
-    -117 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_163_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_163_NAME "Resize_329_resize_NN_expansion_concat_956_out_959"
+#define STAI_NETWORK_ACTIVATIONS_163_NAME "Concat_330_out_0"
 #define STAI_NETWORK_ACTIVATIONS_163_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_163_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_163_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_163_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_163_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_163_SIZE (221184)
+#define STAI_NETWORK_ACTIVATIONS_163_SIZE_BYTES (221184)
+#define STAI_NETWORK_ACTIVATIONS_163_CHANNEL (384)
 #define STAI_NETWORK_ACTIVATIONS_163_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_163_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_163_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_163_BATCH (384)
 #define STAI_NETWORK_ACTIVATIONS_163_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_163_SHAPE \
   { \
-    1, 24, 24, 256 \
+    1, 24, 24, 384 \
   }
 #define STAI_NETWORK_ACTIVATIONS_163_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_163_SCALES \
   { \
-    0.0262101776897907 \
+    0.0383891463279724 \
   }
 #define STAI_NETWORK_ACTIVATIONS_163_OFFSETS \
-  { \
-    -117 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_164_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_164_NAME "Resize_329_resize_NN_expansion_concat_956_out_959_inserted_out2598"
-#define STAI_NETWORK_ACTIVATIONS_164_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_164_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_164_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_164_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_164_CHANNEL (256)
-#define STAI_NETWORK_ACTIVATIONS_164_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_164_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_164_BATCH (256)
-#define STAI_NETWORK_ACTIVATIONS_164_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_164_SHAPE \
-  { \
-    1, 24, 24, 256 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_164_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_164_SCALES \
-  { \
-    0.0377034395933151 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_164_OFFSETS \
   { \
     -121 \
   }
 
+#define STAI_NETWORK_ACTIVATIONS_164_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_164_NAME "Conv2D_331_out_0_cp_in_578_cp_in_579_cp_in_580"
+#define STAI_NETWORK_ACTIVATIONS_164_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_164_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_164_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_164_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_164_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_164_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_164_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_164_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_164_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_164_SHAPE \
+  { \
+    1, 8, 24, 24, 16 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_164_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_164_SCALES \
+  { \
+  }
+#define STAI_NETWORK_ACTIVATIONS_164_OFFSETS \
+  { \
+  }
+
 #define STAI_NETWORK_ACTIVATIONS_165_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_165_NAME "Concat_330_out_0"
-#define STAI_NETWORK_ACTIVATIONS_165_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_165_NAME "Mul_335_out_0"
+#define STAI_NETWORK_ACTIVATIONS_165_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_165_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_165_SIZE (221184)
-#define STAI_NETWORK_ACTIVATIONS_165_SIZE_BYTES (221184)
-#define STAI_NETWORK_ACTIVATIONS_165_CHANNEL (384)
+#define STAI_NETWORK_ACTIVATIONS_165_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_165_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_165_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_165_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_165_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_165_BATCH (384)
-#define STAI_NETWORK_ACTIVATIONS_165_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_165_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_165_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_165_SHAPE \
   { \
-    1, 24, 24, 384 \
+    1, 8, 24, 24, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_165_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_165_SCALES \
   { \
-    0.0377034395933151 \
+    0.0321800336241722 \
   }
 #define STAI_NETWORK_ACTIVATIONS_165_OFFSETS \
   { \
-    -121 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_166_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_166_NAME "Conv2D_331_out_0_cp_in_578_cp_in_579_cp_in_580"
+#define STAI_NETWORK_ACTIVATIONS_166_NAME "Split_338_out_0"
 #define STAI_NETWORK_ACTIVATIONS_166_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_166_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_166_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_166_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_166_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_166_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_166_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_166_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_166_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_166_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_166_WIDTH (24)
 #define STAI_NETWORK_ACTIVATIONS_166_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_166_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_166_SHAPE \
   { \
-    1, 8, 24, 24, 16 \
+    1, 4, 24, 24, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_166_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_166_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_166_SCALES \
   { \
+    0.0321800336241722 \
   }
 #define STAI_NETWORK_ACTIVATIONS_166_OFFSETS \
   { \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_167_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_167_NAME "Mul_335_out_0"
+#define STAI_NETWORK_ACTIVATIONS_167_NAME "Split_338_out_1"
 #define STAI_NETWORK_ACTIVATIONS_167_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_167_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_167_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_167_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_167_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_167_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_167_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_167_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_167_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_167_WIDTH (24)
 #define STAI_NETWORK_ACTIVATIONS_167_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_167_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_167_SHAPE \
   { \
-    1, 8, 24, 24, 16 \
+    1, 4, 24, 24, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_167_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_167_SCALES \
   { \
-    0.0360326021909714 \
+    0.0321800336241722 \
   }
 #define STAI_NETWORK_ACTIVATIONS_167_OFFSETS \
   { \
-    -120 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_168_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_168_NAME "Split_338_out_0"
-#define STAI_NETWORK_ACTIVATIONS_168_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_168_NAME "Split_338_out_1_inserted_out2612"
+#define STAI_NETWORK_ACTIVATIONS_168_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_168_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_168_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_168_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_168_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_168_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_168_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_168_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_168_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_168_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_168_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_168_SHAPE \
   { \
-    1, 4, 24, 24, 16 \
+    1, 24, 24, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_168_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_168_SCALES \
   { \
-    0.0360326021909714 \
+    0.0321800336241722 \
   }
 #define STAI_NETWORK_ACTIVATIONS_168_OFFSETS \
   { \
-    -120 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_169_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_169_NAME "Split_338_out_1"
+#define STAI_NETWORK_ACTIVATIONS_169_NAME "Split_338_out_1_inserted_out2628"
 #define STAI_NETWORK_ACTIVATIONS_169_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_169_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_169_SIZE (36864)
@@ -8161,74 +8165,72 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_169_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_169_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_169_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_169_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_169_BATCH (192)
 #define STAI_NETWORK_ACTIVATIONS_169_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_169_SHAPE \
   { \
-    1, 4, 24, 24, 16 \
+    1, 64, 24, 24, 192 \
   }
 #define STAI_NETWORK_ACTIVATIONS_169_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_169_SCALES \
   { \
-    0.0360326021909714 \
+    0.0456469245254993 \
   }
 #define STAI_NETWORK_ACTIVATIONS_169_OFFSETS \
   { \
-    -120 \
+    -116 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_170_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_170_NAME "Split_338_out_1_inserted_out2624"
+#define STAI_NETWORK_ACTIVATIONS_170_NAME "Conv2D_339_out_0_cp_in_581_cp_in_582_cp_in_583"
 #define STAI_NETWORK_ACTIVATIONS_170_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_170_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_170_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_170_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_170_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_170_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_170_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_170_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_170_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_170_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_170_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_170_BATCH (4)
 #define STAI_NETWORK_ACTIVATIONS_170_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_170_SHAPE \
   { \
-    1, 64, 24, 24, 192 \
+    1, 8, 24, 24, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_170_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_170_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_170_SCALES \
   { \
-    0.0371246188879013 \
   }
 #define STAI_NETWORK_ACTIVATIONS_170_OFFSETS \
   { \
-    -113 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_171_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_171_NAME "Split_338_out_0_inserted_out2622"
-#define STAI_NETWORK_ACTIVATIONS_171_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_171_NAME "Mul_343_out_0"
+#define STAI_NETWORK_ACTIVATIONS_171_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_171_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_171_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_171_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_171_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_171_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_171_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_171_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_171_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_171_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_171_BATCH (192)
-#define STAI_NETWORK_ACTIVATIONS_171_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_171_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_171_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_171_SHAPE \
   { \
-    1, 64, 24, 24, 192 \
+    1, 24, 24, 32 \
   }
 #define STAI_NETWORK_ACTIVATIONS_171_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_171_SCALES \
   { \
-    0.0371246188879013 \
+    0.0245623607188463 \
   }
 #define STAI_NETWORK_ACTIVATIONS_171_OFFSETS \
   { \
-    -113 \
+    -117 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_172_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_172_NAME "Split_338_out_1_inserted_out2608"
+#define STAI_NETWORK_ACTIVATIONS_172_NAME "Mul_350_out_0"
 #define STAI_NETWORK_ACTIVATIONS_172_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_172_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_172_SIZE (36864)
@@ -8245,384 +8247,386 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_172_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_172_SCALES \
   { \
-    0.0360326021909714 \
+    0.0453185513615608 \
   }
 #define STAI_NETWORK_ACTIVATIONS_172_OFFSETS \
   { \
-    -120 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_173_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_173_NAME "Conv2D_339_out_0_cp_in_581_cp_in_582_cp_in_583"
+#define STAI_NETWORK_ACTIVATIONS_173_NAME "Split_338_out_0_inserted_out2626"
 #define STAI_NETWORK_ACTIVATIONS_173_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_173_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_173_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_173_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_173_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_173_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_173_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_173_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_173_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_173_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_173_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_173_BATCH (192)
 #define STAI_NETWORK_ACTIVATIONS_173_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_173_SHAPE \
   { \
-    1, 8, 24, 24, 4 \
+    1, 64, 24, 24, 192 \
   }
-#define STAI_NETWORK_ACTIVATIONS_173_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_173_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_173_SCALES \
   { \
+    0.0456469245254993 \
   }
 #define STAI_NETWORK_ACTIVATIONS_173_OFFSETS \
   { \
+    -116 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_174_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_174_NAME "Mul_343_out_0"
-#define STAI_NETWORK_ACTIVATIONS_174_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_174_NAME "Add_353_out_0"
+#define STAI_NETWORK_ACTIVATIONS_174_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_174_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_174_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_174_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_174_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_174_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_174_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_174_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_174_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_174_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_174_BATCH (32)
-#define STAI_NETWORK_ACTIVATIONS_174_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_174_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_174_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_174_SHAPE \
   { \
-    1, 24, 24, 32 \
+    1, 64, 24, 24, 192 \
   }
 #define STAI_NETWORK_ACTIVATIONS_174_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_174_SCALES \
   { \
-    0.0248279590159655 \
+    0.0456469245254993 \
   }
 #define STAI_NETWORK_ACTIVATIONS_174_OFFSETS \
   { \
-    -117 \
+    -116 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_175_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_175_NAME "Mul_350_out_0"
+#define STAI_NETWORK_ACTIVATIONS_175_NAME "Concat_356_out_0"
 #define STAI_NETWORK_ACTIVATIONS_175_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_175_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_175_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_175_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_175_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_175_SIZE (110592)
+#define STAI_NETWORK_ACTIVATIONS_175_SIZE_BYTES (110592)
+#define STAI_NETWORK_ACTIVATIONS_175_CHANNEL (192)
 #define STAI_NETWORK_ACTIVATIONS_175_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_175_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_175_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_175_BATCH (192)
 #define STAI_NETWORK_ACTIVATIONS_175_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_175_SHAPE \
   { \
-    1, 24, 24, 64 \
+    1, 24, 24, 192 \
   }
 #define STAI_NETWORK_ACTIVATIONS_175_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_175_SCALES \
   { \
-    0.0336051099002361 \
+    0.0456469245254993 \
   }
 #define STAI_NETWORK_ACTIVATIONS_175_OFFSETS \
   { \
-    -120 \
+    -116 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_176_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_176_NAME "Add_353_out_0_inserted_out2626"
+#define STAI_NETWORK_ACTIVATIONS_176_NAME "Conv2D_357_out_0_cp_in_587_cp_in_588_cp_in_589"
 #define STAI_NETWORK_ACTIVATIONS_176_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_176_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_176_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_176_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_176_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_176_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_176_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_176_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_176_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_176_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_176_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_176_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_176_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_176_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_176_SHAPE \
   { \
-    1, 64, 24, 24, 192 \
+    1, 8, 24, 24, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_176_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_176_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_176_SCALES \
   { \
-    0.0371246188879013 \
   }
 #define STAI_NETWORK_ACTIVATIONS_176_OFFSETS \
   { \
-    -113 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_177_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_177_NAME "Concat_356_out_0"
+#define STAI_NETWORK_ACTIVATIONS_177_NAME "Mul_361_out_0"
 #define STAI_NETWORK_ACTIVATIONS_177_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_177_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_177_SIZE (110592)
-#define STAI_NETWORK_ACTIVATIONS_177_SIZE_BYTES (110592)
-#define STAI_NETWORK_ACTIVATIONS_177_CHANNEL (192)
+#define STAI_NETWORK_ACTIVATIONS_177_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_177_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_177_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_177_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_177_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_177_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_177_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_177_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_177_SHAPE \
   { \
-    1, 24, 24, 192 \
+    1, 24, 24, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_177_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_177_SCALES \
   { \
-    0.0371246188879013 \
+    0.0338341481983662 \
   }
 #define STAI_NETWORK_ACTIVATIONS_177_OFFSETS \
   { \
-    -113 \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_178_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_178_NAME "Conv2D_357_out_0_cp_in_587_cp_in_588_cp_in_589"
-#define STAI_NETWORK_ACTIVATIONS_178_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_178_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_178_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_178_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_178_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_178_NAME "Resize_364_resize_NN_expansion_concat_960_out_961"
+#define STAI_NETWORK_ACTIVATIONS_178_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_178_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_178_SIZE (294912)
+#define STAI_NETWORK_ACTIVATIONS_178_SIZE_BYTES (294912)
+#define STAI_NETWORK_ACTIVATIONS_178_CHANNEL (512)
 #define STAI_NETWORK_ACTIVATIONS_178_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_178_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_178_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_178_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_178_BATCH (512)
+#define STAI_NETWORK_ACTIVATIONS_178_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_178_SHAPE \
   { \
-    1, 8, 24, 24, 16 \
+    1, 24, 24, 512 \
   }
-#define STAI_NETWORK_ACTIVATIONS_178_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_178_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_178_SCALES \
   { \
+    0.0338341481983662 \
   }
 #define STAI_NETWORK_ACTIVATIONS_178_OFFSETS \
   { \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_179_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_179_NAME "Mul_361_out_0"
-#define STAI_NETWORK_ACTIVATIONS_179_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_179_NAME "Mul_361_out_0_inserted_out2698"
+#define STAI_NETWORK_ACTIVATIONS_179_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_179_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_179_SIZE (73728)
 #define STAI_NETWORK_ACTIVATIONS_179_SIZE_BYTES (73728)
 #define STAI_NETWORK_ACTIVATIONS_179_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_179_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_179_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_179_BATCH (128)
-#define STAI_NETWORK_ACTIVATIONS_179_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_179_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_179_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_179_SHAPE \
   { \
-    1, 24, 24, 128 \
+    1, 128, 24, 24, 192 \
   }
 #define STAI_NETWORK_ACTIVATIONS_179_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_179_SCALES \
   { \
-    0.0302560217678547 \
+    0.0600400045514107 \
   }
 #define STAI_NETWORK_ACTIVATIONS_179_OFFSETS \
   { \
-    -119 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_180_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_180_NAME "Mul_361_out_0_inserted_out2698"
-#define STAI_NETWORK_ACTIVATIONS_180_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_180_NAME "Resize_364_resize_NN_expansion_concat_960_out_963"
+#define STAI_NETWORK_ACTIVATIONS_180_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_180_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_180_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_180_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_180_SIZE (294912)
+#define STAI_NETWORK_ACTIVATIONS_180_SIZE_BYTES (294912)
 #define STAI_NETWORK_ACTIVATIONS_180_CHANNEL (128)
-#define STAI_NETWORK_ACTIVATIONS_180_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_180_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_180_BATCH (192)
-#define STAI_NETWORK_ACTIVATIONS_180_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_180_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_180_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_180_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_180_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_180_SHAPE \
   { \
-    1, 128, 24, 24, 192 \
+    1, 48, 48, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_180_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_180_SCALES \
   { \
-    0.049601923674345 \
+    0.0338341481983662 \
   }
 #define STAI_NETWORK_ACTIVATIONS_180_OFFSETS \
   { \
-    -122 \
+    -120 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_181_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_181_NAME "Resize_364_resize_NN_expansion_concat_960_out_961"
+#define STAI_NETWORK_ACTIVATIONS_181_NAME "Resize_364_resize_NN_expansion_concat_960_out_963_inserted_out2640"
 #define STAI_NETWORK_ACTIVATIONS_181_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_181_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_181_SIZE (294912)
 #define STAI_NETWORK_ACTIVATIONS_181_SIZE_BYTES (294912)
-#define STAI_NETWORK_ACTIVATIONS_181_CHANNEL (512)
-#define STAI_NETWORK_ACTIVATIONS_181_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_181_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_181_BATCH (512)
+#define STAI_NETWORK_ACTIVATIONS_181_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_181_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_181_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_181_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_181_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_181_SHAPE \
   { \
-    1, 24, 24, 512 \
+    1, 48, 48, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_181_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_181_SCALES \
   { \
-    0.0302560217678547 \
+    0.0403712056577206 \
   }
 #define STAI_NETWORK_ACTIVATIONS_181_OFFSETS \
   { \
-    -119 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_182_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_182_NAME "Resize_364_resize_NN_expansion_concat_960_out_963"
+#define STAI_NETWORK_ACTIVATIONS_182_NAME "Concat_365_out_0"
 #define STAI_NETWORK_ACTIVATIONS_182_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_182_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_182_SIZE (294912)
-#define STAI_NETWORK_ACTIVATIONS_182_SIZE_BYTES (294912)
-#define STAI_NETWORK_ACTIVATIONS_182_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_182_SIZE (589824)
+#define STAI_NETWORK_ACTIVATIONS_182_SIZE_BYTES (589824)
+#define STAI_NETWORK_ACTIVATIONS_182_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_182_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_182_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_182_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_182_BATCH (256)
 #define STAI_NETWORK_ACTIVATIONS_182_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_182_SHAPE \
   { \
-    1, 48, 48, 128 \
+    1, 48, 48, 256 \
   }
 #define STAI_NETWORK_ACTIVATIONS_182_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_182_SCALES \
   { \
-    0.0302560217678547 \
+    0.0403712056577206 \
   }
 #define STAI_NETWORK_ACTIVATIONS_182_OFFSETS \
   { \
-    -119 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_183_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_183_NAME "Resize_364_resize_NN_expansion_concat_960_out_963_inserted_out2640"
-#define STAI_NETWORK_ACTIVATIONS_183_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_183_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_183_SIZE (294912)
+#define STAI_NETWORK_ACTIVATIONS_183_NAME "Conv2D_366_out_0_cp_in_590_cp_in_591_cp_in_592"
+#define STAI_NETWORK_ACTIVATIONS_183_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_183_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_183_SIZE (147456)
 #define STAI_NETWORK_ACTIVATIONS_183_SIZE_BYTES (294912)
-#define STAI_NETWORK_ACTIVATIONS_183_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_183_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_183_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_183_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_183_BATCH (128)
-#define STAI_NETWORK_ACTIVATIONS_183_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_183_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_183_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_183_SHAPE \
   { \
-    1, 48, 48, 128 \
+    1, 4, 48, 48, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_183_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_183_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_183_SCALES \
   { \
-    0.0455001480877399 \
   }
 #define STAI_NETWORK_ACTIVATIONS_183_OFFSETS \
   { \
-    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_184_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_184_NAME "Concat_365_out_0"
-#define STAI_NETWORK_ACTIVATIONS_184_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_184_NAME "Mul_370_out_0"
+#define STAI_NETWORK_ACTIVATIONS_184_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_184_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_184_SIZE (589824)
-#define STAI_NETWORK_ACTIVATIONS_184_SIZE_BYTES (589824)
-#define STAI_NETWORK_ACTIVATIONS_184_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_184_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_184_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_184_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_184_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_184_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_184_BATCH (256)
-#define STAI_NETWORK_ACTIVATIONS_184_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_184_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_184_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_184_SHAPE \
   { \
-    1, 48, 48, 256 \
+    1, 4, 48, 48, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_184_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_184_SCALES \
   { \
-    0.0455001480877399 \
+    0.0299881771206856 \
   }
 #define STAI_NETWORK_ACTIVATIONS_184_OFFSETS \
   { \
-    -122 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_185_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_185_NAME "Conv2D_366_out_0_cp_in_590_cp_in_591_cp_in_592"
+#define STAI_NETWORK_ACTIVATIONS_185_NAME "Split_373_out_0"
 #define STAI_NETWORK_ACTIVATIONS_185_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_185_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_185_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_185_SIZE_BYTES (294912)
-#define STAI_NETWORK_ACTIVATIONS_185_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_185_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_185_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_185_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_185_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_185_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_185_WIDTH (48)
 #define STAI_NETWORK_ACTIVATIONS_185_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_185_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_185_SHAPE \
   { \
-    1, 4, 48, 48, 16 \
+    1, 2, 48, 48, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_185_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_185_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_185_SCALES \
   { \
+    0.0299881771206856 \
   }
 #define STAI_NETWORK_ACTIVATIONS_185_OFFSETS \
   { \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_186_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_186_NAME "Mul_370_out_0"
+#define STAI_NETWORK_ACTIVATIONS_186_NAME "Split_373_out_1"
 #define STAI_NETWORK_ACTIVATIONS_186_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_186_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_186_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_186_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_186_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_186_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_186_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_186_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_186_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_186_WIDTH (48)
 #define STAI_NETWORK_ACTIVATIONS_186_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_186_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_186_SHAPE \
   { \
-    1, 4, 48, 48, 16 \
+    1, 2, 48, 48, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_186_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_186_SCALES \
   { \
-    0.0279221534729004 \
+    0.0299881771206856 \
   }
 #define STAI_NETWORK_ACTIVATIONS_186_OFFSETS \
   { \
-    -118 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_187_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_187_NAME "Split_373_out_0"
-#define STAI_NETWORK_ACTIVATIONS_187_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_187_NAME "Split_373_out_1_inserted_out2650"
+#define STAI_NETWORK_ACTIVATIONS_187_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_187_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_187_SIZE (73728)
 #define STAI_NETWORK_ACTIVATIONS_187_SIZE_BYTES (73728)
 #define STAI_NETWORK_ACTIVATIONS_187_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_187_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_187_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_187_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_187_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_187_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_187_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_187_SHAPE \
   { \
-    1, 2, 48, 48, 16 \
+    1, 48, 48, 32 \
   }
 #define STAI_NETWORK_ACTIVATIONS_187_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_187_SCALES \
   { \
-    0.0279221534729004 \
+    0.0299881771206856 \
   }
 #define STAI_NETWORK_ACTIVATIONS_187_OFFSETS \
   { \
-    -118 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_188_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_188_NAME "Split_373_out_1"
+#define STAI_NETWORK_ACTIVATIONS_188_NAME "Split_373_out_1_inserted_out2662"
 #define STAI_NETWORK_ACTIVATIONS_188_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_188_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_188_SIZE (73728)
@@ -8630,166 +8634,166 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_188_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_188_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_188_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_188_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_188_BATCH (96)
 #define STAI_NETWORK_ACTIVATIONS_188_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_188_SHAPE \
   { \
-    1, 2, 48, 48, 16 \
+    1, 32, 48, 48, 96 \
   }
 #define STAI_NETWORK_ACTIVATIONS_188_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_188_SCALES \
   { \
-    0.0279221534729004 \
+    0.092809334397316 \
   }
 #define STAI_NETWORK_ACTIVATIONS_188_OFFSETS \
   { \
-    -118 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_189_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_189_NAME "Split_373_out_1_inserted_out2662"
-#define STAI_NETWORK_ACTIVATIONS_189_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_189_NAME "Mul_378_out_0"
+#define STAI_NETWORK_ACTIVATIONS_189_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_189_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_189_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_189_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_189_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_189_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_189_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_189_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_189_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_189_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_189_BATCH (96)
-#define STAI_NETWORK_ACTIVATIONS_189_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_189_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_189_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_189_SHAPE \
   { \
-    1, 32, 48, 48, 96 \
+    1, 48, 48, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_189_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_189_SCALES \
   { \
-    0.0731439217925072 \
+    0.0250262133777142 \
   }
 #define STAI_NETWORK_ACTIVATIONS_189_OFFSETS \
   { \
-    -120 \
+    -117 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_190_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_190_NAME "Split_373_out_0_inserted_out2660"
-#define STAI_NETWORK_ACTIVATIONS_190_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_190_NAME "Mul_385_out_0"
+#define STAI_NETWORK_ACTIVATIONS_190_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_190_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_190_SIZE (73728)
 #define STAI_NETWORK_ACTIVATIONS_190_SIZE_BYTES (73728)
 #define STAI_NETWORK_ACTIVATIONS_190_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_190_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_190_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_190_BATCH (96)
-#define STAI_NETWORK_ACTIVATIONS_190_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_190_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_190_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_190_SHAPE \
   { \
-    1, 32, 48, 48, 96 \
+    1, 48, 48, 32 \
   }
 #define STAI_NETWORK_ACTIVATIONS_190_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_190_SCALES \
   { \
-    0.0731439217925072 \
+    0.0889773592352867 \
   }
 #define STAI_NETWORK_ACTIVATIONS_190_OFFSETS \
   { \
-    -120 \
+    -125 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_191_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_191_NAME "Split_373_out_1_inserted_out2650"
-#define STAI_NETWORK_ACTIVATIONS_191_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_191_NAME "Split_373_out_0_inserted_out2660"
+#define STAI_NETWORK_ACTIVATIONS_191_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_191_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_191_SIZE (73728)
 #define STAI_NETWORK_ACTIVATIONS_191_SIZE_BYTES (73728)
 #define STAI_NETWORK_ACTIVATIONS_191_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_191_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_191_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_191_BATCH (32)
-#define STAI_NETWORK_ACTIVATIONS_191_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_191_BATCH (96)
+#define STAI_NETWORK_ACTIVATIONS_191_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_191_SHAPE \
   { \
-    1, 48, 48, 32 \
+    1, 32, 48, 48, 96 \
   }
 #define STAI_NETWORK_ACTIVATIONS_191_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_191_SCALES \
   { \
-    0.0279221534729004 \
+    0.092809334397316 \
   }
 #define STAI_NETWORK_ACTIVATIONS_191_OFFSETS \
   { \
-    -118 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_192_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_192_NAME "Mul_378_out_0"
-#define STAI_NETWORK_ACTIVATIONS_192_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_192_NAME "Add_388_out_0"
+#define STAI_NETWORK_ACTIVATIONS_192_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_192_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_192_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_192_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_192_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_192_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_192_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_192_CHANNEL (32)
 #define STAI_NETWORK_ACTIVATIONS_192_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_192_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_192_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_192_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_192_BATCH (96)
+#define STAI_NETWORK_ACTIVATIONS_192_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_192_SHAPE \
   { \
-    1, 48, 48, 16 \
+    1, 32, 48, 48, 96 \
   }
 #define STAI_NETWORK_ACTIVATIONS_192_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_192_SCALES \
   { \
-    0.0325355231761932 \
+    0.092809334397316 \
   }
 #define STAI_NETWORK_ACTIVATIONS_192_OFFSETS \
   { \
-    -119 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_193_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_193_NAME "Mul_385_out_0"
+#define STAI_NETWORK_ACTIVATIONS_193_NAME "Concat_391_out_0"
 #define STAI_NETWORK_ACTIVATIONS_193_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_193_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_193_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_193_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_193_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_193_SIZE (221184)
+#define STAI_NETWORK_ACTIVATIONS_193_SIZE_BYTES (221184)
+#define STAI_NETWORK_ACTIVATIONS_193_CHANNEL (96)
 #define STAI_NETWORK_ACTIVATIONS_193_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_193_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_193_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_193_BATCH (96)
 #define STAI_NETWORK_ACTIVATIONS_193_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_193_SHAPE \
   { \
-    1, 48, 48, 32 \
+    1, 48, 48, 96 \
   }
 #define STAI_NETWORK_ACTIVATIONS_193_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_193_SCALES \
   { \
-    0.0670070573687553 \
+    0.092809334397316 \
   }
 #define STAI_NETWORK_ACTIVATIONS_193_OFFSETS \
   { \
-    -124 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_194_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_194_NAME "Add_388_out_0"
-#define STAI_NETWORK_ACTIVATIONS_194_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_194_NAME "Mul_396_out_0"
+#define STAI_NETWORK_ACTIVATIONS_194_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_194_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_194_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_194_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_194_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_194_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_194_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_194_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_194_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_194_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_194_BATCH (96)
-#define STAI_NETWORK_ACTIVATIONS_194_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_194_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_194_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_194_SHAPE \
   { \
-    1, 32, 48, 48, 96 \
+    1, 48, 48, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_194_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_194_SCALES \
   { \
-    0.0731439217925072 \
+    0.0359653159976006 \
   }
 #define STAI_NETWORK_ACTIVATIONS_194_OFFSETS \
   { \
@@ -8797,297 +8801,299 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_195_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_195_NAME "Concat_391_out_0"
-#define STAI_NETWORK_ACTIVATIONS_195_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_195_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_195_SIZE (221184)
-#define STAI_NETWORK_ACTIVATIONS_195_SIZE_BYTES (221184)
-#define STAI_NETWORK_ACTIVATIONS_195_CHANNEL (96)
-#define STAI_NETWORK_ACTIVATIONS_195_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_195_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_195_BATCH (96)
-#define STAI_NETWORK_ACTIVATIONS_195_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_195_NAME "Conv2D_467_out_0_cp_in_603_cp_in_604_cp_in_605"
+#define STAI_NETWORK_ACTIVATIONS_195_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_195_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_195_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_195_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_195_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_195_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_195_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_195_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_195_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_195_SHAPE \
-  { \
-    1, 48, 48, 96 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_195_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_195_SCALES \
-  { \
-    0.0731439217925072 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_195_OFFSETS \
-  { \
-    -120 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_196_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_196_NAME "Mul_396_out_0"
-#define STAI_NETWORK_ACTIVATIONS_196_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_196_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_196_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_196_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_196_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_196_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_196_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_196_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_196_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_196_SHAPE \
-  { \
-    1, 48, 48, 64 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_196_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_196_SCALES \
-  { \
-    0.0342645980417728 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_196_OFFSETS \
-  { \
-    -120 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_197_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_197_NAME "Conv2D_467_out_0_cp_in_603_cp_in_604_cp_in_605"
-#define STAI_NETWORK_ACTIVATIONS_197_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_197_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_197_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_197_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_197_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_197_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_197_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_197_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_197_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_197_SHAPE \
   { \
     1, 16, 24, 24, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_197_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_197_SCALES \
+#define STAI_NETWORK_ACTIVATIONS_195_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_195_SCALES \
   { \
   }
-#define STAI_NETWORK_ACTIVATIONS_197_OFFSETS \
-  { \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_198_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_198_NAME "Mul_471_out_0"
-#define STAI_NETWORK_ACTIVATIONS_198_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_198_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_198_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_198_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_198_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_198_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_198_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_198_BATCH (192)
-#define STAI_NETWORK_ACTIVATIONS_198_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_198_SHAPE \
-  { \
-    1, 64, 24, 24, 192 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_198_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_198_SCALES \
-  { \
-    0.049601923674345 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_198_OFFSETS \
-  { \
-    -122 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_199_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_199_NAME "Conv2D_449_out_0_cp_in_606_cp_in_607_cp_in_608"
-#define STAI_NETWORK_ACTIVATIONS_199_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_199_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_199_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_199_SIZE_BYTES (294912)
-#define STAI_NETWORK_ACTIVATIONS_199_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_199_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_199_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_199_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_199_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_199_SHAPE \
-  { \
-    1, 16, 48, 48, 4 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_199_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_199_SCALES \
-  { \
-  }
-#define STAI_NETWORK_ACTIVATIONS_199_OFFSETS \
+#define STAI_NETWORK_ACTIVATIONS_195_OFFSETS \
   { \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_200_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_200_NAME "Conv2D_399_out_0_cp_in_600_cp_in_601_cp_in_602"
-#define STAI_NETWORK_ACTIVATIONS_200_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_200_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_200_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_200_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_200_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_200_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_200_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_200_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_200_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_200_SHAPE \
+#define STAI_NETWORK_ACTIVATIONS_196_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_196_NAME "Conv2D_399_out_0_cp_in_600_cp_in_601_cp_in_602"
+#define STAI_NETWORK_ACTIVATIONS_196_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_196_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_196_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_196_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_196_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_196_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_196_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_196_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_196_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_196_SHAPE \
   { \
     1, 4, 48, 48, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_200_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_200_SCALES \
+#define STAI_NETWORK_ACTIVATIONS_196_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_196_SCALES \
   { \
   }
-#define STAI_NETWORK_ACTIVATIONS_200_OFFSETS \
+#define STAI_NETWORK_ACTIVATIONS_196_OFFSETS \
   { \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_201_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_201_NAME "Mul_403_out_0"
-#define STAI_NETWORK_ACTIVATIONS_201_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_201_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_201_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_201_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_201_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_201_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_201_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_201_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_201_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_201_SHAPE \
+#define STAI_NETWORK_ACTIVATIONS_197_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_197_NAME "Mul_471_out_0"
+#define STAI_NETWORK_ACTIVATIONS_197_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_197_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_197_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_197_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_197_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_197_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_197_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_197_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_197_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_197_SHAPE \
+  { \
+    1, 64, 24, 24, 192 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_197_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_197_SCALES \
+  { \
+    0.0600400045514107 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_197_OFFSETS \
+  { \
+    -123 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_198_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_198_NAME "Conv2D_449_out_0_cp_in_606_cp_in_607_cp_in_608"
+#define STAI_NETWORK_ACTIVATIONS_198_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_198_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_198_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_198_SIZE_BYTES (294912)
+#define STAI_NETWORK_ACTIVATIONS_198_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_198_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_198_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_198_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_198_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_198_SHAPE \
+  { \
+    1, 16, 48, 48, 4 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_198_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_198_SCALES \
+  { \
+  }
+#define STAI_NETWORK_ACTIVATIONS_198_OFFSETS \
+  { \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_199_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_199_NAME "Mul_453_out_0"
+#define STAI_NETWORK_ACTIVATIONS_199_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_199_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_199_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_199_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_199_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_199_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_199_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_199_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_199_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_199_SHAPE \
+  { \
+    1, 48, 48, 64 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_199_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_199_SCALES \
+  { \
+    0.0334652177989483 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_199_OFFSETS \
+  { \
+    -120 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_200_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_200_NAME "Mul_403_out_0"
+#define STAI_NETWORK_ACTIVATIONS_200_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_200_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_200_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_200_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_200_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_200_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_200_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_200_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_200_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_200_SHAPE \
   { \
     1, 48, 48, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_201_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_201_SCALES \
+#define STAI_NETWORK_ACTIVATIONS_200_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_200_SCALES \
   { \
-    0.085060253739357 \
+    0.0977433249354362 \
   }
-#define STAI_NETWORK_ACTIVATIONS_201_OFFSETS \
+#define STAI_NETWORK_ACTIVATIONS_200_OFFSETS \
   { \
     -125 \
   }
 
+#define STAI_NETWORK_ACTIVATIONS_201_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_201_NAME "Conv2D_456_out_0_cp_in_612_cp_in_613_cp_in_614"
+#define STAI_NETWORK_ACTIVATIONS_201_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_201_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_201_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_201_SIZE_BYTES (294912)
+#define STAI_NETWORK_ACTIVATIONS_201_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_201_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_201_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_201_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_201_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_201_SHAPE \
+  { \
+    1, 16, 48, 48, 4 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_201_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_201_SCALES \
+  { \
+  }
+#define STAI_NETWORK_ACTIVATIONS_201_OFFSETS \
+  { \
+  }
+
 #define STAI_NETWORK_ACTIVATIONS_202_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_202_NAME "Mul_453_out_0"
+#define STAI_NETWORK_ACTIVATIONS_202_NAME "Mul_410_out_0"
 #define STAI_NETWORK_ACTIVATIONS_202_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_202_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_202_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_202_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_202_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_202_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_202_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_202_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_202_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_202_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_202_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_202_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_202_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_202_SHAPE \
   { \
-    1, 48, 48, 64 \
+    1, 48, 48, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_202_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_202_SCALES \
   { \
-    0.0347540676593781 \
+    0.0458640605211258 \
   }
 #define STAI_NETWORK_ACTIVATIONS_202_OFFSETS \
-  { \
-    -120 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_203_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_203_NAME "Concat_474_out_0"
-#define STAI_NETWORK_ACTIVATIONS_203_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_203_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_203_SIZE (110592)
-#define STAI_NETWORK_ACTIVATIONS_203_SIZE_BYTES (110592)
-#define STAI_NETWORK_ACTIVATIONS_203_CHANNEL (192)
-#define STAI_NETWORK_ACTIVATIONS_203_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_203_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_203_BATCH (192)
-#define STAI_NETWORK_ACTIVATIONS_203_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_203_SHAPE \
-  { \
-    1, 24, 24, 192 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_203_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_203_SCALES \
-  { \
-    0.049601923674345 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_203_OFFSETS \
   { \
     -122 \
   }
 
+#define STAI_NETWORK_ACTIVATIONS_203_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_203_NAME "Mul_460_out_0"
+#define STAI_NETWORK_ACTIVATIONS_203_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_203_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_203_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_203_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_203_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_203_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_203_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_203_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_203_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_203_SHAPE \
+  { \
+    1, 48, 48, 64 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_203_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_203_SCALES \
+  { \
+    0.0607696175575256 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_203_OFFSETS \
+  { \
+    -123 \
+  }
+
 #define STAI_NETWORK_ACTIVATIONS_204_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_204_NAME "Mul_421_out_0"
-#define STAI_NETWORK_ACTIVATIONS_204_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_204_NAME "Conv2D_417_off_bias_out_526"
+#define STAI_NETWORK_ACTIVATIONS_204_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_204_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_204_SIZE (147456)
 #define STAI_NETWORK_ACTIVATIONS_204_SIZE_BYTES (147456)
 #define STAI_NETWORK_ACTIVATIONS_204_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_204_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_204_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_204_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_204_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_204_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_204_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_204_SHAPE \
   { \
-    1, 48, 48, 64 \
+    1, 16, 48, 48, 4 \
   }
 #define STAI_NETWORK_ACTIVATIONS_204_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_204_SCALES \
   { \
-    0.0396203361451626 \
+    0.0984129533171654 \
   }
 #define STAI_NETWORK_ACTIVATIONS_204_OFFSETS \
   { \
-    -121 \
+    17 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_205_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_205_NAME "Conv2D_406_out_0_cp_in_615"
-#define STAI_NETWORK_ACTIVATIONS_205_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_205_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_205_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_205_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_205_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_205_NAME "Conv2D_463_off_bias_out_589"
+#define STAI_NETWORK_ACTIVATIONS_205_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_205_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_205_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_205_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_205_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_205_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_205_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_205_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_205_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_205_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_205_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_205_SHAPE \
   { \
-    1, 4, 48, 48, 4 \
+    1, 48, 48, 64 \
   }
-#define STAI_NETWORK_ACTIVATIONS_205_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_205_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_205_SCALES \
   { \
+    0.106556162238121 \
   }
 #define STAI_NETWORK_ACTIVATIONS_205_OFFSETS \
   { \
+    -36 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_206_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_206_NAME "Conv2D_424_out_0_cp_in_609_cp_in_610_cp_in_611"
-#define STAI_NETWORK_ACTIVATIONS_206_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_206_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_206_NAME "Mul_421_out_0"
+#define STAI_NETWORK_ACTIVATIONS_206_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_206_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_206_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_206_SIZE_BYTES (294912)
+#define STAI_NETWORK_ACTIVATIONS_206_SIZE_BYTES (147456)
 #define STAI_NETWORK_ACTIVATIONS_206_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_206_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_206_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_206_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_206_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_206_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_206_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_206_SHAPE \
   { \
-    1, 4, 48, 48, 16 \
+    1, 48, 48, 64 \
   }
-#define STAI_NETWORK_ACTIVATIONS_206_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_206_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_206_SCALES \
   { \
+    0.0436131842434406 \
   }
 #define STAI_NETWORK_ACTIVATIONS_206_OFFSETS \
   { \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_207_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_207_NAME "Conv2D_456_out_0_cp_in_612_cp_in_613_cp_in_614"
+#define STAI_NETWORK_ACTIVATIONS_207_NAME "Conv2D_424_out_0_cp_in_609_cp_in_610_cp_in_611"
 #define STAI_NETWORK_ACTIVATIONS_207_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_207_FORMAT (STAI_FORMAT_Q15)
 #define STAI_NETWORK_ACTIVATIONS_207_SIZE (147456)
@@ -9095,11 +9101,11 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_207_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_207_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_207_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_207_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_207_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_207_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_207_SHAPE \
   { \
-    1, 16, 48, 48, 4 \
+    1, 4, 48, 48, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_207_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_207_SCALES \
@@ -9110,53 +9116,53 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_208_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_208_NAME "Mul_428_out_0"
+#define STAI_NETWORK_ACTIVATIONS_208_NAME "Reshape_466_out_0"
 #define STAI_NETWORK_ACTIVATIONS_208_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_208_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_208_SIZE (147456)
 #define STAI_NETWORK_ACTIVATIONS_208_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_208_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_208_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_208_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_208_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_208_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_208_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_208_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_208_WIDTH (2304)
+#define STAI_NETWORK_ACTIVATIONS_208_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_208_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_208_SHAPE \
   { \
-    1, 48, 48, 64 \
+    64, 2304, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_208_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_208_SCALES \
   { \
-    0.0664865002036095 \
+    0.106556162238121 \
   }
 #define STAI_NETWORK_ACTIVATIONS_208_OFFSETS \
   { \
-    -124 \
+    -36 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_209_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_209_NAME "Mul_460_out_0"
+#define STAI_NETWORK_ACTIVATIONS_209_NAME "Concat_474_out_0"
 #define STAI_NETWORK_ACTIVATIONS_209_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_209_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_209_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_209_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_209_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_209_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_209_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_209_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_209_SIZE (110592)
+#define STAI_NETWORK_ACTIVATIONS_209_SIZE_BYTES (110592)
+#define STAI_NETWORK_ACTIVATIONS_209_CHANNEL (192)
+#define STAI_NETWORK_ACTIVATIONS_209_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_209_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_209_BATCH (192)
 #define STAI_NETWORK_ACTIVATIONS_209_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_209_SHAPE \
   { \
-    1, 48, 48, 64 \
+    1, 24, 24, 192 \
   }
 #define STAI_NETWORK_ACTIVATIONS_209_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_209_SCALES \
   { \
-    0.0381922237575054 \
+    0.0600400045514107 \
   }
 #define STAI_NETWORK_ACTIVATIONS_209_OFFSETS \
   { \
-    -121 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_210_ALIGNMENT (32)
@@ -9200,7 +9206,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_211_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_211_SCALES \
   { \
-    0.0598997883498669 \
+    0.0595464669167995 \
   }
 #define STAI_NETWORK_ACTIVATIONS_211_OFFSETS \
   { \
@@ -9208,590 +9214,586 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_212_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_212_NAME "Conv2D_406_off_bias_out_508"
-#define STAI_NETWORK_ACTIVATIONS_212_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_212_NAME "Mul_428_out_0"
+#define STAI_NETWORK_ACTIVATIONS_212_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_212_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_212_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_212_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_212_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_212_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_212_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_212_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_212_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_212_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_212_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_212_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_212_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_212_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_212_SHAPE \
   { \
-    1, 4, 48, 48, 4 \
+    1, 48, 48, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_212_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_212_SCALES \
   { \
-    0.187427505850792 \
+    0.0626158118247986 \
   }
 #define STAI_NETWORK_ACTIVATIONS_212_OFFSETS \
   { \
-    82 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_213_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_213_NAME "Mul_435_out_0"
-#define STAI_NETWORK_ACTIVATIONS_213_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_213_NAME "Split_482_out_0"
+#define STAI_NETWORK_ACTIVATIONS_213_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_213_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_213_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_213_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_213_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_213_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_213_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_213_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_213_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_213_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_213_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_213_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_213_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_213_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_213_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_213_SHAPE \
   { \
-    1, 48, 48, 64 \
+    1, 4, 24, 24, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_213_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_213_SCALES \
   { \
-    0.0997518301010132 \
+    0.0595464669167995 \
   }
 #define STAI_NETWORK_ACTIVATIONS_213_OFFSETS \
   { \
-    -125 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_214_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_214_NAME "Mul_410_out_0"
-#define STAI_NETWORK_ACTIVATIONS_214_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_214_NAME "Split_482_out_1"
+#define STAI_NETWORK_ACTIVATIONS_214_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_214_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_214_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_214_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_214_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_214_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_214_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_214_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_214_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_214_WIDTH (24)
 #define STAI_NETWORK_ACTIVATIONS_214_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_214_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_214_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_214_SHAPE \
   { \
-    1, 48, 48, 16 \
+    1, 4, 24, 24, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_214_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_214_SCALES \
   { \
-    0.0340115651488304 \
+    0.0595464669167995 \
   }
 #define STAI_NETWORK_ACTIVATIONS_214_OFFSETS \
   { \
-    -120 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_215_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_215_NAME "Split_482_out_0"
-#define STAI_NETWORK_ACTIVATIONS_215_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_215_NAME "Conv2D_413_off_bias_out_517"
+#define STAI_NETWORK_ACTIVATIONS_215_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_215_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_215_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_215_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_215_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_215_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_215_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_215_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_215_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_215_SIZE (2304)
+#define STAI_NETWORK_ACTIVATIONS_215_SIZE_BYTES (2304)
+#define STAI_NETWORK_ACTIVATIONS_215_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_215_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_215_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_215_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_215_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_215_SHAPE \
   { \
-    1, 4, 24, 24, 16 \
+    1, 48, 48, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_215_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_215_SCALES \
   { \
-    0.0598997883498669 \
+    0.0196084622293711 \
   }
 #define STAI_NETWORK_ACTIVATIONS_215_OFFSETS \
   { \
-    -123 \
+    47 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_216_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_216_NAME "Split_482_out_1"
-#define STAI_NETWORK_ACTIVATIONS_216_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_216_NAME "Reshape_416_out_0"
+#define STAI_NETWORK_ACTIVATIONS_216_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_216_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_216_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_216_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_216_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_216_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_216_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_216_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_216_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_216_SIZE (2304)
+#define STAI_NETWORK_ACTIVATIONS_216_SIZE_BYTES (2304)
+#define STAI_NETWORK_ACTIVATIONS_216_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_216_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_216_WIDTH (2304)
+#define STAI_NETWORK_ACTIVATIONS_216_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_216_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_216_SHAPE \
   { \
-    1, 4, 24, 24, 16 \
+    1, 2304, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_216_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_216_SCALES \
   { \
-    0.0598997883498669 \
+    0.0196084622293711 \
   }
 #define STAI_NETWORK_ACTIVATIONS_216_OFFSETS \
   { \
-    -123 \
+    47 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_217_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_217_NAME "Conv2D_413_off_bias_out_517"
+#define STAI_NETWORK_ACTIVATIONS_217_NAME "Mul_435_out_0"
 #define STAI_NETWORK_ACTIVATIONS_217_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_217_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_217_SIZE (2304)
-#define STAI_NETWORK_ACTIVATIONS_217_SIZE_BYTES (2304)
-#define STAI_NETWORK_ACTIVATIONS_217_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_217_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_217_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_217_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_217_HEIGHT (48)
 #define STAI_NETWORK_ACTIVATIONS_217_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_217_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_217_BATCH (64)
 #define STAI_NETWORK_ACTIVATIONS_217_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_217_SHAPE \
   { \
-    1, 48, 48, 1 \
+    1, 48, 48, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_217_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_217_SCALES \
   { \
-    0.0150793613865972 \
+    0.114632658660412 \
   }
 #define STAI_NETWORK_ACTIVATIONS_217_OFFSETS \
   { \
-    36 \
+    -126 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_218_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_218_NAME "Split_482_out_0_inserted_out2748"
+#define STAI_NETWORK_ACTIVATIONS_218_NAME "Mul_442_out_0"
 #define STAI_NETWORK_ACTIVATIONS_218_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_218_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_218_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_218_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_218_SIZE (147456)
+#define STAI_NETWORK_ACTIVATIONS_218_SIZE_BYTES (147456)
 #define STAI_NETWORK_ACTIVATIONS_218_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_218_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_218_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_218_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_218_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_218_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_218_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_218_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_218_SHAPE \
   { \
-    1, 64, 24, 24, 192 \
+    1, 4, 48, 48, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_218_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_218_SCALES \
   { \
-    0.0609918087720871 \
+    0.275284856557846 \
   }
 #define STAI_NETWORK_ACTIVATIONS_218_OFFSETS \
   { \
-    -119 \
+    -127 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_219_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_219_NAME "Split_482_out_1_inserted_out2728"
-#define STAI_NETWORK_ACTIVATIONS_219_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_219_NAME "Split_482_out_0_inserted_out2748"
+#define STAI_NETWORK_ACTIVATIONS_219_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_219_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_219_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_219_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_219_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_219_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_219_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_219_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_219_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_219_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_219_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_219_SHAPE \
   { \
-    1, 24, 24, 64 \
+    1, 64, 24, 24, 192 \
   }
 #define STAI_NETWORK_ACTIVATIONS_219_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_219_SCALES \
   { \
-    0.0598997883498669 \
+    0.0632470324635506 \
   }
 #define STAI_NETWORK_ACTIVATIONS_219_OFFSETS \
   { \
-    -123 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_220_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_220_NAME "Reshape_416_out_0"
-#define STAI_NETWORK_ACTIVATIONS_220_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_220_NAME "Split_482_out_1_inserted_out2750"
+#define STAI_NETWORK_ACTIVATIONS_220_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_220_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_220_SIZE (2304)
-#define STAI_NETWORK_ACTIVATIONS_220_SIZE_BYTES (2304)
-#define STAI_NETWORK_ACTIVATIONS_220_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_220_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_220_WIDTH (2304)
-#define STAI_NETWORK_ACTIVATIONS_220_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_220_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_220_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_220_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_220_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_220_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_220_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_220_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_220_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_220_SHAPE \
   { \
-    1, 2304, 1 \
+    1, 64, 24, 24, 192 \
   }
 #define STAI_NETWORK_ACTIVATIONS_220_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_220_SCALES \
   { \
-    0.0150793613865972 \
+    0.0632470324635506 \
   }
 #define STAI_NETWORK_ACTIVATIONS_220_OFFSETS \
   { \
-    36 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_221_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_221_NAME "Split_482_out_1_inserted_out2750"
-#define STAI_NETWORK_ACTIVATIONS_221_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_221_NAME "Conv2D_445_off_bias_out_562"
+#define STAI_NETWORK_ACTIVATIONS_221_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_221_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_221_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_221_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_221_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_221_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_221_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_221_BATCH (192)
-#define STAI_NETWORK_ACTIVATIONS_221_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_221_SIZE (4608)
+#define STAI_NETWORK_ACTIVATIONS_221_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_221_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_221_HEIGHT (48)
+#define STAI_NETWORK_ACTIVATIONS_221_WIDTH (48)
+#define STAI_NETWORK_ACTIVATIONS_221_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_221_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_221_SHAPE \
   { \
-    1, 64, 24, 24, 192 \
+    1, 48, 48, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_221_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_221_SCALES \
   { \
-    0.0609918087720871 \
+    0.196633264422417 \
   }
 #define STAI_NETWORK_ACTIVATIONS_221_OFFSETS \
   { \
-    -119 \
+    112 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_222_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_222_NAME "Reshape_416_out_0_inserted_out2894"
+#define STAI_NETWORK_ACTIVATIONS_222_NAME "Split_482_out_1_inserted_out2728"
 #define STAI_NETWORK_ACTIVATIONS_222_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_222_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_222_SIZE (2304)
-#define STAI_NETWORK_ACTIVATIONS_222_SIZE_BYTES (2304)
-#define STAI_NETWORK_ACTIVATIONS_222_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_222_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_222_WIDTH (2304)
-#define STAI_NETWORK_ACTIVATIONS_222_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_222_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_222_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_222_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_222_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_222_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_222_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_222_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_222_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_222_SHAPE \
   { \
-    1, 2304, 1 \
+    1, 24, 24, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_222_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_222_SCALES \
   { \
-    0.0162364151328802 \
+    0.0595464669167995 \
   }
 #define STAI_NETWORK_ACTIVATIONS_222_OFFSETS \
-  { \
-    24 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_223_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_223_NAME "Conv2D_463_off_bias_out_589"
-#define STAI_NETWORK_ACTIVATIONS_223_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_223_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_223_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_223_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_223_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_223_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_223_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_223_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_223_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_223_SHAPE \
-  { \
-    1, 48, 48, 64 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_223_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_223_SCALES \
-  { \
-    0.103236064314842 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_223_OFFSETS \
-  { \
-    -37 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_224_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_224_NAME "Conv2D_438_out_0_cp_in_622_cp_in_623_cp_in_624"
-#define STAI_NETWORK_ACTIVATIONS_224_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_224_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_224_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_224_SIZE_BYTES (294912)
-#define STAI_NETWORK_ACTIVATIONS_224_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_224_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_224_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_224_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_224_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_224_SHAPE \
-  { \
-    1, 4, 48, 48, 16 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_224_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_224_SCALES \
-  { \
-  }
-#define STAI_NETWORK_ACTIVATIONS_224_OFFSETS \
-  { \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_225_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_225_NAME "Reshape_466_out_0"
-#define STAI_NETWORK_ACTIVATIONS_225_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_225_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_225_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_225_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_225_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_225_HEIGHT (64)
-#define STAI_NETWORK_ACTIVATIONS_225_WIDTH (2304)
-#define STAI_NETWORK_ACTIVATIONS_225_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_225_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_225_SHAPE \
-  { \
-    64, 2304, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_225_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_225_SCALES \
-  { \
-    0.103236064314842 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_225_OFFSETS \
-  { \
-    -37 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_226_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_226_NAME "Conv2D_483_out_0_cp_in_625_cp_in_626_cp_in_627"
-#define STAI_NETWORK_ACTIVATIONS_226_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_226_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_226_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_226_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_226_CHANNEL (32)
-#define STAI_NETWORK_ACTIVATIONS_226_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_226_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_226_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_226_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_226_SHAPE \
-  { \
-    1, 8, 24, 24, 4 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_226_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_226_SCALES \
-  { \
-  }
-#define STAI_NETWORK_ACTIVATIONS_226_OFFSETS \
-  { \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_227_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_227_NAME "Mul_442_out_0"
-#define STAI_NETWORK_ACTIVATIONS_227_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_227_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_227_SIZE (147456)
-#define STAI_NETWORK_ACTIVATIONS_227_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_227_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_227_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_227_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_227_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_227_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_227_SHAPE \
-  { \
-    1, 4, 48, 48, 16 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_227_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_227_SCALES \
-  { \
-    0.2336595505476 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_227_OFFSETS \
-  { \
-    -127 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_228_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_228_NAME "Conv2D_445_off_bias_out_562"
-#define STAI_NETWORK_ACTIVATIONS_228_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_228_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_228_SIZE (4608)
-#define STAI_NETWORK_ACTIVATIONS_228_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_228_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_228_HEIGHT (48)
-#define STAI_NETWORK_ACTIVATIONS_228_WIDTH (48)
-#define STAI_NETWORK_ACTIVATIONS_228_BATCH (2)
-#define STAI_NETWORK_ACTIVATIONS_228_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_228_SHAPE \
-  { \
-    1, 48, 48, 2 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_228_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_228_SCALES \
-  { \
-    0.184754997491837 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_228_OFFSETS \
-  { \
-    114 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_229_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_229_NAME "Mul_487_out_0"
-#define STAI_NETWORK_ACTIVATIONS_229_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_229_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_229_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_229_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_229_CHANNEL (32)
-#define STAI_NETWORK_ACTIVATIONS_229_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_229_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_229_BATCH (32)
-#define STAI_NETWORK_ACTIVATIONS_229_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_229_SHAPE \
-  { \
-    1, 24, 24, 32 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_229_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_229_SCALES \
-  { \
-    0.0546002127230167 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_229_OFFSETS \
   { \
     -123 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_230_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_230_NAME "Mul_494_out_0"
-#define STAI_NETWORK_ACTIVATIONS_230_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_230_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_230_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_230_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_230_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_230_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_230_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_230_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_230_RANK (4)
-#define STAI_NETWORK_ACTIVATIONS_230_SHAPE \
+#define STAI_NETWORK_ACTIVATIONS_223_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_223_NAME "Conv2D_483_out_0_cp_in_625_cp_in_626_cp_in_627"
+#define STAI_NETWORK_ACTIVATIONS_223_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_223_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_223_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_223_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_223_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_223_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_223_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_223_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_223_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_223_SHAPE \
+  { \
+    1, 8, 24, 24, 4 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_223_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_223_SCALES \
+  { \
+  }
+#define STAI_NETWORK_ACTIVATIONS_223_OFFSETS \
+  { \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_224_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_224_NAME "Mul_487_out_0"
+#define STAI_NETWORK_ACTIVATIONS_224_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_224_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_224_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_224_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_224_CHANNEL (32)
+#define STAI_NETWORK_ACTIVATIONS_224_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_224_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_224_BATCH (32)
+#define STAI_NETWORK_ACTIVATIONS_224_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_224_SHAPE \
+  { \
+    1, 24, 24, 32 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_224_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_224_SCALES \
+  { \
+    0.0519396662712097 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_224_OFFSETS \
+  { \
+    -123 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_225_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_225_NAME "Mul_494_out_0"
+#define STAI_NETWORK_ACTIVATIONS_225_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_225_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_225_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_225_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_225_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_225_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_225_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_225_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_225_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_225_SHAPE \
   { \
     1, 24, 24, 64 \
   }
-#define STAI_NETWORK_ACTIVATIONS_230_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_225_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_225_SCALES \
+  { \
+    0.054098941385746 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_225_OFFSETS \
+  { \
+    -123 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_226_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_226_NAME "Reshape_448_out_0"
+#define STAI_NETWORK_ACTIVATIONS_226_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_226_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_226_SIZE (4608)
+#define STAI_NETWORK_ACTIVATIONS_226_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_226_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_226_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_226_WIDTH (2304)
+#define STAI_NETWORK_ACTIVATIONS_226_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_226_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_226_SHAPE \
+  { \
+    2, 2304, 1 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_226_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_226_SCALES \
+  { \
+    0.196633264422417 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_226_OFFSETS \
+  { \
+    112 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_227_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_227_NAME "Add_497_out_0"
+#define STAI_NETWORK_ACTIVATIONS_227_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_227_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_227_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_227_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_227_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_227_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_227_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_227_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_227_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_227_SHAPE \
+  { \
+    1, 64, 24, 24, 192 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_227_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_227_SCALES \
+  { \
+    0.0632470324635506 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_227_OFFSETS \
+  { \
+    -119 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_228_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_228_NAME "Reshape_448_out_0_inserted_out2940"
+#define STAI_NETWORK_ACTIVATIONS_228_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_228_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_228_SIZE (4608)
+#define STAI_NETWORK_ACTIVATIONS_228_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_228_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_228_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_228_WIDTH (2304)
+#define STAI_NETWORK_ACTIVATIONS_228_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_228_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_228_SHAPE \
+  { \
+    2, 2304, 1 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_228_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_228_SCALES \
+  { \
+    0.254949122667313 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_228_OFFSETS \
+  { \
+    115 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_229_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_229_NAME "Concat_500_out_0"
+#define STAI_NETWORK_ACTIVATIONS_229_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_229_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_229_SIZE (110592)
+#define STAI_NETWORK_ACTIVATIONS_229_SIZE_BYTES (110592)
+#define STAI_NETWORK_ACTIVATIONS_229_CHANNEL (192)
+#define STAI_NETWORK_ACTIVATIONS_229_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_229_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_229_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_229_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_229_SHAPE \
+  { \
+    1, 24, 24, 192 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_229_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_229_SCALES \
+  { \
+    0.0632470324635506 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_229_OFFSETS \
+  { \
+    -119 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_230_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_230_NAME "Conv2D_501_out_0_cp_in_634_cp_in_635_cp_in_636"
+#define STAI_NETWORK_ACTIVATIONS_230_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_230_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_230_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_230_SIZE_BYTES (147456)
+#define STAI_NETWORK_ACTIVATIONS_230_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_230_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_230_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_230_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_230_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_230_SHAPE \
+  { \
+    1, 8, 24, 24, 16 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_230_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_230_SCALES \
   { \
-    0.0493336021900177 \
   }
 #define STAI_NETWORK_ACTIVATIONS_230_OFFSETS \
   { \
-    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_231_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_231_NAME "Reshape_448_out_0"
+#define STAI_NETWORK_ACTIVATIONS_231_NAME "Mul_505_out_0"
 #define STAI_NETWORK_ACTIVATIONS_231_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_231_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_231_SIZE (4608)
-#define STAI_NETWORK_ACTIVATIONS_231_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_231_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_231_HEIGHT (2)
-#define STAI_NETWORK_ACTIVATIONS_231_WIDTH (2304)
-#define STAI_NETWORK_ACTIVATIONS_231_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_231_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_231_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_231_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_231_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_231_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_231_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_231_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_231_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_231_SHAPE \
   { \
-    2, 2304, 1 \
+    1, 24, 24, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_231_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_231_SCALES \
   { \
-    0.184754997491837 \
+    0.0487541072070599 \
   }
 #define STAI_NETWORK_ACTIVATIONS_231_OFFSETS \
   { \
-    114 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_232_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_232_NAME "Reshape_448_out_0_inserted_out2948"
-#define STAI_NETWORK_ACTIVATIONS_232_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_232_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_232_SIZE (4608)
-#define STAI_NETWORK_ACTIVATIONS_232_SIZE_BYTES (4608)
-#define STAI_NETWORK_ACTIVATIONS_232_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_232_HEIGHT (2)
-#define STAI_NETWORK_ACTIVATIONS_232_WIDTH (2304)
-#define STAI_NETWORK_ACTIVATIONS_232_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_232_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_232_NAME "Conv2D_576_out_0_cp_in_640_cp_in_641_cp_in_642"
+#define STAI_NETWORK_ACTIVATIONS_232_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_232_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_232_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_232_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_232_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_232_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_232_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_232_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_232_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_232_SHAPE \
   { \
-    2, 2304, 1 \
+    1, 32, 12, 12, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_232_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_232_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_232_SCALES \
   { \
-    0.219072297215462 \
   }
 #define STAI_NETWORK_ACTIVATIONS_232_OFFSETS \
   { \
-    114 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_233_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_233_NAME "Add_497_out_0_inserted_out2752"
+#define STAI_NETWORK_ACTIVATIONS_233_NAME "Conv2D_508_out_0_cp_in_637_cp_in_638_cp_in_639"
 #define STAI_NETWORK_ACTIVATIONS_233_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_233_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_233_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_233_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_233_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_233_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_233_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_233_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_233_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_233_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_233_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_233_BATCH (192)
+#define STAI_NETWORK_ACTIVATIONS_233_BATCH (4)
 #define STAI_NETWORK_ACTIVATIONS_233_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_233_SHAPE \
   { \
-    1, 64, 24, 24, 192 \
+    1, 4, 24, 24, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_233_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_233_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_233_SCALES \
   { \
-    0.0609918087720871 \
   }
 #define STAI_NETWORK_ACTIVATIONS_233_OFFSETS \
   { \
-    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_234_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_234_NAME "Concat_500_out_0"
-#define STAI_NETWORK_ACTIVATIONS_234_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_234_NAME "Mul_580_out_0"
+#define STAI_NETWORK_ACTIVATIONS_234_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_234_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_234_SIZE (110592)
-#define STAI_NETWORK_ACTIVATIONS_234_SIZE_BYTES (110592)
-#define STAI_NETWORK_ACTIVATIONS_234_CHANNEL (192)
-#define STAI_NETWORK_ACTIVATIONS_234_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_234_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_234_BATCH (192)
-#define STAI_NETWORK_ACTIVATIONS_234_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_234_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_234_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_234_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_234_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_234_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_234_BATCH (384)
+#define STAI_NETWORK_ACTIVATIONS_234_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_234_SHAPE \
   { \
-    1, 24, 24, 192 \
+    1, 128, 12, 12, 384 \
   }
 #define STAI_NETWORK_ACTIVATIONS_234_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_234_SCALES \
   { \
-    0.0609918087720871 \
+    0.0608885250985622 \
   }
 #define STAI_NETWORK_ACTIVATIONS_234_OFFSETS \
   { \
-    -119 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_235_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_235_NAME "Conv2D_501_out_0_cp_in_634_cp_in_635_cp_in_636"
+#define STAI_NETWORK_ACTIVATIONS_235_NAME "Conv2D_558_out_0_cp_in_643_cp_in_644_cp_in_645"
 #define STAI_NETWORK_ACTIVATIONS_235_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_235_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_235_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_235_SIZE_BYTES (147456)
-#define STAI_NETWORK_ACTIVATIONS_235_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_235_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_235_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_235_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_235_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_235_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_235_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_235_BATCH (4)
 #define STAI_NETWORK_ACTIVATIONS_235_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_235_SHAPE \
   { \
-    1, 8, 24, 24, 16 \
+    1, 16, 24, 24, 4 \
   }
 #define STAI_NETWORK_ACTIVATIONS_235_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_235_SCALES \
@@ -9802,151 +9804,155 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_236_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_236_NAME "Mul_505_out_0"
+#define STAI_NETWORK_ACTIVATIONS_236_NAME "Mul_562_out_0"
 #define STAI_NETWORK_ACTIVATIONS_236_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_236_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_236_SIZE (73728)
-#define STAI_NETWORK_ACTIVATIONS_236_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_236_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_236_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_236_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_236_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_236_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_236_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_236_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_236_BATCH (64)
 #define STAI_NETWORK_ACTIVATIONS_236_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_236_SHAPE \
   { \
-    1, 24, 24, 128 \
+    1, 24, 24, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_236_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_236_SCALES \
   { \
-    0.0498979017138481 \
+    0.041086707264185 \
   }
 #define STAI_NETWORK_ACTIVATIONS_236_OFFSETS \
   { \
-    -122 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_237_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_237_NAME "Conv2D_576_out_0_cp_in_640_cp_in_641_cp_in_642"
-#define STAI_NETWORK_ACTIVATIONS_237_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_237_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_237_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_237_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_237_CHANNEL (128)
-#define STAI_NETWORK_ACTIVATIONS_237_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_237_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_237_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_237_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_237_NAME "Mul_512_out_0"
+#define STAI_NETWORK_ACTIVATIONS_237_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_237_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_237_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_237_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_237_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_237_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_237_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_237_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_237_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_237_SHAPE \
   { \
-    1, 32, 12, 12, 4 \
+    1, 24, 24, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_237_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_237_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_237_SCALES \
   { \
+    0.0376399233937263 \
   }
 #define STAI_NETWORK_ACTIVATIONS_237_OFFSETS \
   { \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_238_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_238_NAME "Mul_580_out_0"
+#define STAI_NETWORK_ACTIVATIONS_238_NAME "Conv2D_565_out_0_cp_in_649_cp_in_650_cp_in_651"
 #define STAI_NETWORK_ACTIVATIONS_238_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_238_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_238_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_238_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_238_CHANNEL (128)
-#define STAI_NETWORK_ACTIVATIONS_238_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_238_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_238_BATCH (384)
+#define STAI_NETWORK_ACTIVATIONS_238_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_238_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_238_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_238_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_238_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_238_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_238_BATCH (4)
 #define STAI_NETWORK_ACTIVATIONS_238_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_238_SHAPE \
   { \
-    1, 128, 12, 12, 384 \
+    1, 16, 24, 24, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_238_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_238_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_238_SCALES \
   { \
-    0.0498993508517742 \
   }
 #define STAI_NETWORK_ACTIVATIONS_238_OFFSETS \
   { \
-    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_239_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_239_NAME "Conv2D_558_out_0_cp_in_643_cp_in_644_cp_in_645"
-#define STAI_NETWORK_ACTIVATIONS_239_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_239_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_239_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_239_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_239_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_239_NAME "Mul_519_out_0"
+#define STAI_NETWORK_ACTIVATIONS_239_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_239_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_239_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_239_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_239_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_239_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_239_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_239_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_239_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_239_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_239_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_239_SHAPE \
   { \
-    1, 16, 24, 24, 4 \
+    1, 24, 24, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_239_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_239_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_239_SCALES \
   { \
+    0.0131959598511457 \
   }
 #define STAI_NETWORK_ACTIVATIONS_239_OFFSETS \
   { \
+    -107 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_240_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_240_NAME "Conv2D_508_out_0_cp_in_637_cp_in_638_cp_in_639"
-#define STAI_NETWORK_ACTIVATIONS_240_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_240_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_240_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_240_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_240_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_240_NAME "Mul_569_out_0"
+#define STAI_NETWORK_ACTIVATIONS_240_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_240_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_240_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_240_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_240_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_240_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_240_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_240_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_240_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_240_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_240_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_240_SHAPE \
   { \
-    1, 4, 24, 24, 4 \
+    1, 24, 24, 64 \
   }
-#define STAI_NETWORK_ACTIVATIONS_240_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_240_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_240_SCALES \
   { \
+    0.0388337410986423 \
   }
 #define STAI_NETWORK_ACTIVATIONS_240_OFFSETS \
   { \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_241_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_241_NAME "Mul_512_out_0"
-#define STAI_NETWORK_ACTIVATIONS_241_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_241_NAME "Conv2D_526_off_bias_out_670"
+#define STAI_NETWORK_ACTIVATIONS_241_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_241_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_241_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_241_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_241_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_241_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_241_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_241_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_241_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_241_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_241_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_241_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_241_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_241_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_241_SHAPE \
   { \
-    1, 24, 24, 16 \
+    1, 32, 24, 24, 4 \
   }
 #define STAI_NETWORK_ACTIVATIONS_241_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_241_SCALES \
   { \
-    0.0305712912231684 \
+    0.268591850996017 \
   }
 #define STAI_NETWORK_ACTIVATIONS_241_OFFSETS \
   { \
-    -119 \
+    -1 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_242_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_242_NAME "Mul_562_out_0"
+#define STAI_NETWORK_ACTIVATIONS_242_NAME "Conv2D_572_off_bias_out_733"
 #define STAI_NETWORK_ACTIVATIONS_242_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_242_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_242_SIZE (36864)
@@ -9963,123 +9969,125 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_242_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_242_SCALES \
   { \
-    0.0312063843011856 \
+    0.0915220230817795 \
   }
 #define STAI_NETWORK_ACTIVATIONS_242_OFFSETS \
   { \
-    -119 \
+    -27 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_243_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_243_NAME "Concat_583_out_0"
+#define STAI_NETWORK_ACTIVATIONS_243_NAME "Mul_530_out_0"
 #define STAI_NETWORK_ACTIVATIONS_243_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_243_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_243_SIZE (55296)
-#define STAI_NETWORK_ACTIVATIONS_243_SIZE_BYTES (55296)
-#define STAI_NETWORK_ACTIVATIONS_243_CHANNEL (384)
-#define STAI_NETWORK_ACTIVATIONS_243_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_243_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_243_BATCH (384)
+#define STAI_NETWORK_ACTIVATIONS_243_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_243_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_243_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_243_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_243_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_243_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_243_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_243_SHAPE \
   { \
-    1, 12, 12, 384 \
+    1, 24, 24, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_243_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_243_SCALES \
   { \
-    0.0498993508517742 \
+    0.135449394583702 \
   }
 #define STAI_NETWORK_ACTIVATIONS_243_OFFSETS \
   { \
-    -122 \
+    -126 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_244_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_244_NAME "Mul_530_out_0"
-#define STAI_NETWORK_ACTIVATIONS_244_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_244_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_244_SIZE (73728)
+#define STAI_NETWORK_ACTIVATIONS_244_NAME "Conv2D_533_out_0_cp_in_646_cp_in_647_cp_in_648"
+#define STAI_NETWORK_ACTIVATIONS_244_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_244_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_244_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_244_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_244_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_244_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_244_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_244_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_244_BATCH (128)
-#define STAI_NETWORK_ACTIVATIONS_244_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_244_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_244_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_244_SHAPE \
-  { \
-    1, 24, 24, 128 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_244_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_244_SCALES \
-  { \
-    0.0963397026062012 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_244_OFFSETS \
-  { \
-    -125 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_245_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_245_NAME "Conv2D_515_out_0_cp_in_652"
-#define STAI_NETWORK_ACTIVATIONS_245_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_245_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_245_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_245_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_245_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_245_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_245_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_245_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_245_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_245_SHAPE \
-  { \
-    1, 4, 24, 24, 4 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_245_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_245_SCALES \
-  { \
-  }
-#define STAI_NETWORK_ACTIVATIONS_245_OFFSETS \
-  { \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_246_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_246_NAME "Conv2D_533_out_0_cp_in_646_cp_in_647_cp_in_648"
-#define STAI_NETWORK_ACTIVATIONS_246_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_246_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_246_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_246_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_246_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_246_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_246_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_246_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_246_RANK (5)
-#define STAI_NETWORK_ACTIVATIONS_246_SHAPE \
   { \
     1, 4, 24, 24, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_246_SCALE_OFFSET_NUM (0)
-#define STAI_NETWORK_ACTIVATIONS_246_SCALES \
+#define STAI_NETWORK_ACTIVATIONS_244_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_244_SCALES \
   { \
   }
-#define STAI_NETWORK_ACTIVATIONS_246_OFFSETS \
+#define STAI_NETWORK_ACTIVATIONS_244_OFFSETS \
   { \
   }
 
+#define STAI_NETWORK_ACTIVATIONS_245_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_245_NAME "Reshape_575_out_0"
+#define STAI_NETWORK_ACTIVATIONS_245_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_245_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_245_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_245_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_245_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_245_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_245_WIDTH (576)
+#define STAI_NETWORK_ACTIVATIONS_245_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_245_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_245_SHAPE \
+  { \
+    64, 576, 1 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_245_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_245_SCALES \
+  { \
+    0.0915220230817795 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_245_OFFSETS \
+  { \
+    -27 \
+  }
+
+#define STAI_NETWORK_ACTIVATIONS_246_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_246_NAME "Concat_583_out_0"
+#define STAI_NETWORK_ACTIVATIONS_246_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_246_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_246_SIZE (55296)
+#define STAI_NETWORK_ACTIVATIONS_246_SIZE_BYTES (55296)
+#define STAI_NETWORK_ACTIVATIONS_246_CHANNEL (384)
+#define STAI_NETWORK_ACTIVATIONS_246_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_246_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_246_BATCH (384)
+#define STAI_NETWORK_ACTIVATIONS_246_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_246_SHAPE \
+  { \
+    1, 12, 12, 384 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_246_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_246_SCALES \
+  { \
+    0.0608885250985622 \
+  }
+#define STAI_NETWORK_ACTIVATIONS_246_OFFSETS \
+  { \
+    -123 \
+  }
+
 #define STAI_NETWORK_ACTIVATIONS_247_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_247_NAME "Conv2D_565_out_0_cp_in_649_cp_in_650_cp_in_651"
+#define STAI_NETWORK_ACTIVATIONS_247_NAME "Conv2D_584_out_0_cp_in_653_cp_in_654_cp_in_655"
 #define STAI_NETWORK_ACTIVATIONS_247_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_247_FORMAT (STAI_FORMAT_Q15)
 #define STAI_NETWORK_ACTIVATIONS_247_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_247_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_247_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_247_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_247_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_247_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_247_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_247_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_247_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_247_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_247_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_247_SHAPE \
   { \
-    1, 16, 24, 24, 4 \
+    1, 16, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_247_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_247_SCALES \
@@ -10090,130 +10098,132 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_248_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_248_NAME "Mul_537_out_0"
-#define STAI_NETWORK_ACTIVATIONS_248_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_248_NAME "Mul_588_out_0"
+#define STAI_NETWORK_ACTIVATIONS_248_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_248_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_248_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_248_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_248_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_248_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_248_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_248_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_248_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_248_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_248_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_248_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_248_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_248_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_248_SHAPE \
   { \
-    1, 24, 24, 64 \
+    1, 16, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_248_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_248_SCALES \
   { \
-    0.0470131859183311 \
+    0.0707621201872826 \
   }
 #define STAI_NETWORK_ACTIVATIONS_248_OFFSETS \
   { \
-    -122 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_249_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_249_NAME "Mul_569_out_0"
+#define STAI_NETWORK_ACTIVATIONS_249_NAME "Reshape_575_out_0_inserted_out2904"
 #define STAI_NETWORK_ACTIVATIONS_249_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_249_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_249_SIZE (36864)
 #define STAI_NETWORK_ACTIVATIONS_249_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_249_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_249_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_249_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_249_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_249_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_249_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_249_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_249_WIDTH (576)
+#define STAI_NETWORK_ACTIVATIONS_249_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_249_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_249_SHAPE \
   { \
-    1, 24, 24, 64 \
+    64, 576, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_249_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_249_SCALES \
   { \
-    0.0469710528850555 \
+    0.106556162238121 \
   }
 #define STAI_NETWORK_ACTIVATIONS_249_OFFSETS \
   { \
-    -122 \
+    -36 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_250_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_250_NAME "Conv2D_584_out_0_cp_in_653_cp_in_654_cp_in_655"
+#define STAI_NETWORK_ACTIVATIONS_250_NAME "Split_591_out_0"
 #define STAI_NETWORK_ACTIVATIONS_250_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_250_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_250_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_250_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_250_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_250_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_250_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_250_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_250_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_250_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_250_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_250_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_250_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_250_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 8, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_250_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_250_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_250_SCALES \
   { \
+    0.0707621201872826 \
   }
 #define STAI_NETWORK_ACTIVATIONS_250_OFFSETS \
   { \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_251_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_251_NAME "Mul_588_out_0"
+#define STAI_NETWORK_ACTIVATIONS_251_NAME "Split_591_out_1"
 #define STAI_NETWORK_ACTIVATIONS_251_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_251_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_251_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_251_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_251_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_251_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_251_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_251_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_251_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_251_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_251_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_251_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_251_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 8, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_251_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_251_SCALES \
   { \
-    0.0596555769443512 \
+    0.0707621201872826 \
   }
 #define STAI_NETWORK_ACTIVATIONS_251_OFFSETS \
   { \
-    -123 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_252_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_252_NAME "Conv2D_515_off_bias_out_652"
-#define STAI_NETWORK_ACTIVATIONS_252_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_252_NAME "Reshape_525_out_0_inserted_out2890"
+#define STAI_NETWORK_ACTIVATIONS_252_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_252_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_252_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_252_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_252_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_252_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_252_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_252_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_252_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_252_SIZE (576)
+#define STAI_NETWORK_ACTIVATIONS_252_SIZE_BYTES (576)
+#define STAI_NETWORK_ACTIVATIONS_252_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_252_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_252_WIDTH (576)
+#define STAI_NETWORK_ACTIVATIONS_252_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_252_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_252_SHAPE \
   { \
-    1, 4, 24, 24, 4 \
+    1, 576, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_252_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_252_SCALES \
   { \
-    0.0544170774519444 \
+    0.0196326207369566 \
   }
 #define STAI_NETWORK_ACTIVATIONS_252_OFFSETS \
   { \
-    66 \
+    47 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_253_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_253_NAME "Mul_544_out_0"
+#define STAI_NETWORK_ACTIVATIONS_253_NAME "Mul_537_out_0"
 #define STAI_NETWORK_ACTIVATIONS_253_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_253_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_253_SIZE (36864)
@@ -10230,40 +10240,40 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_253_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_253_SCALES \
   { \
-    0.0943028777837753 \
+    0.0681433752179146 \
   }
 #define STAI_NETWORK_ACTIVATIONS_253_OFFSETS \
   { \
-    -125 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_254_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_254_NAME "Mul_519_out_0"
+#define STAI_NETWORK_ACTIVATIONS_254_NAME "Split_591_out_1_inserted_out2818"
 #define STAI_NETWORK_ACTIVATIONS_254_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_254_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_254_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_254_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_254_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_254_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_254_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_254_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_254_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_254_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_254_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_254_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_254_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_254_BATCH (128)
 #define STAI_NETWORK_ACTIVATIONS_254_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_254_SHAPE \
   { \
-    1, 24, 24, 16 \
+    1, 12, 12, 128 \
   }
 #define STAI_NETWORK_ACTIVATIONS_254_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_254_SCALES \
   { \
-    0.0135875912383199 \
+    0.0707621201872826 \
   }
 #define STAI_NETWORK_ACTIVATIONS_254_OFFSETS \
   { \
-    -108 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_255_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_255_NAME "Split_591_out_0"
+#define STAI_NETWORK_ACTIVATIONS_255_NAME "Split_591_out_1_inserted_out2858"
 #define STAI_NETWORK_ACTIVATIONS_255_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_255_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_255_SIZE (18432)
@@ -10271,226 +10281,222 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_255_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_255_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_255_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_255_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_255_BATCH (384)
 #define STAI_NETWORK_ACTIVATIONS_255_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_255_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 128, 12, 12, 384 \
   }
 #define STAI_NETWORK_ACTIVATIONS_255_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_255_SCALES \
   { \
-    0.0596555769443512 \
+    0.0883003547787666 \
   }
 #define STAI_NETWORK_ACTIVATIONS_255_OFFSETS \
   { \
-    -123 \
+    -125 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_256_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_256_NAME "Split_591_out_1"
+#define STAI_NETWORK_ACTIVATIONS_256_NAME "Conv2D_592_out_0_cp_in_662_cp_in_663_cp_in_664"
 #define STAI_NETWORK_ACTIVATIONS_256_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_256_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_256_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_256_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_256_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_256_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_256_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_256_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_256_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_256_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_256_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_256_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_256_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 4, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_256_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_256_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_256_SCALES \
   { \
-    0.0596555769443512 \
   }
 #define STAI_NETWORK_ACTIVATIONS_256_OFFSETS \
   { \
-    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_257_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_257_NAME "Conv2D_522_off_bias_out_661"
-#define STAI_NETWORK_ACTIVATIONS_257_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_257_NAME "Split_591_out_0_inserted_out2856"
+#define STAI_NETWORK_ACTIVATIONS_257_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_257_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_257_SIZE (576)
-#define STAI_NETWORK_ACTIVATIONS_257_SIZE_BYTES (576)
-#define STAI_NETWORK_ACTIVATIONS_257_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_257_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_257_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_257_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_257_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_257_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_257_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_257_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_257_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_257_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_257_BATCH (384)
+#define STAI_NETWORK_ACTIVATIONS_257_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_257_SHAPE \
   { \
-    1, 24, 24, 1 \
+    1, 128, 12, 12, 384 \
   }
 #define STAI_NETWORK_ACTIVATIONS_257_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_257_SCALES \
   { \
-    0.00938547216355801 \
+    0.0883003547787666 \
   }
 #define STAI_NETWORK_ACTIVATIONS_257_OFFSETS \
   { \
-    -1 \
+    -125 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_258_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_258_NAME "Split_591_out_0_inserted_out2860"
+#define STAI_NETWORK_ACTIVATIONS_258_NAME "Conv2D_599_out_0_cp_in_665_cp_in_666_cp_in_667"
 #define STAI_NETWORK_ACTIVATIONS_258_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_258_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_258_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_258_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_258_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_258_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_258_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_258_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_258_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_258_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_258_BATCH (384)
+#define STAI_NETWORK_ACTIVATIONS_258_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_258_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_258_SHAPE \
   { \
-    1, 128, 12, 12, 384 \
+    1, 4, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_258_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_258_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_258_SCALES \
   { \
-    0.0642874613404274 \
   }
 #define STAI_NETWORK_ACTIVATIONS_258_OFFSETS \
   { \
-    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_259_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_259_NAME "Split_591_out_1_inserted_out2822"
+#define STAI_NETWORK_ACTIVATIONS_259_NAME "Mul_603_out_0"
 #define STAI_NETWORK_ACTIVATIONS_259_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_259_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_259_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_259_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_259_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_259_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_259_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_259_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_259_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_259_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_259_BATCH (128)
+#define STAI_NETWORK_ACTIVATIONS_259_BATCH (64)
 #define STAI_NETWORK_ACTIVATIONS_259_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_259_SHAPE \
   { \
-    1, 12, 12, 128 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_259_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_259_SCALES \
   { \
-    0.0596555769443512 \
+    0.0408682748675346 \
   }
 #define STAI_NETWORK_ACTIVATIONS_259_OFFSETS \
   { \
-    -123 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_260_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_260_NAME "Reshape_525_out_0"
-#define STAI_NETWORK_ACTIVATIONS_260_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_260_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_260_SIZE (576)
-#define STAI_NETWORK_ACTIVATIONS_260_SIZE_BYTES (576)
-#define STAI_NETWORK_ACTIVATIONS_260_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_260_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_260_WIDTH (576)
-#define STAI_NETWORK_ACTIVATIONS_260_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_260_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_260_NAME "Conv2D_606_out_0_cp_in_671"
+#define STAI_NETWORK_ACTIVATIONS_260_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_260_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_260_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_260_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_260_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_260_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_260_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_260_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_260_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_260_SHAPE \
   { \
-    1, 576, 1 \
+    1, 16, 12, 12, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_260_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_260_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_260_SCALES \
   { \
-    0.00938547216355801 \
   }
 #define STAI_NETWORK_ACTIVATIONS_260_OFFSETS \
   { \
-    -1 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_261_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_261_NAME "Split_591_out_1_inserted_out2862"
-#define STAI_NETWORK_ACTIVATIONS_261_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_261_NAME "Mul_610_out_0"
+#define STAI_NETWORK_ACTIVATIONS_261_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_261_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_261_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_261_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_261_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_261_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_261_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_261_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_261_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_261_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_261_BATCH (384)
-#define STAI_NETWORK_ACTIVATIONS_261_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_261_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_261_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_261_SHAPE \
   { \
-    1, 128, 12, 12, 384 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_261_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_261_SCALES \
   { \
-    0.0642874613404274 \
+    0.0488113686442375 \
   }
 #define STAI_NETWORK_ACTIVATIONS_261_OFFSETS \
   { \
-    -124 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_262_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_262_NAME "Conv2D_572_out_0_cp_in_656_cp_in_657_cp_in_658"
-#define STAI_NETWORK_ACTIVATIONS_262_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_262_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_262_NAME "Mul_544_out_0"
+#define STAI_NETWORK_ACTIVATIONS_262_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_262_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_262_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_262_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_262_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_262_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_262_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_262_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_262_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_262_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_262_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_262_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_262_SHAPE \
   { \
-    1, 4, 24, 24, 16 \
+    1, 24, 24, 64 \
   }
-#define STAI_NETWORK_ACTIVATIONS_262_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_262_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_262_SCALES \
   { \
+    0.110347755253315 \
   }
 #define STAI_NETWORK_ACTIVATIONS_262_OFFSETS \
   { \
+    -125 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_263_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_263_NAME "Reshape_525_out_0_inserted_out2896"
-#define STAI_NETWORK_ACTIVATIONS_263_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_263_NAME "Mul_596_out_0_inserted_out2846"
+#define STAI_NETWORK_ACTIVATIONS_263_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_263_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_263_SIZE (576)
-#define STAI_NETWORK_ACTIVATIONS_263_SIZE_BYTES (576)
-#define STAI_NETWORK_ACTIVATIONS_263_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_263_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_263_WIDTH (576)
-#define STAI_NETWORK_ACTIVATIONS_263_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_263_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_263_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_263_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_263_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_263_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_263_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_263_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_263_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_263_SHAPE \
   { \
-    1, 576, 1 \
+    1, 4, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_263_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_263_SCALES \
   { \
-    0.0162364151328802 \
+    0.0952729731798172 \
   }
 #define STAI_NETWORK_ACTIVATIONS_263_OFFSETS \
   { \
-    24 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_264_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_264_NAME "Conv2D_547_out_0_cp_in_659_cp_in_660_cp_in_661"
+#define STAI_NETWORK_ACTIVATIONS_264_NAME "Mul_551_out_0"
 #define STAI_NETWORK_ACTIVATIONS_264_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_264_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_264_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_264_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_264_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_264_SIZE_BYTES (36864)
 #define STAI_NETWORK_ACTIVATIONS_264_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_264_HEIGHT (24)
 #define STAI_NETWORK_ACTIVATIONS_264_WIDTH (24)
@@ -10500,28 +10506,30 @@ STAI_API_DECLARE_END
   { \
     1, 4, 24, 24, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_264_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_264_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_264_SCALES \
   { \
+    0.236817061901093 \
   }
 #define STAI_NETWORK_ACTIVATIONS_264_OFFSETS \
   { \
+    -127 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_265_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_265_NAME "Conv2D_599_out_0_cp_in_665_cp_in_666_cp_in_667"
-#define STAI_NETWORK_ACTIVATIONS_265_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_265_NAME "Conv2D_554_out_0_cp_in_668_cp_in_669_cp_in_670"
+#define STAI_NETWORK_ACTIVATIONS_265_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_265_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_265_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_265_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_265_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_265_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_265_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_265_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_265_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_265_SIZE (1152)
+#define STAI_NETWORK_ACTIVATIONS_265_SIZE_BYTES (2304)
+#define STAI_NETWORK_ACTIVATIONS_265_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_265_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_265_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_265_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_265_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_265_SHAPE \
   { \
-    1, 4, 12, 12, 16 \
+    1, 24, 24, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_265_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_265_SCALES \
@@ -10532,32 +10540,30 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_266_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_266_NAME "Conv2D_572_off_bias_out_733"
-#define STAI_NETWORK_ACTIVATIONS_266_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_266_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_266_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_266_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_266_NAME "Conv2D_613_out_0_cp_in_672"
+#define STAI_NETWORK_ACTIVATIONS_266_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_266_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_266_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_266_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_266_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_266_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_266_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_266_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_266_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_266_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_266_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_266_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_266_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_266_SHAPE \
   { \
-    1, 24, 24, 64 \
+    1, 16, 12, 12, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_266_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_266_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_266_SCALES \
   { \
-    0.0895295739173889 \
   }
 #define STAI_NETWORK_ACTIVATIONS_266_OFFSETS \
   { \
-    -28 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_267_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_267_NAME "Mul_603_out_0"
+#define STAI_NETWORK_ACTIVATIONS_267_NAME "Mul_617_out_0"
 #define STAI_NETWORK_ACTIVATIONS_267_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_267_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_267_SIZE (9216)
@@ -10574,125 +10580,125 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_267_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_267_SCALES \
   { \
-    0.0546895749866962 \
+    0.0403739474713802 \
   }
 #define STAI_NETWORK_ACTIVATIONS_267_OFFSETS \
   { \
-    -123 \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_268_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_268_NAME "Conv2D_592_out_0_cp_in_662_cp_in_663_cp_in_664"
-#define STAI_NETWORK_ACTIVATIONS_268_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_268_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_268_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_268_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_268_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_268_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_268_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_268_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_268_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_268_NAME "Conv2D_554_off_bias_out_706"
+#define STAI_NETWORK_ACTIVATIONS_268_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_268_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_268_SIZE (1152)
+#define STAI_NETWORK_ACTIVATIONS_268_SIZE_BYTES (1152)
+#define STAI_NETWORK_ACTIVATIONS_268_CHANNEL (2)
+#define STAI_NETWORK_ACTIVATIONS_268_HEIGHT (24)
+#define STAI_NETWORK_ACTIVATIONS_268_WIDTH (24)
+#define STAI_NETWORK_ACTIVATIONS_268_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_268_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_268_SHAPE \
   { \
-    1, 4, 12, 12, 16 \
+    1, 24, 24, 2 \
   }
-#define STAI_NETWORK_ACTIVATIONS_268_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_268_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_268_SCALES \
   { \
+    0.25478008389473 \
   }
 #define STAI_NETWORK_ACTIVATIONS_268_OFFSETS \
   { \
+    115 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_269_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_269_NAME "Mul_596_out_0"
-#define STAI_NETWORK_ACTIVATIONS_269_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_269_NAME "Add_620_out_0"
+#define STAI_NETWORK_ACTIVATIONS_269_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_269_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_269_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_269_SIZE_BYTES (9216)
 #define STAI_NETWORK_ACTIVATIONS_269_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_269_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_269_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_269_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_269_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_269_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_269_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_269_SHAPE \
   { \
-    1, 4, 12, 12, 16 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_269_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_269_SCALES \
   { \
-    0.0564414784312248 \
+    0.0421084798872471 \
   }
 #define STAI_NETWORK_ACTIVATIONS_269_OFFSETS \
   { \
-    -123 \
+    -115 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_270_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_270_NAME "Mul_551_out_0"
+#define STAI_NETWORK_ACTIVATIONS_270_NAME "Conv2D_623_out_0_cp_in_673"
 #define STAI_NETWORK_ACTIVATIONS_270_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_270_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_270_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_270_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_270_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_270_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_270_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_270_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_270_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_270_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_270_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_270_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_270_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_270_BATCH (4)
 #define STAI_NETWORK_ACTIVATIONS_270_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_270_SHAPE \
   { \
-    1, 4, 24, 24, 16 \
+    1, 16, 12, 12, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_270_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_270_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_270_SCALES \
   { \
-    0.195528224110603 \
   }
 #define STAI_NETWORK_ACTIVATIONS_270_OFFSETS \
   { \
-    -127 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_271_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_271_NAME "Reshape_575_out_0"
+#define STAI_NETWORK_ACTIVATIONS_271_NAME "Mul_627_out_0"
 #define STAI_NETWORK_ACTIVATIONS_271_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_271_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_271_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_271_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_271_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_271_HEIGHT (64)
-#define STAI_NETWORK_ACTIVATIONS_271_WIDTH (576)
-#define STAI_NETWORK_ACTIVATIONS_271_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_271_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_271_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_271_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_271_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_271_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_271_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_271_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_271_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_271_SHAPE \
   { \
-    64, 576, 1 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_271_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_271_SCALES \
   { \
-    0.0895295739173889 \
+    0.0545941889286041 \
   }
 #define STAI_NETWORK_ACTIVATIONS_271_OFFSETS \
   { \
-    -28 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_272_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_272_NAME "Conv2D_554_out_0_cp_in_668_cp_in_669_cp_in_670"
-#define STAI_NETWORK_ACTIVATIONS_272_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_272_NAME "Conv2D_630_out_0_cp_in_674"
+#define STAI_NETWORK_ACTIVATIONS_272_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_272_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_272_SIZE (1152)
-#define STAI_NETWORK_ACTIVATIONS_272_SIZE_BYTES (2304)
-#define STAI_NETWORK_ACTIVATIONS_272_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_272_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_272_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_272_BATCH (2)
-#define STAI_NETWORK_ACTIVATIONS_272_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_272_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_272_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_272_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_272_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_272_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_272_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_272_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_272_SHAPE \
   { \
-    1, 24, 24, 2 \
+    1, 16, 12, 12, 4 \
   }
 #define STAI_NETWORK_ACTIVATIONS_272_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_272_SCALES \
@@ -10703,288 +10709,288 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_273_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_273_NAME "Mul_596_out_0_inserted_out2850"
-#define STAI_NETWORK_ACTIVATIONS_273_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_273_NAME "Mul_634_out_0"
+#define STAI_NETWORK_ACTIVATIONS_273_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_273_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_273_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_273_SIZE_BYTES (9216)
 #define STAI_NETWORK_ACTIVATIONS_273_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_273_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_273_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_273_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_273_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_273_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_273_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_273_SHAPE \
   { \
-    1, 4, 12, 12, 16 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_273_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_273_SCALES \
   { \
-    0.118191786110401 \
+    0.0627472624182701 \
   }
 #define STAI_NETWORK_ACTIVATIONS_273_OFFSETS \
   { \
-    -121 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_274_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_274_NAME "Reshape_575_out_0_inserted_out2912"
+#define STAI_NETWORK_ACTIVATIONS_274_NAME "Reshape_557_out_0"
 #define STAI_NETWORK_ACTIVATIONS_274_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_274_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_274_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_274_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_274_SIZE (1152)
+#define STAI_NETWORK_ACTIVATIONS_274_SIZE_BYTES (1152)
 #define STAI_NETWORK_ACTIVATIONS_274_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_274_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_274_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_274_WIDTH (576)
 #define STAI_NETWORK_ACTIVATIONS_274_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_274_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_274_SHAPE \
   { \
-    64, 576, 1 \
+    2, 576, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_274_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_274_SCALES \
   { \
-    0.103236064314842 \
+    0.25478008389473 \
   }
 #define STAI_NETWORK_ACTIVATIONS_274_OFFSETS \
   { \
-    -37 \
+    115 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_275_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_275_NAME "Conv2D_606_out_0_cp_in_671"
+#define STAI_NETWORK_ACTIVATIONS_275_NAME "Add_637_out_0"
 #define STAI_NETWORK_ACTIVATIONS_275_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_275_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_275_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_275_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_275_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_275_SIZE_BYTES (9216)
 #define STAI_NETWORK_ACTIVATIONS_275_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_275_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_275_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_275_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_275_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_275_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_275_SHAPE \
   { \
-    1, 16, 12, 12, 4 \
+    1, 4, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_275_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_275_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_275_SCALES \
   { \
+    0.0952729731798172 \
   }
 #define STAI_NETWORK_ACTIVATIONS_275_OFFSETS \
   { \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_276_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_276_NAME "Mul_610_out_0"
+#define STAI_NETWORK_ACTIVATIONS_276_NAME "Reshape_557_out_0_inserted_out2942"
 #define STAI_NETWORK_ACTIVATIONS_276_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_276_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_276_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_276_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_276_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_276_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_276_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_276_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_276_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_276_SIZE (1152)
+#define STAI_NETWORK_ACTIVATIONS_276_SIZE_BYTES (1152)
+#define STAI_NETWORK_ACTIVATIONS_276_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_276_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_276_WIDTH (576)
+#define STAI_NETWORK_ACTIVATIONS_276_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_276_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_276_SHAPE \
   { \
-    1, 12, 12, 64 \
+    2, 576, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_276_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_276_SCALES \
   { \
-    0.0692072883248329 \
+    0.254949122667313 \
   }
 #define STAI_NETWORK_ACTIVATIONS_276_OFFSETS \
   { \
-    -124 \
+    115 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_277_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_277_NAME "Conv2D_554_off_bias_out_706"
-#define STAI_NETWORK_ACTIVATIONS_277_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_277_NAME "Concat_640_out_0"
+#define STAI_NETWORK_ACTIVATIONS_277_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_277_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_277_SIZE (1152)
-#define STAI_NETWORK_ACTIVATIONS_277_SIZE_BYTES (1152)
-#define STAI_NETWORK_ACTIVATIONS_277_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_277_HEIGHT (24)
-#define STAI_NETWORK_ACTIVATIONS_277_WIDTH (24)
-#define STAI_NETWORK_ACTIVATIONS_277_BATCH (2)
-#define STAI_NETWORK_ACTIVATIONS_277_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_277_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_277_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_277_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_277_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_277_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_277_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_277_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_277_SHAPE \
   { \
-    1, 24, 24, 2 \
+    1, 8, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_277_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_277_SCALES \
   { \
-    0.219072297215462 \
+    0.0952729731798172 \
   }
 #define STAI_NETWORK_ACTIVATIONS_277_OFFSETS \
   { \
-    114 \
+    -119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_278_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_278_NAME "Reshape_557_out_0"
-#define STAI_NETWORK_ACTIVATIONS_278_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_278_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_278_SIZE (1152)
-#define STAI_NETWORK_ACTIVATIONS_278_SIZE_BYTES (1152)
-#define STAI_NETWORK_ACTIVATIONS_278_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_278_HEIGHT (2)
-#define STAI_NETWORK_ACTIVATIONS_278_WIDTH (576)
-#define STAI_NETWORK_ACTIVATIONS_278_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_278_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_278_NAME "Conv2D_641_out_0_cp_in_675_cp_in_676_cp_in_677"
+#define STAI_NETWORK_ACTIVATIONS_278_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_278_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_278_SIZE (18432)
+#define STAI_NETWORK_ACTIVATIONS_278_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_278_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_278_HEIGHT (12)
+#define STAI_NETWORK_ACTIVATIONS_278_WIDTH (12)
+#define STAI_NETWORK_ACTIVATIONS_278_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_278_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_278_SHAPE \
   { \
-    2, 576, 1 \
+    1, 8, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_278_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_278_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_278_SCALES \
   { \
-    0.219072297215462 \
   }
 #define STAI_NETWORK_ACTIVATIONS_278_OFFSETS \
   { \
-    114 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_279_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_279_NAME "Conv2D_613_out_0_cp_in_672"
+#define STAI_NETWORK_ACTIVATIONS_279_NAME "Mul_645_out_0"
 #define STAI_NETWORK_ACTIVATIONS_279_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_279_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_279_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_279_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_279_SIZE (18432)
 #define STAI_NETWORK_ACTIVATIONS_279_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_279_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_279_CHANNEL (128)
 #define STAI_NETWORK_ACTIVATIONS_279_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_279_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_279_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_279_BATCH (384)
 #define STAI_NETWORK_ACTIVATIONS_279_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_279_SHAPE \
   { \
-    1, 16, 12, 12, 4 \
+    1, 128, 12, 12, 384 \
   }
-#define STAI_NETWORK_ACTIVATIONS_279_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_279_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_279_SCALES \
   { \
+    0.0883003547787666 \
   }
 #define STAI_NETWORK_ACTIVATIONS_279_OFFSETS \
   { \
+    -125 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_280_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_280_NAME "Mul_617_out_0"
+#define STAI_NETWORK_ACTIVATIONS_280_NAME "Concat_648_out_0"
 #define STAI_NETWORK_ACTIVATIONS_280_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_280_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_280_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_280_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_280_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_280_SIZE (55296)
+#define STAI_NETWORK_ACTIVATIONS_280_SIZE_BYTES (55296)
+#define STAI_NETWORK_ACTIVATIONS_280_CHANNEL (384)
 #define STAI_NETWORK_ACTIVATIONS_280_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_280_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_280_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_280_BATCH (384)
 #define STAI_NETWORK_ACTIVATIONS_280_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_280_SHAPE \
   { \
-    1, 12, 12, 64 \
+    1, 12, 12, 384 \
   }
 #define STAI_NETWORK_ACTIVATIONS_280_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_280_SCALES \
   { \
-    0.0433298498392105 \
+    0.0883003547787666 \
   }
 #define STAI_NETWORK_ACTIVATIONS_280_OFFSETS \
   { \
-    -122 \
+    -125 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_281_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_281_NAME "Add_620_out_0"
-#define STAI_NETWORK_ACTIVATIONS_281_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_281_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_281_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_281_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_281_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_281_NAME "Conv2D_649_out_0_cp_in_678_cp_in_679_cp_in_680"
+#define STAI_NETWORK_ACTIVATIONS_281_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_281_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_281_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_281_SIZE_BYTES (73728)
+#define STAI_NETWORK_ACTIVATIONS_281_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_281_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_281_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_281_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_281_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_281_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_281_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_281_SHAPE \
   { \
-    1, 12, 12, 64 \
+    1, 16, 12, 12, 16 \
   }
-#define STAI_NETWORK_ACTIVATIONS_281_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_281_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_281_SCALES \
   { \
-    0.054881077259779 \
   }
 #define STAI_NETWORK_ACTIVATIONS_281_OFFSETS \
   { \
-    -118 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_282_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_282_NAME "Conv2D_623_out_0_cp_in_673"
-#define STAI_NETWORK_ACTIVATIONS_282_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_282_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_282_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_282_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_282_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_282_NAME "Mul_653_out_0"
+#define STAI_NETWORK_ACTIVATIONS_282_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_282_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_282_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_282_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_282_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_282_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_282_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_282_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_282_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_282_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_282_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_282_SHAPE \
   { \
-    1, 16, 12, 12, 4 \
+    1, 12, 12, 256 \
   }
-#define STAI_NETWORK_ACTIVATIONS_282_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_282_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_282_SCALES \
   { \
+    0.05709058791399 \
   }
 #define STAI_NETWORK_ACTIVATIONS_282_OFFSETS \
   { \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_283_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_283_NAME "Mul_627_out_0"
-#define STAI_NETWORK_ACTIVATIONS_283_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_283_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_283_NAME "Conv2D_716_out_0_cp_in_682"
+#define STAI_NETWORK_ACTIVATIONS_283_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_283_FORMAT (STAI_FORMAT_Q15)
 #define STAI_NETWORK_ACTIVATIONS_283_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_283_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_283_SIZE_BYTES (18432)
 #define STAI_NETWORK_ACTIVATIONS_283_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_283_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_283_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_283_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_283_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_283_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_283_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_283_SHAPE \
   { \
-    1, 12, 12, 64 \
+    1, 16, 12, 12, 4 \
   }
-#define STAI_NETWORK_ACTIVATIONS_283_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_283_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_283_SCALES \
   { \
-    0.074347086250782 \
   }
 #define STAI_NETWORK_ACTIVATIONS_283_OFFSETS \
   { \
-    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_284_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_284_NAME "Conv2D_630_out_0_cp_in_674"
+#define STAI_NETWORK_ACTIVATIONS_284_NAME "Conv2D_656_out_0_cp_in_681"
 #define STAI_NETWORK_ACTIVATIONS_284_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_284_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_284_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_284_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_284_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_284_SIZE (2304)
+#define STAI_NETWORK_ACTIVATIONS_284_SIZE_BYTES (4608)
+#define STAI_NETWORK_ACTIVATIONS_284_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_284_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_284_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_284_BATCH (4)
 #define STAI_NETWORK_ACTIVATIONS_284_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_284_SHAPE \
   { \
-    1, 16, 12, 12, 4 \
+    1, 4, 12, 12, 4 \
   }
 #define STAI_NETWORK_ACTIVATIONS_284_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_284_SCALES \
@@ -10995,94 +11001,94 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_285_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_285_NAME "Mul_634_out_0"
-#define STAI_NETWORK_ACTIVATIONS_285_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_285_NAME "Conv2D_656_off_bias_out_832"
+#define STAI_NETWORK_ACTIVATIONS_285_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_285_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_285_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_285_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_285_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_285_SIZE (2304)
+#define STAI_NETWORK_ACTIVATIONS_285_SIZE_BYTES (2304)
+#define STAI_NETWORK_ACTIVATIONS_285_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_285_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_285_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_285_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_285_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_285_BATCH (4)
+#define STAI_NETWORK_ACTIVATIONS_285_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_285_SHAPE \
   { \
-    1, 12, 12, 64 \
+    1, 4, 12, 12, 4 \
   }
 #define STAI_NETWORK_ACTIVATIONS_285_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_285_SCALES \
   { \
-    0.0747283846139908 \
+    0.0366344153881073 \
   }
 #define STAI_NETWORK_ACTIVATIONS_285_OFFSETS \
   { \
-    -124 \
+    0 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_286_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_286_NAME "Add_637_out_0"
-#define STAI_NETWORK_ACTIVATIONS_286_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_286_NAME "Mul_720_out_0"
+#define STAI_NETWORK_ACTIVATIONS_286_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_286_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_286_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_286_SIZE_BYTES (9216)
 #define STAI_NETWORK_ACTIVATIONS_286_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_286_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_286_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_286_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_286_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_286_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_286_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_286_SHAPE \
   { \
-    1, 4, 12, 12, 16 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_286_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_286_SCALES \
   { \
-    0.118191786110401 \
+    0.0478264577686787 \
   }
 #define STAI_NETWORK_ACTIVATIONS_286_OFFSETS \
   { \
-    -121 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_287_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_287_NAME "Concat_640_out_0"
+#define STAI_NETWORK_ACTIVATIONS_287_NAME "Conv2D_682_off_bias_out_859"
 #define STAI_NETWORK_ACTIVATIONS_287_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_287_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_287_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_287_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_287_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_287_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_287_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_287_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_287_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_287_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_287_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_287_BATCH (2)
 #define STAI_NETWORK_ACTIVATIONS_287_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_287_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 128, 12, 12, 2 \
   }
 #define STAI_NETWORK_ACTIVATIONS_287_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_287_SCALES \
   { \
-    0.118191786110401 \
+    0.118687480688095 \
   }
 #define STAI_NETWORK_ACTIVATIONS_287_OFFSETS \
   { \
-    -121 \
+    -32 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_288_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_288_NAME "Conv2D_641_out_0_cp_in_675_cp_in_676_cp_in_677"
+#define STAI_NETWORK_ACTIVATIONS_288_NAME "Conv2D_723_out_0_cp_in_686"
 #define STAI_NETWORK_ACTIVATIONS_288_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_288_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_288_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_288_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_288_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_288_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_288_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_288_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_288_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_288_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_288_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_288_BATCH (4)
 #define STAI_NETWORK_ACTIVATIONS_288_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_288_SHAPE \
   { \
-    1, 8, 12, 12, 16 \
+    1, 16, 12, 12, 4 \
   }
 #define STAI_NETWORK_ACTIVATIONS_288_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_288_SCALES \
@@ -11093,49 +11099,49 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_289_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_289_NAME "Mul_645_out_0"
-#define STAI_NETWORK_ACTIVATIONS_289_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_289_NAME "Mul_727_out_0"
+#define STAI_NETWORK_ACTIVATIONS_289_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_289_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_289_SIZE (18432)
-#define STAI_NETWORK_ACTIVATIONS_289_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_289_CHANNEL (128)
+#define STAI_NETWORK_ACTIVATIONS_289_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_289_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_289_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_289_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_289_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_289_BATCH (384)
-#define STAI_NETWORK_ACTIVATIONS_289_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_289_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_289_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_289_SHAPE \
   { \
-    1, 128, 12, 12, 384 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_289_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_289_SCALES \
   { \
-    0.0642874613404274 \
+    0.0434036515653133 \
   }
 #define STAI_NETWORK_ACTIVATIONS_289_OFFSETS \
   { \
-    -124 \
+    -122 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_290_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_290_NAME "Concat_648_out_0"
+#define STAI_NETWORK_ACTIVATIONS_290_NAME "Mul_686_out_0"
 #define STAI_NETWORK_ACTIVATIONS_290_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_290_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_290_SIZE (55296)
-#define STAI_NETWORK_ACTIVATIONS_290_SIZE_BYTES (55296)
-#define STAI_NETWORK_ACTIVATIONS_290_CHANNEL (384)
+#define STAI_NETWORK_ACTIVATIONS_290_SIZE (36864)
+#define STAI_NETWORK_ACTIVATIONS_290_SIZE_BYTES (36864)
+#define STAI_NETWORK_ACTIVATIONS_290_CHANNEL (256)
 #define STAI_NETWORK_ACTIVATIONS_290_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_290_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_290_BATCH (384)
+#define STAI_NETWORK_ACTIVATIONS_290_BATCH (256)
 #define STAI_NETWORK_ACTIVATIONS_290_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_290_SHAPE \
   { \
-    1, 12, 12, 384 \
+    1, 12, 12, 256 \
   }
 #define STAI_NETWORK_ACTIVATIONS_290_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_290_SCALES \
   { \
-    0.0642874613404274 \
+    0.0752344951033592 \
   }
 #define STAI_NETWORK_ACTIVATIONS_290_OFFSETS \
   { \
@@ -11143,19 +11149,19 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_291_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_291_NAME "Conv2D_649_out_0_cp_in_678_cp_in_679_cp_in_680"
+#define STAI_NETWORK_ACTIVATIONS_291_NAME "Conv2D_689_out_0_cp_in_683_cp_in_684_cp_in_685"
 #define STAI_NETWORK_ACTIVATIONS_291_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_291_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_291_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_291_SIZE_BYTES (73728)
-#define STAI_NETWORK_ACTIVATIONS_291_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_291_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_291_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_291_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_291_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_291_WIDTH (12)
 #define STAI_NETWORK_ACTIVATIONS_291_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_291_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_291_SHAPE \
   { \
-    1, 16, 12, 12, 16 \
+    1, 4, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_291_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_291_SCALES \
@@ -11166,55 +11172,57 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_292_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_292_NAME "Mul_653_out_0"
+#define STAI_NETWORK_ACTIVATIONS_292_NAME "Mul_660_out_0"
 #define STAI_NETWORK_ACTIVATIONS_292_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_292_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_292_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_292_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_292_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_292_SIZE (2304)
+#define STAI_NETWORK_ACTIVATIONS_292_SIZE_BYTES (2304)
+#define STAI_NETWORK_ACTIVATIONS_292_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_292_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_292_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_292_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_292_BATCH (16)
 #define STAI_NETWORK_ACTIVATIONS_292_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_292_SHAPE \
   { \
-    1, 12, 12, 256 \
+    1, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_292_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_292_SCALES \
   { \
-    0.0698716714978218 \
+    0.0192245077341795 \
   }
 #define STAI_NETWORK_ACTIVATIONS_292_OFFSETS \
   { \
-    -124 \
+    -114 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_293_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_293_NAME "Conv2D_716_out_0_cp_in_682"
-#define STAI_NETWORK_ACTIVATIONS_293_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_293_FORMAT (STAI_FORMAT_Q15)
+#define STAI_NETWORK_ACTIVATIONS_293_NAME "Mul_693_out_0"
+#define STAI_NETWORK_ACTIVATIONS_293_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_293_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_293_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_293_SIZE_BYTES (18432)
+#define STAI_NETWORK_ACTIVATIONS_293_SIZE_BYTES (9216)
 #define STAI_NETWORK_ACTIVATIONS_293_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_293_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_293_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_293_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_293_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_293_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_293_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_293_SHAPE \
   { \
-    1, 16, 12, 12, 4 \
+    1, 12, 12, 64 \
   }
-#define STAI_NETWORK_ACTIVATIONS_293_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_293_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_293_SCALES \
   { \
+    0.0416304767131805 \
   }
 #define STAI_NETWORK_ACTIVATIONS_293_OFFSETS \
   { \
+    -121 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_294_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_294_NAME "Conv2D_656_out_0_cp_in_681"
+#define STAI_NETWORK_ACTIVATIONS_294_NAME "Conv2D_663_out_0_cp_in_687"
 #define STAI_NETWORK_ACTIVATIONS_294_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_294_FORMAT (STAI_FORMAT_Q15)
 #define STAI_NETWORK_ACTIVATIONS_294_SIZE (2304)
@@ -11237,99 +11245,99 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_295_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_295_NAME "Mul_686_out_0"
+#define STAI_NETWORK_ACTIVATIONS_295_NAME "Mul_700_out_0"
 #define STAI_NETWORK_ACTIVATIONS_295_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_295_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_295_SIZE (36864)
-#define STAI_NETWORK_ACTIVATIONS_295_SIZE_BYTES (36864)
-#define STAI_NETWORK_ACTIVATIONS_295_CHANNEL (256)
+#define STAI_NETWORK_ACTIVATIONS_295_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_295_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_295_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_295_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_295_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_295_BATCH (256)
+#define STAI_NETWORK_ACTIVATIONS_295_BATCH (64)
 #define STAI_NETWORK_ACTIVATIONS_295_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_295_SHAPE \
   { \
-    1, 12, 12, 256 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_295_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_295_SCALES \
   { \
-    0.0827737301588058 \
+    0.0739906951785088 \
   }
 #define STAI_NETWORK_ACTIVATIONS_295_OFFSETS \
   { \
-    -125 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_296_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_296_NAME "Conv2D_716_off_bias_out_904"
-#define STAI_NETWORK_ACTIVATIONS_296_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_296_NAME "Mul_667_out_0"
+#define STAI_NETWORK_ACTIVATIONS_296_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_296_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_296_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_296_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_296_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_296_SIZE (2304)
+#define STAI_NETWORK_ACTIVATIONS_296_SIZE_BYTES (2304)
+#define STAI_NETWORK_ACTIVATIONS_296_CHANNEL (16)
 #define STAI_NETWORK_ACTIVATIONS_296_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_296_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_296_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_296_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_296_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_296_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_296_SHAPE \
   { \
-    1, 16, 12, 12, 4 \
+    1, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_296_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_296_SCALES \
   { \
-    0.0836049616336823 \
+    0.0206690300256014 \
   }
 #define STAI_NETWORK_ACTIVATIONS_296_OFFSETS \
   { \
-    -32 \
+    -115 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_297_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_297_NAME "Conv2D_656_off_bias_out_832"
-#define STAI_NETWORK_ACTIVATIONS_297_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_297_NAME "Conv2D_730_off_bias_out_922"
+#define STAI_NETWORK_ACTIVATIONS_297_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_297_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_297_SIZE (2304)
-#define STAI_NETWORK_ACTIVATIONS_297_SIZE_BYTES (2304)
-#define STAI_NETWORK_ACTIVATIONS_297_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_297_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_297_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_297_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_297_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_297_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_297_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_297_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_297_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_297_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_297_SHAPE \
   { \
-    1, 4, 12, 12, 4 \
+    1, 12, 12, 64 \
   }
 #define STAI_NETWORK_ACTIVATIONS_297_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_297_SCALES \
   { \
-    0.0372680835425854 \
+    0.0721506550908089 \
   }
 #define STAI_NETWORK_ACTIVATIONS_297_OFFSETS \
   { \
-    8 \
+    -21 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_298_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_298_NAME "Mul_720_out_0"
-#define STAI_NETWORK_ACTIVATIONS_298_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_298_NAME "Mul_707_out_0"
+#define STAI_NETWORK_ACTIVATIONS_298_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
 #define STAI_NETWORK_ACTIVATIONS_298_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_298_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_298_SIZE_BYTES (9216)
 #define STAI_NETWORK_ACTIVATIONS_298_CHANNEL (64)
 #define STAI_NETWORK_ACTIVATIONS_298_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_298_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_298_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_298_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_298_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_298_RANK (5)
 #define STAI_NETWORK_ACTIVATIONS_298_SHAPE \
   { \
-    1, 12, 12, 64 \
+    1, 4, 12, 12, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_298_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_298_SCALES \
   { \
-    0.0531434640288353 \
+    0.0585452280938625 \
   }
 #define STAI_NETWORK_ACTIVATIONS_298_OFFSETS \
   { \
@@ -11337,432 +11345,432 @@ STAI_API_DECLARE_END
   }
 
 #define STAI_NETWORK_ACTIVATIONS_299_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_299_NAME "Conv2D_689_out_0_cp_in_683_cp_in_684_cp_in_685"
-#define STAI_NETWORK_ACTIVATIONS_299_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_299_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_299_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_299_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_299_CHANNEL (64)
+#define STAI_NETWORK_ACTIVATIONS_299_NAME "Conv2D_710_off_bias_out_895"
+#define STAI_NETWORK_ACTIVATIONS_299_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_299_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_299_SIZE (288)
+#define STAI_NETWORK_ACTIVATIONS_299_SIZE_BYTES (288)
+#define STAI_NETWORK_ACTIVATIONS_299_CHANNEL (2)
 #define STAI_NETWORK_ACTIVATIONS_299_HEIGHT (12)
 #define STAI_NETWORK_ACTIVATIONS_299_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_299_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_299_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_299_BATCH (2)
+#define STAI_NETWORK_ACTIVATIONS_299_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_299_SHAPE \
   { \
-    1, 4, 12, 12, 16 \
+    1, 12, 12, 2 \
   }
-#define STAI_NETWORK_ACTIVATIONS_299_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_299_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_299_SCALES \
   { \
+    0.0876239240169525 \
   }
 #define STAI_NETWORK_ACTIVATIONS_299_OFFSETS \
   { \
+    119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_300_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_300_NAME "Mul_660_out_0"
+#define STAI_NETWORK_ACTIVATIONS_300_NAME "Reshape_733_out_0"
 #define STAI_NETWORK_ACTIVATIONS_300_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_300_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_300_SIZE (2304)
-#define STAI_NETWORK_ACTIVATIONS_300_SIZE_BYTES (2304)
-#define STAI_NETWORK_ACTIVATIONS_300_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_300_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_300_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_300_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_300_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_300_SIZE (9216)
+#define STAI_NETWORK_ACTIVATIONS_300_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_300_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_300_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_300_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_300_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_300_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_300_SHAPE \
   { \
-    1, 12, 12, 16 \
+    64, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_300_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_300_SCALES \
   { \
-    0.018238864839077 \
+    0.0721506550908089 \
   }
 #define STAI_NETWORK_ACTIVATIONS_300_OFFSETS \
   { \
-    -113 \
+    -21 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_301_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_301_NAME "Conv2D_723_out_0_cp_in_686"
-#define STAI_NETWORK_ACTIVATIONS_301_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
-#define STAI_NETWORK_ACTIVATIONS_301_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_301_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_301_SIZE_BYTES (18432)
-#define STAI_NETWORK_ACTIVATIONS_301_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_301_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_301_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_301_BATCH (4)
-#define STAI_NETWORK_ACTIVATIONS_301_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_301_NAME "Reshape_713_out_0"
+#define STAI_NETWORK_ACTIVATIONS_301_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_301_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_301_SIZE (288)
+#define STAI_NETWORK_ACTIVATIONS_301_SIZE_BYTES (288)
+#define STAI_NETWORK_ACTIVATIONS_301_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_301_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_301_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_301_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_301_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_301_SHAPE \
   { \
-    1, 16, 12, 12, 4 \
+    2, 144, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_301_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_301_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_301_SCALES \
   { \
+    0.0876239240169525 \
   }
 #define STAI_NETWORK_ACTIVATIONS_301_OFFSETS \
   { \
+    119 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_302_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_302_NAME "Conv2D_689_off_bias_out_868"
-#define STAI_NETWORK_ACTIVATIONS_302_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_302_NAME "Reshape_733_out_0_inserted_out2906"
+#define STAI_NETWORK_ACTIVATIONS_302_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_302_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_302_SIZE (9216)
 #define STAI_NETWORK_ACTIVATIONS_302_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_302_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_302_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_302_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_302_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_302_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_302_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_302_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_302_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_302_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_302_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_302_SHAPE \
   { \
-    1, 4, 12, 12, 16 \
+    64, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_302_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_302_SCALES \
   { \
-    0.09331414103508 \
+    0.106556162238121 \
   }
 #define STAI_NETWORK_ACTIVATIONS_302_OFFSETS \
   { \
-    28 \
+    -36 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_303_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_303_NAME "Mul_667_out_0"
+#define STAI_NETWORK_ACTIVATIONS_303_NAME "Reshape_673_out_0_inserted_out2892"
 #define STAI_NETWORK_ACTIVATIONS_303_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_303_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_303_SIZE (2304)
-#define STAI_NETWORK_ACTIVATIONS_303_SIZE_BYTES (2304)
-#define STAI_NETWORK_ACTIVATIONS_303_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_303_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_303_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_303_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_303_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_303_SIZE (144)
+#define STAI_NETWORK_ACTIVATIONS_303_SIZE_BYTES (144)
+#define STAI_NETWORK_ACTIVATIONS_303_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_303_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_303_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_303_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_303_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_303_SHAPE \
   { \
-    1, 12, 12, 16 \
+    1, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_303_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_303_SCALES \
   { \
-    0.0173334311693907 \
+    0.0196326207369566 \
   }
 #define STAI_NETWORK_ACTIVATIONS_303_OFFSETS \
   { \
-    -112 \
+    47 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_304_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_304_NAME "Mul_727_out_0"
+#define STAI_NETWORK_ACTIVATIONS_304_NAME "Concat_734_out_0"
 #define STAI_NETWORK_ACTIVATIONS_304_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_304_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_304_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_304_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_304_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_304_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_304_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_304_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_304_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_304_SIZE (193536)
+#define STAI_NETWORK_ACTIVATIONS_304_SIZE_BYTES (193536)
+#define STAI_NETWORK_ACTIVATIONS_304_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_304_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_304_WIDTH (3024)
+#define STAI_NETWORK_ACTIVATIONS_304_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_304_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_304_SHAPE \
   { \
-    1, 12, 12, 64 \
+    64, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_304_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_304_SCALES \
   { \
-    0.0413633026182652 \
+    0.106556162238121 \
   }
 #define STAI_NETWORK_ACTIVATIONS_304_OFFSETS \
   { \
-    -121 \
+    -36 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_305_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_305_NAME "Conv2D_730_off_bias_out_922"
-#define STAI_NETWORK_ACTIVATIONS_305_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_305_NAME "Reshape_735_out_0"
+#define STAI_NETWORK_ACTIVATIONS_305_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_305_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_305_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_305_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_305_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_305_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_305_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_305_BATCH (64)
+#define STAI_NETWORK_ACTIVATIONS_305_SIZE (193536)
+#define STAI_NETWORK_ACTIVATIONS_305_SIZE_BYTES (193536)
+#define STAI_NETWORK_ACTIVATIONS_305_CHANNEL (4)
+#define STAI_NETWORK_ACTIVATIONS_305_HEIGHT (16)
+#define STAI_NETWORK_ACTIVATIONS_305_WIDTH (3024)
+#define STAI_NETWORK_ACTIVATIONS_305_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_305_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_305_SHAPE \
   { \
-    1, 12, 12, 64 \
+    1, 4, 16, 3024 \
   }
 #define STAI_NETWORK_ACTIVATIONS_305_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_305_SCALES \
   { \
-    0.0755914598703384 \
+    0.106556162238121 \
   }
 #define STAI_NETWORK_ACTIVATIONS_305_OFFSETS \
   { \
-    -27 \
+    -36 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_306_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_306_NAME "Mul_693_out_0"
+#define STAI_NETWORK_ACTIVATIONS_306_NAME "Reshape_713_out_0_inserted_out2944"
 #define STAI_NETWORK_ACTIVATIONS_306_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_306_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_306_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_306_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_306_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_306_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_306_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_306_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_306_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_306_SIZE (288)
+#define STAI_NETWORK_ACTIVATIONS_306_SIZE_BYTES (288)
+#define STAI_NETWORK_ACTIVATIONS_306_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_306_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_306_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_306_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_306_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_306_SHAPE \
   { \
-    1, 12, 12, 64 \
+    2, 144, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_306_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_306_SCALES \
   { \
-    0.0372116640210152 \
+    0.254949122667313 \
   }
 #define STAI_NETWORK_ACTIVATIONS_306_OFFSETS \
   { \
-    -121 \
+    115 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_307_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_307_NAME "Reshape_673_out_0_inserted_out2898"
+#define STAI_NETWORK_ACTIVATIONS_307_NAME "Concat_674_out_0"
 #define STAI_NETWORK_ACTIVATIONS_307_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_307_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_307_SIZE (144)
-#define STAI_NETWORK_ACTIVATIONS_307_SIZE_BYTES (144)
+#define STAI_NETWORK_ACTIVATIONS_307_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_307_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_307_CHANNEL (1)
 #define STAI_NETWORK_ACTIVATIONS_307_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_307_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_307_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_307_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_307_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_307_SHAPE \
   { \
-    1, 144, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_307_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_307_SCALES \
   { \
-    0.0162364151328802 \
+    0.0196326207369566 \
   }
 #define STAI_NETWORK_ACTIVATIONS_307_OFFSETS \
   { \
-    24 \
+    47 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_308_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_308_NAME "Mul_700_out_0"
+#define STAI_NETWORK_ACTIVATIONS_308_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_308_NAME "Concat_714_out_0"
 #define STAI_NETWORK_ACTIVATIONS_308_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_308_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_308_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_308_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_308_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_308_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_308_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_308_BATCH (64)
-#define STAI_NETWORK_ACTIVATIONS_308_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_308_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_308_SIZE_BYTES (6048)
+#define STAI_NETWORK_ACTIVATIONS_308_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_308_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_308_WIDTH (3024)
+#define STAI_NETWORK_ACTIVATIONS_308_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_308_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_308_SHAPE \
   { \
-    1, 12, 12, 64 \
+    2, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_308_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_308_SCALES \
   { \
-    0.0512676946818829 \
+    0.254949122667313 \
   }
 #define STAI_NETWORK_ACTIVATIONS_308_OFFSETS \
   { \
-    -123 \
+    115 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_309_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_309_NAME "Reshape_733_out_0"
-#define STAI_NETWORK_ACTIVATIONS_309_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_309_NAME "Transpose_736_out_0"
+#define STAI_NETWORK_ACTIVATIONS_309_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
 #define STAI_NETWORK_ACTIVATIONS_309_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_309_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_309_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_309_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_309_HEIGHT (64)
-#define STAI_NETWORK_ACTIVATIONS_309_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_309_SIZE (193536)
+#define STAI_NETWORK_ACTIVATIONS_309_SIZE_BYTES (193536)
+#define STAI_NETWORK_ACTIVATIONS_309_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_309_HEIGHT (4)
+#define STAI_NETWORK_ACTIVATIONS_309_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_309_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_309_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_309_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_309_SHAPE \
   { \
-    64, 144, 1 \
+    1, 16, 4, 3024 \
   }
 #define STAI_NETWORK_ACTIVATIONS_309_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_309_SCALES \
   { \
-    0.0755914598703384 \
+    0.106556162238121 \
   }
 #define STAI_NETWORK_ACTIVATIONS_309_OFFSETS \
   { \
-    -27 \
+    -36 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_310_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_310_NAME "Mul_707_out_0"
-#define STAI_NETWORK_ACTIVATIONS_310_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_HAS_BATCH)
+#define STAI_NETWORK_ACTIVATIONS_310_NAME "Sigmoid_715_out_0_inserted_out3032"
+#define STAI_NETWORK_ACTIVATIONS_310_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_310_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_310_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_310_SIZE_BYTES (9216)
-#define STAI_NETWORK_ACTIVATIONS_310_CHANNEL (64)
-#define STAI_NETWORK_ACTIVATIONS_310_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_310_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_310_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_310_RANK (5)
+#define STAI_NETWORK_ACTIVATIONS_310_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_310_SIZE_BYTES (6048)
+#define STAI_NETWORK_ACTIVATIONS_310_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_310_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_310_WIDTH (3024)
+#define STAI_NETWORK_ACTIVATIONS_310_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_310_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_310_SHAPE \
   { \
-    1, 4, 12, 12, 16 \
+    2, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_310_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_310_SCALES \
   { \
-    0.0601546503603458 \
+    2.24017095565796 \
   }
 #define STAI_NETWORK_ACTIVATIONS_310_OFFSETS \
   { \
-    -123 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_311_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_311_NAME "Concat_674_out_0"
+#define STAI_NETWORK_ACTIVATIONS_311_NAME "Transpose_736_out_0_inserted_out2932"
 #define STAI_NETWORK_ACTIVATIONS_311_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_311_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_311_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_311_SIZE_BYTES (3024)
-#define STAI_NETWORK_ACTIVATIONS_311_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_311_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_311_SIZE (193536)
+#define STAI_NETWORK_ACTIVATIONS_311_SIZE_BYTES (193536)
+#define STAI_NETWORK_ACTIVATIONS_311_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_311_HEIGHT (4)
 #define STAI_NETWORK_ACTIVATIONS_311_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_311_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_311_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_311_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_311_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_311_SHAPE \
   { \
-    1, 3024, 1 \
+    1, 4, 3024, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_311_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_311_SCALES \
   { \
-    0.0162364151328802 \
+    0.106556162238121 \
   }
 #define STAI_NETWORK_ACTIVATIONS_311_OFFSETS \
   { \
-    24 \
+    -36 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_312_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_312_NAME "Reshape_733_out_0_inserted_out2914"
+#define STAI_NETWORK_ACTIVATIONS_312_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_312_NAME "Sigmoid_675_out_0"
 #define STAI_NETWORK_ACTIVATIONS_312_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_312_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_312_SIZE (9216)
-#define STAI_NETWORK_ACTIVATIONS_312_SIZE_BYTES (9216)
+#define STAI_NETWORK_ACTIVATIONS_312_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_312_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_312_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_312_HEIGHT (64)
-#define STAI_NETWORK_ACTIVATIONS_312_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_312_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_312_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_312_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_312_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_312_SHAPE \
   { \
-    64, 144, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_312_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_312_SCALES \
   { \
-    0.103236064314842 \
+    0.00324477488175035 \
   }
 #define STAI_NETWORK_ACTIVATIONS_312_OFFSETS \
   { \
-    -37 \
+    -128 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_313_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_313_NAME "Concat_734_out_0"
+#define STAI_NETWORK_ACTIVATIONS_313_NAME "Softmax_737_out_0"
 #define STAI_NETWORK_ACTIVATIONS_313_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_313_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_313_SIZE (193536)
 #define STAI_NETWORK_ACTIVATIONS_313_SIZE_BYTES (193536)
-#define STAI_NETWORK_ACTIVATIONS_313_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_313_HEIGHT (64)
+#define STAI_NETWORK_ACTIVATIONS_313_CHANNEL (16)
+#define STAI_NETWORK_ACTIVATIONS_313_HEIGHT (4)
 #define STAI_NETWORK_ACTIVATIONS_313_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_313_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_313_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_313_BATCH (16)
+#define STAI_NETWORK_ACTIVATIONS_313_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_313_SHAPE \
   { \
-    64, 3024, 1 \
+    1, 4, 3024, 16 \
   }
 #define STAI_NETWORK_ACTIVATIONS_313_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_313_SCALES \
   { \
-    0.103236064314842 \
+    0.00390625 \
   }
 #define STAI_NETWORK_ACTIVATIONS_313_OFFSETS \
   { \
-    -37 \
+    -128 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_314_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_314_NAME "Reshape_735_out_0"
-#define STAI_NETWORK_ACTIVATIONS_314_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
-#define STAI_NETWORK_ACTIVATIONS_314_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_314_SIZE (193536)
-#define STAI_NETWORK_ACTIVATIONS_314_SIZE_BYTES (193536)
-#define STAI_NETWORK_ACTIVATIONS_314_CHANNEL (4)
-#define STAI_NETWORK_ACTIVATIONS_314_HEIGHT (16)
-#define STAI_NETWORK_ACTIVATIONS_314_WIDTH (3024)
+#define STAI_NETWORK_ACTIVATIONS_314_NAME "SCRATCH_Softmax_737_PORT_OUT"
+#define STAI_NETWORK_ACTIVATIONS_314_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_314_FORMAT (STAI_FORMAT_S32)
+#define STAI_NETWORK_ACTIVATIONS_314_SIZE (249)
+#define STAI_NETWORK_ACTIVATIONS_314_SIZE_BYTES (996)
+#define STAI_NETWORK_ACTIVATIONS_314_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_314_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_314_WIDTH (249)
 #define STAI_NETWORK_ACTIVATIONS_314_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_314_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_314_SHAPE \
   { \
-    1, 4, 16, 3024 \
+    1, 1, 249, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_314_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_314_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_314_SCALES \
   { \
-    0.103236064314842 \
   }
 #define STAI_NETWORK_ACTIVATIONS_314_OFFSETS \
   { \
-    -37 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_315_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_315_NAME "Transpose_736_out_0"
-#define STAI_NETWORK_ACTIVATIONS_315_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_FIRST)
-#define STAI_NETWORK_ACTIVATIONS_315_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_315_SIZE (193536)
-#define STAI_NETWORK_ACTIVATIONS_315_SIZE_BYTES (193536)
-#define STAI_NETWORK_ACTIVATIONS_315_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_315_HEIGHT (4)
+#define STAI_NETWORK_ACTIVATIONS_315_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_315_NAME "Sigmoid_675_out_0_inserted_out2912"
+#define STAI_NETWORK_ACTIVATIONS_315_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
+#define STAI_NETWORK_ACTIVATIONS_315_FORMAT (STAI_FORMAT_FLOAT32)
+#define STAI_NETWORK_ACTIVATIONS_315_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_315_SIZE_BYTES (12096)
+#define STAI_NETWORK_ACTIVATIONS_315_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_315_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_315_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_315_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_315_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_315_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_315_SHAPE \
   { \
-    1, 16, 4, 3024 \
+    1, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_315_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_315_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_315_SCALES \
   { \
-    0.103236064314842 \
   }
 #define STAI_NETWORK_ACTIVATIONS_315_OFFSETS \
   { \
-    -37 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_316_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_316_NAME "Sigmoid_675_out_0"
+#define STAI_NETWORK_ACTIVATIONS_316_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_316_NAME "Sub_676_out_0"
 #define STAI_NETWORK_ACTIVATIONS_316_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_316_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_316_FORMAT (STAI_FORMAT_FLOAT32)
 #define STAI_NETWORK_ACTIVATIONS_316_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_316_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_316_SIZE_BYTES (12096)
 #define STAI_NETWORK_ACTIVATIONS_316_CHANNEL (1)
 #define STAI_NETWORK_ACTIVATIONS_316_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_316_WIDTH (3024)
@@ -11772,118 +11780,120 @@ STAI_API_DECLARE_END
   { \
     1, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_316_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_316_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_316_SCALES \
   { \
-    0.0033003375865519 \
   }
 #define STAI_NETWORK_ACTIVATIONS_316_OFFSETS \
   { \
-    -128 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_317_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_317_NAME "Transpose_736_out_0_inserted_out2940"
+#define STAI_NETWORK_ACTIVATIONS_317_NAME "Sub_676_out_0_inserted_out2928"
 #define STAI_NETWORK_ACTIVATIONS_317_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_317_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_317_SIZE (193536)
-#define STAI_NETWORK_ACTIVATIONS_317_SIZE_BYTES (193536)
-#define STAI_NETWORK_ACTIVATIONS_317_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_317_HEIGHT (4)
+#define STAI_NETWORK_ACTIVATIONS_317_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_317_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_317_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_317_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_317_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_317_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_317_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_317_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_317_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_317_SHAPE \
   { \
-    1, 4, 3024, 16 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_317_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_317_SCALES \
   { \
-    0.103236064314842 \
+    0.00312280585058033 \
   }
 #define STAI_NETWORK_ACTIVATIONS_317_OFFSETS \
   { \
-    -37 \
+    -58 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_318_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_318_NAME "Conv2D_710_off_bias_out_895"
+#define STAI_NETWORK_ACTIVATIONS_318_NAME "Sub_676_out_0_inserted_out2930"
 #define STAI_NETWORK_ACTIVATIONS_318_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_318_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_318_SIZE (288)
-#define STAI_NETWORK_ACTIVATIONS_318_SIZE_BYTES (288)
-#define STAI_NETWORK_ACTIVATIONS_318_CHANNEL (2)
-#define STAI_NETWORK_ACTIVATIONS_318_HEIGHT (12)
-#define STAI_NETWORK_ACTIVATIONS_318_WIDTH (12)
-#define STAI_NETWORK_ACTIVATIONS_318_BATCH (2)
-#define STAI_NETWORK_ACTIVATIONS_318_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_318_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_318_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_318_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_318_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_318_WIDTH (3024)
+#define STAI_NETWORK_ACTIVATIONS_318_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_318_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_318_SHAPE \
   { \
-    1, 12, 12, 2 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_318_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_318_SCALES \
   { \
-    0.0715283527970314 \
+    0.00312280585058033 \
   }
 #define STAI_NETWORK_ACTIVATIONS_318_OFFSETS \
   { \
-    111 \
+    -58 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_319_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_319_NAME "Sigmoid_675_out_0_inserted_out2920"
+#define STAI_NETWORK_ACTIVATIONS_319_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_319_NAME "Conv2D_738_off_bias_out_931"
 #define STAI_NETWORK_ACTIVATIONS_319_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_319_FORMAT (STAI_FORMAT_FLOAT32)
-#define STAI_NETWORK_ACTIVATIONS_319_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_319_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_319_SIZE (12096)
 #define STAI_NETWORK_ACTIVATIONS_319_SIZE_BYTES (12096)
 #define STAI_NETWORK_ACTIVATIONS_319_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_319_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_319_HEIGHT (4)
 #define STAI_NETWORK_ACTIVATIONS_319_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_319_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_319_RANK (3)
+#define STAI_NETWORK_ACTIVATIONS_319_RANK (4)
 #define STAI_NETWORK_ACTIVATIONS_319_SHAPE \
   { \
-    1, 3024, 1 \
+    1, 4, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_319_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_319_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_319_SCALES \
   { \
+    0.0492451377213001 \
   }
 #define STAI_NETWORK_ACTIVATIONS_319_OFFSETS \
   { \
+    -128 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_320_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_320_NAME "Sub_676_out_0"
+#define STAI_NETWORK_ACTIVATIONS_320_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_320_NAME "Reshape_741_out_0"
 #define STAI_NETWORK_ACTIVATIONS_320_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_320_FORMAT (STAI_FORMAT_FLOAT32)
-#define STAI_NETWORK_ACTIVATIONS_320_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_320_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_320_SIZE (12096)
 #define STAI_NETWORK_ACTIVATIONS_320_SIZE_BYTES (12096)
 #define STAI_NETWORK_ACTIVATIONS_320_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_320_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_320_HEIGHT (4)
 #define STAI_NETWORK_ACTIVATIONS_320_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_320_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_320_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_320_SHAPE \
   { \
-    1, 3024, 1 \
+    4, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_320_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_320_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_320_SCALES \
   { \
+    0.0492451377213001 \
   }
 #define STAI_NETWORK_ACTIVATIONS_320_OFFSETS \
   { \
+    -128 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_321_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_321_NAME "Sub_676_out_0_inserted_out2938"
+#define STAI_NETWORK_ACTIVATIONS_321_NAME "Mul_677_out_0_cp_in_694_cp_in_695"
 #define STAI_NETWORK_ACTIVATIONS_321_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_321_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_321_FORMAT (STAI_FORMAT_S16)
 #define STAI_NETWORK_ACTIVATIONS_321_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_321_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_321_SIZE_BYTES (6048)
 #define STAI_NETWORK_ACTIVATIONS_321_CHANNEL (1)
 #define STAI_NETWORK_ACTIVATIONS_321_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_321_WIDTH (3024)
@@ -11896,88 +11906,90 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_321_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_321_SCALES \
   { \
-    0.00299456040374935 \
+    3.84728809876833e-05 \
   }
 #define STAI_NETWORK_ACTIVATIONS_321_OFFSETS \
   { \
-    -71 \
+    -7424 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_322_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_322_NAME "Sub_676_out_0_inserted_out2936"
+#define STAI_NETWORK_ACTIVATIONS_322_NAME "Split_742_out_0"
 #define STAI_NETWORK_ACTIVATIONS_322_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_322_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_322_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_322_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_322_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_322_SIZE_BYTES (6048)
 #define STAI_NETWORK_ACTIVATIONS_322_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_322_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_322_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_322_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_322_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_322_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_322_SHAPE \
   { \
-    1, 3024, 1 \
+    2, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_322_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_322_SCALES \
   { \
-    0.00299456040374935 \
+    0.0492451377213001 \
   }
 #define STAI_NETWORK_ACTIVATIONS_322_OFFSETS \
   { \
-    -71 \
+    -128 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_323_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_323_NAME "Softmax_737_out_0"
+#define STAI_NETWORK_ACTIVATIONS_323_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_323_NAME "Split_742_out_1"
 #define STAI_NETWORK_ACTIVATIONS_323_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_323_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_323_SIZE (193536)
-#define STAI_NETWORK_ACTIVATIONS_323_SIZE_BYTES (193536)
-#define STAI_NETWORK_ACTIVATIONS_323_CHANNEL (16)
-#define STAI_NETWORK_ACTIVATIONS_323_HEIGHT (4)
+#define STAI_NETWORK_ACTIVATIONS_323_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_323_SIZE_BYTES (6048)
+#define STAI_NETWORK_ACTIVATIONS_323_CHANNEL (1)
+#define STAI_NETWORK_ACTIVATIONS_323_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_323_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_323_BATCH (16)
-#define STAI_NETWORK_ACTIVATIONS_323_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_323_BATCH (1)
+#define STAI_NETWORK_ACTIVATIONS_323_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_323_SHAPE \
   { \
-    1, 4, 3024, 16 \
+    2, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_323_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_323_SCALES \
   { \
-    0.00390625 \
+    0.0492451377213001 \
   }
 #define STAI_NETWORK_ACTIVATIONS_323_OFFSETS \
   { \
     -128 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_324_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_324_NAME "SCRATCH_Softmax_737_PORT_OUT"
+#define STAI_NETWORK_ACTIVATIONS_324_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_324_NAME "Mul_677_out_0_cp_in_694_cp_in_695_cp_in_696"
 #define STAI_NETWORK_ACTIVATIONS_324_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_324_FORMAT (STAI_FORMAT_S32)
-#define STAI_NETWORK_ACTIVATIONS_324_SIZE (249)
-#define STAI_NETWORK_ACTIVATIONS_324_SIZE_BYTES (996)
+#define STAI_NETWORK_ACTIVATIONS_324_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_324_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_324_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_324_CHANNEL (1)
 #define STAI_NETWORK_ACTIVATIONS_324_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_324_WIDTH (249)
+#define STAI_NETWORK_ACTIVATIONS_324_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_324_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_324_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_324_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_324_SHAPE \
   { \
-    1, 1, 249, 1 \
+    1, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_324_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_324_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_324_SCALES \
   { \
+    0.00981058459728956 \
   }
 #define STAI_NETWORK_ACTIVATIONS_324_OFFSETS \
   { \
+    -58 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_325_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_325_NAME "Mul_677_out_0_cp_in_694_cp_in_695_cp_in_696"
+#define STAI_NETWORK_ACTIVATIONS_325_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_325_NAME "Cos_681_out_0"
 #define STAI_NETWORK_ACTIVATIONS_325_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_325_FORMAT (STAI_FORMAT_S8)
 #define STAI_NETWORK_ACTIVATIONS_325_SIZE (3024)
@@ -11994,730 +12006,507 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_ACTIVATIONS_325_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_325_SCALES \
   { \
-    0.00940768979489803 \
+    0.0048659760504961 \
   }
 #define STAI_NETWORK_ACTIVATIONS_325_OFFSETS \
   { \
-    -71 \
+    -79 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_326_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_326_NAME "Sin_680_out_0"
+#define STAI_NETWORK_ACTIVATIONS_326_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_326_NAME "Add_743_out_0_inserted_out3014"
 #define STAI_NETWORK_ACTIVATIONS_326_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_326_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_326_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_326_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_326_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_326_SIZE_BYTES (6048)
 #define STAI_NETWORK_ACTIVATIONS_326_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_326_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_326_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_326_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_326_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_326_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_326_SHAPE \
   { \
-    1, 3024, 1 \
+    2, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_326_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_326_SCALES \
   { \
-    0.00593926198780537 \
+    0.196007832884789 \
   }
 #define STAI_NETWORK_ACTIVATIONS_326_OFFSETS \
   { \
-    -41 \
+    -123 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_327_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_327_NAME "Cos_681_out_0"
+#define STAI_NETWORK_ACTIVATIONS_327_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_327_NAME "Sub_746_out_0"
 #define STAI_NETWORK_ACTIVATIONS_327_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_327_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_327_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_327_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_327_FORMAT (STAI_FORMAT_FLOAT32)
+#define STAI_NETWORK_ACTIVATIONS_327_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_327_SIZE_BYTES (24192)
 #define STAI_NETWORK_ACTIVATIONS_327_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_327_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_327_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_327_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_327_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_327_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_327_SHAPE \
   { \
-    1, 3024, 1 \
+    2, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_327_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_327_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_327_SCALES \
   { \
-    0.00503440294414759 \
   }
 #define STAI_NETWORK_ACTIVATIONS_327_OFFSETS \
   { \
-    -72 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_328_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_328_NAME "Conv2D_738_out_0"
+#define STAI_NETWORK_ACTIVATIONS_328_NAME "Sin_680_out_0"
 #define STAI_NETWORK_ACTIVATIONS_328_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_328_FORMAT (STAI_FORMAT_Q15)
-#define STAI_NETWORK_ACTIVATIONS_328_SIZE (12096)
-#define STAI_NETWORK_ACTIVATIONS_328_SIZE_BYTES (24192)
+#define STAI_NETWORK_ACTIVATIONS_328_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_328_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_328_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_328_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_328_HEIGHT (4)
+#define STAI_NETWORK_ACTIVATIONS_328_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_328_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_328_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_328_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_328_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_328_SHAPE \
   { \
-    1, 4, 3024, 1 \
+    1, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_328_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_328_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_328_SCALES \
   { \
+    0.00641079340130091 \
   }
 #define STAI_NETWORK_ACTIVATIONS_328_OFFSETS \
   { \
+    -29 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_329_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_329_NAME "Reshape_713_out_0"
+#define STAI_NETWORK_ACTIVATIONS_329_NAME "Mul_677_out_0_cp_in_694_cp_in_695_cp_in_696_inserted_out3034"
 #define STAI_NETWORK_ACTIVATIONS_329_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_329_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_329_SIZE (288)
-#define STAI_NETWORK_ACTIVATIONS_329_SIZE_BYTES (288)
+#define STAI_NETWORK_ACTIVATIONS_329_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_329_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_329_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_329_HEIGHT (2)
-#define STAI_NETWORK_ACTIVATIONS_329_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_329_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_329_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_329_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_329_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_329_SHAPE \
   { \
-    2, 144, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_329_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_329_SCALES \
   { \
-    0.0715283527970314 \
+    2.24017095565796 \
   }
 #define STAI_NETWORK_ACTIVATIONS_329_OFFSETS \
   { \
-    111 \
+    -124 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_330_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_330_NAME "Mul_677_out_0_cp_in_694_cp_in_695_cp_in_696_inserted_out3038"
+#define STAI_NETWORK_ACTIVATIONS_330_NAME "Div_747_out_0"
 #define STAI_NETWORK_ACTIVATIONS_330_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_330_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_330_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_330_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_330_FORMAT (STAI_FORMAT_FLOAT32)
+#define STAI_NETWORK_ACTIVATIONS_330_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_330_SIZE_BYTES (24192)
 #define STAI_NETWORK_ACTIVATIONS_330_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_330_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_330_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_330_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_330_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_330_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_330_SHAPE \
   { \
-    1, 3024, 1 \
+    2, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_330_SCALE_OFFSET_NUM (1)
+#define STAI_NETWORK_ACTIVATIONS_330_SCALE_OFFSET_NUM (0)
 #define STAI_NETWORK_ACTIVATIONS_330_SCALES \
   { \
-    2.57553458213806 \
   }
 #define STAI_NETWORK_ACTIVATIONS_330_OFFSETS \
   { \
-    -106 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_331_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_331_NAME "Conv2D_738_off_bias_out_931"
+#define STAI_NETWORK_ACTIVATIONS_331_NAME "Div_747_out_0_inserted_out2952"
 #define STAI_NETWORK_ACTIVATIONS_331_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_331_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_331_SIZE (12096)
-#define STAI_NETWORK_ACTIVATIONS_331_SIZE_BYTES (12096)
+#define STAI_NETWORK_ACTIVATIONS_331_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_331_SIZE_BYTES (6048)
 #define STAI_NETWORK_ACTIVATIONS_331_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_331_HEIGHT (4)
+#define STAI_NETWORK_ACTIVATIONS_331_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_331_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_331_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_331_RANK (4)
+#define STAI_NETWORK_ACTIVATIONS_331_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_331_SHAPE \
   { \
-    1, 4, 3024, 1 \
+    2, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_331_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_331_SCALES \
   { \
-    0.0468307100236416 \
+    0.0352850742638111 \
   }
 #define STAI_NETWORK_ACTIVATIONS_331_OFFSETS \
   { \
-    -128 \
+    26 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_332_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_332_NAME "Reshape_741_out_0"
+#define STAI_NETWORK_ACTIVATIONS_332_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_332_NAME "Split_748_out_0"
 #define STAI_NETWORK_ACTIVATIONS_332_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_332_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_332_SIZE (12096)
-#define STAI_NETWORK_ACTIVATIONS_332_SIZE_BYTES (12096)
+#define STAI_NETWORK_ACTIVATIONS_332_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_332_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_332_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_332_HEIGHT (4)
+#define STAI_NETWORK_ACTIVATIONS_332_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_332_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_332_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_332_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_332_SHAPE \
   { \
-    4, 3024, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_332_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_332_SCALES \
   { \
-    0.0468307100236416 \
+    0.0352850742638111 \
   }
 #define STAI_NETWORK_ACTIVATIONS_332_OFFSETS \
   { \
-    -128 \
+    26 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_333_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_333_NAME "Reshape_713_out_0_inserted_out2950"
+#define STAI_NETWORK_ACTIVATIONS_333_NAME "Split_748_out_1"
 #define STAI_NETWORK_ACTIVATIONS_333_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_333_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_333_SIZE (288)
-#define STAI_NETWORK_ACTIVATIONS_333_SIZE_BYTES (288)
+#define STAI_NETWORK_ACTIVATIONS_333_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_333_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_333_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_333_HEIGHT (2)
-#define STAI_NETWORK_ACTIVATIONS_333_WIDTH (144)
+#define STAI_NETWORK_ACTIVATIONS_333_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_333_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_333_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_333_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_333_SHAPE \
   { \
-    2, 144, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_333_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_333_SCALES \
   { \
-    0.219072297215462 \
+    0.0352850742638111 \
   }
 #define STAI_NETWORK_ACTIVATIONS_333_OFFSETS \
   { \
-    114 \
+    26 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_334_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_334_NAME "Concat_714_out_0"
+#define STAI_NETWORK_ACTIVATIONS_334_NAME "Mul_749_out_0_cp_in_709_cp_in_710_cp_in_711"
 #define STAI_NETWORK_ACTIVATIONS_334_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_334_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_334_SIZE (6048)
-#define STAI_NETWORK_ACTIVATIONS_334_SIZE_BYTES (6048)
+#define STAI_NETWORK_ACTIVATIONS_334_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_334_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_334_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_334_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_334_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_334_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_334_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_334_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_334_SHAPE \
   { \
-    2, 3024, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_334_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_334_SCALES \
   { \
-    0.219072297215462 \
+    0.0295655615627766 \
   }
 #define STAI_NETWORK_ACTIVATIONS_334_OFFSETS \
   { \
-    114 \
+    9 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_335_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_335_NAME "Split_742_out_0"
+#define STAI_NETWORK_ACTIVATIONS_335_NAME "Mul_752_out_0"
 #define STAI_NETWORK_ACTIVATIONS_335_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_335_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_335_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_335_FORMAT (STAI_FORMAT_S16)
+#define STAI_NETWORK_ACTIVATIONS_335_SIZE (3024)
 #define STAI_NETWORK_ACTIVATIONS_335_SIZE_BYTES (6048)
 #define STAI_NETWORK_ACTIVATIONS_335_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_335_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_335_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_335_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_335_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_335_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_335_SHAPE \
   { \
-    2, 3024, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_335_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_335_SCALES \
   { \
-    0.0468307100236416 \
+    0.000171696330653504 \
   }
 #define STAI_NETWORK_ACTIVATIONS_335_OFFSETS \
   { \
-    -128 \
+    0 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_336_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_336_NAME "Split_742_out_1"
+#define STAI_NETWORK_ACTIVATIONS_336_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_336_NAME "Mul_752_out_0_cp_in_706_cp_in_707_cp_in_708"
 #define STAI_NETWORK_ACTIVATIONS_336_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_336_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_336_SIZE (6048)
-#define STAI_NETWORK_ACTIVATIONS_336_SIZE_BYTES (6048)
+#define STAI_NETWORK_ACTIVATIONS_336_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_336_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_336_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_336_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_336_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_336_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_336_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_336_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_336_SHAPE \
   { \
-    2, 3024, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_336_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_336_SCALES \
   { \
-    0.0468307100236416 \
+    0.0253728460520506 \
   }
 #define STAI_NETWORK_ACTIVATIONS_336_OFFSETS \
   { \
-    -128 \
+    -2 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_337_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_337_NAME "Sigmoid_715_out_0_inserted_out3036"
+#define STAI_NETWORK_ACTIVATIONS_337_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_337_NAME "Mul_755_out_0_cp_in_703_cp_in_704"
 #define STAI_NETWORK_ACTIVATIONS_337_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_337_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_337_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_337_FORMAT (STAI_FORMAT_S16)
+#define STAI_NETWORK_ACTIVATIONS_337_SIZE (3024)
 #define STAI_NETWORK_ACTIVATIONS_337_SIZE_BYTES (6048)
 #define STAI_NETWORK_ACTIVATIONS_337_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_337_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_337_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_337_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_337_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_337_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_337_SHAPE \
   { \
-    2, 3024, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_337_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_337_SCALES \
   { \
-    2.57553458213806 \
+    0.000171696330653504 \
   }
 #define STAI_NETWORK_ACTIVATIONS_337_OFFSETS \
   { \
-    -106 \
+    2054 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_338_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_338_NAME "Sub_746_out_0"
+#define STAI_NETWORK_ACTIVATIONS_338_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_338_NAME "Mul_755_out_0_cp_in_703_cp_in_704_cp_in_705"
 #define STAI_NETWORK_ACTIVATIONS_338_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_338_FORMAT (STAI_FORMAT_FLOAT32)
-#define STAI_NETWORK_ACTIVATIONS_338_SIZE (6048)
-#define STAI_NETWORK_ACTIVATIONS_338_SIZE_BYTES (24192)
+#define STAI_NETWORK_ACTIVATIONS_338_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_338_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_338_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_338_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_338_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_338_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_338_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_338_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_338_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_338_SHAPE \
   { \
-    2, 3024, 1 \
+    1, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_338_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_338_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_338_SCALES \
   { \
+    0.0343644507229328 \
   }
 #define STAI_NETWORK_ACTIVATIONS_338_OFFSETS \
   { \
+    26 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_339_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_339_NAME "Add_743_out_0_inserted_out3018"
+#define STAI_NETWORK_ACTIVATIONS_339_ALIGNMENT (32)
+#define STAI_NETWORK_ACTIVATIONS_339_NAME "Mul_761_out_0_cp_in_700_cp_in_701_cp_in_702"
 #define STAI_NETWORK_ACTIVATIONS_339_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_339_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_339_SIZE (6048)
-#define STAI_NETWORK_ACTIVATIONS_339_SIZE_BYTES (6048)
+#define STAI_NETWORK_ACTIVATIONS_339_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_339_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_339_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_339_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_339_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_339_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_339_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_339_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_339_SHAPE \
   { \
-    2, 3024, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_339_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_339_SCALES \
   { \
-    0.199037536978722 \
+    0.0219637919217348 \
   }
 #define STAI_NETWORK_ACTIVATIONS_339_OFFSETS \
   { \
-    -119 \
+    13 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_340_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_340_NAME "Div_747_out_0"
+#define STAI_NETWORK_ACTIVATIONS_340_NAME "Add_758_out_0"
 #define STAI_NETWORK_ACTIVATIONS_340_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_340_FORMAT (STAI_FORMAT_FLOAT32)
-#define STAI_NETWORK_ACTIVATIONS_340_SIZE (6048)
-#define STAI_NETWORK_ACTIVATIONS_340_SIZE_BYTES (24192)
+#define STAI_NETWORK_ACTIVATIONS_340_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_340_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_340_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_340_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_340_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_340_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_340_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_340_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_340_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_340_SHAPE \
   { \
-    2, 3024, 1 \
+    1, 3024, 1 \
   }
-#define STAI_NETWORK_ACTIVATIONS_340_SCALE_OFFSET_NUM (0)
+#define STAI_NETWORK_ACTIVATIONS_340_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_340_SCALES \
   { \
+    0.0344305746257305 \
   }
 #define STAI_NETWORK_ACTIVATIONS_340_OFFSETS \
   { \
+    26 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_341_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_341_NAME "Div_747_out_0_inserted_out2956"
+#define STAI_NETWORK_ACTIVATIONS_341_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_341_NAME "Sub_764_out_0_inserted_out3010"
 #define STAI_NETWORK_ACTIVATIONS_341_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_341_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_341_SIZE (6048)
-#define STAI_NETWORK_ACTIVATIONS_341_SIZE_BYTES (6048)
+#define STAI_NETWORK_ACTIVATIONS_341_SIZE (3024)
+#define STAI_NETWORK_ACTIVATIONS_341_SIZE_BYTES (3024)
 #define STAI_NETWORK_ACTIVATIONS_341_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_341_HEIGHT (2)
+#define STAI_NETWORK_ACTIVATIONS_341_HEIGHT (1)
 #define STAI_NETWORK_ACTIVATIONS_341_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_341_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_341_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_341_SHAPE \
   { \
-    2, 3024, 1 \
+    1, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_341_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_341_SCALES \
   { \
-    0.024880887940526 \
+    0.0344305746257305 \
   }
 #define STAI_NETWORK_ACTIVATIONS_341_OFFSETS \
   { \
-    -3 \
+    26 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_342_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_342_NAME "Split_748_out_0"
+#define STAI_NETWORK_ACTIVATIONS_342_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_342_NAME "Concat_765_out_0"
 #define STAI_NETWORK_ACTIVATIONS_342_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_342_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_342_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_342_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_342_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_342_SIZE_BYTES (6048)
 #define STAI_NETWORK_ACTIVATIONS_342_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_342_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_342_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_342_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_342_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_342_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_342_SHAPE \
   { \
-    1, 3024, 1 \
+    2, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_342_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_342_SCALES \
   { \
-    0.024880887940526 \
+    0.0344305746257305 \
   }
 #define STAI_NETWORK_ACTIVATIONS_342_OFFSETS \
   { \
-    -3 \
+    26 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_343_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_343_NAME "Split_748_out_1"
+#define STAI_NETWORK_ACTIVATIONS_343_NAME "Add_766_out_0"
 #define STAI_NETWORK_ACTIVATIONS_343_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_343_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_343_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_343_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_343_SIZE (6048)
+#define STAI_NETWORK_ACTIVATIONS_343_SIZE_BYTES (6048)
 #define STAI_NETWORK_ACTIVATIONS_343_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_343_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_343_HEIGHT (2)
 #define STAI_NETWORK_ACTIVATIONS_343_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_343_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_343_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_343_SHAPE \
   { \
-    1, 3024, 1 \
+    2, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_343_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_343_SCALES \
   { \
-    0.024880887940526 \
+    0.196007832884789 \
   }
 #define STAI_NETWORK_ACTIVATIONS_343_OFFSETS \
   { \
-    -3 \
+    -123 \
   }
 
-#define STAI_NETWORK_ACTIVATIONS_344_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_344_NAME "Mul_761_out_0_cp_in_700_cp_in_701_cp_in_702"
+#define STAI_NETWORK_ACTIVATIONS_344_ALIGNMENT (16)
+#define STAI_NETWORK_ACTIVATIONS_344_NAME "Concat_769_out_0"
 #define STAI_NETWORK_ACTIVATIONS_344_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
 #define STAI_NETWORK_ACTIVATIONS_344_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_344_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_344_SIZE_BYTES (3024)
+#define STAI_NETWORK_ACTIVATIONS_344_SIZE (12096)
+#define STAI_NETWORK_ACTIVATIONS_344_SIZE_BYTES (12096)
 #define STAI_NETWORK_ACTIVATIONS_344_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_344_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_344_HEIGHT (4)
 #define STAI_NETWORK_ACTIVATIONS_344_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_344_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_344_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_344_SHAPE \
   { \
-    1, 3024, 1 \
+    4, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_344_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_344_SCALES \
   { \
-    0.0161516182124615 \
+    0.196007832884789 \
   }
 #define STAI_NETWORK_ACTIVATIONS_344_OFFSETS \
   { \
-    3 \
+    -123 \
   }
 
 #define STAI_NETWORK_ACTIVATIONS_345_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_345_NAME "Mul_755_out_0"
+#define STAI_NETWORK_ACTIVATIONS_345_NAME "Mul_770_out_0_cp_in_712_cp_in_713_cp_in_714"
 #define STAI_NETWORK_ACTIVATIONS_345_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_345_FORMAT (STAI_FORMAT_S16)
-#define STAI_NETWORK_ACTIVATIONS_345_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_345_SIZE_BYTES (6048)
+#define STAI_NETWORK_ACTIVATIONS_345_FORMAT (STAI_FORMAT_S8)
+#define STAI_NETWORK_ACTIVATIONS_345_SIZE (12096)
+#define STAI_NETWORK_ACTIVATIONS_345_SIZE_BYTES (12096)
 #define STAI_NETWORK_ACTIVATIONS_345_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_345_HEIGHT (1)
+#define STAI_NETWORK_ACTIVATIONS_345_HEIGHT (4)
 #define STAI_NETWORK_ACTIVATIONS_345_WIDTH (3024)
 #define STAI_NETWORK_ACTIVATIONS_345_BATCH (1)
 #define STAI_NETWORK_ACTIVATIONS_345_RANK (3)
 #define STAI_NETWORK_ACTIVATIONS_345_SHAPE \
   { \
-    1, 3024, 1 \
+    4, 3024, 1 \
   }
 #define STAI_NETWORK_ACTIVATIONS_345_SCALE_OFFSET_NUM (1)
 #define STAI_NETWORK_ACTIVATIONS_345_SCALES \
   { \
-    0.000125260412460193 \
+    2.24017095565796 \
   }
 #define STAI_NETWORK_ACTIVATIONS_345_OFFSETS \
   { \
-    0 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_346_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_346_NAME "Sub_764_out_0"
-#define STAI_NETWORK_ACTIVATIONS_346_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_346_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_346_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_346_SIZE_BYTES (3024)
-#define STAI_NETWORK_ACTIVATIONS_346_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_346_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_346_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_346_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_346_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_346_SHAPE \
-  { \
-    1, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_346_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_346_SCALES \
-  { \
-    0.0248075500130653 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_346_OFFSETS \
-  { \
-    -3 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_347_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_347_NAME "Mul_749_out_0_cp_in_709_cp_in_710_cp_in_711"
-#define STAI_NETWORK_ACTIVATIONS_347_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_347_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_347_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_347_SIZE_BYTES (3024)
-#define STAI_NETWORK_ACTIVATIONS_347_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_347_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_347_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_347_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_347_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_347_SHAPE \
-  { \
-    1, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_347_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_347_SCALES \
-  { \
-    0.0220538675785065 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_347_OFFSETS \
-  { \
-    7 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_348_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_348_NAME "Mul_755_out_0_cp_in_703_cp_in_704"
-#define STAI_NETWORK_ACTIVATIONS_348_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_348_FORMAT (STAI_FORMAT_S16)
-#define STAI_NETWORK_ACTIVATIONS_348_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_348_SIZE_BYTES (6048)
-#define STAI_NETWORK_ACTIVATIONS_348_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_348_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_348_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_348_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_348_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_348_SHAPE \
-  { \
-    1, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_348_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_348_SCALES \
-  { \
-    0.000125260412460193 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_348_OFFSETS \
-  { \
-    -216 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_349_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_349_NAME "Mul_755_out_0_cp_in_703_cp_in_704_cp_in_705"
-#define STAI_NETWORK_ACTIVATIONS_349_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_349_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_349_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_349_SIZE_BYTES (3024)
-#define STAI_NETWORK_ACTIVATIONS_349_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_349_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_349_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_349_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_349_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_349_SHAPE \
-  { \
-    1, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_349_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_349_SCALES \
-  { \
-    0.0209082067012787 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_349_OFFSETS \
-  { \
-    14 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_350_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_350_NAME "Add_758_out_0_inserted_out3014"
-#define STAI_NETWORK_ACTIVATIONS_350_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_350_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_350_SIZE (3024)
-#define STAI_NETWORK_ACTIVATIONS_350_SIZE_BYTES (3024)
-#define STAI_NETWORK_ACTIVATIONS_350_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_350_HEIGHT (1)
-#define STAI_NETWORK_ACTIVATIONS_350_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_350_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_350_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_350_SHAPE \
-  { \
-    1, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_350_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_350_SCALES \
-  { \
-    0.0248075500130653 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_350_OFFSETS \
-  { \
-    -3 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_351_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_351_NAME "Concat_765_out_0"
-#define STAI_NETWORK_ACTIVATIONS_351_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_351_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_351_SIZE (6048)
-#define STAI_NETWORK_ACTIVATIONS_351_SIZE_BYTES (6048)
-#define STAI_NETWORK_ACTIVATIONS_351_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_351_HEIGHT (2)
-#define STAI_NETWORK_ACTIVATIONS_351_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_351_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_351_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_351_SHAPE \
-  { \
-    2, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_351_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_351_SCALES \
-  { \
-    0.0248075500130653 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_351_OFFSETS \
-  { \
-    -3 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_352_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_352_NAME "Add_766_out_0"
-#define STAI_NETWORK_ACTIVATIONS_352_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_352_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_352_SIZE (6048)
-#define STAI_NETWORK_ACTIVATIONS_352_SIZE_BYTES (6048)
-#define STAI_NETWORK_ACTIVATIONS_352_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_352_HEIGHT (2)
-#define STAI_NETWORK_ACTIVATIONS_352_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_352_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_352_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_352_SHAPE \
-  { \
-    2, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_352_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_352_SCALES \
-  { \
-    0.199037536978722 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_352_OFFSETS \
-  { \
-    -119 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_353_ALIGNMENT (16)
-#define STAI_NETWORK_ACTIVATIONS_353_NAME "Concat_769_out_0"
-#define STAI_NETWORK_ACTIVATIONS_353_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_353_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_353_SIZE (12096)
-#define STAI_NETWORK_ACTIVATIONS_353_SIZE_BYTES (12096)
-#define STAI_NETWORK_ACTIVATIONS_353_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_353_HEIGHT (4)
-#define STAI_NETWORK_ACTIVATIONS_353_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_353_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_353_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_353_SHAPE \
-  { \
-    4, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_353_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_353_SCALES \
-  { \
-    0.199037536978722 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_353_OFFSETS \
-  { \
-    -119 \
-  }
-
-#define STAI_NETWORK_ACTIVATIONS_354_ALIGNMENT (32)
-#define STAI_NETWORK_ACTIVATIONS_354_NAME "Mul_770_out_0_cp_in_712_cp_in_713_cp_in_714"
-#define STAI_NETWORK_ACTIVATIONS_354_FLAGS (STAI_FLAG_PREALLOCATED|STAI_FLAG_OVERRIDE|STAI_FLAG_CHANNEL_LAST)
-#define STAI_NETWORK_ACTIVATIONS_354_FORMAT (STAI_FORMAT_S8)
-#define STAI_NETWORK_ACTIVATIONS_354_SIZE (12096)
-#define STAI_NETWORK_ACTIVATIONS_354_SIZE_BYTES (12096)
-#define STAI_NETWORK_ACTIVATIONS_354_CHANNEL (1)
-#define STAI_NETWORK_ACTIVATIONS_354_HEIGHT (4)
-#define STAI_NETWORK_ACTIVATIONS_354_WIDTH (3024)
-#define STAI_NETWORK_ACTIVATIONS_354_BATCH (1)
-#define STAI_NETWORK_ACTIVATIONS_354_RANK (3)
-#define STAI_NETWORK_ACTIVATIONS_354_SHAPE \
-  { \
-    4, 3024, 1 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_354_SCALE_OFFSET_NUM (1)
-#define STAI_NETWORK_ACTIVATIONS_354_SCALES \
-  { \
-    2.57553458213806 \
-  }
-#define STAI_NETWORK_ACTIVATIONS_354_OFFSETS \
-  { \
-    -106 \
+    -124 \
   }
 
 /****************************** NETWORK MACROS *******************************/
@@ -12727,7 +12516,7 @@ STAI_API_DECLARE_END
 #define STAI_NETWORK_FLAGS (STAI_FLAG_INPUTS|STAI_FLAG_OUTPUTS|STAI_FLAG_ACTIVATIONS|STAI_FLAG_WEIGHTS)
 #endif // LL_ATON_DBG_BUFFER_INFO_EXCLUDED == 0
 
-#define STAI_NETWORK_ORIGIN_MODEL_NAME "nitish_red_blue_obb_384_qdq_OE_3_3_1"
+#define STAI_NETWORK_ORIGIN_MODEL_NAME "nitish_red_blue_obb_384_robomaster_v3_qdq_OE_3_3_1"
 #define STAI_NETWORK_C_MODEL_NAME "network"
 
 /*************************** RELATIVE MEMORY POOLS ***************************/

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
+import os
+import tempfile
 from pathlib import Path
 
 import onnx
@@ -114,6 +116,12 @@ def main() -> None:
     input_model = Path(args.input_model).resolve()
     calibration_dir = Path(args.calibration_dir).resolve()
     qdq_output = Path(args.qdq_output).resolve()
+    local_tmp = qdq_output.parent / "ort_tmp_local"
+    local_tmp.mkdir(parents=True, exist_ok=True)
+    os.environ["TMP"] = str(local_tmp)
+    os.environ["TEMP"] = str(local_tmp)
+    os.environ["TMPDIR"] = str(local_tmp)
+    tempfile.tempdir = str(local_tmp)
 
     reader = NpyCalibrationDataReader(calibration_dir, "images")
     quantize_static(

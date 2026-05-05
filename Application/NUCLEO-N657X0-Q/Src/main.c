@@ -172,6 +172,7 @@ static void Security_Config(void);
 static void set_clk_sleep_mode(void);
 static void IAC_Config(void);
 static void Display_WelcomeScreen(void);
+static uint32_t Display_GetBoxColor(uint32_t class_index);
 static void Hardware_init(void);
 static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_size *number_output, int32_t nn_out_len[]);
 #if NN_INPUT_NEEDS_PREPROC
@@ -285,6 +286,8 @@ int main(void)
   printf("HAL: %lu.%lu.%lu\n", __STM32N6xx_HAL_VERSION_MAIN, __STM32N6xx_HAL_VERSION_SUB1, __STM32N6xx_HAL_VERSION_SUB2);
   printf("STEdgeAI Tools: %d.%d.%d\n", STAI_TOOLS_VERSION_MAJOR, STAI_TOOLS_VERSION_MINOR, STAI_TOOLS_VERSION_MICRO);
   printf("NN model: %s\n", STAI_NETWORK_ORIGIN_MODEL_NAME);
+  printf("Model profile: %s\n", APP_MODEL_PROFILE_NAME);
+  printf("Calibration: %s\n", APP_MODEL_CALIBRATION_NAME);
   printf("========================================\n");
 
   /*** App Loop ***************************************************************/
@@ -529,6 +532,8 @@ static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference
   UTIL_LCD_FillRect(0, 0, lcd_fg_area.XSize, lcd_fg_area.YSize, UTIL_LCD_COLOR_TRANSPARENT); /* Clear previous boxes */
   for (int32_t i = 0; i < nb_rois; i++)
   {
+    const char *label = (rois[i].class_index < NB_CLASSES) ? classes_table[rois[i].class_index] : "unknown";
+    uint32_t box_color = Display_GetBoxColor(rois[i].class_index);
     uint32_t x0 = (uint32_t) ((rois[i].x_center - rois[i].width / 2) * ((float32_t) lcd_bg_area.XSize));
     uint32_t y0 = (uint32_t) ((rois[i].y_center - rois[i].height / 2) * ((float32_t) lcd_bg_area.YSize));
     uint32_t width = (uint32_t) (rois[i].width * ((float32_t) lcd_bg_area.XSize));
@@ -538,12 +543,13 @@ static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference
     y0 = y0 < lcd_bg_area.YSize ? y0 : lcd_bg_area.YSize - 1;
     width = ((x0 + width) < lcd_bg_area.XSize) ? width : (lcd_bg_area.XSize - x0 - 1);
     height = ((y0 + height) < lcd_bg_area.YSize) ? height : (lcd_bg_area.YSize - y0 - 1);
-    UTIL_LCD_DrawRect(x0, y0, width, height, colors[rois[i].class_index % NUMBER_COLORS]);
-    UTIL_LCDEx_PrintfAt(x0, y0, LEFT_MODE, classes_table[rois[i].class_index]);
-    UTIL_LCDEx_PrintfAt(-x0-width, y0, RIGHT_MODE, "%.0f%%", rois[i].conf*100.0f);
+    UTIL_LCD_SetTextColor(box_color);
+    UTIL_LCD_DrawRect(x0, y0, width, height, box_color);
+    UTIL_LCDEx_PrintfAt(x0, y0, LEFT_MODE, "%s %.0f%%", label, rois[i].conf * 100.0f);
   }
 
   UTIL_LCD_SetBackColor(0x40000000);
+  UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_WHITE);
   UTIL_LCDEx_PrintfAt(0, LINE(0), LEFT_MODE, "Inference");
   UTIL_LCDEx_PrintfAt(0, LINE(1), LEFT_MODE, "%ums", inference_ms);
   UTIL_LCDEx_PrintfAt(0, LINE(0), RIGHT_MODE, "Objects %u", nb_rois);
@@ -557,6 +563,21 @@ static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference
   assert(ret == HAL_OK);
   __enable_irq();
   lcd_fg_buffer_rd_idx = 1 - lcd_fg_buffer_rd_idx;
+}
+
+static uint32_t Display_GetBoxColor(uint32_t class_index)
+{
+  if (class_index == 0U)
+  {
+    return UTIL_LCD_COLOR_BLUE;
+  }
+
+  if (class_index == 1U)
+  {
+    return UTIL_LCD_COLOR_RED;
+  }
+
+  return colors[class_index % NUMBER_COLORS];
 }
 
 static void Display_init(void)

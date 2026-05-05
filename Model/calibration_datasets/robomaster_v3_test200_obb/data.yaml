@@ -1,0 +1,12 @@
+path: .
+train: images/val
+val: images/val
+test: images/val
+
+nc: 3
+names:
+  0: blue-armor
+  1: red-armor
+  2: robot
+
+task: obb

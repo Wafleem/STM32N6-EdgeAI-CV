@@ -32,3 +32,12 @@ Application/*/Release/
 # Signing / flashing outputs that are regenerated locally
 *_sign.bin
 *_sign.hex
+
+# Model generation / quantization scratch
+Model/calibration_npy/
+Model/onnxdeps_local/
+Model/pydeps_onnx/
+Model/ort_tmp*/
+Model/quantize_onnx_*/
+Model/st_ai_output/
+Model/st_ai_ws/
