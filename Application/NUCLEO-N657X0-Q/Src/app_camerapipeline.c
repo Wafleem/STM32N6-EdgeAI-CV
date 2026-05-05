@@ -17,6 +17,7 @@
  */
 
 #include <assert.h>
+#include <stdio.h>
 #include "cmw_camera.h"
 #include "app_camerapipeline.h"
 #include "app_config.h"
@@ -74,7 +75,11 @@ static void DCMIPP_PipeInitDisplay(CMW_CameraInit_t *camConf, uint32_t *layers_w
   dcmipp_conf.mode = aspect_ratio;
   dcmipp_conf.enable_gamma_conversion = 0;
   uint32_t pitch;
+  printf("TRACE: DCMIPP_PipeInitDisplay: request output=%dx%d bpp=%lu mode=%d\n",
+         lcd_bg_width, lcd_bg_height, (unsigned long) dcmipp_conf.output_bpp, aspect_ratio);
   ret = CMW_CAMERA_SetPipeConfig(DCMIPP_PIPE1, &dcmipp_conf, &pitch);
+  printf("TRACE: DCMIPP_PipeInitDisplay: CMW_CAMERA_SetPipeConfig pipe=1 ret=%d pitch=%lu\n",
+         ret, (unsigned long) pitch);
   assert(ret == HAL_OK);
   assert(dcmipp_conf.output_width * dcmipp_conf.output_bpp == pitch);
 }
@@ -105,7 +110,14 @@ static void DCMIPP_PipeInitNn(uint32_t *pitch)
   dcmipp_conf.mode = aspect_ratio;
   dcmipp_conf.enable_swap = COLOR_MODE;
   dcmipp_conf.enable_gamma_conversion = 0;
+  printf("TRACE: DCMIPP_PipeInitNn: request output=%lux%lu channels=%lu mode=%d\n",
+         (unsigned long) dcmipp_conf.output_width,
+         (unsigned long) dcmipp_conf.output_height,
+         (unsigned long) dcmipp_conf.output_bpp,
+         aspect_ratio);
   ret = CMW_CAMERA_SetPipeConfig(DCMIPP_PIPE2, &dcmipp_conf, pitch);
+  printf("TRACE: DCMIPP_PipeInitNn: CMW_CAMERA_SetPipeConfig pipe=2 ret=%d pitch=%lu\n",
+         ret, (unsigned long) *pitch);
   assert(ret == HAL_OK);
 }
 
@@ -125,10 +137,18 @@ void CameraPipeline_Init(uint32_t *layers_width[2], uint32_t *layers_height[2], 
   cam_conf.fps = CAMERA_FPS;
   cam_conf.mirror_flip = CAMERA_FLIP;
 
+  printf("TRACE: CameraPipeline_Init: CMW_CAMERA_Init begin width=%lu height=%lu fps=%lu mirror_flip=%lu\n",
+         (unsigned long) cam_conf.width,
+         (unsigned long) cam_conf.height,
+         (unsigned long) cam_conf.fps,
+         (unsigned long) cam_conf.mirror_flip);
   ret = CMW_CAMERA_Init(&cam_conf, NULL);
+  printf("TRACE: CameraPipeline_Init: CMW_CAMERA_Init ret=%d resolved_width=%lu resolved_height=%lu\n",
+         ret, (unsigned long) cam_conf.width, (unsigned long) cam_conf.height);
   assert(ret == CMW_ERROR_NONE);
   DCMIPP_PipeInitDisplay(&cam_conf, layers_width, layers_height);
   DCMIPP_PipeInitNn(pitch_nn);
+  printf("TRACE: CameraPipeline_Init: complete\n");
 }
 
 void CameraPipeline_DeInit(void)
@@ -142,14 +162,23 @@ void CameraPipeline_DisplayPipe_Start(uint8_t *display_pipe_dst, uint32_t cam_mo
 {
   int ret;
   ret = CMW_CAMERA_Start(DCMIPP_PIPE1, display_pipe_dst, cam_mode);
+  printf("TRACE: CameraPipeline_DisplayPipe_Start: ret=%d dst=%p mode=%lu\n",
+         ret, display_pipe_dst, (unsigned long) cam_mode);
   assert(ret == CMW_ERROR_NONE);
 }
 
 void CameraPipeline_NNPipe_Start(uint8_t *nn_pipe_dst, uint32_t cam_mode)
 {
   int ret;
+  static uint32_t trace_count = 0;
 
   ret = CMW_CAMERA_Start(DCMIPP_PIPE2, nn_pipe_dst, cam_mode);
+  if ((trace_count < 5U) || (ret != CMW_ERROR_NONE))
+  {
+    printf("TRACE: CameraPipeline_NNPipe_Start: ret=%d dst=%p mode=%lu count=%lu\n",
+           ret, nn_pipe_dst, (unsigned long) cam_mode, (unsigned long) trace_count);
+  }
+  trace_count++;
   assert(ret == CMW_ERROR_NONE);
 }
 
@@ -164,6 +193,10 @@ void CameraPipeline_IspUpdate(void)
 {
   int ret = CMW_ERROR_NONE;
   ret = CMW_CAMERA_Run();
+  if (ret != CMW_ERROR_NONE)
+  {
+    printf("ERROR: CameraPipeline_IspUpdate: CMW_CAMERA_Run ret=%d\n", ret);
+  }
   assert(ret == CMW_ERROR_NONE);
 }
 

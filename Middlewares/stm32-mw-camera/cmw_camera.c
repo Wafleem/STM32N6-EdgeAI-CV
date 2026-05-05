@@ -18,6 +18,7 @@
 
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdio.h>
 #include "cmw_camera.h"
 
 #include "isp_api.h"
@@ -146,6 +147,24 @@ static void CMW_CAMERA_EnableGPIOs(void);
 static void CMW_CAMERA_PwrDown(void);
 static int32_t CMW_CAMERA_SetPipe(DCMIPP_HandleTypeDef *hdcmipp, uint32_t pipe, CMW_DCMIPP_Conf_t *p_conf, uint32_t *pitch);
 static int CMW_CAMERA_Probe_Sensor(CMW_Sensor_Init_t *initValues, CMW_Sensor_Name_t *sensorName);
+
+static const char *CMW_CAMERA_SensorNameToString(CMW_Sensor_Name_t sensor)
+{
+  switch (sensor)
+  {
+    case CMW_VD66GY_Sensor: return "VD66GY";
+    case CMW_VD56G3_Sensor: return "VD56G3";
+    case CMW_IMX335_Sensor: return "IMX335";
+    case CMW_OV5640_Sensor: return "OV5640";
+    case CMW_VD55G1_Sensor: return "VD55G1";
+    case CMW_VD65G4_Sensor: return "VD65G4";
+    case CMW_VD1943_Sensor: return "VD1943";
+    case CMW_VD5943_Sensor: return "VD5943";
+    case CMW_IMX219_Sensor: return "IMX219";
+    case CMW_UNKNOWN_Sensor:
+    default: return "UNKNOWN";
+  }
+}
 
 #if defined(USE_IMX219_SENSOR)
 static void CMW_CAMERA_IMX219_SelectDefaultMode(CMW_Sensor_Init_t *initSensors_params)
@@ -285,34 +304,46 @@ static int CMW_CAMERA_Probe_Sensor(CMW_Sensor_Init_t *initValues, CMW_Sensor_Nam
 {
   int ret;
 #if defined(USE_OV5640_SENSOR)
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: trying OV5640\n");
   ret = CMW_CAMERA_OV5640_Init(initValues);
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: OV5640 ret=%d\n", ret);
   if (ret == CMW_ERROR_NONE)
   {
     *sensorName = CMW_OV5640_Sensor;
+    printf("TRACE: CMW_CAMERA_Probe_Sensor: selected OV5640\n");
     return ret;
   }
 #endif
 #if defined(USE_VD55G1_SENSOR)
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: trying VD55G1\n");
   ret = CMW_CAMERA_VD55G1_Init(initValues);
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: VD55G1 ret=%d\n", ret);
   if (ret == CMW_ERROR_NONE)
   {
     *sensorName = CMW_VD55G1_Sensor;
+    printf("TRACE: CMW_CAMERA_Probe_Sensor: selected VD55G1\n");
     return ret;
   }
 #endif
 #if defined(USE_VD65G4_SENSOR)
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: trying VD65G4\n");
   ret = CMW_CAMERA_VD65G4_Init(initValues);
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: VD65G4 ret=%d\n", ret);
   if (ret == CMW_ERROR_NONE)
   {
     *sensorName = CMW_VD65G4_Sensor;
+    printf("TRACE: CMW_CAMERA_Probe_Sensor: selected VD65G4\n");
     return ret;
   }
 #endif
 #if defined(USE_VD66GY_SENSOR)
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: trying VD66GY\n");
   ret = CMW_CAMERA_VD66GY_Init(initValues);
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: VD66GY ret=%d\n", ret);
   if (ret == CMW_ERROR_NONE)
   {
     *sensorName = CMW_VD66GY_Sensor;
+    printf("TRACE: CMW_CAMERA_Probe_Sensor: selected VD66GY\n");
     return ret;
   }
 #endif
@@ -325,10 +356,13 @@ static int CMW_CAMERA_Probe_Sensor(CMW_Sensor_Init_t *initValues, CMW_Sensor_Nam
   }
 #endif
 #if defined(USE_VD1943_SENSOR)
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: trying VD1943\n");
   ret = CMW_CAMERA_VD1943_Init(initValues);
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: VD1943 ret=%d\n", ret);
   if (ret == CMW_ERROR_NONE)
   {
     *sensorName = CMW_VD1943_Sensor;
+    printf("TRACE: CMW_CAMERA_Probe_Sensor: selected VD1943\n");
     return ret;
   }
 #endif
@@ -341,10 +375,24 @@ static int CMW_CAMERA_Probe_Sensor(CMW_Sensor_Init_t *initValues, CMW_Sensor_Nam
   }
 #endif
 #if defined(USE_IMX335_SENSOR)
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: trying IMX335\n");
   ret = CMW_CAMERA_IMX335_Init(initValues);
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: IMX335 ret=%d\n", ret);
   if (ret == CMW_ERROR_NONE)
   {
     *sensorName = CMW_IMX335_Sensor;
+    printf("TRACE: CMW_CAMERA_Probe_Sensor: selected IMX335\n");
+    return ret;
+  }
+#endif
+#if defined(USE_IMX219_SENSOR)
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: trying IMX219\n");
+  ret = CMW_CAMERA_IMX219_Init(initValues);
+  printf("TRACE: CMW_CAMERA_Probe_Sensor: IMX219 ret=%d\n", ret);
+  if (ret == CMW_ERROR_NONE)
+  {
+    *sensorName = CMW_IMX219_Sensor;
+    printf("TRACE: CMW_CAMERA_Probe_Sensor: selected IMX219\n");
     return ret;
   }
 #endif
@@ -358,6 +406,7 @@ static int CMW_CAMERA_Probe_Sensor(CMW_Sensor_Init_t *initValues, CMW_Sensor_Nam
 #endif
   else
   {
+    printf("ERROR: CMW_CAMERA_Probe_Sensor: no supported sensor detected\n");
     return CMW_ERROR_UNKNOWN_COMPONENT;
   }
 }
@@ -380,6 +429,12 @@ int32_t CMW_CAMERA_Init(CMW_CameraInit_t *initConf, CMW_Advanced_Config_t *advan
   initValues.height = initConf->height;
   initValues.fps = initConf->fps;
   initValues.mirrorFlip = initConf->mirror_flip;
+  printf("TRACE: CMW_CAMERA_Init: begin width=%lu height=%lu fps=%lu mirror=%lu advanced=%p\n",
+         (unsigned long) initValues.width,
+         (unsigned long) initValues.height,
+         (unsigned long) initValues.fps,
+         (unsigned long) initValues.mirrorFlip,
+         advanced_config);
 
   if ((advanced_config != NULL) && (advanced_config->selected_sensor != CMW_UNKNOWN_Sensor))
   {
@@ -398,39 +453,66 @@ int32_t CMW_CAMERA_Init(CMW_CameraInit_t *initConf, CMW_Advanced_Config_t *advan
 
   /* Configure DCMIPP clock */
   ret = MX_DCMIPP_ClockConfig(&hcamera_dcmipp);
+  printf("TRACE: CMW_CAMERA_Init: MX_DCMIPP_ClockConfig ret=%ld\n", (long) ret);
   if (ret != HAL_OK)
   {
+    printf("ERROR: CMW_CAMERA_Init: DCMIPP clock config failed ret=%ld\n", (long) ret);
     return CMW_ERROR_PERIPH_FAILURE;
   }
   /* Enable DCMIPP clock */
   ret = HAL_DCMIPP_Init(&hcamera_dcmipp);
+  printf("TRACE: CMW_CAMERA_Init: HAL_DCMIPP_Init ret=%ld\n", (long) ret);
   if (ret != HAL_OK)
   {
+    printf("ERROR: CMW_CAMERA_Init: HAL_DCMIPP_Init failed ret=%ld\n", (long) ret);
     return CMW_ERROR_PERIPH_FAILURE;
   }
 
   CMW_CAMERA_EnableGPIOs();
+  printf("TRACE: CMW_CAMERA_Init: camera GPIOs enabled\n");
 
   ret = CMW_CAMERA_Probe_Sensor(&initValues, &connected_sensor);
+  printf("TRACE: CMW_CAMERA_Init: CMW_CAMERA_Probe_Sensor ret=%ld connected=%s width=%lu height=%lu\n",
+         (long) ret,
+         CMW_CAMERA_SensorNameToString(connected_sensor),
+         (unsigned long) initValues.width,
+         (unsigned long) initValues.height);
   if (ret != CMW_ERROR_NONE)
   {
+    printf("ERROR: CMW_CAMERA_Init: sensor probe failed ret=%ld\n", (long) ret);
     return CMW_ERROR_UNKNOWN_COMPONENT;
   }
 
   /* Configure exposure and gain for a more suitable quality */
   ret = CMW_CAMERA_GetSensorInfo(&info);
+  printf("TRACE: CMW_CAMERA_Init: CMW_CAMERA_GetSensorInfo ret=%ld sensor=%s info=%lux%lu gain=[%ld,%ld] exposure=[%ld,%ld]\n",
+         (long) ret,
+         info.name,
+         (unsigned long) info.width,
+         (unsigned long) info.height,
+         (long) info.gain_min,
+         (long) info.gain_max,
+         (long) info.exposure_min,
+         (long) info.exposure_max);
   if (ret == CMW_ERROR_COMPONENT_FAILURE)
   {
+    printf("ERROR: CMW_CAMERA_Init: CMW_CAMERA_GetSensorInfo failed\n");
     return CMW_ERROR_UNKNOWN_COMPONENT;
   }
   ret = CMW_CAMERA_SetExposure(info.exposure_min);
+  printf("TRACE: CMW_CAMERA_Init: CMW_CAMERA_SetExposure(%ld) ret=%ld\n",
+         (long) info.exposure_min, (long) ret);
   if (ret == CMW_ERROR_COMPONENT_FAILURE)
   {
+    printf("ERROR: CMW_CAMERA_Init: CMW_CAMERA_SetExposure failed ret=%ld\n", (long) ret);
     return CMW_ERROR_UNKNOWN_COMPONENT;
   }
   ret = CMW_CAMERA_SetGain(info.gain_min);
+  printf("TRACE: CMW_CAMERA_Init: CMW_CAMERA_SetGain(%ld) ret=%ld\n",
+         (long) info.gain_min, (long) ret);
   if (ret == CMW_ERROR_COMPONENT_FAILURE)
   {
+    printf("ERROR: CMW_CAMERA_Init: CMW_CAMERA_SetGain failed ret=%ld\n", (long) ret);
     return CMW_ERROR_UNKNOWN_COMPONENT;
   }
 
@@ -440,6 +522,10 @@ int32_t CMW_CAMERA_Init(CMW_CameraInit_t *initConf, CMW_Advanced_Config_t *advan
   camera_conf = *initConf;
 
   is_camera_init++;
+  printf("TRACE: CMW_CAMERA_Init: complete sensor=%s resolved=%lux%lu\n",
+         CMW_CAMERA_SensorNameToString(connected_sensor),
+         (unsigned long) initConf->width,
+         (unsigned long) initConf->height);
   /* CMW status */
   ret = CMW_ERROR_NONE;
   return ret;
@@ -492,27 +578,46 @@ int32_t CMW_CAMERA_GetMirrorFlip(int32_t *MirrorFlip)
 int32_t CMW_CAMERA_Start(uint32_t pipe, uint8_t *pbuff, uint32_t mode)
 {
   int32_t ret = CMW_ERROR_NONE;
+  static uint32_t trace_count[DCMIPP_NUM_OF_PIPES] = {0};
 
   if (pipe >= DCMIPP_NUM_OF_PIPES)
   {
+    printf("ERROR: CMW_CAMERA_Start: invalid pipe=%lu\n", (unsigned long) pipe);
     return CMW_ERROR_WRONG_PARAM;
   }
 
+  if (trace_count[pipe] < 5U)
+  {
+    printf("TRACE: CMW_CAMERA_Start: HAL_DCMIPP_CSI_PIPE_Start pipe=%lu buffer=%p mode=%lu begin\n",
+           (unsigned long) pipe, pbuff, (unsigned long) mode);
+  }
   ret = HAL_DCMIPP_CSI_PIPE_Start(&hcamera_dcmipp, pipe, DCMIPP_VIRTUAL_CHANNEL0, (uint32_t)pbuff, mode);
+  if ((trace_count[pipe] < 5U) || (ret != HAL_OK))
+  {
+    printf("TRACE: CMW_CAMERA_Start: HAL_DCMIPP_CSI_PIPE_Start pipe=%lu ret=%ld\n",
+           (unsigned long) pipe, (long) ret);
+  }
   if (ret != HAL_OK)
   {
+    printf("ERROR: CMW_CAMERA_Start: HAL_DCMIPP_CSI_PIPE_Start failed pipe=%lu ret=%ld\n",
+           (unsigned long) pipe, (long) ret);
     return CMW_ERROR_PERIPH_FAILURE;
   }
 
   if (!is_camera_started)
   {
+    printf("TRACE: CMW_CAMERA_Start: Camera_Drv.Start begin sensor=%s\n",
+           CMW_CAMERA_SensorNameToString(connected_sensor));
     ret = Camera_Drv.Start(&camera_bsp);
+    printf("TRACE: CMW_CAMERA_Start: Camera_Drv.Start ret=%ld\n", (long) ret);
     if (ret != CMW_ERROR_NONE)
     {
+      printf("ERROR: CMW_CAMERA_Start: Camera_Drv.Start failed ret=%ld\n", (long) ret);
       return CMW_ERROR_COMPONENT_FAILURE;
     }
     is_camera_started++;
   }
+  trace_count[pipe]++;
 
   /* Return CMW status */
   return ret;
@@ -2035,39 +2140,61 @@ static int32_t CMW_CAMERA_IMX219_Init(CMW_Sensor_Init_t *initSensors_params)
   camera_bsp.imx219_bsp.appliHelpers.GetSensorExposure = CB_ISP_GetSensorExposure;
   camera_bsp.imx219_bsp.appliHelpers.GetSensorInfo     = CB_ISP_GetSensorInfo;
 
+  printf("TRACE: CMW_CAMERA_IMX219_Init: probe begin i2c_addr=0x%02X requested=%lux%lu fps=%lu\n",
+         camera_bsp.imx219_bsp.Address,
+         (unsigned long) initSensors_params->width,
+         (unsigned long) initSensors_params->height,
+         (unsigned long) initSensors_params->fps);
   ret = CMW_IMX219_Probe(&camera_bsp.imx219_bsp, &Camera_Drv);
+  printf("TRACE: CMW_CAMERA_IMX219_Init: CMW_IMX219_Probe ret=%ld\n", (long) ret);
   if (ret != CMW_ERROR_NONE)
   {
+    printf("ERROR: CMW_CAMERA_IMX219_Init: IMX219 probe failed ret=%ld\n", (long) ret);
     return CMW_ERROR_COMPONENT_FAILURE;
   }
 
   if ((connected_sensor != CMW_IMX219_Sensor) && (connected_sensor != CMW_UNKNOWN_Sensor))
   {
     /* If the selected sensor in the application side has selected a different sensor than IMX219 */
+    printf("ERROR: CMW_CAMERA_IMX219_Init: selected sensor mismatch requested=%s\n",
+           CMW_CAMERA_SensorNameToString(connected_sensor));
     return CMW_ERROR_COMPONENT_FAILURE;
   }
 
   CMW_CAMERA_IMX219_SelectDefaultMode(initSensors_params);
+  printf("TRACE: CMW_CAMERA_IMX219_Init: selected mode %lux%lu fps=%lu\n",
+         (unsigned long) initSensors_params->width,
+         (unsigned long) initSensors_params->height,
+         (unsigned long) initSensors_params->fps);
 
   CMW_IMX219_SetDefaultSensorValues(&default_sensor_config);
   initSensors_params->sensor_config = initSensors_params->sensor_config ? initSensors_params->sensor_config : &default_sensor_config;
   sensor_config = (CMW_IMX219_config_t *)(initSensors_params->sensor_config);
+  printf("TRACE: CMW_CAMERA_IMX219_Init: pixel_format=0x%08lX\n",
+         (unsigned long) sensor_config->pixel_format);
 
   ret = Camera_Drv.Init(&camera_bsp, initSensors_params);
+  printf("TRACE: CMW_CAMERA_IMX219_Init: Camera_Drv.Init ret=%ld\n", (long) ret);
   if (ret != CMW_ERROR_NONE)
   {
+    printf("ERROR: CMW_CAMERA_IMX219_Init: Camera_Drv.Init failed ret=%ld\n", (long) ret);
     return CMW_ERROR_COMPONENT_FAILURE;
   }
 
   ret = Camera_Drv.SetFrequency(&camera_bsp, IMX219_INCK_24MHZ);
+  printf("TRACE: CMW_CAMERA_IMX219_Init: SetFrequency(24MHz) ret=%ld\n", (long) ret);
   if (ret != CMW_ERROR_NONE)
   {
+    printf("ERROR: CMW_CAMERA_IMX219_Init: SetFrequency failed ret=%ld\n", (long) ret);
     return CMW_ERROR_COMPONENT_FAILURE;
   }
 
   ret = Camera_Drv.SetFramerate(&camera_bsp, initSensors_params->fps);
+  printf("TRACE: CMW_CAMERA_IMX219_Init: SetFramerate(%lu) ret=%ld\n",
+         (unsigned long) initSensors_params->fps, (long) ret);
   if (ret != CMW_ERROR_NONE)
   {
+    printf("ERROR: CMW_CAMERA_IMX219_Init: SetFramerate failed ret=%ld\n", (long) ret);
     return CMW_ERROR_COMPONENT_FAILURE;
   }
 
@@ -2081,6 +2208,8 @@ static int32_t CMW_CAMERA_IMX219_Init(CMW_Sensor_Init_t *initSensors_params)
       break;
     }
     default:
+      printf("ERROR: CMW_CAMERA_IMX219_Init: unsupported pixel_format=0x%08lX\n",
+             (unsigned long) sensor_config->pixel_format);
       return CMW_ERROR_COMPONENT_FAILURE;
   }
 
@@ -2092,31 +2221,45 @@ static int32_t CMW_CAMERA_IMX219_Init(CMW_Sensor_Init_t *initSensors_params)
   csi_conf.NumberOfLanes  = DCMIPP_CSI_TWO_DATA_LANES;
   csi_conf.DataLaneMapping = DCMIPP_CSI_PHYSICAL_DATA_LANES;
   csi_conf.PHYBitrate     = DCMIPP_CSI_PHY_BT_900;
+  printf("TRACE: CMW_CAMERA_IMX219_Init: HAL_DCMIPP_CSI_SetConfig lanes=2 phy=900Mbps begin\n");
   ret = HAL_DCMIPP_CSI_SetConfig(&hcamera_dcmipp, &csi_conf);
+  printf("TRACE: CMW_CAMERA_IMX219_Init: HAL_DCMIPP_CSI_SetConfig ret=%ld\n", (long) ret);
   if (ret != HAL_OK)
   {
+    printf("ERROR: CMW_CAMERA_IMX219_Init: HAL_DCMIPP_CSI_SetConfig failed ret=%ld\n", (long) ret);
     return CMW_ERROR_PERIPH_FAILURE;
   }
 
+  printf("TRACE: CMW_CAMERA_IMX219_Init: HAL_DCMIPP_CSI_SetVCConfig dt_format=0x%08lX begin\n",
+         (unsigned long) dt_format);
   ret = HAL_DCMIPP_CSI_SetVCConfig(&hcamera_dcmipp, DCMIPP_VIRTUAL_CHANNEL0, dt_format);
+  printf("TRACE: CMW_CAMERA_IMX219_Init: HAL_DCMIPP_CSI_SetVCConfig ret=%ld\n", (long) ret);
   if (ret != HAL_OK)
   {
+    printf("ERROR: CMW_CAMERA_IMX219_Init: HAL_DCMIPP_CSI_SetVCConfig failed ret=%ld\n", (long) ret);
     return CMW_ERROR_PERIPH_FAILURE;
   }
 
   csi_pipe_conf.DataTypeMode = DCMIPP_DTMODE_DTIDA;
   csi_pipe_conf.DataTypeIDA  = dt;
   csi_pipe_conf.DataTypeIDB  = 0;
+  printf("TRACE: CMW_CAMERA_IMX219_Init: pipe CSI datatype dt=0x%08lX\n",
+         (unsigned long) dt);
   /* Pre-initialize CSI config for all the pipes */
   for (uint32_t i = DCMIPP_PIPE0; i <= DCMIPP_PIPE2; i++)
   {
     ret = HAL_DCMIPP_CSI_PIPE_SetConfig(&hcamera_dcmipp, i, &csi_pipe_conf);
+    printf("TRACE: CMW_CAMERA_IMX219_Init: HAL_DCMIPP_CSI_PIPE_SetConfig pipe=%lu ret=%ld\n",
+           (unsigned long) i, (long) ret);
     if (ret != HAL_OK)
     {
+      printf("ERROR: CMW_CAMERA_IMX219_Init: pipe CSI config failed pipe=%lu ret=%ld\n",
+             (unsigned long) i, (long) ret);
       return CMW_ERROR_PERIPH_FAILURE;
     }
   }
 
+  printf("TRACE: CMW_CAMERA_IMX219_Init: complete\n");
   return ret;
 }
 #endif

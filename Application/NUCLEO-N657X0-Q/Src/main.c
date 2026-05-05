@@ -246,6 +246,7 @@ static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uin
 int main(void)
 {
   Hardware_init();
+  printf("TRACE: main: Hardware_init complete\n");
 
   /*** NN Init ****************************************************************/
   uint32_t nn_in_len = 0;
@@ -253,24 +254,39 @@ int main(void)
   stai_ptr nn_out[STAI_NETWORK_OUT_NUM] = {0};
   int32_t nn_out_len[STAI_NETWORK_OUT_NUM] = {0};
 
+  printf("TRACE: main: NeuralNetwork_init begin\n");
   NeuralNetwork_init(&nn_in_len, nn_out, &number_output, nn_out_len);
+  printf("TRACE: main: NeuralNetwork_init OK input_len=%lu outputs=%lu\n",
+         (unsigned long) nn_in_len, (unsigned long) number_output);
 
   /*** Post Processing Init ***************************************************/
   stai_network_info info;
   int ret;
 
+  printf("TRACE: main: postprocess init begin\n");
   ret = stai_network_get_info(network_context, &info);
+  printf("TRACE: main: stai_network_get_info ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
   app_postprocess_init(&pp_params, &info);
+  printf("TRACE: main: postprocess init OK\n");
 
   /*** Camera Init ************************************************************/
   uint32_t pitch_nn = 0;
+  printf("TRACE: main: CameraPipeline_Init begin\n");
   CameraPipeline_Init((uint32_t *[2]) {&lcd_bg_area.XSize, &lcd_fg_area.XSize}, (uint32_t *[2]) {&lcd_bg_area.YSize, &lcd_fg_area.YSize}, &pitch_nn);
+  printf("TRACE: main: CameraPipeline_Init OK bg=%lux%lu fg=%lux%lu pitch_nn=%lu\n",
+         (unsigned long) lcd_bg_area.XSize, (unsigned long) lcd_bg_area.YSize,
+         (unsigned long) lcd_fg_area.XSize, (unsigned long) lcd_fg_area.YSize,
+         (unsigned long) pitch_nn);
 
+  printf("TRACE: main: Display_init begin\n");
   Display_init();
+  printf("TRACE: main: Display_init OK; USB/UVC should be initialized now\n");
 
   /* Start LCD Display camera pipe stream */
+  printf("TRACE: main: CameraPipeline_DisplayPipe_Start begin\n");
   CameraPipeline_DisplayPipe_Start(lcd_bg_buffer, CMW_MODE_CONTINUOUS);
+  printf("TRACE: main: CameraPipeline_DisplayPipe_Start OK\n");
 
   /*** App header *************************************************************/
   printf("========================================\n");
@@ -361,25 +377,39 @@ static void Hardware_init(void)
   SystemClock_Config();
 
   CONSOLE_Config();
+  printf("TRACE: Hardware_init: console ready at 115200 baud\n");
 
+  printf("TRACE: Hardware_init: NPURam_enable begin\n");
   NPURam_enable();
+  printf("TRACE: Hardware_init: NPURam_enable OK\n");
 
+  printf("TRACE: Hardware_init: Fuse_Programming begin\n");
   Fuse_Programming();
+  printf("TRACE: Hardware_init: Fuse_Programming OK\n");
 
+  printf("TRACE: Hardware_init: NPUCache_config begin\n");
   NPUCache_config();
+  printf("TRACE: Hardware_init: NPUCache_config OK\n");
 
   /*** External NOR Flash *********************************************/
+  printf("TRACE: Hardware_init: external NOR init begin\n");
   BSP_XSPI_NOR_Init_t NOR_Init;
   NOR_Init.InterfaceMode = BSP_XSPI_NOR_OPI_MODE;
   NOR_Init.TransferRate = BSP_XSPI_NOR_DTR_TRANSFER;
   BSP_XSPI_NOR_Init(0, &NOR_Init);
   BSP_XSPI_NOR_EnableMemoryMappedMode(0);
+  printf("TRACE: Hardware_init: external NOR memory mapped OK\n");
 
   /* Set all required IPs as secure privileged */
+  printf("TRACE: Hardware_init: Security_Config begin\n");
   Security_Config();
+  printf("TRACE: Hardware_init: Security_Config OK\n");
 
+  printf("TRACE: Hardware_init: IAC_Config begin\n");
   IAC_Config();
+  printf("TRACE: Hardware_init: IAC_Config OK\n");
   set_clk_sleep_mode();
+  printf("TRACE: Hardware_init: sleep clock config OK\n");
 
 }
 
@@ -390,12 +420,16 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
 
   /* initialize runtime */
   ret = stai_runtime_init();
+  printf("TRACE: NeuralNetwork_init: stai_runtime_init ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
   /* init model instance */
   ret = stai_network_init(network_context);
+  printf("TRACE: NeuralNetwork_init: stai_network_init ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
 
   ret = stai_network_get_info(network_context, &info);
+  printf("TRACE: NeuralNetwork_init: stai_network_get_info ret=%d inputs=%lu outputs=%lu\n",
+         ret, (unsigned long) info.n_inputs, (unsigned long) info.n_outputs);
   assert(ret == STAI_SUCCESS);
   assert(info.n_inputs == 1);
   *number_output = STAI_NETWORK_OUT_NUM;
@@ -409,10 +443,13 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
   /* Get the input buffer size & address */
   *nn_in_length = info.inputs[0].size_bytes;
   ret = stai_network_get_inputs(network_context, &nn_in, (stai_size *)&info.n_inputs);
+  printf("TRACE: NeuralNetwork_init: stai_network_get_inputs ret=%d input_bytes=%lu input_ptr=%p\n",
+         ret, (unsigned long) *nn_in_length, nn_in);
   assert(ret == STAI_SUCCESS);
 
   /* Get the output buffers size & address */
   ret = stai_network_get_outputs(network_context, nn_out, number_output);
+  printf("TRACE: NeuralNetwork_init: stai_network_get_outputs ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
   for (int i = 0; i < *number_output; i++)
   {
@@ -622,6 +659,12 @@ static void Display_init(void)
 #endif
 
   ret = SCRL_Init((SCRL_LayerConfig *[2]){&layers_config[0], &layers_config[1]}, &screen_config);
+  printf("TRACE: Display_init: SCRL_Init ret=%d screen=%lux%lu fps=%lu format=0x%08lX\n",
+         ret,
+         (unsigned long) screen_config.size.width,
+         (unsigned long) screen_config.size.height,
+         (unsigned long) screen_config.fps,
+         (unsigned long) screen_config.format);
   assert(ret == 0);
 
   UTIL_LCD_SetLayer(SCRL_LAYER_1);
