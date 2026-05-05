@@ -254,6 +254,10 @@ function Invoke-Sign {
         throw "Binary not found: $projectBin"
     }
 
+    if (Test-Path -LiteralPath $signedBin -PathType Leaf) {
+        Remove-Item -LiteralPath $signedBin -Force
+    }
+
     Write-Step "Signing application image"
     Invoke-External -FilePath $signingExe -Arguments @(
         "-bin", $projectBin,
