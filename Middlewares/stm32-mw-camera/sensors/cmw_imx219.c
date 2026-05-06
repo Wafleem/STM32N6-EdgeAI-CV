@@ -208,6 +208,7 @@ static int32_t CMW_IMX219_Init(void *io_ctx, CMW_Sensor_Init_t *initSensor)
 {
   int ret = CMW_ERROR_NONE;
   uint32_t resolution;
+  uint32_t component_pixel_format;
   CMW_IMX219_config_t *sensor_config;
   sensor_config = (CMW_IMX219_config_t *)(initSensor->sensor_config);
   if (sensor_config == NULL)
@@ -227,7 +228,20 @@ static int32_t CMW_IMX219_Init(void *io_ctx, CMW_Sensor_Init_t *initSensor)
     return CMW_ERROR_WRONG_PARAM;
   }
 
-  ret = IMX219_Init(&((CMW_IMX219_t *)io_ctx)->ctx_driver, resolution, sensor_config->pixel_format);
+  switch (sensor_config->pixel_format)
+  {
+    case CMW_PIXEL_FORMAT_DEFAULT:
+    case CMW_PIXEL_FORMAT_RAW10:
+      component_pixel_format = IMX219_RAW_RGGB10;
+      break;
+    case CMW_PIXEL_FORMAT_RAW8:
+      component_pixel_format = IMX219_RAW_RGGB8;
+      break;
+    default:
+      return CMW_ERROR_WRONG_PARAM;
+  }
+
+  ret = IMX219_Init(&((CMW_IMX219_t *)io_ctx)->ctx_driver, resolution, component_pixel_format);
   if (ret != IMX219_OK)
   {
     return CMW_ERROR_COMPONENT_FAILURE;

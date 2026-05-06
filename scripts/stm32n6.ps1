@@ -225,9 +225,20 @@ if ($Action -in @("sign", "flash-app", "flash-all")) {
 }
 
 function Invoke-Build {
+    $profileValue = if ($ModelProfile -eq "Generic") { 0 } else { 1 }
+
     if ($Clean) {
         Write-Step "Cleaning $Board"
-        Invoke-External -FilePath $makeExe -Arguments @("-C", $appDir, "clean")
+        Invoke-External -FilePath $makeExe -Arguments @(
+            "-C", $appDir,
+            "clean",
+            ("SCR_LIB_SCREEN_ITF={0}" -f $Interface),
+            ("APP_MODEL_PROFILE={0}" -f $profileValue)
+        )
+
+        if (Test-Path -LiteralPath $buildDir -PathType Container) {
+            Remove-Item -LiteralPath $buildDir -Recurse -Force
+        }
     }
 
     Write-Step "Building $Board ($Interface)"
@@ -235,7 +246,6 @@ function Invoke-Build {
 
     $makeArgs += ("SCR_LIB_SCREEN_ITF={0}" -f $Interface)
 
-    $profileValue = if ($ModelProfile -eq "Generic") { 0 } else { 1 }
     $makeArgs += ("APP_MODEL_PROFILE={0}" -f $profileValue)
 
     Invoke-External -FilePath $makeExe -Arguments $makeArgs
