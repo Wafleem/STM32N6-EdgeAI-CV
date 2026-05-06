@@ -177,6 +177,7 @@ $buildDir = Join-Path $appDir ("build\" + $ModelProfile)
 $projectBin = Join-Path $buildDir "Project.bin"
 $projectElf = Join-Path $buildDir "Project.elf"
 $signedBin = Join-Path $buildDir "Project_sign.bin"
+$signedHex = Join-Path $buildDir "Project_sign.hex"
 $fsblHex = Join-Path $repoRoot "FSBL\ai_fsbl.hex"
 $modelDirName = if ($ModelProfile -eq "SafalObb") {
     "{0}_SafalObb" -f $Board
@@ -196,6 +197,7 @@ if (-not (Test-Path -LiteralPath $modelDir -PathType Container)) {
 
 $makeExe = Get-PreferredCubeIdeTool -DisplayName "GNU make" -CommandNames @("make.exe", "make")
 $gccExe = Get-PreferredCubeIdeTool -DisplayName "arm-none-eabi-gcc" -CommandNames @("arm-none-eabi-gcc.exe", "arm-none-eabi-gcc")
+$objcopyExe = Get-PreferredCubeIdeTool -DisplayName "arm-none-eabi-objcopy" -CommandNames @("arm-none-eabi-objcopy.exe", "arm-none-eabi-objcopy")
 $shExe = Get-PreferredCubeIdeTool -DisplayName "sh.exe" -CommandNames @("sh.exe", "sh")
 
 Add-PathEntry -PathEntry (Split-Path -Parent $makeExe)
@@ -268,6 +270,10 @@ function Invoke-Sign {
         Remove-Item -LiteralPath $signedBin -Force
     }
 
+    if (Test-Path -LiteralPath $signedHex -PathType Leaf) {
+        Remove-Item -LiteralPath $signedHex -Force
+    }
+
     Write-Step "Signing application image"
     Invoke-External -FilePath $signingExe -Arguments @(
         "-bin", $projectBin,
@@ -279,6 +285,19 @@ function Invoke-Sign {
 
     if (-not (Test-Path -LiteralPath $signedBin -PathType Leaf)) {
         throw "Signing completed but $signedBin was not produced."
+    }
+
+    Write-Step "Generating signed application HEX"
+    Invoke-External -FilePath $objcopyExe -Arguments @(
+        "-I", "binary",
+        $signedBin,
+        "--change-addresses", "0x70100000",
+        "-O", "ihex",
+        $signedHex
+    )
+
+    if (-not (Test-Path -LiteralPath $signedHex -PathType Leaf)) {
+        throw "HEX generation completed but $signedHex was not produced."
     }
 }
 
