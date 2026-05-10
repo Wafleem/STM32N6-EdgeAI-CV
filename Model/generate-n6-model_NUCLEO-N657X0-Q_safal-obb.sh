@@ -2,7 +2,7 @@
 
 set -eu
 
-MODEL_PATH="${1:-nitish_red_blue_obb_224_robomaster_v3_qdq.onnx}"
+MODEL_PATH="${1:-bestmerge_320_robomaster_v3_qdq.onnx}"
 OUTPUT_DIR="NUCLEO-N657X0-Q_SafalObb"
 
 mkdir -p "${OUTPUT_DIR}"
