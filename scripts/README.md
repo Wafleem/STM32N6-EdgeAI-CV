@@ -44,6 +44,25 @@ Update only the signed application image in external flash:
 .\flash.ps1 -AppOnly
 ```
 
+Run an ST Edge AI AiRunner validation check against a board flashed with an
+`aiValidation`-style test firmware:
+
+```powershell
+.\scripts\test-ai-runner-board.ps1 -Desc serial:COM16:921600
+```
+
+Print the AiRunner target summary without running validation:
+
+```powershell
+.\scripts\test-ai-runner-board.ps1 -Action summary -Desc serial:COM16:921600
+```
+
+AiRunner does not talk to the normal camera/UVC application firmware in this
+repo. If that app is flashed, this helper should fail with an `Invalid firmware`
+hint; flash an ST `aiValidation`/SystemPerformance-style firmware first.
+See [../Doc/AiRunner-Board-Validation.md](../Doc/AiRunner-Board-Validation.md)
+for the safe integration plan.
+
 Build the Nucleo SPI variant:
 
 ```powershell

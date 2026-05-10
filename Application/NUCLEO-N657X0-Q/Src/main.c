@@ -36,6 +36,7 @@
 #include <stdio.h>
 #include "app_config.h"
 #include "crop_img.h"
+#include "logger.h"
 #include "stlogo.h"
 
 CLASSES_TABLE;
@@ -594,39 +595,40 @@ static void Hardware_init(void)
   SystemClock_Config();
 
   CONSOLE_Config();
-  printf("TRACE: Hardware_init: console ready at 115200 baud\n");
+  Logger_Init();
+  LOG_INFO(LOG_TAG_SYS, "console ready at 115200 baud");
 
-  printf("TRACE: Hardware_init: NPURam_enable begin\n");
+  LOG_TRACE(LOG_TAG_SYS, "NPURam_enable begin");
   NPURam_enable();
-  printf("TRACE: Hardware_init: NPURam_enable OK\n");
+  LOG_TRACE(LOG_TAG_SYS, "NPURam_enable OK");
 
-  printf("TRACE: Hardware_init: Fuse_Programming begin\n");
+  LOG_TRACE(LOG_TAG_SYS, "Fuse_Programming begin");
   Fuse_Programming();
-  printf("TRACE: Hardware_init: Fuse_Programming OK\n");
+  LOG_TRACE(LOG_TAG_SYS, "Fuse_Programming OK");
 
-  printf("TRACE: Hardware_init: NPUCache_config begin\n");
+  LOG_TRACE(LOG_TAG_SYS, "NPUCache_config begin");
   NPUCache_config();
-  printf("TRACE: Hardware_init: NPUCache_config OK\n");
+  LOG_TRACE(LOG_TAG_SYS, "NPUCache_config OK");
 
   /*** External NOR Flash *********************************************/
-  printf("TRACE: Hardware_init: external NOR init begin\n");
+  LOG_TRACE(LOG_TAG_SYS, "external NOR init begin");
   BSP_XSPI_NOR_Init_t NOR_Init;
   NOR_Init.InterfaceMode = BSP_XSPI_NOR_OPI_MODE;
   NOR_Init.TransferRate = BSP_XSPI_NOR_DTR_TRANSFER;
   BSP_XSPI_NOR_Init(0, &NOR_Init);
   BSP_XSPI_NOR_EnableMemoryMappedMode(0);
-  printf("TRACE: Hardware_init: external NOR memory mapped OK\n");
+  LOG_TRACE(LOG_TAG_SYS, "external NOR memory mapped OK");
 
   /* Set all required IPs as secure privileged */
-  printf("TRACE: Hardware_init: Security_Config begin\n");
+  LOG_TRACE(LOG_TAG_SYS, "Security_Config begin");
   Security_Config();
-  printf("TRACE: Hardware_init: Security_Config OK\n");
+  LOG_TRACE(LOG_TAG_SYS, "Security_Config OK");
 
-  printf("TRACE: Hardware_init: IAC_Config begin\n");
+  LOG_TRACE(LOG_TAG_SYS, "IAC_Config begin");
   IAC_Config();
-  printf("TRACE: Hardware_init: IAC_Config OK\n");
+  LOG_TRACE(LOG_TAG_SYS, "IAC_Config OK");
   set_clk_sleep_mode();
-  printf("TRACE: Hardware_init: sleep clock config OK\n");
+  LOG_TRACE(LOG_TAG_SYS, "sleep clock config OK");
 
 }
 

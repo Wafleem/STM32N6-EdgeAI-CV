@@ -65,6 +65,7 @@ BUILD_DIR = $(BUILD_TOP)
 C_SOURCES += Src/main.c
 C_SOURCES += Src/syscalls.c
 C_SOURCES += Src/app_fuseprogramming.c
+C_SOURCES += ../../modules/logger/logger.c
 C_SOURCES += $(wildcard ../../Middlewares/ai-postprocessing-wrapper/*.c)
 C_SOURCES += $(wildcard ../../Middlewares/stm32-vision-models-postprocessing/lib_vision_models_pp/Src/*.c)
 C_SOURCES += Src/stm32_lcd_ex.c
@@ -212,6 +213,7 @@ C_INCLUDES += -I../../Middlewares/stm32-mw-camera/sensors/vd1943
 C_INCLUDES += -I../../Middlewares/stm32-mw-camera/sensors/ov5640
 
 C_INCLUDES += -IInc
+C_INCLUDES += -I../../modules/logger
 C_INCLUDES += -I$(MODEL_DIR)
 C_INCLUDES += -I../../Middlewares/ai-postprocessing-wrapper
 C_INCLUDES += -I../../Middlewares/stm32-vision-models-postprocessing/lib_vision_models_pp/Inc

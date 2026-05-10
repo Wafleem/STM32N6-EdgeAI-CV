@@ -35,6 +35,7 @@ Application/*/Release/
 
 # Model generation / quantization scratch
 Model/calibration_npy/
+Model/evaldeps/
 Model/onnxdeps_local/
 Model/pydeps_onnx/
 Model/ort_tmp*/
@@ -43,3 +44,10 @@ Model/st_ai_output/
 Model/st_ai_ws/
 st_ai_output/
 st_ai_ws/
+
+# Large one-off ONNX exports kept locally while iterating.
+Model/bestmerge.onnx
+Model/nitish_red_blue_obb.onnx
+Model/nitish_red_blue_obb_224.onnx
+Model/nitish_red_blue_obb_224_robomaster_v3_qdq.onnx
+Model/nitish_red_blue_obb_224_robomaster_v3_uint8in_int8out_qdq.onnx
