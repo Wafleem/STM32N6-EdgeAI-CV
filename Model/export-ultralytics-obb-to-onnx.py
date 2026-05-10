@@ -8,6 +8,19 @@ import onnx
 from onnx import TensorProto, helper
 from ultralytics import YOLO
 
+POSTPROCESS_OPS = {
+    "ArgMax",
+    "Gather",
+    "GatherElements",
+    "Greater",
+    "Less",
+    "NonMaxSuppression",
+    "RoiAlign",
+    "Sort",
+    "TopK",
+    "Where",
+}
+
 
 def _get_shape(value_info) -> list[int | str]:
     dims = []
@@ -252,6 +265,29 @@ def rewrite_obb_output_to_raw_yolo26_head(model, producers, final_output: str, p
     onnx.save(model, path)
 
 
+def verify_raw_obb_head(path: Path, expected_classes: int | None = None, expected_boxes: int | None = None) -> None:
+    model = onnx.load(path)
+    output_shape = _get_shape(model.graph.output[0])
+    op_counts = {}
+    for node in model.graph.node:
+        op_counts[node.op_type] = op_counts.get(node.op_type, 0) + 1
+
+    forbidden_ops = {op: op_counts[op] for op in sorted(POSTPROCESS_OPS) if op_counts.get(op)}
+    if forbidden_ops:
+        raise RuntimeError(f"NPU-side postprocess ops remain in {path}: {forbidden_ops}")
+
+    if len(output_shape) != 3 or output_shape[1] < 6 or output_shape[2] < 300:
+        raise RuntimeError(f"Expected raw OBB head [batch, channels, boxes], got {output_shape}")
+
+    if expected_classes is not None:
+        expected_channels = expected_classes + 5
+        if int(output_shape[1]) != expected_channels:
+            raise RuntimeError(f"Expected raw OBB channels={expected_channels}, got {output_shape}")
+
+    if expected_boxes is not None and int(output_shape[2]) != expected_boxes:
+        raise RuntimeError(f"Expected raw OBB boxes={expected_boxes}, got {output_shape}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Export a Safal-style Ultralytics OBB checkpoint to ONNX.")
     parser.add_argument("checkpoint", help="Path to the source .pt checkpoint")
@@ -260,6 +296,8 @@ def main() -> None:
     parser.add_argument("--opset", type=int, default=13, help="ONNX opset")
     parser.add_argument("--decoded-output", action="store_true",
                         help="Keep Ultralytics' decoded OBB output in the ONNX graph")
+    parser.add_argument("--expected-classes", type=int, help="Fail unless the raw head has classes + 5 channels")
+    parser.add_argument("--expected-boxes", type=int, help="Fail unless the raw head has this candidate count")
     args = parser.parse_args()
 
     checkpoint = Path(args.checkpoint).resolve()
@@ -276,6 +314,7 @@ def main() -> None:
 
     if not args.decoded_output:
         rewrite_obb_output_to_raw_head(output)
+        verify_raw_obb_head(output, args.expected_classes, args.expected_boxes)
 
     print(output)
 

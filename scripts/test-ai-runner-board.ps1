@@ -25,7 +25,7 @@ param(
     [ValidateSet("validate", "summary")]
     [string]$Action = "validate",
 
-    [string]$Model = "Model\bestmerge_320_robomaster_v3_qdq.onnx",
+    [string]$Model = "Model\bestmerge_320_robomaster_v4_clean_qdq.onnx",
 
     [string]$Desc = "serial:921600",
 
@@ -92,6 +92,9 @@ function Find-STEdgeAiRoot {
     $stRoot = "C:\ST\STEdgeAI"
     if (Test-Path -LiteralPath $stRoot -PathType Container) {
         $latest = Get-ChildItem -Path $stRoot -Directory -ErrorAction SilentlyContinue |
+            Where-Object {
+                Test-Path -LiteralPath (Join-Path $_.FullName "Utilities\windows\stedgeai.exe") -PathType Leaf
+            } |
             Sort-Object Name -Descending |
             Select-Object -First 1
 
@@ -164,6 +167,7 @@ $RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $edgeRoot = Find-STEdgeAiRoot
 $stedgeaiExe = Join-Path $edgeRoot "Utilities\windows\stedgeai.exe"
 $runnerRoot = Join-Path $edgeRoot "scripts\ai_runner"
+$runnerDeps = Join-Path $repoRoot "Model\airunnerdeps"
 $resolvedModel = Resolve-RepoPath $Model
 $resolvedNeuralArtConfig = Resolve-RepoPath $StNeuralArtConfig
 
@@ -197,6 +201,11 @@ if ($Action -eq "summary") {
         throw "AiRunner Python package not found: $runnerRoot"
     }
 
+    if (-not (Test-Path -LiteralPath $runnerDeps -PathType Container)) {
+        Write-Host "Hint: AiRunner dependencies are missing. Install them with:" -ForegroundColor Yellow
+        Write-Host "  $((Find-Python)) -m pip install --target Model\airunnerdeps -r `"$runnerRoot\requirements.txt`"" -ForegroundColor Yellow
+    }
+
     $python = Find-Python
     $script = @"
 import sys
@@ -215,7 +224,8 @@ runner.disconnect()
     $tempScript = Join-Path $env:TEMP ("stm32_ai_runner_summary_{0}.py" -f ([Guid]::NewGuid().ToString("N")))
     Set-Content -LiteralPath $tempScript -Value $script -Encoding UTF8
     try {
-        $env:PYTHONPATH = "$runnerRoot;$env:PYTHONPATH"
+        $env:PYTHONPATH = "$runnerRoot;$runnerDeps;$env:PYTHONPATH"
+        $env:PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION = "python"
         Invoke-Captured -FilePath $python -Arguments @($tempScript)
     } finally {
         if (Test-Path -LiteralPath $tempScript -PathType Leaf) {

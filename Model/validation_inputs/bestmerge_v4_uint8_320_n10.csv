@@ -1,0 +1,11 @@
+index,source_image
+0,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0000_ARUWvsTAMUframe100_jpg.rf.898f42d79bfe43c2e2f3e27c4e8905bf.jpg
+1,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0001_ARUWvsTAMUframe293_jpg.rf.0af5cb2f9368f422c737fa844c5c537e.jpg
+2,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0002_ARUWvsTAMUframe33_jpg.rf.1c903351d08e0990f0778baffd9a7171.jpg
+3,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0003_ARUWvsTAMUframe390_jpg.rf.246e8c6f655e0df600d25fb86a63a6a0.jpg
+4,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0004_ARUWvsTAMUframe439_jpg.rf.03aa9b7ea09e9c75bf0c8d8ce328b7ba.jpg
+5,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0005_ARUWvsTAMUframe455_jpg.rf.e3e94b7d01b0cb99a3700d6b592c5252.jpg
+6,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0006_ARUWvsTAMUframe564_jpg.rf.8d2dba6162f98226fd74a446e0c00ef8.jpg
+7,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0007_ARUWvsTAMUframe614_jpg.rf.39eff48d109e87fe80face482b056f37.jpg
+8,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0008_ARUWvsTAMUframe636_jpg.rf.26cb88b9bbe1df0c815c09b7d8d3dc4c.jpg
+9,C:\Users\saysa\Documents\Robomaster_CodeStuff\stm32n6-sample\STM32N6-YOLO-Deploy\Model\calibration_datasets\robomaster_v4_clean_images\0009_ARUWvsTAMUframe85_jpg.rf.db99010ae86ca7d04413c5c4bacf4388.jpg

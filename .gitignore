@@ -34,20 +34,33 @@ Application/*/Release/
 *_sign.hex
 
 # Model generation / quantization scratch
+Model/airunnerdeps/
 Model/calibration_npy/
 Model/evaldeps/
 Model/onnxdeps_local/
 Model/pydeps_onnx/
+Model/export_work/
 Model/ort_tmp*/
 Model/quantize_onnx_*/
 Model/st_ai_output/
 Model/st_ai_ws/
 st_ai_output/
 st_ai_ws/
+onnx_debug_local/
 
 # Large one-off ONNX exports kept locally while iterating.
 Model/bestmerge.onnx
+Model/bestmerge_384_raw_yolo.onnx
+Model/bestmerge_384_robomaster_v4_clean_qdq.onnx
+Model/bestmerge_384_robomaster_v4_clean_uint8in_int8out_qdq.onnx
 Model/nitish_red_blue_obb.onnx
 Model/nitish_red_blue_obb_224.onnx
 Model/nitish_red_blue_obb_224_robomaster_v3_qdq.onnx
 Model/nitish_red_blue_obb_224_robomaster_v3_uint8in_int8out_qdq.onnx
+
+# Local diagnostics and abandoned memory-placement experiments
+ai_runner.log
+compile.log
+n6_loader.log
+debug_*.jpg
+Model/user_neuralart_NUCLEO-N657X0-Q_ca1.json

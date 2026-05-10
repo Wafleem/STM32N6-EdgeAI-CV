@@ -9,7 +9,36 @@ Those are not the same protocol. AiRunner cannot talk to the normal camera app u
 
 ## What We Added
 
-Use `scripts/test-ai-runner-board.ps1` to exercise ST's host-side AiRunner tools:
+Use `scripts/stm32n6-ai-validation.ps1` to prepare ST's NPU validation firmware
+for this repo's generated BestMerge model artifacts:
+
+```powershell
+.\scripts\stm32n6-ai-validation.ps1 -Action build -Clean
+```
+
+That creates a temporary validation workspace at:
+
+```text
+C:\tmp\stm32n6-ai-validation
+```
+
+and produces the RAM-linked validation firmware at:
+
+```text
+C:\tmp\stm32n6-ai-validation\Projects\STM32N6570-DK\Applications\NPU_Validation\armgcc\build\N6-Nucleo\Project.hex
+```
+
+To deploy the validation setup over SWD:
+
+```powershell
+.\scripts\stm32n6-ai-validation.ps1 -Action flash
+```
+
+That flashes this repo's `network_data.hex` to external NOR, then loads and
+starts the aiValidation firmware in SRAM.
+
+After the validation firmware is running, use `scripts/test-ai-runner-board.ps1`
+to exercise ST's host-side AiRunner tools:
 
 ```powershell
 .\scripts\test-ai-runner-board.ps1 -Desc serial:COM16:921600
@@ -21,14 +50,43 @@ For a connection/model summary only:
 .\scripts\test-ai-runner-board.ps1 -Action summary -Desc serial:COM16:921600
 ```
 
+To send a small batch of preprocessed images from the PC to the board:
+
+```powershell
+.\scripts\test-ai-runner-board.ps1 `
+  -Action validate `
+  -Desc serial:COM16:921600 `
+  -ValInput Model\validation_inputs\bestmerge_v4_uint8_320_n10.npy `
+  -BatchSize 10
+```
+
 The script defaults to:
 
-- Model: `Model\bestmerge_320_robomaster_v3_qdq.onnx`
+- Model: `Model\bestmerge_320_robomaster_v4_clean_qdq.onnx`
 - Target: `stm32n6`
 - Descriptor: `serial:921600`
 - Mode: `target-io-only`
 - Input data type: `uint8`
 - Output data type: `int8`
+
+Validation inputs are flattened `uint8` tensors, not raw `.jpg` files. The
+current prepared batch is:
+
+```text
+Model\validation_inputs\bestmerge_v4_uint8_320_n10.npy
+shape=(10, 307200), dtype=uint8
+```
+
+It was generated from the clean RoboMaster v4 image subset with:
+
+```powershell
+python Model\prepare-validation-inputs.py `
+  Model\calibration_datasets\robomaster_v4_clean_images `
+  Model\validation_inputs\bestmerge_v4_uint8_320_n10.npy `
+  --manifest Model\validation_inputs\bestmerge_v4_uint8_320_n10.csv `
+  --imgsz 320 `
+  --count 10
+```
 
 ## Why Not Run AiRunner Inside Camera Mode?
 
@@ -38,16 +96,25 @@ If we mix readable trace prints with the AiRunner binary protocol on the same UA
 
 ## Recommended Integration Shape
 
-Use a compile-time validation firmware/profile rather than trying to run both protocols at once:
+Use a separate validation firmware/profile rather than trying to run both protocols at once:
 
-1. Build `APP_ENABLE_AI_VALIDATION=1`.
-2. Initialize clock, UART, CRC, Neural-ART memory, cache, security, and external NOR.
-3. Skip camera, display, UVC, postprocess, and text trace loops.
-4. Call ST's `aiValidationInit()` once.
-5. Loop on `aiValidationProcess()`.
-6. Keep human-readable logging off the AiRunner UART while validation is active.
+1. Build the ST NPU_Validation app through `scripts/stm32n6-ai-validation.ps1`.
+2. Inject this repo's generated `network.c`, `stai_network.c`, and `network_ecblobs.h`.
+3. Use ST's `ai_wrapper_ATON_ST_AI.c` and `aiValidation_ATON_ST_AI.c` path.
+4. Include `ll_aton_stai_internal.c`, which is required by generated STAI networks.
+5. Flash `network_data.hex` to external NOR.
+6. Load and start the validation app in SRAM.
+7. Keep human-readable logging off the AiRunner UART while validation is active.
 
 That gives us an honest board-side model test path without destabilizing the working camera app.
+
+## Why Not Port This To CMake?
+
+For this path, CMake would add more surface area than value. ST ships the
+NPU_Validation project as a Makefile app, and the tricky parts are not build
+system mechanics; they are selecting the correct STAI wrapper sources and
+pointing paths at the installed ST runtime libraries. The repo script patches
+those specifics while leaving the ST project structure intact.
 
 ## Porting Pieces Needed
 

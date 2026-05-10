@@ -86,7 +86,7 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 /* Model Related Info */
 #define POSTPROCESS_TYPE POSTPROCESS_CUSTOM
 #define APP_MODEL_PROFILE_NAME "BestMerge OBB 320"
-#define APP_MODEL_CALIBRATION_NAME "RoboMaster v3 test200 320 calibration"
+#define APP_MODEL_CALIBRATION_NAME "RoboMaster v4 clean 320 calibration"
 
 #define COLOR_BGR (0)
 #define COLOR_RGB (1)
@@ -96,7 +96,7 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 #define CLASSES_TABLE const char* classes_table[NB_CLASSES] = {\
 "plate"}
 
-/* CV model-test bestmerge.pt exported at 320x320 with raw YOLO26 OBB decode on the MCU side. */
+/* CV model-test bestmerge.pt exported at 320x320 with raw YOLO OBB decode on the MCU side. */
 #define AI_OD_OBB_PP_NB_CLASSES         (NB_CLASSES)
 #define AI_OD_OBB_PP_TOTAL_BOXES        (2100)
 #define AI_OD_OBB_PP_CANDIDATES_LIMIT   (160)
@@ -106,7 +106,7 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 #define AI_OD_OBB_PP_OUTPUT_IS_RAW_YOLO26 (1U)
 
 /* Display */
-#define WELCOME_MSG_1         "BestMerge OBB 320"
+#define WELCOME_MSG_1         "BestMerge OBB 320 v4"
 #define WELCOME_MSG_2         ((char *[2]) {"armor plate detector", "MCU decode + NMS"})
 
 #else
