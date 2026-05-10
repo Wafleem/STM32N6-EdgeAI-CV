@@ -166,6 +166,52 @@ static const char *CMW_CAMERA_SensorNameToString(CMW_Sensor_Name_t sensor)
   }
 }
 
+static void CMW_CAMERA_DumpDcmippPipeState(const char *tag, uint32_t pipe, const uint8_t *pbuff)
+{
+  printf("TRACE: %s: pipe=%lu buffer=%p align=0x%lX dcmipp_state=%lu pipe_state=%lu err=0x%08lX "
+         "cmcr=0x%08lX cmier=0x%08lX cmsr1=0x%08lX cmsr2=0x%08lX\n",
+         tag,
+         (unsigned long) pipe,
+         pbuff,
+         (unsigned long) ((uint32_t) pbuff & 0xFUL),
+         (unsigned long) HAL_DCMIPP_GetState(&hcamera_dcmipp),
+         (unsigned long) HAL_DCMIPP_PIPE_GetState(&hcamera_dcmipp, pipe),
+         (unsigned long) HAL_DCMIPP_GetError(&hcamera_dcmipp),
+         (unsigned long) hcamera_dcmipp.Instance->CMCR,
+         (unsigned long) hcamera_dcmipp.Instance->CMIER,
+         (unsigned long) hcamera_dcmipp.Instance->CMSR1,
+         (unsigned long) hcamera_dcmipp.Instance->CMSR2);
+
+  if (pipe == DCMIPP_PIPE1)
+  {
+    printf("TRACE: %s: pipe1 fscr=0x%08lX fctcr=0x%08lX ppcr=0x%08lX "
+           "m0ar1=0x%08lX m0ar2=0x%08lX pitch=0x%08lX ier=0x%08lX sr=0x%08lX\n",
+           tag,
+           (unsigned long) hcamera_dcmipp.Instance->P1FSCR,
+           (unsigned long) hcamera_dcmipp.Instance->P1FCTCR,
+           (unsigned long) hcamera_dcmipp.Instance->P1PPCR,
+           (unsigned long) hcamera_dcmipp.Instance->P1PPM0AR1,
+           (unsigned long) hcamera_dcmipp.Instance->P1PPM0AR2,
+           (unsigned long) hcamera_dcmipp.Instance->P1PPM0PR,
+           (unsigned long) hcamera_dcmipp.Instance->P1IER,
+           (unsigned long) hcamera_dcmipp.Instance->P1SR);
+  }
+  else if (pipe == DCMIPP_PIPE2)
+  {
+    printf("TRACE: %s: pipe2 fscr=0x%08lX fctcr=0x%08lX ppcr=0x%08lX "
+           "m0ar1=0x%08lX m0ar2=0x%08lX pitch=0x%08lX ier=0x%08lX sr=0x%08lX\n",
+           tag,
+           (unsigned long) hcamera_dcmipp.Instance->P2FSCR,
+           (unsigned long) hcamera_dcmipp.Instance->P2FCTCR,
+           (unsigned long) hcamera_dcmipp.Instance->P2PPCR,
+           (unsigned long) hcamera_dcmipp.Instance->P2PPM0AR1,
+           (unsigned long) hcamera_dcmipp.Instance->P2PPM0AR2,
+           (unsigned long) hcamera_dcmipp.Instance->P2PPM0PR,
+           (unsigned long) hcamera_dcmipp.Instance->P2IER,
+           (unsigned long) hcamera_dcmipp.Instance->P2SR);
+  }
+}
+
 #if defined(USE_IMX219_SENSOR)
 static void CMW_CAMERA_IMX219_SelectDefaultMode(CMW_Sensor_Init_t *initSensors_params)
 {
@@ -590,12 +636,14 @@ int32_t CMW_CAMERA_Start(uint32_t pipe, uint8_t *pbuff, uint32_t mode)
   {
     printf("TRACE: CMW_CAMERA_Start: HAL_DCMIPP_CSI_PIPE_Start pipe=%lu buffer=%p mode=%lu begin\n",
            (unsigned long) pipe, pbuff, (unsigned long) mode);
+    CMW_CAMERA_DumpDcmippPipeState("CMW_CAMERA_Start pre-start", pipe, pbuff);
   }
   ret = HAL_DCMIPP_CSI_PIPE_Start(&hcamera_dcmipp, pipe, DCMIPP_VIRTUAL_CHANNEL0, (uint32_t)pbuff, mode);
   if ((trace_count[pipe] < 5U) || (ret != HAL_OK))
   {
     printf("TRACE: CMW_CAMERA_Start: HAL_DCMIPP_CSI_PIPE_Start pipe=%lu ret=%ld\n",
            (unsigned long) pipe, (long) ret);
+    CMW_CAMERA_DumpDcmippPipeState("CMW_CAMERA_Start post-start", pipe, pbuff);
   }
   if (ret != HAL_OK)
   {
@@ -2531,4 +2579,81 @@ void HAL_DCMIPP_PIPE_ErrorCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t Pipe)
   UNUSED(hdcmipp);
 
   CMW_CAMERA_PIPE_ErrorCallback(Pipe);
+}
+
+void HAL_DCMIPP_ErrorCallback(DCMIPP_HandleTypeDef *hdcmipp)
+{
+  UNUSED(hdcmipp);
+
+  printf("ERROR: HAL_DCMIPP_ErrorCallback: err=0x%08lX cmier=0x%08lX cmsr1=0x%08lX cmsr2=0x%08lX "
+         "p1sr=0x%08lX p2sr=0x%08lX\n",
+         (unsigned long) HAL_DCMIPP_GetError(&hcamera_dcmipp),
+         (unsigned long) hcamera_dcmipp.Instance->CMIER,
+         (unsigned long) hcamera_dcmipp.Instance->CMSR1,
+         (unsigned long) hcamera_dcmipp.Instance->CMSR2,
+         (unsigned long) hcamera_dcmipp.Instance->P1SR,
+         (unsigned long) hcamera_dcmipp.Instance->P2SR);
+}
+
+void HAL_DCMIPP_CSI_LineErrorCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t DataLane)
+{
+  UNUSED(hdcmipp);
+
+  printf("ERROR: HAL_DCMIPP_CSI_LineErrorCallback: lane=%lu err=0x%08lX cmsr1=0x%08lX cmsr2=0x%08lX\n",
+         (unsigned long) DataLane,
+         (unsigned long) HAL_DCMIPP_GetError(&hcamera_dcmipp),
+         (unsigned long) hcamera_dcmipp.Instance->CMSR1,
+         (unsigned long) hcamera_dcmipp.Instance->CMSR2);
+}
+
+void HAL_DCMIPP_CSI_StartOfFrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t VirtualChannel)
+{
+  static uint32_t trace_count;
+  UNUSED(hdcmipp);
+
+  if (trace_count < 5U)
+  {
+    printf("TRACE: HAL_DCMIPP_CSI_StartOfFrameEventCallback: vc=%lu count=%lu cmsr1=0x%08lX cmsr2=0x%08lX\n",
+           (unsigned long) VirtualChannel,
+           (unsigned long) trace_count,
+           (unsigned long) hcamera_dcmipp.Instance->CMSR1,
+           (unsigned long) hcamera_dcmipp.Instance->CMSR2);
+  }
+  trace_count++;
+}
+
+void HAL_DCMIPP_CSI_EndOfFrameEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t VirtualChannel)
+{
+  static uint32_t trace_count;
+  UNUSED(hdcmipp);
+
+  if (trace_count < 5U)
+  {
+    printf("TRACE: HAL_DCMIPP_CSI_EndOfFrameEventCallback: vc=%lu count=%lu cmsr1=0x%08lX cmsr2=0x%08lX\n",
+           (unsigned long) VirtualChannel,
+           (unsigned long) trace_count,
+           (unsigned long) hcamera_dcmipp.Instance->CMSR1,
+           (unsigned long) hcamera_dcmipp.Instance->CMSR2);
+  }
+  trace_count++;
+}
+
+void HAL_DCMIPP_CSI_ClockChangerFifoFullEventCallback(DCMIPP_HandleTypeDef *hdcmipp)
+{
+  UNUSED(hdcmipp);
+
+  printf("ERROR: HAL_DCMIPP_CSI_ClockChangerFifoFullEventCallback: err=0x%08lX cmsr1=0x%08lX cmsr2=0x%08lX\n",
+         (unsigned long) HAL_DCMIPP_GetError(&hcamera_dcmipp),
+         (unsigned long) hcamera_dcmipp.Instance->CMSR1,
+         (unsigned long) hcamera_dcmipp.Instance->CMSR2);
+}
+
+void HAL_DCMIPP_CSI_ShortPacketDetectionEventCallback(DCMIPP_HandleTypeDef *hdcmipp)
+{
+  UNUSED(hdcmipp);
+
+  printf("ERROR: HAL_DCMIPP_CSI_ShortPacketDetectionEventCallback: err=0x%08lX cmsr1=0x%08lX cmsr2=0x%08lX\n",
+         (unsigned long) HAL_DCMIPP_GetError(&hcamera_dcmipp),
+         (unsigned long) hcamera_dcmipp.Instance->CMSR1,
+         (unsigned long) hcamera_dcmipp.Instance->CMSR2);
 }

@@ -28,6 +28,10 @@
 /* Exported macro ------------------------------------------------------------*/
 
 /* Exported functions ------------------------------------------------------- */
+extern volatile uint32_t g_app_trace_stage;
+extern volatile uint32_t g_app_trace_frame_index;
+
+void Display_InvalidateCameraBuffer(void);
 
 #endif /* MAIN_H */
 

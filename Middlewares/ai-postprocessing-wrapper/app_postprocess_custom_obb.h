@@ -26,10 +26,13 @@ typedef struct
   uint32_t total_boxes;
   uint32_t channels_per_box;
   uint32_t nb_classes;
+  uint32_t reg_max;
   uint32_t max_boxes_limit;
   float conf_threshold;
   float iou_threshold;
   uint8_t output_is_channel_last;
+  uint8_t output_is_raw_dfl;
+  uint8_t output_is_raw_yolo26;
 } od_obb_custom_pp_static_param_t;
 
 #endif /* APP_POSTPROCESS_CUSTOM_OBB_H */

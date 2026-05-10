@@ -19,6 +19,7 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "uvcl_desc.h"
@@ -623,15 +624,62 @@ void UVCL_IRQHandler()
 int UVCL_ShowFrame(void *frame, int frame_size)
 {
   UVCL_Ctx_t *p_ctx = p_ctx_single;
+  static uint32_t trace_count;
 
   if (p_ctx->state != UVCL_STATUS_STREAMING)
+  {
+    if (trace_count < 10U)
+    {
+      printf("TRACE: UVCL_ShowFrame reject: count=%lu reason=state state=%lu pending=%p frame=%p size=%d\n",
+             (unsigned long) trace_count,
+             (unsigned long) p_ctx->state,
+             p_ctx->p_frame,
+             frame,
+             frame_size);
+    }
+    trace_count++;
     return -1;
+  }
   if (p_ctx->p_frame)
+  {
+    if (trace_count < 10U)
+    {
+      printf("TRACE: UVCL_ShowFrame reject: count=%lu reason=pending state=%lu pending=%p frame=%p size=%d\n",
+             (unsigned long) trace_count,
+             (unsigned long) p_ctx->state,
+             p_ctx->p_frame,
+             frame,
+             frame_size);
+    }
+    trace_count++;
     return -1;
+  }
   if (!frame)
+  {
+    if (trace_count < 10U)
+    {
+      printf("TRACE: UVCL_ShowFrame reject: count=%lu reason=null-frame state=%lu pending=%p size=%d\n",
+             (unsigned long) trace_count,
+             (unsigned long) p_ctx->state,
+             p_ctx->p_frame,
+             frame_size);
+    }
+    trace_count++;
     return -1;
+  }
   if (!frame_size)
+  {
+    if (trace_count < 10U)
+    {
+      printf("TRACE: UVCL_ShowFrame reject: count=%lu reason=size state=%lu pending=%p frame=%p\n",
+             (unsigned long) trace_count,
+             (unsigned long) p_ctx->state,
+             p_ctx->p_frame,
+             frame);
+    }
+    trace_count++;
     return -1;
+  }
 
   p_ctx->frame_size = frame_size;
   __DMB();
@@ -639,8 +687,25 @@ int UVCL_ShowFrame(void *frame, int frame_size)
 
   if (p_ctx->state == UVCL_STATUS_STOP) {
     p_ctx->p_frame = NULL;
+    if (trace_count < 10U)
+    {
+      printf("TRACE: UVCL_ShowFrame reject: count=%lu reason=stopped-after-set frame=%p size=%d\n",
+             (unsigned long) trace_count,
+             frame,
+             frame_size);
+    }
+    trace_count++;
     return -1;
   }
 
+  if (trace_count < 10U)
+  {
+    printf("TRACE: UVCL_ShowFrame accept: count=%lu state=%lu frame=%p size=%d\n",
+           (unsigned long) trace_count,
+           (unsigned long) p_ctx->state,
+           frame,
+           frame_size);
+  }
+  trace_count++;
   return 0;
 }

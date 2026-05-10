@@ -85,7 +85,7 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 
 /* Model Related Info */
 #define POSTPROCESS_TYPE POSTPROCESS_CUSTOM
-#define APP_MODEL_PROFILE_NAME "Nitish Safal OBB 384"
+#define APP_MODEL_PROFILE_NAME "Nitish Safal OBB 224"
 #define APP_MODEL_CALIBRATION_NAME "RoboMaster v3 test200 calibration"
 
 #define COLOR_BGR (0)
@@ -96,17 +96,17 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 #define CLASSES_TABLE const char* classes_table[NB_CLASSES] = {\
 "blue armor", "red armor"}
 
-/* Safal Jetson model lineage: best-roboflow-nitish-obb exported at 384x384. */
+/* Safal Jetson model lineage: best-roboflow-nitish-obb exported at 224x224 for the Nucleo profile. */
 #define AI_OD_OBB_PP_NB_CLASSES         (NB_CLASSES)
-#define AI_OD_OBB_PP_TOTAL_BOXES        (3024)
+#define AI_OD_OBB_PP_TOTAL_BOXES        (1029)
 #define AI_OD_OBB_PP_CANDIDATES_LIMIT   (160)
-#define AI_OD_OBB_PP_CONF_THRESHOLD     (0.45f)
+#define AI_OD_OBB_PP_CONF_THRESHOLD     (0.20f)
 #define AI_OD_OBB_PP_IOU_THRESHOLD      (0.35f)
 #define AI_OD_OBB_PP_MAX_BOXES_LIMIT    (20)
 
 /* Display */
-#define WELCOME_MSG_1         "RoboMaster OBB 384"
-#define WELCOME_MSG_2         ((char *[2]) {"blue/red armor detector", "calibrated with RoboMaster v3 test200"})
+#define WELCOME_MSG_1         "RoboMaster OBB 224"
+#define WELCOME_MSG_2         ((char *[2]) {"blue/red armor detector", "ST-sized Nucleo profile"})
 
 #else
   #error "Unsupported APP_MODEL_PROFILE value."

@@ -21,6 +21,56 @@
 #include "stm32n6xx_it.h"
 
 #include "cmw_camera.h"
+#include "main.h"
+
+#include <stdio.h>
+
+static void DumpFaultState(const char *fault_name)
+{
+  static volatile uint32_t fault_dumped = 0;
+  DCMIPP_HandleTypeDef *hcamera_dcmipp = CMW_CAMERA_GetDCMIPPHandle();
+
+  __disable_irq();
+
+  if (fault_dumped == 0U)
+  {
+    fault_dumped = 1U;
+    printf("FATAL: %s stage=%lu frame=%lu tick=%lu MSP=0x%08lX PSP=0x%08lX CONTROL=0x%08lX\n",
+           fault_name,
+           (unsigned long) g_app_trace_stage,
+           (unsigned long) g_app_trace_frame_index,
+           (unsigned long) HAL_GetTick(),
+           (unsigned long) __get_MSP(),
+           (unsigned long) __get_PSP(),
+           (unsigned long) __get_CONTROL());
+    printf("FATAL: %s SCB CFSR=0x%08lX HFSR=0x%08lX DFSR=0x%08lX MMFAR=0x%08lX BFAR=0x%08lX ICSR=0x%08lX VTOR=0x%08lX\n",
+           fault_name,
+           (unsigned long) SCB->CFSR,
+           (unsigned long) SCB->HFSR,
+           (unsigned long) SCB->DFSR,
+           (unsigned long) SCB->MMFAR,
+           (unsigned long) SCB->BFAR,
+           (unsigned long) SCB->ICSR,
+           (unsigned long) SCB->VTOR);
+
+    if (hcamera_dcmipp != NULL)
+    {
+      printf("FATAL: %s DCMIPP state=%lu pipe1=%lu pipe2=%lu err=0x%08lX cmsr1=0x%08lX cmsr2=0x%08lX cmier=0x%08lX\n",
+             fault_name,
+             (unsigned long) HAL_DCMIPP_GetState(hcamera_dcmipp),
+             (unsigned long) HAL_DCMIPP_PIPE_GetState(hcamera_dcmipp, DCMIPP_PIPE1),
+             (unsigned long) HAL_DCMIPP_PIPE_GetState(hcamera_dcmipp, DCMIPP_PIPE2),
+             (unsigned long) HAL_DCMIPP_GetError(hcamera_dcmipp),
+             (unsigned long) hcamera_dcmipp->Instance->CMSR1,
+             (unsigned long) hcamera_dcmipp->Instance->CMSR2,
+             (unsigned long) hcamera_dcmipp->Instance->CMIER);
+    }
+  }
+
+  while (1)
+  {
+  }
+}
 
 /**
   * @brief   This function handles NMI exception.
@@ -38,10 +88,7 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
-  /* Go to infinite loop when Hard Fault exception occurs */
-  while (1)
-  {
-  }
+  DumpFaultState("HardFault");
 }
 
 /**
@@ -51,10 +98,7 @@ void HardFault_Handler(void)
   */
 void MemManage_Handler(void)
 {
-  /* Go to infinite loop when Memory Manage exception occurs */
-  while (1)
-  {
-  }
+  DumpFaultState("MemManage");
 }
 
 /**
@@ -64,10 +108,7 @@ void MemManage_Handler(void)
   */
 void BusFault_Handler(void)
 {
-  /* Go to infinite loop when Bus Fault exception occurs */
-  while (1)
-  {
-  }
+  DumpFaultState("BusFault");
 }
 
 /**
@@ -77,10 +118,7 @@ void BusFault_Handler(void)
   */
 void UsageFault_Handler(void)
 {
-  /* Go to infinite loop when Usage Fault exception occurs */
-  while (1)
-  {
-  }
+  DumpFaultState("UsageFault");
 }
 
 /**
@@ -90,10 +128,7 @@ void UsageFault_Handler(void)
   */
 void SecureFault_Handler(void)
 {
-  /* Go to infinite loop when Secure Fault exception occurs */
-  while (1)
-  {
-  }
+  DumpFaultState("SecureFault");
 }
 
 /**
@@ -112,9 +147,7 @@ void SVC_Handler(void)
   */
 void DebugMon_Handler(void)
 {
-  while (1)
-  {
-  }
+  DumpFaultState("DebugMon");
 }
 
 /**
@@ -124,9 +157,7 @@ void DebugMon_Handler(void)
   */
 void PendSV_Handler(void)
 {
-  while (1)
-  {
-  }
+  DumpFaultState("PendSV");
 }
 
 /**

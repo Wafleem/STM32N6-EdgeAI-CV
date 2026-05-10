@@ -29,6 +29,7 @@
 #include "stm32_lcd_ex.h"
 #include "app_postprocess.h"
 #include "stai.h"
+#include "stai_ext.h"
 #include "stai_network.h"
 #include "app_camerapipeline.h"
 #include "main.h"
@@ -124,11 +125,31 @@ const uint32_t colors[NUMBER_COLORS] = {
 
 UART_HandleTypeDef huart1;
 volatile int32_t cameraFrameReceived;
+volatile uint32_t g_app_trace_stage = 0;
+volatile uint32_t g_app_trace_frame_index = 0;
 stai_ptr nn_in;
 void* pp_input;
 od_pp_out_t pp_output;
 static float nn_input_scale = 0.0f;
 static int32_t nn_input_zero_point = 0;
+static uint32_t g_nn_in_len = 0;
+static stai_size g_number_output = 0;
+
+enum
+{
+  APP_TRACE_STAGE_BOOT = 1,
+  APP_TRACE_STAGE_NN_INIT,
+  APP_TRACE_STAGE_POSTPROCESS_INIT,
+  APP_TRACE_STAGE_CAMERA_INIT,
+  APP_TRACE_STAGE_DISPLAY_INIT,
+  APP_TRACE_STAGE_DISPLAY_PIPE_START,
+  APP_TRACE_STAGE_WAITING_FOR_FRAME,
+  APP_TRACE_STAGE_PREPROCESS,
+  APP_TRACE_STAGE_INFERENCE_START,
+  APP_TRACE_STAGE_INFERENCE_POLL,
+  APP_TRACE_STAGE_POSTPROCESS,
+  APP_TRACE_STAGE_DISPLAY
+};
 
 #define ALIGN_TO_16(value) (((value) + 15) & ~15)
 
@@ -168,6 +189,8 @@ static void NPURam_enable(void);
 static void NPUCache_config(void);
 static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference_ms);
 static void Display_init(void);
+static void LogCameraPipelineState(const char *tag);
+static void LogInferenceRuntimeState(const char *tag);
 static void Security_Config(void);
 static void set_clk_sleep_mode(void);
 static void IAC_Config(void);
@@ -175,9 +198,23 @@ static void Display_WelcomeScreen(void);
 static uint32_t Display_GetBoxColor(uint32_t class_index);
 static void Hardware_init(void);
 static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_size *number_output, int32_t nn_out_len[]);
+static stai_return_code RunInferenceWithTracing(uint32_t frame_index);
+static uint32_t SampleBytesChecksum32(const uint8_t *data, uint32_t len);
 #if NN_INPUT_NEEDS_PREPROC
 static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uint32_t src_stride);
 #endif
+
+static uint32_t SampleBytesChecksum32(const uint8_t *data, uint32_t len)
+{
+  uint32_t sum = 0;
+
+  for (uint32_t i = 0; i < len; i++)
+  {
+    sum = (sum * 131U) + data[i];
+  }
+
+  return sum;
+}
 
 #if NN_INPUT_NEEDS_PREPROC
 static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uint32_t src_stride)
@@ -237,6 +274,120 @@ static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uin
 }
 #endif
 
+static void LogCameraPipelineState(const char *tag)
+{
+  DCMIPP_HandleTypeDef *hcamera_dcmipp = CMW_CAMERA_GetDCMIPPHandle();
+
+  printf("TRACE: %s dcmipp_state=%lu pipe1_state=%lu pipe2_state=%lu err=0x%08lX cmsr1=0x%08lX cmsr2=0x%08lX cmier=0x%08lX\n",
+         tag,
+         (unsigned long) HAL_DCMIPP_GetState(hcamera_dcmipp),
+         (unsigned long) HAL_DCMIPP_PIPE_GetState(hcamera_dcmipp, DCMIPP_PIPE1),
+         (unsigned long) HAL_DCMIPP_PIPE_GetState(hcamera_dcmipp, DCMIPP_PIPE2),
+         (unsigned long) HAL_DCMIPP_GetError(hcamera_dcmipp),
+         (unsigned long) hcamera_dcmipp->Instance->CMSR1,
+         (unsigned long) hcamera_dcmipp->Instance->CMSR2,
+         (unsigned long) hcamera_dcmipp->Instance->CMIER);
+}
+
+static void LogInferenceRuntimeState(const char *tag)
+{
+  stai_return_code first_error = stai_network_get_error(network_context);
+  stai_return_code run_status = stai_ext_network_get_nn_run_status(network_context);
+
+  printf("TRACE: %s stage=%lu frame=%lu tick=%lu nn_in=%p nn_in_len=%lu first_error=0x%06lX run_status=0x%06lX\n",
+         tag,
+         (unsigned long) g_app_trace_stage,
+         (unsigned long) g_app_trace_frame_index,
+         (unsigned long) HAL_GetTick(),
+         nn_in,
+         (unsigned long) g_nn_in_len,
+         (unsigned long) first_error,
+         (unsigned long) run_status);
+}
+
+static stai_return_code RunInferenceWithTracing(uint32_t frame_index)
+{
+  uint32_t inference_start = HAL_GetTick();
+  uint32_t last_trace_ms = 0;
+  uint32_t iter = 0;
+  stai_return_code ret;
+
+  g_app_trace_stage = APP_TRACE_STAGE_INFERENCE_START;
+  ret = stai_network_run(network_context, STAI_MODE_ASYNC);
+  printf("TRACE: main loop: frame=%lu stai_network_run async ret=0x%06lX first_error=0x%06lX\n",
+         (unsigned long) frame_index,
+         (unsigned long) ret,
+         (unsigned long) stai_network_get_error(network_context));
+  if (ret >= STAI_ERROR_GENERIC)
+  {
+    return ret;
+  }
+
+  while (1)
+  {
+    stai_return_code status = stai_ext_network_get_nn_run_status(network_context);
+    uint32_t elapsed_ms = HAL_GetTick() - inference_start;
+
+    if ((iter < 8U) || ((elapsed_ms - last_trace_ms) >= 100U))
+    {
+      printf("TRACE: main loop: frame=%lu inference poll=%lu elapsed_ms=%lu status=0x%06lX first_error=0x%06lX\n",
+             (unsigned long) frame_index,
+             (unsigned long) iter,
+             (unsigned long) elapsed_ms,
+             (unsigned long) status,
+             (unsigned long) stai_network_get_error(network_context));
+      last_trace_ms = elapsed_ms;
+    }
+
+    if (status == STAI_DONE)
+    {
+      stai_return_code reset_ret = stai_ext_network_new_inference(network_context);
+      printf("TRACE: main loop: frame=%lu inference done elapsed_ms=%lu reset_ret=0x%06lX\n",
+             (unsigned long) frame_index,
+             (unsigned long) elapsed_ms,
+             (unsigned long) reset_ret);
+      return reset_ret;
+    }
+
+    if (status >= STAI_ERROR_GENERIC)
+    {
+      printf("ERROR: main loop: frame=%lu inference status error=0x%06lX elapsed_ms=%lu\n",
+             (unsigned long) frame_index,
+             (unsigned long) status,
+             (unsigned long) elapsed_ms);
+      return status;
+    }
+
+    if (elapsed_ms > 3000U)
+    {
+      printf("ERROR: main loop: frame=%lu inference timeout elapsed_ms=%lu status=0x%06lX first_error=0x%06lX\n",
+             (unsigned long) frame_index,
+             (unsigned long) elapsed_ms,
+             (unsigned long) status,
+             (unsigned long) stai_network_get_error(network_context));
+      LogCameraPipelineState("main: inference-timeout");
+      return STAI_ERROR_NETWORK_INVALID_RUNTIME;
+    }
+
+    g_app_trace_stage = APP_TRACE_STAGE_INFERENCE_POLL;
+    if (status == STAI_RUNNING_WFE)
+    {
+      stai_ext_wfe();
+    }
+
+    ret = stai_ext_network_run_continue(network_context);
+    if (ret >= STAI_ERROR_GENERIC)
+    {
+      printf("ERROR: main loop: frame=%lu inference continue error=0x%06lX elapsed_ms=%lu\n",
+             (unsigned long) frame_index,
+             (unsigned long) ret,
+             (unsigned long) elapsed_ms);
+      return ret;
+    }
+    iter++;
+  }
+}
+
 
 /**
   * @brief  Main program
@@ -245,6 +396,7 @@ static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uin
   */
 int main(void)
 {
+  g_app_trace_stage = APP_TRACE_STAGE_BOOT;
   Hardware_init();
   printf("TRACE: main: Hardware_init complete\n");
 
@@ -254,6 +406,7 @@ int main(void)
   stai_ptr nn_out[STAI_NETWORK_OUT_NUM] = {0};
   int32_t nn_out_len[STAI_NETWORK_OUT_NUM] = {0};
 
+  g_app_trace_stage = APP_TRACE_STAGE_NN_INIT;
   printf("TRACE: main: NeuralNetwork_init begin\n");
   NeuralNetwork_init(&nn_in_len, nn_out, &number_output, nn_out_len);
   printf("TRACE: main: NeuralNetwork_init OK input_len=%lu outputs=%lu\n",
@@ -263,6 +416,7 @@ int main(void)
   stai_network_info info;
   int ret;
 
+  g_app_trace_stage = APP_TRACE_STAGE_POSTPROCESS_INIT;
   printf("TRACE: main: postprocess init begin\n");
   ret = stai_network_get_info(network_context, &info);
   printf("TRACE: main: stai_network_get_info ret=%d\n", ret);
@@ -272,6 +426,7 @@ int main(void)
 
   /*** Camera Init ************************************************************/
   uint32_t pitch_nn = 0;
+  g_app_trace_stage = APP_TRACE_STAGE_CAMERA_INIT;
   printf("TRACE: main: CameraPipeline_Init begin\n");
   CameraPipeline_Init((uint32_t *[2]) {&lcd_bg_area.XSize, &lcd_fg_area.XSize}, (uint32_t *[2]) {&lcd_bg_area.YSize, &lcd_fg_area.YSize}, &pitch_nn);
   printf("TRACE: main: CameraPipeline_Init OK bg=%lux%lu fg=%lux%lu pitch_nn=%lu\n",
@@ -279,11 +434,13 @@ int main(void)
          (unsigned long) lcd_fg_area.XSize, (unsigned long) lcd_fg_area.YSize,
          (unsigned long) pitch_nn);
 
+  g_app_trace_stage = APP_TRACE_STAGE_DISPLAY_INIT;
   printf("TRACE: main: Display_init begin\n");
   Display_init();
   printf("TRACE: main: Display_init OK; USB/UVC should be initialized now\n");
 
   /* Start LCD Display camera pipe stream */
+  g_app_trace_stage = APP_TRACE_STAGE_DISPLAY_PIPE_START;
   printf("TRACE: main: CameraPipeline_DisplayPipe_Start begin\n");
   CameraPipeline_DisplayPipe_Start(lcd_bg_buffer, CMW_MODE_CONTINUOUS);
   printf("TRACE: main: CameraPipeline_DisplayPipe_Start OK\n");
@@ -307,8 +464,10 @@ int main(void)
   printf("========================================\n");
 
   /*** App Loop ***************************************************************/
+  uint32_t app_loop_trace_count = 0;
   while (1)
   {
+    g_app_trace_frame_index = app_loop_trace_count;
     CameraPipeline_IspUpdate();
 
 #if NN_INPUT_NEEDS_PREPROC
@@ -319,8 +478,24 @@ int main(void)
     CameraPipeline_NNPipe_Start(nn_in, CMW_MODE_SNAPSHOT);
 #endif
 
-    while (cameraFrameReceived == 0) {};
+    g_app_trace_stage = APP_TRACE_STAGE_WAITING_FOR_FRAME;
+    uint32_t frame_wait_start = HAL_GetTick();
+    while (cameraFrameReceived == 0)
+    {
+      if ((HAL_GetTick() - frame_wait_start) > 500U)
+      {
+        printf("ERROR: main: timeout waiting for NN frame event after pipe2 snapshot start\n");
+        LogInferenceRuntimeState("main: nn-frame-timeout");
+        LogCameraPipelineState("main: nn-wait-timeout");
+        assert(0);
+      }
+    }
     cameraFrameReceived = 0;
+    if (app_loop_trace_count < 10U)
+    {
+      printf("TRACE: main loop: frame=%lu camera frame received\n",
+             (unsigned long) app_loop_trace_count);
+    }
 
     uint32_t ts[2] = { 0 };
 
@@ -330,20 +505,61 @@ int main(void)
      * The DCMIPP hardware may pad each row to a 16-byte boundary, and the
      * Safal OBB model also needs uint8 camera bytes remapped into signed int8.
      */
+    g_app_trace_stage = APP_TRACE_STAGE_PREPROCESS;
     SCB_InvalidateDCache_by_Addr(dcmipp_out_nn, sizeof(dcmipp_out_nn));
     PreprocessCameraFrameToNNInput(dcmipp_out_nn, nn_in, pitch_nn);
     SCB_CleanInvalidateDCache_by_Addr(nn_in, nn_in_len);
+#else
+    g_app_trace_stage = APP_TRACE_STAGE_PREPROCESS;
+    SCB_InvalidateDCache_by_Addr(nn_in, nn_in_len);
 #endif
 
     ts[0] = HAL_GetTick();
-    /* run ATON inference */
-    ret = stai_network_run(network_context, STAI_MODE_SYNC);
+    if (app_loop_trace_count < 10U)
+    {
+      uint32_t sample_len = (nn_in_len < 64U) ? nn_in_len : 64U;
+      printf("TRACE: main loop: frame=%lu stai_network_run begin nn_in=%p align=0x%lX checksum64=0x%08lX output0=%p output0_len=%ld\n",
+             (unsigned long) app_loop_trace_count,
+             nn_in,
+             (unsigned long) (((uintptr_t)nn_in) & 31U),
+             (unsigned long) SampleBytesChecksum32((const uint8_t *)nn_in, sample_len),
+             nn_out[0],
+             (long) nn_out_len[0]);
+    }
+    LogInferenceRuntimeState("main: before-inference");
+    ret = RunInferenceWithTracing(app_loop_trace_count);
+    if (app_loop_trace_count < 10U)
+    {
+      printf("TRACE: main loop: frame=%lu stai_network_run ret=%d\n",
+             (unsigned long) app_loop_trace_count,
+             ret);
+    }
     assert(ret == 0);
     ts[1] = HAL_GetTick();
 
+    g_app_trace_stage = APP_TRACE_STAGE_POSTPROCESS;
+    if (app_loop_trace_count < 10U)
+    {
+      printf("TRACE: main loop: frame=%lu postprocess begin\n",
+             (unsigned long) app_loop_trace_count);
+    }
     int32_t ret = app_postprocess_run((void **) nn_out, number_output, &pp_output, &pp_params);
+    if (app_loop_trace_count < 10U)
+    {
+      printf("TRACE: main loop: frame=%lu postprocess ret=%ld\n",
+             (unsigned long) app_loop_trace_count,
+             (long) ret);
+    }
     assert(ret == 0);
+    if ((app_loop_trace_count < 10U) || ((app_loop_trace_count % 30U) == 0U))
+    {
+      printf("TRACE: main loop: frame=%lu inference_ms=%lu detections=%lu\n",
+             (unsigned long) app_loop_trace_count,
+             (unsigned long) (ts[1] - ts[0]),
+             (unsigned long) pp_output.nb_detect);
+    }
 
+    g_app_trace_stage = APP_TRACE_STAGE_DISPLAY;
     Display_NetworkOutput(&pp_output, ts[1] - ts[0]);
     /* Discard nn_out region (used by pp_input and pp_outputs variables) to avoid Dcache evictions during nn inference */
     for (int i = 0; i < number_output; i++)
@@ -351,6 +567,7 @@ int main(void)
       void *tmp = nn_out[i];
       SCB_InvalidateDCache_by_Addr(tmp, nn_out_len[i]);
     }
+    app_loop_trace_count++;
   }
 }
 
@@ -442,6 +659,7 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
 
   /* Get the input buffer size & address */
   *nn_in_length = info.inputs[0].size_bytes;
+  g_nn_in_len = *nn_in_length;
   ret = stai_network_get_inputs(network_context, &nn_in, (stai_size *)&info.n_inputs);
   printf("TRACE: NeuralNetwork_init: stai_network_get_inputs ret=%d input_bytes=%lu input_ptr=%p\n",
          ret, (unsigned long) *nn_in_length, nn_in);
@@ -451,9 +669,12 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
   ret = stai_network_get_outputs(network_context, nn_out, number_output);
   printf("TRACE: NeuralNetwork_init: stai_network_get_outputs ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
+  g_number_output = *number_output;
   for (int i = 0; i < *number_output; i++)
   {
     nn_out_len[i] = info.outputs[i].size_bytes;
+    printf("TRACE: NeuralNetwork_init: output[%d] ptr=%p bytes=%ld format=0x%08lX\n",
+           i, nn_out[i], (long) nn_out_len[i], (unsigned long) info.outputs[i].format);
   }
 }
 
@@ -542,9 +763,15 @@ static void IAC_Config(void)
 
 void IAC_IRQHandler(void)
 {
+  printf("ERROR: IAC_IRQHandler triggered\n");
   while (1)
   {
   }
+}
+
+void Display_InvalidateCameraBuffer(void)
+{
+  SCB_InvalidateDCache_by_Addr(lcd_bg_buffer, sizeof(lcd_bg_buffer));
 }
 
 /**

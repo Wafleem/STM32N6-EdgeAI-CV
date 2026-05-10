@@ -15,7 +15,7 @@ This documentation explains those features and how to modify them.
 The local Windows helpers support two model profiles:
 
 - `Generic`: upstream tiny YOLOv2 example
-- `SafalObb`: Nitish/Safal RoboMaster OBB profile, exported at `384x384` for Nucleo
+- `SafalObb`: Nitish/Safal RoboMaster OBB profile, exported at `224x224` for the smaller Nucleo footprint
 
 Examples:
 

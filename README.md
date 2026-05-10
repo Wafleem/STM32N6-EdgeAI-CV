@@ -113,7 +113,7 @@ Available local build profiles:
 - `Generic`: the upstream tiny YOLOv2 example, using [Model/NUCLEO-N657X0-Q](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Model/NUCLEO-N657X0-Q)
 - `SafalObb`: the Nitish/Safal RoboMaster OBB port, using [Model/NUCLEO-N657X0-Q_SafalObb](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Model/NUCLEO-N657X0-Q_SafalObb)
 
-The `SafalObb` profile uses the same Nitish checkpoint lineage as Safal's deployed Jetson OBB engine, exported at `384x384` for Nucleo memory fit. See [Safal OBB Porting Notes](Doc/Safal-OBB-Porting.md).
+The `SafalObb` profile uses the same Nitish checkpoint lineage as Safal's deployed Jetson OBB engine, exported at `224x224` to stay aligned with the smaller ST-style Nucleo object-detection footprint.
 
 ---
 

@@ -32,6 +32,10 @@
 #define CAMERA_HEIGHT 0
 
 extern int32_t cameraFrameReceived;
+static uint32_t pipe2_vsync_trace_count;
+static uint32_t pipe2_frame_trace_count;
+static uint32_t pipe1_vsync_trace_count;
+static uint32_t pipe1_frame_trace_count;
 
 static void DCMIPP_PipeInitDisplay(CMW_CameraInit_t *camConf, uint32_t *layers_width[2], uint32_t *layers_height[2])
 {
@@ -211,17 +215,69 @@ int CMW_CAMERA_PIPE_FrameEventCallback(uint32_t pipe)
 
   switch (pipe)
   {
+    case DCMIPP_PIPE1 :
+      if (pipe1_frame_trace_count < 5U)
+      {
+        printf("TRACE: CMW_CAMERA_PIPE_FrameEventCallback: pipe=%lu count=%lu\n",
+               (unsigned long) pipe,
+               (unsigned long) pipe1_frame_trace_count);
+      }
+      pipe1_frame_trace_count++;
+      break;
+
     case DCMIPP_PIPE2 :
+      if (pipe2_frame_trace_count < 5U)
+      {
+        printf("TRACE: CMW_CAMERA_PIPE_FrameEventCallback: pipe=%lu count=%lu\n",
+               (unsigned long) pipe,
+               (unsigned long) pipe2_frame_trace_count);
+      }
+      pipe2_frame_trace_count++;
       cameraFrameReceived++;
+      Display_InvalidateCameraBuffer();
 
       ret = SRCL_Update();
+      if ((pipe2_frame_trace_count <= 5U) || (ret != 0))
+      {
+        printf("TRACE: CMW_CAMERA_PIPE_FrameEventCallback: SRCL_Update ret=%d\n", ret);
+      }
       assert(ret == 0);
       break;
   }
   return 0;
 }
 
+int CMW_CAMERA_PIPE_VsyncEventCallback(uint32_t pipe)
+{
+  if ((pipe == DCMIPP_PIPE1) && (pipe1_vsync_trace_count < 5U))
+  {
+    printf("TRACE: CMW_CAMERA_PIPE_VsyncEventCallback: pipe=%lu count=%lu\n",
+           (unsigned long) pipe,
+           (unsigned long) pipe1_vsync_trace_count);
+    pipe1_vsync_trace_count++;
+  }
+
+  if ((pipe == DCMIPP_PIPE2) && (pipe2_vsync_trace_count < 5U))
+  {
+    printf("TRACE: CMW_CAMERA_PIPE_VsyncEventCallback: pipe=%lu count=%lu\n",
+           (unsigned long) pipe,
+           (unsigned long) pipe2_vsync_trace_count);
+    pipe2_vsync_trace_count++;
+  }
+
+  return 0;
+}
+
 void CMW_CAMERA_PIPE_ErrorCallback(uint32_t pipe)
 {
-  /* FIXME : Need to tune sensor/ipplug so we can remove this implementation */
+  DCMIPP_HandleTypeDef *hcamera_dcmipp = CMW_CAMERA_GetDCMIPPHandle();
+  printf("ERROR: CMW_CAMERA_PIPE_ErrorCallback: pipe=%lu dcmipp_state=%lu pipe1_state=%lu pipe2_state=%lu err=0x%08lX cmsr1=0x%08lX cmsr2=0x%08lX cmier=0x%08lX\n",
+         (unsigned long) pipe,
+         (unsigned long) HAL_DCMIPP_GetState(hcamera_dcmipp),
+         (unsigned long) HAL_DCMIPP_PIPE_GetState(hcamera_dcmipp, DCMIPP_PIPE1),
+         (unsigned long) HAL_DCMIPP_PIPE_GetState(hcamera_dcmipp, DCMIPP_PIPE2),
+         (unsigned long) HAL_DCMIPP_GetError(hcamera_dcmipp),
+         (unsigned long) hcamera_dcmipp->Instance->CMSR1,
+         (unsigned long) hcamera_dcmipp->Instance->CMSR2,
+         (unsigned long) hcamera_dcmipp->Instance->CMIER);
 }
