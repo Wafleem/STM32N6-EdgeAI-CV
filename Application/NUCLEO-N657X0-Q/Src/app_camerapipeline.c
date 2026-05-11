@@ -43,15 +43,15 @@ static void DCMIPP_PipeInitDisplay(CMW_CameraInit_t *camConf, uint32_t *layers_w
   CMW_DCMIPP_Conf_t dcmipp_conf = {0};
   int ret;
 
-  if (ASPECT_RATIO_MODE == ASPECT_RATIO_CROP)
+  if (DISPLAY_ASPECT_RATIO_MODE == ASPECT_RATIO_CROP)
   {
     aspect_ratio = CMW_Aspect_ratio_crop;
   }
-  else if (ASPECT_RATIO_MODE == ASPECT_RATIO_FIT)
+  else if (DISPLAY_ASPECT_RATIO_MODE == ASPECT_RATIO_FIT)
   {
     aspect_ratio = CMW_Aspect_ratio_fit;
   }
-  else if (ASPECT_RATIO_MODE == ASPECT_RATIO_FULLSCREEN)
+  else if (DISPLAY_ASPECT_RATIO_MODE == ASPECT_RATIO_FULLSCREEN)
   {
     aspect_ratio = CMW_Aspect_ratio_fullscreen;
   }
@@ -61,7 +61,7 @@ static void DCMIPP_PipeInitDisplay(CMW_CameraInit_t *camConf, uint32_t *layers_w
 
   lcd_bg_height = (camConf->height <= SCREEN_HEIGHT) ? camConf->height : SCREEN_HEIGHT;
 
-#if ASPECT_RATIO_MODE == ASPECT_RATIO_FULLSCREEN
+#if DISPLAY_ASPECT_RATIO_MODE == ASPECT_RATIO_FULLSCREEN
   lcd_bg_width = (((camConf->width*lcd_bg_height)/camConf->height) - ((camConf->width*lcd_bg_height)/camConf->height) % 16);
 #else
   lcd_bg_width = (camConf->height <= SCREEN_HEIGHT) ? camConf->height : SCREEN_HEIGHT;
@@ -91,18 +91,18 @@ static void DCMIPP_PipeInitDisplay(CMW_CameraInit_t *camConf, uint32_t *layers_w
 static void DCMIPP_PipeInitNn(uint32_t *pitch)
 {
   CMW_Aspect_Ratio_Mode_t aspect_ratio;
-  CMW_DCMIPP_Conf_t dcmipp_conf;
+  CMW_DCMIPP_Conf_t dcmipp_conf = {0};
   int ret;
 
-  if (ASPECT_RATIO_MODE == ASPECT_RATIO_CROP)
+  if (NN_ASPECT_RATIO_MODE == ASPECT_RATIO_CROP)
   {
     aspect_ratio = CMW_Aspect_ratio_crop;
   }
-  else if (ASPECT_RATIO_MODE == ASPECT_RATIO_FIT)
+  else if (NN_ASPECT_RATIO_MODE == ASPECT_RATIO_FIT)
   {
     aspect_ratio = CMW_Aspect_ratio_fit;
   }
-  else if (ASPECT_RATIO_MODE == ASPECT_RATIO_FULLSCREEN)
+  else if (NN_ASPECT_RATIO_MODE == ASPECT_RATIO_FULLSCREEN)
   {
     aspect_ratio = CMW_Aspect_ratio_fit;
   }
@@ -114,11 +114,13 @@ static void DCMIPP_PipeInitNn(uint32_t *pitch)
   dcmipp_conf.mode = aspect_ratio;
   dcmipp_conf.enable_swap = COLOR_MODE;
   dcmipp_conf.enable_gamma_conversion = 0;
-  printf("TRACE: DCMIPP_PipeInitNn: request output=%lux%lu channels=%lu mode=%d\n",
+  printf("TRACE: DCMIPP_PipeInitNn: request output=%lux%lu channels=%lu mode=%d swap_rb=%d format=0x%08lX\n",
          (unsigned long) dcmipp_conf.output_width,
          (unsigned long) dcmipp_conf.output_height,
          (unsigned long) dcmipp_conf.output_bpp,
-         aspect_ratio);
+         aspect_ratio,
+         dcmipp_conf.enable_swap,
+         (unsigned long) dcmipp_conf.output_format);
   ret = CMW_CAMERA_SetPipeConfig(DCMIPP_PIPE2, &dcmipp_conf, pitch);
   printf("TRACE: DCMIPP_PipeInitNn: CMW_CAMERA_SetPipeConfig pipe=2 ret=%d pitch=%lu\n",
          ret, (unsigned long) *pitch);

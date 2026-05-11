@@ -2,6 +2,24 @@
 
 This repo has a Nucleo-only `SafalObb` profile for a RoboMaster armor-plate OBB detector.
 
+## Current Known-Good Live Profile
+
+As of the May 2026 live UVC bring-up, the working flashed profile is `BestMerge OBB 320` under the compile-time `SafalObb` profile.
+
+- model artifact: `Model/bestmerge_320_robomaster_v4_clean_qdq.onnx`
+- generated STM32 artifacts: `Model/NUCLEO-N657X0-Q_SafalObb`
+- input: `uint8(1x3x320x320)`, channel-first
+- output: `int8(1x6x2100)`
+- class table: `plate`
+- display: cropped `240x240` camera layer centered in the `320x240` UVC screen
+- overlay: foreground layer must match the camera layer size and origin
+
+The most important integration fix was that this model is channel-first. The camera pipe provides interleaved HWC RGB bytes, so the app must transpose HWC to CHW before calling `stai_network_run`. The generic model did not need this because its input was channel-last.
+
+The second important fix was overlay geometry. The UVC compositor expects the foreground overlay layer to match the background camera layer. Expanding the overlay to the full screen caused boxes to appear in the black area. The working display path keeps both layers aligned and draws box coordinates relative to that layer.
+
+For the current debug profile, serial output is intentionally limited to useful bring-up lines: startup model/display config, periodic NN input checksum/sample, OBB postprocess summary, frame summary, and display summary.
+
 ## Model Choice
 
 Safal's Jetson launch path uses the Ultralytics OBB model `model_test/best-roboflow-nitish-obb.engine`, selected by the default `model_path` in the CV repo's `yolov8_node.py`.

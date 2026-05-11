@@ -68,7 +68,7 @@ typedef struct
 
 /* Lcd Background area */
 Rectangle_TypeDef lcd_bg_area = {
-#if ASPECT_RATIO_MODE == ASPECT_RATIO_CROP || ASPECT_RATIO_MODE == ASPECT_RATIO_FIT
+#if DISPLAY_ASPECT_RATIO_MODE == ASPECT_RATIO_CROP || DISPLAY_ASPECT_RATIO_MODE == ASPECT_RATIO_FIT
   .X0 = (LCD_BG_WIDTH - LCD_BG_HEIGHT) / 2,
 #else
   .X0 = 0,
@@ -80,7 +80,7 @@ Rectangle_TypeDef lcd_bg_area = {
 
 /* Lcd Foreground area */
 Rectangle_TypeDef lcd_fg_area = {
-#if ASPECT_RATIO_MODE == ASPECT_RATIO_CROP || ASPECT_RATIO_MODE == ASPECT_RATIO_FIT
+#if DISPLAY_ASPECT_RATIO_MODE == ASPECT_RATIO_CROP || DISPLAY_ASPECT_RATIO_MODE == ASPECT_RATIO_FIT
   .X0 = (LCD_FG_WIDTH - LCD_FG_HEIGHT) / 2,
 #else
   .X0 = 0,
@@ -161,14 +161,25 @@ enum
 #define DCMIPP_NN_NEEDS_CROP 0
 #endif
 
-#define NN_INPUT_NEEDS_PREPROC DCMIPP_NN_NEEDS_CROP
+#if (STAI_NETWORK_IN_1_FLAGS & STAI_FLAG_CHANNEL_FIRST)
+#define NN_INPUT_IS_CHANNEL_FIRST 1
+#else
+#define NN_INPUT_IS_CHANNEL_FIRST 0
+#endif
 
-#if NN_INPUT_NEEDS_PREPROC
+#define NN_INPUT_NEEDS_PREPROC (DCMIPP_NN_NEEDS_CROP || NN_INPUT_IS_CHANNEL_FIRST)
+
+#if DCMIPP_NN_NEEDS_CROP
 #define DCMIPP_OUT_NN_LEN (ALIGN_TO_16(STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL) * STAI_NETWORK_IN_1_HEIGHT)
 #define DCMIPP_OUT_NN_BUFF_LEN (DCMIPP_OUT_NN_LEN + 32 - DCMIPP_OUT_NN_LEN%32)
 
 __attribute__ ((aligned (32)))
 static uint8_t dcmipp_out_nn[DCMIPP_OUT_NN_BUFF_LEN];
+#endif
+
+#if NN_INPUT_IS_CHANNEL_FIRST
+#define NN_INPUT_VISITED_BYTES ((STAI_NETWORK_IN_1_SIZE_BYTES + 7U) / 8U)
+static uint8_t nn_input_transpose_visited[NN_INPUT_VISITED_BYTES];
 #endif
 
 /* model */
@@ -201,8 +212,58 @@ static void Hardware_init(void);
 static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_size *number_output, int32_t nn_out_len[]);
 static stai_return_code RunInferenceWithTracing(uint32_t frame_index);
 static uint32_t SampleBytesChecksum32(const uint8_t *data, uint32_t len);
+static uint8_t ShouldTraceFrame(uint32_t frame_index);
 #if NN_INPUT_NEEDS_PREPROC
 static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uint32_t src_stride);
+#endif
+
+#if NN_INPUT_IS_CHANNEL_FIRST
+static uint32_t HwcIndexToChwIndex(uint32_t index)
+{
+  uint32_t pixel_index = index / STAI_NETWORK_IN_1_CHANNEL;
+  uint32_t channel_index = index % STAI_NETWORK_IN_1_CHANNEL;
+  return (channel_index * STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_HEIGHT) + pixel_index;
+}
+
+static uint8_t VisitedBitIsSet(uint32_t index)
+{
+  return (nn_input_transpose_visited[index >> 3] & (uint8_t)(1U << (index & 7U))) != 0U;
+}
+
+static void SetVisitedBit(uint32_t index)
+{
+  nn_input_transpose_visited[index >> 3] |= (uint8_t)(1U << (index & 7U));
+}
+
+static void TransposeHwcToChwInPlace(uint8_t *buffer)
+{
+  memset(nn_input_transpose_visited, 0, sizeof(nn_input_transpose_visited));
+
+  for (uint32_t i = 0; i < STAI_NETWORK_IN_1_SIZE_BYTES; i++)
+  {
+    uint32_t current;
+    uint8_t value;
+
+    if (VisitedBitIsSet(i) != 0U)
+    {
+      continue;
+    }
+
+    current = i;
+    value = buffer[i];
+
+    while (VisitedBitIsSet(current) == 0U)
+    {
+      uint32_t next = HwcIndexToChwIndex(current);
+      uint8_t next_value = buffer[next];
+
+      SetVisitedBit(current);
+      buffer[next] = value;
+      value = next_value;
+      current = next;
+    }
+  }
+}
 #endif
 
 static uint32_t SampleBytesChecksum32(const uint8_t *data, uint32_t len)
@@ -217,12 +278,47 @@ static uint32_t SampleBytesChecksum32(const uint8_t *data, uint32_t len)
   return sum;
 }
 
+static uint8_t ShouldTraceFrame(uint32_t frame_index)
+{
+  return ((frame_index < 5U) || ((frame_index % 30U) == 0U)) ? 1U : 0U;
+}
+
 #if NN_INPUT_NEEDS_PREPROC
 static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uint32_t src_stride)
 {
   const uint32_t row_bytes = STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL;
 
 #if APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
+  if (NN_INPUT_IS_CHANNEL_FIRST != 0)
+  {
+    const uint32_t plane_size = STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_HEIGHT;
+
+    if (STAI_NETWORK_IN_1_FORMAT == STAI_FORMAT_U8)
+    {
+      if (src == dst)
+      {
+        TransposeHwcToChwInPlace(dst);
+        return;
+      }
+
+      for (uint32_t y = 0; y < STAI_NETWORK_IN_1_HEIGHT; y++)
+      {
+        const uint8_t *src_row = src + (y * src_stride);
+
+        for (uint32_t x = 0; x < STAI_NETWORK_IN_1_WIDTH; x++)
+        {
+          const uint32_t src_index = x * STAI_NETWORK_IN_1_CHANNEL;
+          const uint32_t dst_index = (y * STAI_NETWORK_IN_1_WIDTH) + x;
+
+          dst[dst_index] = src_row[src_index];
+          dst[plane_size + dst_index] = src_row[src_index + 1U];
+          dst[(2U * plane_size) + dst_index] = src_row[src_index + 2U];
+        }
+      }
+      return;
+    }
+  }
+
   if (STAI_NETWORK_IN_1_FORMAT == STAI_FORMAT_U8)
   {
     for (uint32_t y = 0; y < STAI_NETWORK_IN_1_HEIGHT; y++)
@@ -309,18 +405,17 @@ static void LogInferenceRuntimeState(const char *tag)
 static stai_return_code RunInferenceWithTracing(uint32_t frame_index)
 {
   uint32_t inference_start = HAL_GetTick();
-  uint32_t last_trace_ms = 0;
   uint32_t iter = 0;
   stai_return_code ret;
 
   g_app_trace_stage = APP_TRACE_STAGE_INFERENCE_START;
   ret = stai_network_run(network_context, STAI_MODE_ASYNC);
-  printf("TRACE: main loop: frame=%lu stai_network_run async ret=0x%06lX first_error=0x%06lX\n",
-         (unsigned long) frame_index,
-         (unsigned long) ret,
-         (unsigned long) stai_network_get_error(network_context));
   if (ret >= STAI_ERROR_GENERIC)
   {
+    printf("ERROR: main loop: frame=%lu stai_network_run ret=0x%06lX first_error=0x%06lX\n",
+           (unsigned long) frame_index,
+           (unsigned long) ret,
+           (unsigned long) stai_network_get_error(network_context));
     return ret;
   }
 
@@ -329,24 +424,16 @@ static stai_return_code RunInferenceWithTracing(uint32_t frame_index)
     stai_return_code status = stai_ext_network_get_nn_run_status(network_context);
     uint32_t elapsed_ms = HAL_GetTick() - inference_start;
 
-    if ((iter < 8U) || ((elapsed_ms - last_trace_ms) >= 100U))
-    {
-      printf("TRACE: main loop: frame=%lu inference poll=%lu elapsed_ms=%lu status=0x%06lX first_error=0x%06lX\n",
-             (unsigned long) frame_index,
-             (unsigned long) iter,
-             (unsigned long) elapsed_ms,
-             (unsigned long) status,
-             (unsigned long) stai_network_get_error(network_context));
-      last_trace_ms = elapsed_ms;
-    }
-
     if (status == STAI_DONE)
     {
       stai_return_code reset_ret = stai_ext_network_new_inference(network_context);
-      printf("TRACE: main loop: frame=%lu inference done elapsed_ms=%lu reset_ret=0x%06lX\n",
-             (unsigned long) frame_index,
-             (unsigned long) elapsed_ms,
-             (unsigned long) reset_ret);
+      if (reset_ret >= STAI_ERROR_GENERIC)
+      {
+        printf("ERROR: main loop: frame=%lu inference reset error=0x%06lX elapsed_ms=%lu\n",
+               (unsigned long) frame_index,
+               (unsigned long) reset_ret,
+               (unsigned long) elapsed_ms);
+      }
       return reset_ret;
     }
 
@@ -399,7 +486,6 @@ int main(void)
 {
   g_app_trace_stage = APP_TRACE_STAGE_BOOT;
   Hardware_init();
-  printf("TRACE: main: Hardware_init complete\n");
 
   /*** NN Init ****************************************************************/
   uint32_t nn_in_len = 0;
@@ -408,43 +494,29 @@ int main(void)
   int32_t nn_out_len[STAI_NETWORK_OUT_NUM] = {0};
 
   g_app_trace_stage = APP_TRACE_STAGE_NN_INIT;
-  printf("TRACE: main: NeuralNetwork_init begin\n");
   NeuralNetwork_init(&nn_in_len, nn_out, &number_output, nn_out_len);
-  printf("TRACE: main: NeuralNetwork_init OK input_len=%lu outputs=%lu\n",
-         (unsigned long) nn_in_len, (unsigned long) number_output);
 
   /*** Post Processing Init ***************************************************/
   stai_network_info info;
   int ret;
 
   g_app_trace_stage = APP_TRACE_STAGE_POSTPROCESS_INIT;
-  printf("TRACE: main: postprocess init begin\n");
   ret = stai_network_get_info(network_context, &info);
-  printf("TRACE: main: stai_network_get_info ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
-  app_postprocess_init(&pp_params, &info);
-  printf("TRACE: main: postprocess init OK\n");
+  ret = app_postprocess_init(&pp_params, &info);
+  assert(ret == 0);
 
   /*** Camera Init ************************************************************/
   uint32_t pitch_nn = 0;
   g_app_trace_stage = APP_TRACE_STAGE_CAMERA_INIT;
-  printf("TRACE: main: CameraPipeline_Init begin\n");
   CameraPipeline_Init((uint32_t *[2]) {&lcd_bg_area.XSize, &lcd_fg_area.XSize}, (uint32_t *[2]) {&lcd_bg_area.YSize, &lcd_fg_area.YSize}, &pitch_nn);
-  printf("TRACE: main: CameraPipeline_Init OK bg=%lux%lu fg=%lux%lu pitch_nn=%lu\n",
-         (unsigned long) lcd_bg_area.XSize, (unsigned long) lcd_bg_area.YSize,
-         (unsigned long) lcd_fg_area.XSize, (unsigned long) lcd_fg_area.YSize,
-         (unsigned long) pitch_nn);
 
   g_app_trace_stage = APP_TRACE_STAGE_DISPLAY_INIT;
-  printf("TRACE: main: Display_init begin\n");
   Display_init();
-  printf("TRACE: main: Display_init OK; USB/UVC should be initialized now\n");
 
   /* Start LCD Display camera pipe stream */
   g_app_trace_stage = APP_TRACE_STAGE_DISPLAY_PIPE_START;
-  printf("TRACE: main: CameraPipeline_DisplayPipe_Start begin\n");
   CameraPipeline_DisplayPipe_Start(lcd_bg_buffer, CMW_MODE_CONTINUOUS);
-  printf("TRACE: main: CameraPipeline_DisplayPipe_Start OK\n");
 
   /*** App header *************************************************************/
   printf("========================================\n");
@@ -462,6 +534,14 @@ int main(void)
   printf("NN model: %s\n", STAI_NETWORK_ORIGIN_MODEL_NAME);
   printf("Model profile: %s\n", APP_MODEL_PROFILE_NAME);
   printf("Calibration: %s\n", APP_MODEL_CALIBRATION_NAME);
+  printf("Display: bg=%lux%lu@%lu,%lu fg=%lux%lu@%lu,%lu nn_pitch=%lu color_swap=%u chw=%u\n",
+         (unsigned long) lcd_bg_area.XSize, (unsigned long) lcd_bg_area.YSize,
+         (unsigned long) lcd_bg_area.X0, (unsigned long) lcd_bg_area.Y0,
+         (unsigned long) lcd_fg_area.XSize, (unsigned long) lcd_fg_area.YSize,
+         (unsigned long) lcd_fg_area.X0, (unsigned long) lcd_fg_area.Y0,
+         (unsigned long) pitch_nn,
+         (unsigned int) COLOR_MODE,
+         (unsigned int) NN_INPUT_IS_CHANNEL_FIRST);
   printf("========================================\n");
 
   /*** App Loop ***************************************************************/
@@ -471,7 +551,7 @@ int main(void)
     g_app_trace_frame_index = app_loop_trace_count;
     CameraPipeline_IspUpdate();
 
-#if NN_INPUT_NEEDS_PREPROC
+#if DCMIPP_NN_NEEDS_CROP
     /* Start NN camera single capture Snapshot into intermediate buffer */
     CameraPipeline_NNPipe_Start(dcmipp_out_nn, CMW_MODE_SNAPSHOT);
 #else
@@ -492,7 +572,7 @@ int main(void)
       }
     }
     cameraFrameReceived = 0;
-    if (app_loop_trace_count < 10U)
+    if (app_loop_trace_count < 5U)
     {
       printf("TRACE: main loop: frame=%lu camera frame received\n",
              (unsigned long) app_loop_trace_count);
@@ -503,12 +583,17 @@ int main(void)
 #if NN_INPUT_NEEDS_PREPROC
     /*
      * Crop/copy/quantize the camera frame into the NN input buffer.
-     * The DCMIPP hardware may pad each row to a 16-byte boundary, and the
-     * Safal OBB model also needs uint8 camera bytes remapped into signed int8.
+     * The DCMIPP hardware may pad each row to a 16-byte boundary, and
+     * channel-first models need the interleaved camera RGB transposed to CHW.
      */
     g_app_trace_stage = APP_TRACE_STAGE_PREPROCESS;
+#if DCMIPP_NN_NEEDS_CROP
     SCB_InvalidateDCache_by_Addr(dcmipp_out_nn, sizeof(dcmipp_out_nn));
     PreprocessCameraFrameToNNInput(dcmipp_out_nn, nn_in, pitch_nn);
+#else
+    SCB_InvalidateDCache_by_Addr(nn_in, nn_in_len);
+    PreprocessCameraFrameToNNInput(nn_in, nn_in, pitch_nn);
+#endif
     SCB_CleanInvalidateDCache_by_Addr(nn_in, nn_in_len);
 #else
     g_app_trace_stage = APP_TRACE_STAGE_PREPROCESS;
@@ -516,45 +601,32 @@ int main(void)
 #endif
 
     ts[0] = HAL_GetTick();
-    if (app_loop_trace_count < 10U)
+    if (ShouldTraceFrame(app_loop_trace_count) != 0U)
     {
       uint32_t sample_len = (nn_in_len < 64U) ? nn_in_len : 64U;
-      printf("TRACE: main loop: frame=%lu stai_network_run begin nn_in=%p align=0x%lX checksum64=0x%08lX output0=%p output0_len=%ld\n",
+      const uint8_t *nn_bytes = (const uint8_t *)nn_in;
+      uint32_t plane_size = STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_HEIGHT;
+      printf("TRACE: NN input: frame=%lu pitch=%lu align=0x%lX checksum64=0x%08lX sample=[%u %u %u %u] output0_len=%ld\n",
              (unsigned long) app_loop_trace_count,
-             nn_in,
+             (unsigned long) pitch_nn,
              (unsigned long) (((uintptr_t)nn_in) & 31U),
              (unsigned long) SampleBytesChecksum32((const uint8_t *)nn_in, sample_len),
-             nn_out[0],
+             (unsigned int) nn_bytes[0],
+             (unsigned int) nn_bytes[1],
+             (unsigned int) nn_bytes[plane_size],
+             (unsigned int) nn_bytes[2U * plane_size],
              (long) nn_out_len[0]);
     }
-    LogInferenceRuntimeState("main: before-inference");
     ret = RunInferenceWithTracing(app_loop_trace_count);
-    if (app_loop_trace_count < 10U)
-    {
-      printf("TRACE: main loop: frame=%lu stai_network_run ret=%d\n",
-             (unsigned long) app_loop_trace_count,
-             ret);
-    }
     assert(ret == 0);
     ts[1] = HAL_GetTick();
 
     g_app_trace_stage = APP_TRACE_STAGE_POSTPROCESS;
-    if (app_loop_trace_count < 10U)
-    {
-      printf("TRACE: main loop: frame=%lu postprocess begin\n",
-             (unsigned long) app_loop_trace_count);
-    }
     int32_t ret = app_postprocess_run((void **) nn_out, number_output, &pp_output, &pp_params);
-    if (app_loop_trace_count < 10U)
-    {
-      printf("TRACE: main loop: frame=%lu postprocess ret=%ld\n",
-             (unsigned long) app_loop_trace_count,
-             (long) ret);
-    }
     assert(ret == 0);
-    if ((app_loop_trace_count < 10U) || ((app_loop_trace_count % 30U) == 0U))
+    if (ShouldTraceFrame(app_loop_trace_count) != 0U)
     {
-      printf("TRACE: main loop: frame=%lu inference_ms=%lu detections=%lu\n",
+      printf("TRACE: frame summary: frame=%lu inference_ms=%lu detections=%lu\n",
              (unsigned long) app_loop_trace_count,
              (unsigned long) (ts[1] - ts[0]),
              (unsigned long) pp_output.nb_detect);
@@ -639,16 +711,12 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
 
   /* initialize runtime */
   ret = stai_runtime_init();
-  printf("TRACE: NeuralNetwork_init: stai_runtime_init ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
   /* init model instance */
   ret = stai_network_init(network_context);
-  printf("TRACE: NeuralNetwork_init: stai_network_init ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
 
   ret = stai_network_get_info(network_context, &info);
-  printf("TRACE: NeuralNetwork_init: stai_network_get_info ret=%d inputs=%lu outputs=%lu\n",
-         ret, (unsigned long) info.n_inputs, (unsigned long) info.n_outputs);
   assert(ret == STAI_SUCCESS);
   assert(info.n_inputs == 1);
   *number_output = STAI_NETWORK_OUT_NUM;
@@ -663,21 +731,29 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
   *nn_in_length = info.inputs[0].size_bytes;
   g_nn_in_len = *nn_in_length;
   ret = stai_network_get_inputs(network_context, &nn_in, (stai_size *)&info.n_inputs);
-  printf("TRACE: NeuralNetwork_init: stai_network_get_inputs ret=%d input_bytes=%lu input_ptr=%p\n",
-         ret, (unsigned long) *nn_in_length, nn_in);
   assert(ret == STAI_SUCCESS);
 
   /* Get the output buffers size & address */
   ret = stai_network_get_outputs(network_context, nn_out, number_output);
-  printf("TRACE: NeuralNetwork_init: stai_network_get_outputs ret=%d\n", ret);
   assert(ret == STAI_SUCCESS);
   g_number_output = *number_output;
   for (int i = 0; i < *number_output; i++)
   {
     nn_out_len[i] = info.outputs[i].size_bytes;
-    printf("TRACE: NeuralNetwork_init: output[%d] ptr=%p bytes=%ld format=0x%08lX\n",
-           i, nn_out[i], (long) nn_out_len[i], (unsigned long) info.outputs[i].format);
   }
+
+  printf("TRACE: NN init: input=%lux%lux%lu bytes=%lu fmt=0x%08lX flags=0x%08lX scale=%.6f zp=%ld outputs=%lu out0_bytes=%ld out0_fmt=0x%08lX\n",
+         (unsigned long) STAI_NETWORK_IN_1_WIDTH,
+         (unsigned long) STAI_NETWORK_IN_1_HEIGHT,
+         (unsigned long) STAI_NETWORK_IN_1_CHANNEL,
+         (unsigned long) *nn_in_length,
+         (unsigned long) info.inputs[0].format,
+         (unsigned long) info.inputs[0].flags,
+         nn_input_scale,
+         (long) nn_input_zero_point,
+         (unsigned long) *number_output,
+         (long) nn_out_len[0],
+         (unsigned long) info.outputs[0].format);
 }
 
 static void NPURam_enable(void)
@@ -776,6 +852,35 @@ void Display_InvalidateCameraBuffer(void)
   SCB_InvalidateDCache_by_Addr(lcd_bg_buffer, sizeof(lcd_bg_buffer));
 }
 
+static float32_t Display_ClampF32(float32_t value, float32_t min_value, float32_t max_value)
+{
+  if (value < min_value)
+  {
+    return min_value;
+  }
+  if (value > max_value)
+  {
+    return max_value;
+  }
+  return value;
+}
+
+static void Display_DrawThickRect(uint32_t x0, uint32_t y0, uint32_t width, uint32_t height, uint32_t color)
+{
+  const uint32_t thickness = 3U;
+
+  if ((width <= thickness) || (height <= thickness))
+  {
+    UTIL_LCD_DrawRect(x0, y0, width, height, color);
+    return;
+  }
+
+  UTIL_LCD_FillRect(x0, y0, width, thickness, color);
+  UTIL_LCD_FillRect(x0, y0 + height - thickness, width, thickness, color);
+  UTIL_LCD_FillRect(x0, y0, thickness, height, color);
+  UTIL_LCD_FillRect(x0 + width - thickness, y0, thickness, height, color);
+}
+
 /**
 * @brief Display Neural Network output classification results as well as other performances informations
 *
@@ -787,6 +892,10 @@ static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference
 
   od_pp_outBuffer_t *rois = p_postprocess->pOutBuff;
   uint32_t nb_rois = p_postprocess->nb_detect;
+  uint32_t drawn_rois = 0U;
+  static uint32_t display_frame_count = 0U;
+  uint32_t roi_area_width = lcd_fg_area.XSize;
+  uint32_t roi_area_height = lcd_fg_area.YSize;
   int ret;
 
   __disable_irq();
@@ -795,33 +904,85 @@ static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference
   __enable_irq();
 
   /* Draw bounding boxes */
+  memset(lcd_fg_buffer, 0, sizeof(lcd_fg_buffer));
   UTIL_LCD_FillRect(0, 0, lcd_fg_area.XSize, lcd_fg_area.YSize, UTIL_LCD_COLOR_TRANSPARENT); /* Clear previous boxes */
+
   for (int32_t i = 0; i < nb_rois; i++)
   {
-    const char *label = (rois[i].class_index < NB_CLASSES) ? classes_table[rois[i].class_index] : "unknown";
     uint32_t box_color = Display_GetBoxColor(rois[i].class_index);
-    uint32_t x0 = (uint32_t) ((rois[i].x_center - rois[i].width / 2) * ((float32_t) lcd_bg_area.XSize));
-    uint32_t y0 = (uint32_t) ((rois[i].y_center - rois[i].height / 2) * ((float32_t) lcd_bg_area.YSize));
-    uint32_t width = (uint32_t) (rois[i].width * ((float32_t) lcd_bg_area.XSize));
-    uint32_t height = (uint32_t) (rois[i].height * ((float32_t) lcd_bg_area.YSize));
-    /* Draw boxes without going outside of the image */
-    x0 = x0 < lcd_bg_area.XSize ? x0 : lcd_bg_area.XSize - 1;
-    y0 = y0 < lcd_bg_area.YSize ? y0 : lcd_bg_area.YSize - 1;
-    width = ((x0 + width) < lcd_bg_area.XSize) ? width : (lcd_bg_area.XSize - x0 - 1);
-    height = ((y0 + height) < lcd_bg_area.YSize) ? height : (lcd_bg_area.YSize - y0 - 1);
+    float32_t x1 = rois[i].x_center - (rois[i].width * 0.5f);
+    float32_t y1 = rois[i].y_center - (rois[i].height * 0.5f);
+    float32_t x2 = rois[i].x_center + (rois[i].width * 0.5f);
+    float32_t y2 = rois[i].y_center + (rois[i].height * 0.5f);
+    uint32_t x0;
+    uint32_t y0;
+    uint32_t width;
+    uint32_t height;
+
+    if ((x2 <= 0.0f) || (y2 <= 0.0f) || (x1 >= 1.0f) || (y1 >= 1.0f))
+    {
+      continue;
+    }
+
+    x1 = Display_ClampF32(x1, 0.0f, 1.0f);
+    y1 = Display_ClampF32(y1, 0.0f, 1.0f);
+    x2 = Display_ClampF32(x2, 0.0f, 1.0f);
+    y2 = Display_ClampF32(y2, 0.0f, 1.0f);
+
+    if (((x2 - x1) < 0.035f) || ((y2 - y1) < 0.035f))
+    {
+      continue;
+    }
+
+    x0 = (uint32_t)(x1 * ((float32_t)roi_area_width));
+    y0 = (uint32_t)(y1 * ((float32_t)roi_area_height));
+    width = (uint32_t)((x2 - x1) * ((float32_t)roi_area_width));
+    height = (uint32_t)((y2 - y1) * ((float32_t)roi_area_height));
+
+    if ((width < 3U) || (height < 3U))
+    {
+      continue;
+    }
+
+    if ((x0 + width) >= roi_area_width)
+    {
+      width = roi_area_width - x0 - 1U;
+    }
+    if ((y0 + height) >= roi_area_height)
+    {
+      height = roi_area_height - y0 - 1U;
+    }
+
     UTIL_LCD_SetTextColor(box_color);
-    UTIL_LCD_DrawRect(x0, y0, width, height, box_color);
-    UTIL_LCDEx_PrintfAt(x0, y0, LEFT_MODE, "%s %.0f%%", label, rois[i].conf * 100.0f);
+    Display_DrawThickRect(x0, y0, width, height, box_color);
+    drawn_rois++;
   }
 
   UTIL_LCD_SetBackColor(0x40000000);
   UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_WHITE);
   UTIL_LCDEx_PrintfAt(0, LINE(0), LEFT_MODE, "Inference");
   UTIL_LCDEx_PrintfAt(0, LINE(1), LEFT_MODE, "%ums", inference_ms);
-  UTIL_LCDEx_PrintfAt(0, LINE(0), RIGHT_MODE, "Objects %u", nb_rois);
+  UTIL_LCDEx_PrintfAt(0, LINE(0), RIGHT_MODE, "Objects %u", drawn_rois);
   UTIL_LCD_SetBackColor(0);
 
   Display_WelcomeScreen();
+
+  if (ShouldTraceFrame(display_frame_count) != 0U)
+  {
+    printf("TRACE: display: frame=%lu raw=%lu drawn=%lu fg=%lux%lu@%lu,%lu bg=%lux%lu@%lu,%lu\n",
+           (unsigned long)display_frame_count,
+           (unsigned long)nb_rois,
+           (unsigned long)drawn_rois,
+           (unsigned long)lcd_fg_area.XSize,
+           (unsigned long)lcd_fg_area.YSize,
+           (unsigned long)lcd_fg_area.X0,
+           (unsigned long)lcd_fg_area.Y0,
+           (unsigned long)lcd_bg_area.XSize,
+           (unsigned long)lcd_bg_area.YSize,
+           (unsigned long)lcd_bg_area.X0,
+           (unsigned long)lcd_bg_area.Y0);
+  }
+  display_frame_count++;
 
   SCB_CleanDCache_by_Addr(lcd_fg_buffer[lcd_fg_buffer_rd_idx], LCD_FG_FRAMEBUFFER_SIZE);
   __disable_irq();
@@ -835,7 +996,7 @@ static uint32_t Display_GetBoxColor(uint32_t class_index)
 {
   if (class_index == 0U)
   {
-    return UTIL_LCD_COLOR_BLUE;
+    return UTIL_LCD_COLOR_GREEN;
   }
 
   if (class_index == 1U)

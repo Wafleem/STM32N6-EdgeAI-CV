@@ -8,6 +8,17 @@ The target is a buildable `SafalObb` profile that can run a RoboMaster armor-pla
 
 The current active result is:
 
+- live tested profile: `BestMerge OBB 320` through `SafalObb`
+- exported/quantized model currently compiled into the app: `Model/bestmerge_320_robomaster_v4_clean_qdq.onnx`
+- generated STM32 artifacts: `Model/NUCLEO-N657X0-Q_SafalObb`
+- model profile: `SafalObb`
+- class: `plate`
+- input tensor: `uint8(1x3x320x320)`, channel-first
+- output tensor: `int8(1x6x2100)`
+- display status: UVC overlay draws stable boxes around armor plates after the May 2026 live-camera fixes below
+
+Older Nitish/Safal 384 notes are kept later in this log for lineage and reproduction context:
+
 - source checkpoint: `Model/nitish_red_blue_obb.pt`
 - exported ONNX: `Model/nitish_red_blue_obb_384.onnx`
 - quantized ONNX: `Model/nitish_red_blue_obb_384_qdq.onnx`
@@ -16,6 +27,43 @@ The current active result is:
 - classes: `blue`, `red`
 - input tensor: `uint8(1x3x384x384)`
 - output tensor: `int8(1x7x3024)`
+
+## 2026-05-10 Live UVC Detection Fix
+
+The first BestMerge-on-board flashes proved the NPU was running, but the live UVC result was wrong:
+
+- Serial showed inference completing consistently around `94-115 ms`.
+- Postprocess sometimes produced many low-confidence `plate` detections, then later reported `detections=0` while stale boxes still appeared in the black area.
+- Labels and boxes were drawn outside the camera image, mostly in the black unused part of the UVC frame.
+- The model did not initially draw boxes around the armor plate images shown to the camera, even though AI Runner validation looked healthy.
+
+The root causes were in the application integration, not in the trained model:
+
+- The BestMerge model input is channel-first `1x3x320x320`, while the camera pipe writes interleaved RGB pixels. The generic model is channel-last, so direct camera bytes worked there but scrambled this model's input.
+- The foreground overlay was temporarily expanded to the full UVC screen. The screen compositor expects both layers to have the same origin and size, so that made boxes render in black regions instead of staying on the camera layer.
+- The display path was drawing labels for every noisy candidate, which made it hard to tell whether the real plate was detected.
+- The debug output printed every inference poll plus UVC internals, which hid the few lines that actually mattered for this failure.
+
+The working fix:
+
+- Add a camera-to-NN preprocessing path that detects channel-first input from `STAI_NETWORK_IN_1_FLAGS` and transposes camera HWC bytes into CHW before inference.
+- Keep the display background and foreground layers the same size and origin, then draw box coordinates relative to the foreground layer.
+- Clear both foreground overlay buffers before drawing each frame so stale boxes cannot persist.
+- Remove per-box text labels during live bring-up and show only thick green rectangles plus the object count.
+- Raise and cap postprocess output for debugging: threshold `0.30`, IoU `0.40`, candidate limit `24`, max boxes `2`.
+- Reduce serial logs to startup configuration, periodic NN input checksum/sample lines, periodic OBB postprocess summaries, frame summaries, and display summaries.
+
+Useful known-good trace lines after this fix:
+
+```text
+TRACE: NN init: input=320x320x3 ... flags=... out0_bytes=12600 ...
+Display: bg=240x240@40,0 fg=240x240@40,0 nn_pitch=960 color_swap=1 chw=1
+TRACE: NN input: frame=... pitch=960 align=... checksum64=... sample=[...]
+TRACE: OBB postprocess: run=... threshold=0.300 max_conf=... candidates=... detections=...
+TRACE: display: frame=... raw=... drawn=... fg=240x240@40,0 bg=240x240@40,0
+```
+
+If boxes ever return to the black area, first check that foreground and background sizes/origins match in the `Display:` and `TRACE: display:` lines. If detection confidence collapses again, check the `chw=1`, `pitch=960`, and `TRACE: NN input` lines before retraining or recalibrating.
 
 ## Model Search
 

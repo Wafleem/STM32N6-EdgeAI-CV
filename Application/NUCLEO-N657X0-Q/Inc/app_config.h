@@ -82,6 +82,8 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 #elif APP_MODEL_PROFILE == APP_MODEL_PROFILE_SAFAL_OBB
 
 #define ASPECT_RATIO_MODE ASPECT_RATIO_CROP
+#define DISPLAY_ASPECT_RATIO_MODE ASPECT_RATIO_CROP
+#define NN_ASPECT_RATIO_MODE ASPECT_RATIO_CROP
 
 /* Model Related Info */
 #define POSTPROCESS_TYPE POSTPROCESS_CUSTOM
@@ -99,10 +101,10 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 /* CV model-test bestmerge.pt exported at 320x320 with raw YOLO OBB decode on the MCU side. */
 #define AI_OD_OBB_PP_NB_CLASSES         (NB_CLASSES)
 #define AI_OD_OBB_PP_TOTAL_BOXES        (2100)
-#define AI_OD_OBB_PP_CANDIDATES_LIMIT   (160)
-#define AI_OD_OBB_PP_CONF_THRESHOLD     (0.20f)
-#define AI_OD_OBB_PP_IOU_THRESHOLD      (0.35f)
-#define AI_OD_OBB_PP_MAX_BOXES_LIMIT    (20)
+#define AI_OD_OBB_PP_CANDIDATES_LIMIT   (24)
+#define AI_OD_OBB_PP_CONF_THRESHOLD     (0.30f)
+#define AI_OD_OBB_PP_IOU_THRESHOLD      (0.40f)
+#define AI_OD_OBB_PP_MAX_BOXES_LIMIT    (2)
 #define AI_OD_OBB_PP_OUTPUT_IS_RAW_YOLO26 (1U)
 
 /* Display */
@@ -111,6 +113,14 @@ static const float32_t AI_OD_YOLOV2_PP_ANCHORS[2*AI_OD_YOLOV2_PP_NB_ANCHORS] = {
 
 #else
   #error "Unsupported APP_MODEL_PROFILE value."
+#endif
+
+#ifndef DISPLAY_ASPECT_RATIO_MODE
+  #define DISPLAY_ASPECT_RATIO_MODE ASPECT_RATIO_MODE
+#endif
+
+#ifndef NN_ASPECT_RATIO_MODE
+  #define NN_ASPECT_RATIO_MODE ASPECT_RATIO_MODE
 #endif
 
 #endif

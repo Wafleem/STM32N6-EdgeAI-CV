@@ -8,7 +8,7 @@
  * diagnostics available while making it cheap to silence whole subsystems.
  */
 
-#define LOG_ENABLE_SYS       1
+#define LOG_ENABLE_SYS       0
 #define LOG_ENABLE_CAMERA    1
 #define LOG_ENABLE_NN        1
 #define LOG_ENABLE_POST      1

@@ -1,6 +1,6 @@
 # Codex Handoff: STM32N6 EdgeAI CV
 
-Last updated: 2026-05-03
+Last updated: 2026-05-10
 
 ## Repo Status
 
@@ -11,6 +11,36 @@ https://github.com/Wafleem/STM32N6-EdgeAI-CV.git
 ```
 
 Use this repo as the source of truth. The ST upstream sample is only the original base project.
+
+## Latest Known-Good Armor Plate State
+
+The `SafalObb` profile has a live-tested BestMerge 320 armor-plate detector working over USB/UVC.
+
+Known-good behavior:
+
+- Board boots the `BestMerge OBB 320` profile.
+- UVC stream shows the camera crop centered in the frame.
+- Boxes stay on the camera image instead of appearing in black padding.
+- Live armor plate images produce visible green bounding boxes.
+- Serial logs are intentionally quiet and focused on NN input, postprocess, frame summary, and display geometry.
+
+Key fixes that made it work:
+
+- The custom model input is channel-first `uint8(1x3x320x320)`, so the app now transposes camera HWC RGB bytes to CHW before inference.
+- The foreground overlay layer was restored to match the background camera layer size/origin; full-screen overlay caused boxes to appear in the black area.
+- Display clears both foreground buffers and draws layer-local thick green rectangles without noisy per-candidate text labels.
+- Postprocess debug tuning is currently conservative: confidence `0.30`, IoU `0.40`, candidate limit `24`, max boxes `2`.
+- Logger noise was reduced so current debugging is readable.
+
+Useful validation trace:
+
+```text
+TRACE: NN init: input=320x320x3 ...
+Display: bg=240x240@40,0 fg=240x240@40,0 nn_pitch=960 color_swap=1 chw=1
+TRACE: NN input: frame=...
+TRACE: OBB postprocess: run=...
+TRACE: display: frame=... raw=... drawn=...
+```
 
 Latest known pushed commits at handoff:
 
@@ -195,4 +225,3 @@ Recommended first task in a new session:
 4. Confirm serial trace reaches `selected IMX219` and `Camera_Drv.Start ret=0`.
 
 Avoid force-pushing unless the user explicitly asks. During this handoff session the user explicitly requested forcing the local work into `main`, and the final push used `--force-with-lease`.
-

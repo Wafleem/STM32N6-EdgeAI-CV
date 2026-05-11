@@ -211,24 +211,18 @@ static void SCRU_uvcl_show_frame(struct scrl_usb_ctx *ctx)
 {
   int ret;
   static uint32_t show_trace_count;
-  uint32_t *screen_words = (uint32_t *) ctx->common.screen.address;
-  uint32_t screen_words_count = get_screen_buffer_size(&ctx->common) / sizeof(uint32_t);
 
   if (ctx->common.screen.format == SCRL_YUV422)
     SCRU_cvt_rgb565_to_yuv422(&ctx->common);
   ret = UVCL_ShowFrame(ctx->common.screen.address, get_screen_buffer_size(&ctx->common));
-  if ((show_trace_count < 10U) || (ret != 0))
+  if ((show_trace_count < 3U) || ((ret != 0) && ((show_trace_count % 120U) == 0U)))
   {
-    printf("TRACE: SCRU_uvcl_show_frame: count=%lu ret=%d ready=%lu frame=%p size=%lu "
-           "sample0=0x%08lX sampleMid=0x%08lX sampleLast=0x%08lX\n",
+    printf("TRACE: UVC frame: count=%lu ret=%d ready=%lu frame=%p size=%lu\n",
            (unsigned long) show_trace_count,
            ret,
            (unsigned long) ctx->is_screen_ready_to_update,
            ctx->common.screen.address,
-           (unsigned long) get_screen_buffer_size(&ctx->common),
-           (unsigned long) screen_words[0],
-           (unsigned long) screen_words[screen_words_count / 2U],
-           (unsigned long) screen_words[screen_words_count - 1U]);
+           (unsigned long) get_screen_buffer_size(&ctx->common));
   }
   show_trace_count++;
   if (ret)
@@ -323,7 +317,7 @@ static void usb_frame_release_cb(struct uvcl_callbacks *cbs, void *frame)
   struct scrl_usb_ctx *ctx = container_of(cbs, struct scrl_usb_ctx, usb_cbs);
   static uint32_t release_trace_count;
 
-  if (release_trace_count < 10U)
+  if (release_trace_count < 3U)
   {
     printf("TRACE: usb_frame_release_cb: count=%lu frame=%p\n",
            (unsigned long) release_trace_count,
@@ -338,7 +332,7 @@ static void usb_streaming_active_cb(struct uvcl_callbacks *cbs, UVCL_StreamConf_
   static uint32_t streaming_trace_count;
   UNUSED(cbs);
 
-  if (streaming_trace_count < 10U)
+  if (streaming_trace_count < 3U)
   {
     printf("TRACE: usb_streaming_active_cb: count=%lu %lux%lu fps=%lu payload=%lu frame_size=%lu\n",
            (unsigned long) streaming_trace_count,

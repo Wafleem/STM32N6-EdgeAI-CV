@@ -59,18 +59,37 @@
 
 typedef struct
 {
+  float32_t x;
+  float32_t y;
+} obb_point_t;
+
+typedef struct
+{
   float32_t x1;
   float32_t y1;
   float32_t x2;
   float32_t y2;
+  obb_point_t corners[4];
   float32_t conf;
   int32_t class_index;
 } obb_candidate_t;
+
+enum
+{
+  OBB_REJECT_NONE = 0,
+  OBB_REJECT_ANCHOR,
+  OBB_REJECT_DIMS,
+  OBB_REJECT_CONF,
+  OBB_REJECT_IGNORE_CLASS,
+  OBB_REJECT_CLAMP
+};
 
 POSTPROCESS_WRAPPER_SECTION
 static od_pp_outBuffer_t out_detections[AI_OD_OBB_PP_MAX_BOXES_LIMIT];
 POSTPROCESS_WRAPPER_SECTION
 static obb_candidate_t shortlist[AI_OD_OBB_PP_CANDIDATES_LIMIT];
+POSTPROCESS_WRAPPER_SECTION
+static obb_candidate_t kept_candidates[AI_OD_OBB_PP_MAX_BOXES_LIMIT];
 
 static float32_t clamp_f32(float32_t value, float32_t min_value, float32_t max_value)
 {
@@ -304,6 +323,53 @@ static float32_t dfl_expectation(const int8_t *tensor,
   return weighted_sum / denom;
 }
 
+static uint32_t yolo_grid_total_for_size(uint32_t width, uint32_t height)
+{
+  static const uint32_t strides[] = {8U, 16U, 32U};
+  uint32_t total_boxes = 0U;
+  uint32_t level_index;
+
+  if ((width == 0U) || (height == 0U))
+  {
+    return 0U;
+  }
+
+  for (level_index = 0U; level_index < (sizeof(strides) / sizeof(strides[0])); level_index++)
+  {
+    uint32_t level_stride = strides[level_index];
+    total_boxes += (width / level_stride) * (height / level_stride);
+  }
+
+  return total_boxes;
+}
+
+static uint32_t infer_square_input_dim_from_bytes(uint32_t size_bytes, uint32_t channels)
+{
+  uint32_t pixels;
+  uint32_t dim;
+
+  if ((size_bytes == 0U) || (channels == 0U) || ((size_bytes % channels) != 0U))
+  {
+    return 0U;
+  }
+
+  pixels = size_bytes / channels;
+  for (dim = 16U; dim <= 2048U; dim++)
+  {
+    uint32_t square = dim * dim;
+    if (square == pixels)
+    {
+      return dim;
+    }
+    if (square > pixels)
+    {
+      break;
+    }
+  }
+
+  return 0U;
+}
+
 static int32_t yolo_anchor_for_box(const od_obb_custom_pp_static_param_t *params,
                                    uint32_t box_index,
                                    float32_t *anchor_x,
@@ -337,29 +403,168 @@ static int32_t yolo_anchor_for_box(const od_obb_custom_pp_static_param_t *params
   return AI_OD_POSTPROCESS_ERROR;
 }
 
-static float32_t box_iou(const obb_candidate_t *a, const obb_candidate_t *b)
+static float32_t polygon_signed_area(const obb_point_t *points, uint32_t count)
 {
-  float32_t inter_x1 = a->x1 > b->x1 ? a->x1 : b->x1;
-  float32_t inter_y1 = a->y1 > b->y1 ? a->y1 : b->y1;
-  float32_t inter_x2 = a->x2 < b->x2 ? a->x2 : b->x2;
-  float32_t inter_y2 = a->y2 < b->y2 ? a->y2 : b->y2;
-  float32_t inter_w = inter_x2 - inter_x1;
-  float32_t inter_h = inter_y2 - inter_y1;
-  float32_t inter_area;
-  float32_t area_a;
-  float32_t area_b;
-  float32_t union_area;
+  float32_t area = 0.0f;
+  uint32_t i;
 
-  if ((inter_w <= 0.0f) || (inter_h <= 0.0f))
+  if (count < 3U)
   {
     return 0.0f;
   }
 
-  inter_area = inter_w * inter_h;
-  area_a = (a->x2 - a->x1) * (a->y2 - a->y1);
-  area_b = (b->x2 - b->x1) * (b->y2 - b->y1);
-  union_area = area_a + area_b - inter_area;
+  for (i = 0U; i < count; i++)
+  {
+    uint32_t next = (i + 1U) % count;
+    area += (points[i].x * points[next].y) - (points[next].x * points[i].y);
+  }
 
+  return area * 0.5f;
+}
+
+static float32_t polygon_area(const obb_point_t *points, uint32_t count)
+{
+  float32_t area = polygon_signed_area(points, count);
+  return area < 0.0f ? -area : area;
+}
+
+static float32_t cross_product(const obb_point_t *a, const obb_point_t *b, const obb_point_t *c)
+{
+  return ((b->x - a->x) * (c->y - a->y)) - ((b->y - a->y) * (c->x - a->x));
+}
+
+static uint8_t point_inside_edge(const obb_point_t *point,
+                                 const obb_point_t *edge_start,
+                                 const obb_point_t *edge_end,
+                                 float32_t clip_orientation)
+{
+  float32_t cross = cross_product(edge_start, edge_end, point);
+  float32_t epsilon = 1.0e-5f;
+
+  if (clip_orientation >= 0.0f)
+  {
+    return (cross >= -epsilon) ? 1U : 0U;
+  }
+
+  return (cross <= epsilon) ? 1U : 0U;
+}
+
+static obb_point_t line_intersection(const obb_point_t *line_a,
+                                     const obb_point_t *line_b,
+                                     const obb_point_t *edge_a,
+                                     const obb_point_t *edge_b)
+{
+  obb_point_t result = *line_b;
+  float32_t rx = line_b->x - line_a->x;
+  float32_t ry = line_b->y - line_a->y;
+  float32_t sx = edge_b->x - edge_a->x;
+  float32_t sy = edge_b->y - edge_a->y;
+  float32_t denom = (rx * sy) - (ry * sx);
+  float32_t t;
+
+  if ((denom > -1.0e-6f) && (denom < 1.0e-6f))
+  {
+    return result;
+  }
+
+  t = (((edge_a->x - line_a->x) * sy) - ((edge_a->y - line_a->y) * sx)) / denom;
+  result.x = line_a->x + (t * rx);
+  result.y = line_a->y + (t * ry);
+  return result;
+}
+
+static uint32_t clip_polygon_against_edge(const obb_point_t *input,
+                                          uint32_t input_count,
+                                          obb_point_t *output,
+                                          const obb_point_t *edge_start,
+                                          const obb_point_t *edge_end,
+                                          float32_t clip_orientation)
+{
+  obb_point_t previous;
+  uint8_t previous_inside;
+  uint32_t output_count = 0U;
+  uint32_t i;
+
+  if (input_count == 0U)
+  {
+    return 0U;
+  }
+
+  previous = input[input_count - 1U];
+  previous_inside = point_inside_edge(&previous, edge_start, edge_end, clip_orientation);
+
+  for (i = 0U; i < input_count; i++)
+  {
+    obb_point_t current = input[i];
+    uint8_t current_inside = point_inside_edge(&current, edge_start, edge_end, clip_orientation);
+
+    if (current_inside != 0U)
+    {
+      if (previous_inside == 0U)
+      {
+        if (output_count < 8U)
+        {
+          output[output_count++] = line_intersection(&previous, &current, edge_start, edge_end);
+        }
+      }
+      if (output_count < 8U)
+      {
+        output[output_count++] = current;
+      }
+    }
+    else if (previous_inside != 0U)
+    {
+      if (output_count < 8U)
+      {
+        output[output_count++] = line_intersection(&previous, &current, edge_start, edge_end);
+      }
+    }
+
+    previous = current;
+    previous_inside = current_inside;
+  }
+
+  return output_count;
+}
+
+static float32_t rotated_box_iou(const obb_candidate_t *a, const obb_candidate_t *b)
+{
+  obb_point_t clip_buffer_a[8];
+  obb_point_t clip_buffer_b[8];
+  const obb_point_t *input = clip_buffer_a;
+  obb_point_t *output = clip_buffer_b;
+  uint32_t input_count = 4U;
+  uint32_t edge_idx;
+  float32_t area_a = polygon_area(a->corners, 4U);
+  float32_t area_b = polygon_area(b->corners, 4U);
+  float32_t clip_orientation = polygon_signed_area(b->corners, 4U);
+  float32_t inter_area;
+  float32_t union_area;
+
+  if ((area_a <= 0.0f) || (area_b <= 0.0f))
+  {
+    return 0.0f;
+  }
+
+  memcpy(clip_buffer_a, a->corners, sizeof(a->corners));
+
+  for (edge_idx = 0U; edge_idx < 4U; edge_idx++)
+  {
+    const obb_point_t *edge_start = &b->corners[edge_idx];
+    const obb_point_t *edge_end = &b->corners[(edge_idx + 1U) & 3U];
+    input_count = clip_polygon_against_edge(input, input_count, output, edge_start, edge_end, clip_orientation);
+
+    if (input_count == 0U)
+    {
+      return 0.0f;
+    }
+
+    input = output;
+    output = (output == clip_buffer_b) ? clip_buffer_a : clip_buffer_b;
+  }
+
+  inter_area = polygon_area(input, input_count);
+  union_area = area_a + area_b - inter_area;
   if (union_area <= 0.0f)
   {
     return 0.0f;
@@ -399,7 +604,8 @@ static void insert_candidate(const obb_candidate_t *candidate, uint32_t *candida
 static int32_t build_candidate(const int8_t *tensor,
                                const od_obb_custom_pp_static_param_t *params,
                                uint32_t box_index,
-                               obb_candidate_t *candidate)
+                               obb_candidate_t *candidate,
+                               uint32_t *reject_reason)
 {
   float32_t cx;
   float32_t cy;
@@ -423,6 +629,8 @@ static int32_t build_candidate(const int8_t *tensor,
   uint32_t class_idx;
   uint32_t point_idx;
 
+  *reject_reason = OBB_REJECT_NONE;
+
   if (params->output_is_raw_dfl != 0U)
   {
     float32_t stride;
@@ -439,6 +647,7 @@ static int32_t build_candidate(const int8_t *tensor,
 
     if (yolo_anchor_for_box(params, box_index, &anchor_x, &anchor_y, &stride) != AI_OD_POSTPROCESS_ERROR_NO)
     {
+      *reject_reason = OBB_REJECT_ANCHOR;
       return AI_OD_POSTPROCESS_ERROR;
     }
 
@@ -484,6 +693,7 @@ static int32_t build_candidate(const int8_t *tensor,
 
     if (yolo_anchor_for_box(params, box_index, &anchor_x, &anchor_y, &stride) != AI_OD_POSTPROCESS_ERROR_NO)
     {
+      *reject_reason = OBB_REJECT_ANCHOR;
       return AI_OD_POSTPROCESS_ERROR;
     }
 
@@ -533,16 +743,19 @@ static int32_t build_candidate(const int8_t *tensor,
 
   if ((width <= 0.0f) || (height <= 0.0f))
   {
+    *reject_reason = OBB_REJECT_DIMS;
     return AI_OD_POSTPROCESS_ERROR;
   }
 
   if ((best_class < 0) || (best_conf < params->conf_threshold))
   {
+    *reject_reason = OBB_REJECT_CONF;
     return AI_OD_POSTPROCESS_ERROR;
   }
 
   if ((uint32_t)best_class == AI_OD_OBB_PP_IGNORE_CLASS_INDEX)
   {
+    *reject_reason = OBB_REJECT_IGNORE_CLASS;
     return AI_OD_POSTPROCESS_ERROR;
   }
 
@@ -559,6 +772,8 @@ static int32_t build_candidate(const int8_t *tensor,
     float32_t px = cx + (dx * cos_a) - (dy * sin_a);
     float32_t py = cy + (dx * sin_a) + (dy * cos_a);
 
+    candidate->corners[point_idx].x = px;
+    candidate->corners[point_idx].y = py;
     min_x = px < min_x ? px : min_x;
     min_y = py < min_y ? py : min_y;
     max_x = px > max_x ? px : max_x;
@@ -572,6 +787,7 @@ static int32_t build_candidate(const int8_t *tensor,
 
   if ((max_x <= min_x) || (max_y <= min_y))
   {
+    *reject_reason = OBB_REJECT_CLAMP;
     return AI_OD_POSTPROCESS_ERROR;
   }
 
@@ -588,6 +804,8 @@ static int32_t build_candidate(const int8_t *tensor,
 int32_t app_postprocess_init(void *params_postprocess, stai_network_info *NN_Info)
 {
   int32_t error;
+  uint32_t grid_boxes;
+  uint32_t fallback_dim;
   od_obb_custom_pp_static_param_t *params = (od_obb_custom_pp_static_param_t *)params_postprocess;
 
   assert(params != NULL);
@@ -604,13 +822,51 @@ int32_t app_postprocess_init(void *params_postprocess, stai_network_info *NN_Inf
   params->conf_threshold = AI_OD_OBB_PP_CONF_THRESHOLD;
   params->iou_threshold = AI_OD_OBB_PP_IOU_THRESHOLD;
 
+  error = select_output_layout(&NN_Info->outputs[0], params);
+  if (error != AI_OD_POSTPROCESS_ERROR_NO)
+  {
+    printf("TRACE: OBB postprocess init: output layout error=%ld\n", (long)error);
+    return error;
+  }
+
+  grid_boxes = yolo_grid_total_for_size(params->input_width, params->input_height);
+  if (((params->output_is_raw_dfl != 0U) || (params->output_is_raw_yolo26 != 0U)) &&
+      (grid_boxes != params->total_boxes))
+  {
+    fallback_dim = infer_square_input_dim_from_bytes((uint32_t)NN_Info->inputs[0].size_bytes, 3U);
+    if ((fallback_dim != 0U) &&
+        (yolo_grid_total_for_size(fallback_dim, fallback_dim) == params->total_boxes))
+    {
+      params->input_width = fallback_dim;
+      params->input_height = fallback_dim;
+      grid_boxes = yolo_grid_total_for_size(params->input_width, params->input_height);
+    }
+  }
+
+  printf("TRACE: OBB postprocess init: input=%lux%lu input_bytes=%lu boxes=%lu grid_boxes=%lu channels=%lu raw_dfl=%u raw_yolo26=%u scale=%.6f zp=%ld\n",
+         (unsigned long)params->input_width,
+         (unsigned long)params->input_height,
+         (unsigned long)NN_Info->inputs[0].size_bytes,
+         (unsigned long)params->total_boxes,
+         (unsigned long)grid_boxes,
+         (unsigned long)params->channels_per_box,
+         (unsigned int)params->output_is_raw_dfl,
+         (unsigned int)params->output_is_raw_yolo26,
+         params->raw_output_scale,
+         (long)params->raw_output_zero_point);
+
   if ((params->input_width == 0U) || (params->input_height == 0U))
   {
     return AI_OD_POSTPROCESS_ERROR;
   }
 
-  error = select_output_layout(&NN_Info->outputs[0], params);
-  return error;
+  if (((params->output_is_raw_dfl != 0U) || (params->output_is_raw_yolo26 != 0U)) &&
+      (grid_boxes != params->total_boxes))
+  {
+    return AI_OD_POSTPROCESS_ERROR;
+  }
+
+  return AI_OD_POSTPROCESS_ERROR_NO;
 }
 
 int32_t app_postprocess_run(void *pInput[], int nb_input, void *pOutput, void *pInput_param)
@@ -624,6 +880,7 @@ int32_t app_postprocess_run(void *pInput[], int nb_input, void *pOutput, void *p
   float32_t max_conf = -1.0f;
   uint32_t max_conf_box = 0U;
   uint32_t max_conf_class = 0U;
+  uint32_t reject_counts[6] = {0U, 0U, 0U, 0U, 0U, 0U};
 
   assert(nb_input == 1);
   assert(tensor != NULL);
@@ -637,6 +894,7 @@ int32_t app_postprocess_run(void *pInput[], int nb_input, void *pOutput, void *p
   {
     obb_candidate_t candidate;
     uint32_t class_idx;
+    uint32_t reject_reason = OBB_REJECT_NONE;
 
     for (class_idx = 0U; class_idx < params->nb_classes; class_idx++)
     {
@@ -649,9 +907,13 @@ int32_t app_postprocess_run(void *pInput[], int nb_input, void *pOutput, void *p
       }
     }
 
-    if (build_candidate(tensor, params, box_index, &candidate) == AI_OD_POSTPROCESS_ERROR_NO)
+    if (build_candidate(tensor, params, box_index, &candidate, &reject_reason) == AI_OD_POSTPROCESS_ERROR_NO)
     {
       insert_candidate(&candidate, &candidate_count);
+    }
+    else if (reject_reason < (sizeof(reject_counts) / sizeof(reject_counts[0])))
+    {
+      reject_counts[reject_reason]++;
     }
   }
 
@@ -662,20 +924,14 @@ int32_t app_postprocess_run(void *pInput[], int nb_input, void *pOutput, void *p
 
     for (kept_index = 0U; kept_index < (uint32_t)output->nb_detect; kept_index++)
     {
-      obb_candidate_t kept = {
-          .x1 = out_detections[kept_index].x_center - (out_detections[kept_index].width * 0.5f),
-          .y1 = out_detections[kept_index].y_center - (out_detections[kept_index].height * 0.5f),
-          .x2 = out_detections[kept_index].x_center + (out_detections[kept_index].width * 0.5f),
-          .y2 = out_detections[kept_index].y_center + (out_detections[kept_index].height * 0.5f),
-          .class_index = out_detections[kept_index].class_index,
-      };
+      const obb_candidate_t *kept = &kept_candidates[kept_index];
 
-      if (kept.class_index != shortlist[box_index].class_index)
+      if (kept->class_index != shortlist[box_index].class_index)
       {
         continue;
       }
 
-      if (box_iou(&shortlist[box_index], &kept) > params->iou_threshold)
+      if (rotated_box_iou(&shortlist[box_index], kept) > params->iou_threshold)
       {
         keep = 0U;
         break;
@@ -693,6 +949,7 @@ int32_t app_postprocess_run(void *pInput[], int nb_input, void *pOutput, void *p
     out_detections[output->nb_detect].height = shortlist[box_index].y2 - shortlist[box_index].y1;
     out_detections[output->nb_detect].conf = shortlist[box_index].conf;
     out_detections[output->nb_detect].class_index = shortlist[box_index].class_index;
+    kept_candidates[output->nb_detect] = shortlist[box_index];
     output->nb_detect++;
 
     if ((uint32_t)output->nb_detect >= params->max_boxes_limit)
@@ -702,18 +959,36 @@ int32_t app_postprocess_run(void *pInput[], int nb_input, void *pOutput, void *p
   }
 
   run_count++;
-  if ((run_count <= 10U) || ((run_count % 30U) == 0U))
+  if ((run_count <= 5U) || ((run_count % 30U) == 0U))
   {
-    printf("TRACE: OBB postprocess: run=%lu raw_dfl=%lu raw_yolo26=%lu threshold=%.3f max_conf=%.3f max_box=%lu max_class=%lu candidates=%lu detections=%lu\n",
+    float32_t top_left = tensor_value(tensor, params, max_conf_box, 0U);
+    float32_t top_top = tensor_value(tensor, params, max_conf_box, 1U);
+    float32_t top_right = tensor_value(tensor, params, max_conf_box, 2U);
+    float32_t top_bottom = tensor_value(tensor, params, max_conf_box, 3U);
+    float32_t top_angle = tensor_value(tensor, params, max_conf_box, 4U + params->nb_classes);
+    float32_t top_logit = tensor_value(tensor, params, max_conf_box, 4U + max_conf_class);
+
+    printf("TRACE: OBB postprocess: run=%lu raw_dfl=%lu raw_yolo26=%lu rotated_nms=1 threshold=%.3f max_conf=%.3f max_logit=%.3f max_box=%lu max_class=%lu candidates=%lu detections=%lu reject[anchor=%lu dims=%lu conf=%lu ignore=%lu clamp=%lu] top_ltrba=[%.3f %.3f %.3f %.3f %.3f]\n",
            (unsigned long)run_count,
            (unsigned long)params->output_is_raw_dfl,
            (unsigned long)params->output_is_raw_yolo26,
            (double)params->conf_threshold,
            (double)max_conf,
+           (double)top_logit,
            (unsigned long)max_conf_box,
            (unsigned long)max_conf_class,
            (unsigned long)candidate_count,
-           (unsigned long)output->nb_detect);
+           (unsigned long)output->nb_detect,
+           (unsigned long)reject_counts[OBB_REJECT_ANCHOR],
+           (unsigned long)reject_counts[OBB_REJECT_DIMS],
+           (unsigned long)reject_counts[OBB_REJECT_CONF],
+           (unsigned long)reject_counts[OBB_REJECT_IGNORE_CLASS],
+           (unsigned long)reject_counts[OBB_REJECT_CLAMP],
+           (double)top_left,
+           (double)top_top,
+           (double)top_right,
+           (double)top_bottom,
+           (double)top_angle);
   }
 
   return AI_OD_POSTPROCESS_ERROR_NO;
