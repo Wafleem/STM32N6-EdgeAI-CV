@@ -25,6 +25,8 @@ CMakeLists.txt text eol=lf
 
 # Treat generated firmware artifacts and media as binary
 *.bin binary
+*.onnx binary
+*.pt binary
 *.hex binary
 *.a binary
 *.lib binary

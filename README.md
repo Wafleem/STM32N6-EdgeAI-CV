@@ -1,445 +1,164 @@
-# STM32N6 EdgeAI CV
+# STM32N6 Armor Plate Detection
 
----
+Real-time RoboMaster armor-plate detection on an STM32N6 MCU/NPU, built as a low-latency embedded perception prototype for closed-loop aiming. This project ports a YOLO-style oriented-bounding-box detector from a Jetson-class CV workflow into a deterministic STM32N6 pipeline with IMX219 camera input, ST Edge AI model generation, custom C postprocessing, camera/inference overlap, and USB/UVC debug visualization.
 
-This repository is a customized STM32N6 object-detection bring-up project based on ST's `STM32N6-GettingStarted-ObjectDetection` example. The goal is to keep the original sample easy to recognize while making this fork practical for our hardware path: `NUCLEO-N657X0-Q`, USB/UVC output, and Raspberry Pi style Sony IMX219 camera modules.
+The current live profile runs a `320x320` quantized armor-plate detector on the `NUCLEO-N657X0-Q` and draws stable plate boxes in the UVC debug stream.
 
-The application runs a [STEdgeAI](https://www.st.com/en/development-tools/stedgeai-core.html) generated object-detection model on the STM32N6 NPU, captures frames through DCMIPP/CSI, and streams the processed output over USB/UVC or to the SPI display configuration.
+## Why This Project
 
-Current working target:
+ST's STM32N6 release made it realistic to evaluate MCU-class neural acceleration for robotics perception workloads that are usually handled by SBCs or GPUs. RoboMaster armor-plate detection is a useful test case because closed-loop aiming cares about bounded latency, camera/control integration, and system overhead, not only peak neural-network throughput.
 
-- Board: `NUCLEO-N657X0-Q`
-- Camera: Sony `IMX219`, including the Arducam Raspberry Pi IMX219 module tested during bring-up
-- Output: USB/UVC from `CN8`
-- Debug/programming: ST-LINK on `CN9`
-- Programmer used during validation: STM32CubeProgrammer `v2.19`
+I used the Nucleo board as a fast prototype target before custom hardware. That let me bring up the camera, convert and quantize the model, validate the NPU runtime, debug the full camera-to-model path, and measure where latency was actually being spent.
 
-The fork now includes additional camera boot tracing and IMX219-specific integration fixes that helped validate the camera from first I2C chip-ID read through DCMIPP CSI pipe start.
-
-![Image sample](_htmresc/sample.PNG)
-Detected classes and confidence level are displayed on the bounding boxes.
-
-This is a standalone project that can be deployed directly to hardware. It is also integrated into the [ST ModelZoo repository](https://github.com/STMicroelectronics/stm32ai-modelzoo-services), and is required to deploy the object detection use case. The ModelZoo enables you to train, evaluate, and automatically deploy any supported model. If you wish to use this project as part of the ModelZoo, please refer to the [Quickstart using stm32ai-modelzoo-services](#quickstart-using-stm32ai-modelzoo-services) section for instructions.
-
-This README provides an overview of the application. Additional documentation is available in the [Doc](./Doc/) folder.
-
----
-
-## Table of Contents
-
-- [Features Demonstrated](#features-demonstrated)
-- [Project Customizations](#project-customizations)
-- [Models](#models)
-- [Hardware Support](#hardware-support)
-- [Camera Support](#camera-support)
-- [Tools Version](#tools-version)
-- [Boot Modes](#boot-modes)
-- [Quickstart using stm32ai-modelzoo-services](#quickstart-using-stm32ai-modelzoo-services)
-- [Quickstart using Prebuilt Binaries](#quickstart-using-prebuilt-binaries)
-  - [Programming with STM32CubeProgrammer UI](#how-to-program-hex-files-using-stm32cubeprogrammer-ui)
-  - [Programming NUCLEO-N657X0-Q via Command Line](#how-to-program-hex-files-on-nucleo-n657x0-q-using-command-line)
-- [Quickstart using Source Code](#quickstart-using-source-code)
-  - [Build and Run - Dev Mode](#application-build-and-run---dev-mode)
-    - [STM32CubeIDE](#stm32cubeide)
-    - [Makefile](#makefile)
-  - [Build and Run - Boot from Flash](#application-build-and-run---boot-from-flash)
-    - [Build the Application](#build-the-application)
-      - [STM32CubeIDE](#stm32cubeide-1)
-      - [Makefile](#makefile-1)
-    - [Programming Firmware to External Flash](#program-the-firmware-in-the-external-flash)
-- [How to update my project with a new version of ST Edge AI](#how-to-update-my-project-with-a-new-version-of-st-edge-ai)
-- [Known Issues and Limitations](#known-issues-and-limitations)
-
-**Documentation Folder:**
-
-- [Boot Overview](Doc/Boot-Overview.md)
-- [Camera Build Options](Doc/Build-Options.md#cameras-module)
-- [Camera Orientation](Doc/Build-Options.md#camera-orientation)
-- [Aspect Ratio Mode](Doc/Build-Options.md#aspect-ratio-mode)
-- [Neural-ART: Description and Operation](Doc/Neural-ART-Description-and-Operation.md)
-- [Deploying your Quantized Model](Doc/Deploy-your-Quantized-Model.md)
-- [Safal OBB Porting Notes](Doc/Safal-OBB-Porting.md)
-- [Safal OBB Porting Log](Doc/Safal-OBB-Porting-Log.md)
-- [Programming Hex Files with STM32CubeProgrammer](Doc/Program-Hex-Files-STM32CubeProgrammer.md)
-
----
-
-## Features Demonstrated
-
-- Sequential application flow
-- NPU-accelerated quantized AI model inference
-- Dual DCMIPP pipelines
-- DCMIPP cropping, decimation, and downscaling
-- DCMIPP ISP usage
-- LTDC dual-layer implementation
-- Development mode
-- Boot from external flash
-
----
-
-## Project Customizations
-
-This fork keeps the ST sample structure, but adds the pieces needed for the current Nucleo plus IMX219 workflow:
-
-- Windows helper scripts for repeatable build, sign, and flash flows.
-- Nucleo USB/UVC bring-up notes for `CN8` video streaming and `CN9` ST-LINK programming.
-- More explicit boot diagnostics over the serial console at `115200` baud.
-- Sensor probe tracing for each supported camera path so startup failures are visible instead of ending at a generic assert.
-- IMX219 bring-up tracing for power, reset, I2C bus registration, chip-ID reads, register-table setup, CSI config, and camera start.
-- IMX219 camera integration work for Raspberry Pi style modules, including the CMW-to-component pixel-format mapping required by the low-level IMX219 driver.
-
-The most useful successful boot signs are:
+## System Architecture
 
 ```text
-TRACE: IMX219_ReadID: combined id=0x0219
-TRACE: CMW_CAMERA_Probe_Sensor: selected IMX219
-TRACE: CMW_CAMERA_Start: Camera_Drv.Start ret=0
-TRACE: CameraPipeline_DisplayPipe_Start: ret=0
+IMX219 camera
+  -> CSI/DCMIPP capture
+  -> RGB HWC camera frame
+  -> HWC-to-CHW preprocessing
+  -> STM32N6 NPU, uint8(1x3x320x320)
+  -> int8(1x6x2100) raw OBB output
+  -> custom C decode + thresholding + NMS
+  -> UVC debug overlay now, compact control output later
 ```
 
-If the board reaches those lines, the sensor is responding on I2C and the camera pipeline has moved beyond the early boot failures that originally blocked USB/UVC enumeration.
+Current active profile:
 
----
+| Item | Value |
+| :--- | :---- |
+| Board | `NUCLEO-N657X0-Q` |
+| Camera | Sony `IMX219` Raspberry Pi style module |
+| Model profile | `SafalObb` |
+| Active model | `BestMerge OBB 320` |
+| Input tensor | `uint8(1x3x320x320)` |
+| Output tensor | `int8(1x6x2100)` |
+| Class table | `plate` |
+| Display/debug | USB/UVC, `240x240` camera crop centered in `320x240` stream |
 
-## Models
+## Key Engineering Contributions
 
-| Model | Board | Inference time |
-| :---- | :---- | -------------: |
-| quantized_tiny_yolo_v2_224_.tflite | NUCLEO-N657X0-Q SPI | 30 ms |
-| quantized_tiny_yolo_v2_224_.tflite | NUCLEO-N657X0-Q UVCL | 27 ms |
+- Brought up the IMX219 camera path on the STM32N6 Nucleo flow, including sensor probe diagnostics, CSI/DCMIPP validation, and UVC visibility.
+- Converted the armor-plate model into an STM32N6-runnable path with ONNX export, calibration tensor prep, QDQ quantization, and ST Edge AI/Neural-ART artifact generation.
+- Implemented custom MCU-side OBB postprocessing for the raw YOLO-style output tensor, including thresholding, candidate filtering, NMS, and display-safe box conversion.
+- Fixed the critical camera/model layout mismatch: the camera provides interleaved RGB HWC bytes, while the model expects CHW input.
+- Fixed display-coordinate bugs that caused boxes to appear in black UVC regions by aligning foreground overlay geometry with the camera crop.
+- Added camera/inference overlap so the next camera frame can be captured while the NPU processes the current frame.
+- Added performance tracing that separates NN-only inference, compute path, UVC/debug loop, display overhead, camera wait, and headless-estimated FPS.
 
-Available local build profiles:
+## Preliminary Performance
 
-- `Generic`: the upstream tiny YOLOv2 example, using [Model/NUCLEO-N657X0-Q](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Model/NUCLEO-N657X0-Q)
-- `SafalObb`: the Nitish/Safal RoboMaster OBB port, using [Model/NUCLEO-N657X0-Q_SafalObb](/C:/Users/saysa/Documents/Robomaster_CodeStuff/stm32n6-sample/STM32N6-YOLO-Deploy/Model/NUCLEO-N657X0-Q_SafalObb)
+These are live STM32N6 observations from the current `320x320` UVC debug build. Jetson apples-to-apples benchmarking is planned but not yet claimed.
 
-The `SafalObb` profile uses the same Nitish checkpoint lineage as Safal's deployed Jetson OBB engine, exported at `224x224` to stay aligned with the smaller ST-style Nucleo object-detection footprint.
+| Metric | Preliminary STM32N6 Result | Notes |
+| :----- | -------------------------: | :---- |
+| NN-only inference | `25-32 FPS` | Strongest measured model-only number from serial `nn=...` traces |
+| Compute path | `~22 FPS` | Preprocess + NPU inference + postprocess |
+| Headless-estimated loop | `17-22 FPS` | Estimate subtracting UVC drawing cost; true headless benchmark pending |
+| UVC/debug loop | `15-21 FPS` | Includes drawing, streaming, and camera wait |
+| AXISRAM usage | `99.36%` | Tight but valid; overlap trades RAM for lower wait time |
 
----
+Representative trace:
 
-## Hardware Support
-
-Supported development platform:
-
-- [NUCLEO-N657X0-Q](https://www.st.com/en/evaluation-tools/nucleo-n657x0-q.html) Nucleo Board
-  - Connect to the onboard ST-LINK debug adapter (CN9) using a __USB-C to USB-C cable__ for sufficient power.
-  - OTP fuses are configured for xSPI IOs to achieve maximum speed (200MHz) on xSPI interfaces.
-
-Supported camera modules:
-
-- Provided IMX335 camera module
-- [STEVAL-55G1MBI](https://www.st.com/en/evaluation-tools/steval-55g1mbi.html)
-- [STEVAL-66GYMAI](https://www.st.com/en/evaluation-tools/steval-66gymai.html)
-- [STEVAL-1943-MC1](https://www.st.com/en/evaluation-tools/steval-1943-mc1.html)
-- Sony IMX219 modules supported by this fork, including the Arducam Raspberry Pi IMX219 module used during validation.
-
-For the Nucleo board, one of the following displays is required:
-
-- A USB host for data transmission via USB/UVC (using the USB OTG port CN8)
-
-![Board](_htmresc/NUCLEO-N657X0-Q_USB_UVC.png)
-NUCLEO-N657X0-Q board with USB/UVC display.
-
-- [X-NUCLEO-GFX01M2](https://www.st.com/en/evaluation-tools/x-nucleo-gfx01m2.html) SPI display
-
-![Board](_htmresc/NUCLEO-N657X0-Q_SPI.png)
-NUCLEO-N657X0-Q board with SPI display.
-
----
-
-## Camera Support
-
-The original ST sample supports several camera modules. This fork adds practical bring-up support for the IMX219 path used by common Raspberry Pi camera modules.
-
-| Sensor | Status in this fork | Notes |
-| :----- | :------------------ | :---- |
-| IMX219 | Working on `NUCLEO-N657X0-Q` | Validated with an Arducam Raspberry Pi IMX219 module. Expected chip ID is `0x0219`. |
-| IMX335 | Preserved from ST sample | Original ST/DK path remains in the tree. |
-| VD55G1 / VD66GY / VD1943 | Preserved from ST sample | Probe paths are still present and now report trace output during startup. |
-
-### IMX219 Notes
-
-The IMX219 driver stack has two layers that use different pixel-format constants:
-
-- The camera middleware layer uses `CMW_PIXEL_FORMAT_RAW10`.
-- The low-level IMX219 component driver expects `IMX219_RAW_RGGB10`.
-
-This fork bridges those values before calling the low-level driver. Without that mapping, the sensor can be detected correctly over I2C but still fail during initialization with an unsupported pixel-format error.
-
-For the tested Arducam module, the expected startup path is:
-
-1. Power and reset are asserted by the board support layer.
-2. The camera responds to the IMX219 chip-ID read with `0x0219`.
-3. The driver selects the binned `1640x1232 @ 30 fps` mode for the default Nucleo flow.
-4. RAW10 output is configured for the CSI/DCMIPP pipeline.
-5. USB/UVC enumerates from `CN8` after the application reaches the display pipeline startup.
-
-If the board flashes correctly but no USB camera appears, check the serial trace first. A camera init failure can stop the application before the USB video device ever enumerates.
-
----
-
-## Tools Version
-
-- [STM32CubeIDE](https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-ides/stm32cubeide.html) (__v1.17.0__)
-- [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) (__v2.19.0__ validated for this fork)
-- [STEdgeAI](https://www.st.com/en/development-tools/stedgeai-core.html) (__v4.0.0__)
-
----
-
-## Boot Modes
-
-The STM32N6 series does not have internal flash memory. To retain firmware after a reboot, program it into the external flash. Alternatively, you can load firmware directly into SRAM (development mode), but note that the program will be lost if the board is powered off in this mode.
-
-Development Mode: used for loading firmware into RAM during a debug session or for programming firmware into external flash.
-
-Boot from Flash: used to boot firmware from external flash.
-
-For NUCLEO-N657X0-Q:
-
-- Boot from flash: ![NUCLEO-N657X0-Q Boot from flash](_htmresc/NUCLEO-N657X0-Q_Boot_from_flash.png)
-- Development mode: ![NUCLEO-N657X0-Q Development mode](_htmresc/NUCLEO-N657X0-Q_Dev_mode.png)
-
----
-
-## Quickstart using stm32ai-modelzoo-services
-
-This application is a C-based project required by the deployment service in the [ModelZoo](https://github.com/STMicroelectronics/stm32ai-modelzoo-services/tree/main). The ModelZoo enables you to train, evaluate, and automatically deploy any supported model.
-
-To deploy your model using the ModelZoo, refer to the [Deployment README for STM32N6](https://github.com/STMicroelectronics/stm32ai-modelzoo-services/blob/main/object_detection/docs/README_DEPLOYMENT_STM32N6.md) for detailed instructions on deploying to the NUCLEO-N657X0-Q.
-
-__Note__: This C-based application is referenced as a submodule of the ModelZoo repository at `application_code/object_detection`.
-
----
-
-## Quickstart using Prebuilt Binaries
-
-The prebuilt binaries are an assembly of several binaries:
-  - FSBL (First Stage Boot Loader, loading the application from flash to RAM)
-  - The application
-  - The weights of the neural network model
-
-### NUCLEO-N657X0-Q USB/UVC
-
-To program the board's external flash, follow these steps:
-
-1. Set the board to [development mode](#boot-modes).
-2. Program `Binary/NUCLEO-N657X0-Q/USB-UVC-Display/NUCLEO-N657X0-Q_GettingStarted_ObjectDetection-uvc.hex`.
-3. Set the board to [boot from flash mode](#boot-modes).
-4. Connect a USB cable to the USB OTG port (CN8), next to the RJ45 port. Connect the other end to a USB host (PC, USB hub, etc.) for data transmission via USB/UVC.
-5. Power cycle the board.
-6. Start the camera application on the host. On Windows, search for "camera" in the Start menu.
-7. Place a person in front of the camera to detect them.
-
-### NUCLEO-N657X0-Q SPI
-
-To program the board's external flash, follow these steps:
-
-1. Set the board to [development mode](#boot-modes).
-2. Program `Binary/NUCLEO-N657X0-Q/SPI-Display/NUCLEO-N657X0-Q_GettingStarted_ObjectDetection-spi.hex`.
-3. Set the board to [boot from flash mode](#boot-modes).
-4. Power cycle the board.
-5. Place a person in front of the camera to detect them.
-
----
-
-### How to Program Hex Files Using STM32CubeProgrammer UI
-
-See [How to program hex files STM32CubeProgrammer](Doc/Program-Hex-Files-STM32CubeProgrammer.md).
-
----
-
-### How to Program Hex Files on NUCLEO-N657X0-Q Using Command Line
-
-Ensure the STM32CubeProgrammer `bin` folder is in your PATH.
-
-```bash
-export NUEL="<STM32CubeProgrammer_N6 Install Folder>/bin/ExternalLoader/MX25UM51245G_STM32N6570-NUCLEO.stldr"
-
-# USB/UVC
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w Binary/NUCLEO-N657X0-Q/USB-UVC-Display/NUCLEO-N657X0-Q_GettingStarted_ObjectDetection-uvc.hex
-
-# SPI
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w Binary/NUCLEO-N657X0-Q/SPI-Display/NUCLEO-N657X0-Q_GettingStarted_ObjectDetection-spi.hex
+```text
+TRACE: perf: frame=1050 det=2 loop=67ms/14.9fps headless_est=58ms/17.2fps nn=39ms/25.6fps compute=44ms/22.7fps prep=2 post=3 uvc_display=9 cam_wait=14
 ```
 
----
+The headline `25-32 FPS` number is NN-only inference, not photon-to-control latency. For control-system discussions, use the compute-path and headless-loop numbers.
 
-## Quickstart using Source Code
+## Design Decisions
 
-Before building and running the application, you must program the matching profile's `network_data.hex` (model weights and biases). This only needs to be done once unless you change the AI model. See [Quickstart using prebuilt binaries](#quickstart-using-prebuilt-binaries) for details.
+- **Why STM32N6:** evaluate whether MCU-class NPU acceleration can deliver bounded perception latency closer to the control loop than a heavier Linux/GPU stack.
+- **Why Nucleo first:** de-risk camera, model, NPU runtime, display, and flashing before considering custom robot hardware.
+- **Why 320x320:** larger exports stressed or exceeded memory allocation, while `320x320` fit and produced live detections with usable speed.
+- **Why custom postprocess:** the exported OBB model emits raw prediction tensors, not final boxes, so decode and NMS must run in C.
+- **Why camera buffering:** the extra capture buffer allows camera acquisition to overlap NPU inference, reducing exposed camera wait at the cost of AXISRAM.
+- **Why headless benchmarking matters:** UVC is a debug/demo path; a robot deployment should send compact detections to control code without drawing video overlays.
 
-For more information about boot modes, see [Boot Overview](Doc/Boot-Overview.md).
+## Build, Flash, And Model Conversion
 
-__Note__: To select the NUCLEO-N657X0-Q display interface, use the appropriate build configuration in CubeIDE, or specify `SCR_LIB_SCREEN_ITF=UVCL` or `SCR_LIB_SCREEN_ITF=SPI` as a Makefile option (default is UVCL).
-
----
-
-### Application Build and Run - Dev Mode
-
-Set your board to [development mode](#boot-modes).
-
-#### STM32CubeIDE
-
-Double-click `Application/<board_name>/STM32CubeIDE/.project` to open the project in STM32CubeIDE. Build and run the project.
-
-#### Makefile
-
-Navigate to `Application/<board_name>/` and run the following commands (ensure required tools are in your PATH):
-
-1. Build the project:
-    ```bash
-    make -j8
-    ```
-2. Start a GDB server connected to the STM32 target:
-    ```bash
-    ST-LINK_gdbserver -p 61234 -l 1 -d -s -cp <path-to-stm32cubeprogrammer-bin-dir> -m 1 -g
-    ```
-3. In a separate terminal, launch a GDB session to load the firmware:
-    ```bash
-    $ arm-none-eabi-gdb build/Project.elf
-    (gdb) target remote :61234
-    (gdb) monitor reset
-    (gdb) load
-    (gdb) continue
-    ```
-
----
-
-### Application Build and Run - Boot from Flash
-
-Set your board to [development mode](#boot-modes).
-
-#### Build the Application
-
-##### STM32CubeIDE
-
-Double-click `Application/<board_name>/STM32CubeIDE/.project` to open the project in STM32CubeIDE. Build and run the project.
-
-##### Makefile
-
-Ensure all required tools are in your PATH, then build the project:
-
-```bash
-make -j8
-```
-
-On Windows, you can use the local helper instead of managing the ST tool paths manually:
+Build the active armor detector profile:
 
 ```powershell
-.\build.ps1
+.\scripts\stm32n6.ps1 -Action build -ModelProfile SafalObb -Jobs 2
 ```
 
-To select a different local model profile:
+Flash FSBL, model weights, and signed application:
 
 ```powershell
-.\build.ps1 -ModelProfile Generic
-.\build.ps1 -ModelProfile SafalObb
+.\scripts\stm32n6.ps1 -Action flash-all -ModelProfile SafalObb -Jobs 2
 ```
 
-The helper defaults to a single compile job on Windows for reliability. If your machine handles parallel builds cleanly, you can raise it manually:
+Happy path from model to firmware artifacts:
 
 ```powershell
-.\build.ps1 -Jobs 2
+.\scripts\model\export-obb-onnx.ps1 `
+  -Checkpoint Model\bestmerge.pt `
+  -OutputOnnx Model\bestmerge_320.onnx `
+  -ImageSize 320 `
+  -ExpectedClasses 1 `
+  -ExpectedBoxes 2100
+
+.\scripts\model\quantize-obb-onnx.ps1 `
+  -InputOnnx Model\bestmerge_320.onnx `
+  -CalibrationImages Model\calibration_images\robomaster_v4_clean `
+  -ImageSize 320 `
+  -QdqOutput Model\bestmerge_320_robomaster_v4_clean_qdq.onnx `
+  -BoundaryOutput Model\bestmerge_320_robomaster_v4_clean_uint8in_int8out_qdq.onnx
+
+.\scripts\model\generate-stm32n6-artifacts.ps1 `
+  -ModelOnnx Model\bestmerge_320_robomaster_v4_clean_qdq.onnx `
+  -OutputProfileDir Model\NUCLEO-N657X0-Q_SafalObb
 ```
 
-#### Program the Firmware in the External Flash
-
-After building the application, you must sign the binary file:
-
-```bash
-STM32_SigningTool_CLI -bin build/Project.bin -nk -t ssbl -hv 2.3 -o build/Project_sign.bin
-```
-
-Program the signed binary at address `0x70100000`, as well as the FSBL and network parameters.
-
-On Windows, the helper can run the build, signing, and flashing sequence for you:
+Summarize serial performance logs:
 
 ```powershell
-.\flash.ps1
+python .\scripts\benchmark\parse-serial-perf.py .\serial.log --markdown
 ```
 
-Recommended Windows workflow for the Nucleo board:
+See [scripts/README.md](scripts/README.md) for tool requirements and detailed usage.
 
-1. Put the board in [development mode](#boot-modes).
-2. Connect `CN9` to your PC for ST-LINK access.
-3. Pick a model profile and build:
-   ```powershell
-   .\build.ps1 -ModelProfile Generic
-   .\build.ps1 -ModelProfile SafalObb
-   ```
-4. Sign:
-   ```powershell
-   .\scripts\stm32n6.ps1 -Action sign -ModelProfile Generic
-   .\scripts\stm32n6.ps1 -Action sign -ModelProfile SafalObb
-   ```
-5. First-time programming for that same profile:
-   ```powershell
-   .\flash.ps1 -ModelProfile Generic
-   .\flash.ps1 -ModelProfile SafalObb
-   ```
-6. Later application-only updates:
-   ```powershell
-   .\flash.ps1 -AppOnly -ModelProfile Generic
-   .\flash.ps1 -AppOnly -ModelProfile SafalObb
-   ```
-7. Move the board to [boot from flash](#boot-modes) mode and power-cycle it.
-8. For the default Nucleo `UVCL` build, connect `CN8` to your host PC and open a camera viewer.
+## Repository Map
 
-If you change model profiles or regenerate model artifacts, do a full flash again instead of `-AppOnly`.
+| Path | Purpose |
+| :--- | :------ |
+| [Application/NUCLEO-N657X0-Q](Application/NUCLEO-N657X0-Q) | STM32N6 application, camera/NPU/UVC integration |
+| [Model/bestmerge_288*.onnx](Model) | Verified experimental `288x288` raw-OBB artifacts, output `[1, 6, 1701]` |
+| [Model/NUCLEO-N657X0-Q_SafalObb](Model/NUCLEO-N657X0-Q_SafalObb) | Generated ST Edge AI artifacts for the active armor model |
+| [scripts](scripts) | Build, flash, model conversion, and benchmark helpers |
+| [Doc/design-review-notes.md](Doc/design-review-notes.md) | Interview/design-review explanation of the project |
+| [Doc/embedded-porting-notes.md](Doc/embedded-porting-notes.md) | Current technical porting notes and root-cause fixes |
+| [Doc/bringup-log.md](Doc/bringup-log.md) | Chronological bring-up and debugging log |
+| [Doc/benchmarking-plan.md](Doc/benchmarking-plan.md) | STM32 vs Jetson benchmark methodology |
 
-Artifacts produced by the Windows helper:
+## Benchmarking Plan
 
-- `Application/<board_name>/build/<ModelProfile>/Project.elf`
-- `Application/<board_name>/build/<ModelProfile>/Project.bin`
-- `Application/<board_name>/build/<ModelProfile>/Project_sign.bin`
+Final Jetson comparison is intentionally not claimed yet. The planned benchmark separates model-level and system-level latency so the comparison is fair:
 
-On NUCLEO-N657X0-Q:
+- STM32 model-only: serial `nn=...`.
+- STM32 compute path: serial `compute=...`.
+- STM32 UVC/debug loop: serial `loop=...`.
+- STM32 headless: future no-UVC build, measured directly rather than estimated.
+- Jetson model-only: same exported model/input size through TensorRT or ONNX Runtime/TensorRT.
+- Jetson system path: camera capture + preprocessing + inference + postprocess + ROS/image transport if used.
 
-```bash
-export NUEL="<STM32CubeProgrammer_N6 Install Folder>/bin/ExternalLoader/MX25UM51245G_STM32N6570-NUCLEO.stldr"
+The README will be updated with Jetson numbers only after the same model/input-size methodology is measured.
 
-# First Stage Boot Loader
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w FSBL/ai_fsbl.hex
+## Resume Snippet
 
-# Adjust build path as needed
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w build/Project_sign.bin 0x70100000
+Current resume-safe phrasing:
 
-# Network parameters
-STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -el $NUEL -hardRst -w Model/NUCLEO-N657X0-Q/network_data.hex
+```latex
+\resumeItem{Ported a YOLO-based armor-plate detector from a Jetson-class CV workflow to an STM32N6 MCU/NPU pipeline, achieving 25--32 FPS NN-only inference at 320x320 with IMX219 camera input and custom C OBB postprocessing.}
 ```
 
-__Note__: Only the application binary needs to be programmed if `fsbl` and `network_data.hex` have already been programmed.
+Future phrasing after real Jetson benchmarking:
 
-Set your board to [boot from flash](#boot-modes) mode and power cycle to boot from external flash.
+```latex
+\resumeItem{Benchmarked STM32N6 headless latency against Jetson Orin Nano TensorRT deployment across model-only, compute-path, and camera-to-detection latency.}
+```
 
-For `NUCLEO-N657X0-Q` with the default `UVCL` interface, expected behavior after a successful flash is:
+## Status
 
-1. The board boots from external flash.
-2. `CN8` enumerates on the host PC as a USB video device.
-3. A camera app on the host PC shows the processed video stream.
-
-If flashing succeeds but you do not get video output, check these first:
-
-1. The board is really in boot-from-flash mode after programming.
-2. `FSBL/ai_fsbl.hex` and `Model/<board_name>/network_data.hex` were flashed at least once.
-3. You are using `Project_sign.bin`, not the unsigned `Project.bin`.
-4. `CN9` is used for ST-LINK flashing and `CN8` is used for the USB camera stream.
-5. Your camera hardware path is valid for the selected sensor and interface.
-
----
-
-## How to update my project with a new version of ST Edge AI
-
-The neural network model files (`network.c/h`, `stai_network.c/h`, etc.) included in this project were generated using [STEdgeAI](https://www.st.com/en/development-tools/stedgeai-core.html) version 4.0.0.
-
-Using a different version of STEdgeAI to generate these model files may result in the following compile-time error:  
-`Possible mismatch in ll_aton library used`.
-
-If you encounter this error, please follow the STEdgeAI instructions on [How to update my project with a new version of ST Edge AI Core](https://stedgeai-dc.st.com/assets/embedded-docs/stneuralart_faqs_update_version.html) to update your project.
-
----
-
-## Known Issues and Limitations
-
-- Only RGB888 format for neural network input has been tested.
-- Only UINT8 format for neural network input is supported.
+The current `SafalObb` 320 profile builds, flashes, runs live over UVC, and detects armor plate images with visible boxes. Remaining polish work is focused on headless benchmarking, model-quality tuning, and cleaner production output paths.

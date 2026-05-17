@@ -135,6 +135,10 @@ static float nn_input_scale = 0.0f;
 static int32_t nn_input_zero_point = 0;
 static uint32_t g_nn_in_len = 0;
 static stai_size g_number_output = 0;
+static uint32_t g_last_loop_ms = 0;
+static uint32_t g_last_camera_wait_ms = 0;
+static uint32_t g_last_loop_fps_x10 = 0;
+static int32_t g_last_detection_count = -1;
 
 enum
 {
@@ -153,6 +157,23 @@ enum
 };
 
 #define ALIGN_TO_16(value) (((value) + 15) & ~15)
+#define ALIGN_TO_32(value) (((value) + 31) & ~31)
+
+#ifndef APP_TRACE_STARTUP
+#define APP_TRACE_STARTUP (1U)
+#endif
+#ifndef APP_TRACE_NN_INPUT
+#define APP_TRACE_NN_INPUT (1U)
+#endif
+#ifndef APP_TRACE_DETECTIONS
+#define APP_TRACE_DETECTIONS (1U)
+#endif
+#ifndef APP_TRACE_PERFORMANCE
+#define APP_TRACE_PERFORMANCE (1U)
+#endif
+#ifndef APP_TRACE_FRAME_PERIOD
+#define APP_TRACE_FRAME_PERIOD (30U)
+#endif
 
 /* When NN input dimensions are not a multiple of 16, the DCMIPP output needs cropping */
 #if (STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL) != ALIGN_TO_16(STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL)
@@ -169,12 +190,18 @@ enum
 
 #define NN_INPUT_NEEDS_PREPROC (DCMIPP_NN_NEEDS_CROP || NN_INPUT_IS_CHANNEL_FIRST)
 
-#if DCMIPP_NN_NEEDS_CROP
-#define DCMIPP_OUT_NN_LEN (ALIGN_TO_16(STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL) * STAI_NETWORK_IN_1_HEIGHT)
-#define DCMIPP_OUT_NN_BUFF_LEN (DCMIPP_OUT_NN_LEN + 32 - DCMIPP_OUT_NN_LEN%32)
+#if NN_INPUT_NEEDS_PREPROC
+#define NN_CAMERA_CAPTURE_ROW_BYTES (ALIGN_TO_16(STAI_NETWORK_IN_1_WIDTH * STAI_NETWORK_IN_1_CHANNEL))
+#define NN_CAMERA_CAPTURE_LEN       (NN_CAMERA_CAPTURE_ROW_BYTES * STAI_NETWORK_IN_1_HEIGHT)
+#define NN_CAMERA_CAPTURE_BUFF_LEN  (ALIGN_TO_32(NN_CAMERA_CAPTURE_LEN))
 
+/*
+ * Pipe2 produces interleaved camera pixels. Keep that DMA target separate from
+ * nn_in so the next camera snapshot can overlap the NPU reading the previous
+ * transposed/quantized input.
+ */
 __attribute__ ((aligned (32)))
-static uint8_t dcmipp_out_nn[DCMIPP_OUT_NN_BUFF_LEN];
+static uint8_t nn_camera_capture[NN_CAMERA_CAPTURE_BUFF_LEN];
 #endif
 
 #if NN_INPUT_IS_CHANNEL_FIRST
@@ -188,8 +215,17 @@ STAI_NETWORK_CONTEXT_DECLARE(network_context, STAI_NETWORK_CONTEXT_SIZE)
 __attribute__ ((aligned (32)))
 static uint8_t lcd_bg_buffer[LCD_BG_WIDTH * LCD_BG_HEIGHT * 2];
 /* Lcd Foreground Buffer */
+#if NN_INPUT_NEEDS_PREPROC
+/*
+ * Overlapped NN capture needs a full RGB888 camera DMA buffer. Use a single
+ * foreground overlay buffer to keep the debug build inside AXISRAM.
+ */
+#define LCD_FG_BUFFER_COUNT 1
+#else
+#define LCD_FG_BUFFER_COUNT 2
+#endif
 __attribute__ ((aligned (32)))
-static uint8_t lcd_fg_buffer[2][LCD_FG_WIDTH * LCD_FG_HEIGHT * 2];
+static uint8_t lcd_fg_buffer[LCD_FG_BUFFER_COUNT][LCD_FG_WIDTH * LCD_FG_HEIGHT * 2];
 static int lcd_fg_buffer_rd_idx;
 /* screen buffer */
 __attribute__ ((aligned (32)))
@@ -213,10 +249,23 @@ static void NeuralNetwork_init(uint32_t *nn_in_length, stai_ptr *nn_out, stai_si
 static stai_return_code RunInferenceWithTracing(uint32_t frame_index);
 static uint32_t SampleBytesChecksum32(const uint8_t *data, uint32_t len);
 static uint8_t ShouldTraceFrame(uint32_t frame_index);
+static void StartNNFrameCapture(uint8_t *dst, uint32_t frame_index);
+static uint32_t WaitForNNFrameCapture(uint32_t frame_index);
 #if NN_INPUT_NEEDS_PREPROC
 static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uint32_t src_stride);
+static void PrepareCapturedFrameForInference(uint8_t *capture, uint32_t pitch_nn, uint32_t nn_in_len);
 #endif
+static uint32_t FpsX10FromMs(uint32_t elapsed_ms);
+static void TraceDetections(uint32_t frame_index, const od_pp_out_t *output);
+static void TraceFramePerformance(uint32_t frame_index, int32_t detections, uint32_t loop_ms,
+                                  uint32_t headless_loop_ms, uint32_t inference_ms,
+                                  uint32_t compute_ms, uint32_t preprocess_ms,
+                                  uint32_t postprocess_ms, uint32_t display_ms,
+                                  uint32_t camera_wait_ms);
 
+/* -------------------------------------------------------------------------- */
+/* Camera-to-NN tensor preparation                                             */
+/* -------------------------------------------------------------------------- */
 #if NN_INPUT_IS_CHANNEL_FIRST
 static uint32_t HwcIndexToChwIndex(uint32_t index)
 {
@@ -266,6 +315,9 @@ static void TransposeHwcToChwInPlace(uint8_t *buffer)
 }
 #endif
 
+/* -------------------------------------------------------------------------- */
+/* Low-noise performance and detection tracing                                 */
+/* -------------------------------------------------------------------------- */
 static uint32_t SampleBytesChecksum32(const uint8_t *data, uint32_t len)
 {
   uint32_t sum = 0;
@@ -280,7 +332,126 @@ static uint32_t SampleBytesChecksum32(const uint8_t *data, uint32_t len)
 
 static uint8_t ShouldTraceFrame(uint32_t frame_index)
 {
-  return ((frame_index < 5U) || ((frame_index % 30U) == 0U)) ? 1U : 0U;
+  return ((frame_index < 5U) || ((frame_index % APP_TRACE_FRAME_PERIOD) == 0U)) ? 1U : 0U;
+}
+
+static uint32_t FpsX10FromMs(uint32_t elapsed_ms)
+{
+  if (elapsed_ms == 0U)
+  {
+    return 0U;
+  }
+
+  return (10000U + (elapsed_ms / 2U)) / elapsed_ms;
+}
+
+static void TraceDetections(uint32_t frame_index, const od_pp_out_t *output)
+{
+  int32_t trace_count = output->nb_detect;
+
+  if (trace_count > 2)
+  {
+    trace_count = 2;
+  }
+
+  printf("TRACE: detect: frame=%lu count=%ld",
+         (unsigned long) frame_index,
+         (long) output->nb_detect);
+
+  for (int32_t i = 0; i < trace_count; i++)
+  {
+    const od_pp_outBuffer_t *box = &output->pOutBuff[i];
+    printf(" box%ld[class=%ld conf=%.3f cx=%.1f cy=%.1f w=%.1f h=%.1f]",
+           (long) i,
+           (long) box->class_index,
+           (double) box->conf,
+           (double) box->x_center,
+           (double) box->y_center,
+           (double) box->width,
+           (double) box->height);
+  }
+
+  printf("\n");
+}
+
+static void TraceFramePerformance(uint32_t frame_index, int32_t detections, uint32_t loop_ms,
+                                  uint32_t headless_loop_ms, uint32_t inference_ms,
+                                  uint32_t compute_ms, uint32_t preprocess_ms,
+                                  uint32_t postprocess_ms, uint32_t display_ms,
+                                  uint32_t camera_wait_ms)
+{
+  uint32_t loop_fps_x10 = FpsX10FromMs(loop_ms);
+  uint32_t headless_fps_x10 = FpsX10FromMs(headless_loop_ms);
+  uint32_t inference_fps_x10 = FpsX10FromMs(inference_ms);
+  uint32_t compute_fps_x10 = FpsX10FromMs(compute_ms);
+
+  printf("TRACE: perf: frame=%lu det=%ld loop=%lums/%lu.%lufps headless_est=%lums/%lu.%lufps nn=%lums/%lu.%lufps compute=%lums/%lu.%lufps prep=%lu post=%lu uvc_display=%lu cam_wait=%lu\n",
+         (unsigned long) frame_index,
+         (long) detections,
+         (unsigned long) loop_ms,
+         (unsigned long) (loop_fps_x10 / 10U),
+         (unsigned long) (loop_fps_x10 % 10U),
+         (unsigned long) headless_loop_ms,
+         (unsigned long) (headless_fps_x10 / 10U),
+         (unsigned long) (headless_fps_x10 % 10U),
+         (unsigned long) inference_ms,
+         (unsigned long) (inference_fps_x10 / 10U),
+         (unsigned long) (inference_fps_x10 % 10U),
+         (unsigned long) compute_ms,
+         (unsigned long) (compute_fps_x10 / 10U),
+         (unsigned long) (compute_fps_x10 % 10U),
+         (unsigned long) preprocess_ms,
+         (unsigned long) postprocess_ms,
+         (unsigned long) display_ms,
+         (unsigned long) camera_wait_ms);
+}
+
+static void StartNNFrameCapture(uint8_t *dst, uint32_t frame_index)
+{
+  CameraPipeline_IspUpdate();
+
+  __disable_irq();
+  cameraFrameReceived = 0;
+  __enable_irq();
+
+  CameraPipeline_NNPipe_Start(dst, CMW_MODE_SNAPSHOT);
+
+  if (frame_index < 5U)
+  {
+    printf("TRACE: main loop: frame=%lu NN capture started dst=%p\n",
+           (unsigned long) frame_index,
+           dst);
+  }
+}
+
+static uint32_t WaitForNNFrameCapture(uint32_t frame_index)
+{
+  uint32_t frame_wait_start = HAL_GetTick();
+
+  g_app_trace_stage = APP_TRACE_STAGE_WAITING_FOR_FRAME;
+  while (cameraFrameReceived == 0)
+  {
+    if ((HAL_GetTick() - frame_wait_start) > 500U)
+    {
+      printf("ERROR: main: timeout waiting for NN frame event frame=%lu\n",
+             (unsigned long) frame_index);
+      LogInferenceRuntimeState("main: nn-frame-timeout");
+      LogCameraPipelineState("main: nn-wait-timeout");
+      assert(0);
+    }
+  }
+
+  __disable_irq();
+  cameraFrameReceived = 0;
+  __enable_irq();
+
+  if (frame_index < 5U)
+  {
+    printf("TRACE: main loop: frame=%lu camera frame received\n",
+           (unsigned long) frame_index);
+  }
+
+  return HAL_GetTick() - frame_wait_start;
 }
 
 #if NN_INPUT_NEEDS_PREPROC
@@ -368,6 +539,19 @@ static void PreprocessCameraFrameToNNInput(const uint8_t *src, uint8_t *dst, uin
     memcpy(dst + (y * row_bytes), src + (y * src_stride), row_bytes);
   }
 #endif
+}
+
+static void PrepareCapturedFrameForInference(uint8_t *capture, uint32_t pitch_nn, uint32_t nn_in_len)
+{
+  /*
+   * The DMA capture buffer is interleaved/padded camera data. Copy/transpose it
+   * into nn_in only after the snapshot is complete, then start the next snapshot
+   * while the NPU consumes nn_in.
+   */
+  g_app_trace_stage = APP_TRACE_STAGE_PREPROCESS;
+  SCB_InvalidateDCache_by_Addr(capture, NN_CAMERA_CAPTURE_BUFF_LEN);
+  PreprocessCameraFrameToNNInput(capture, nn_in, pitch_nn);
+  SCB_CleanInvalidateDCache_by_Addr(nn_in, nn_in_len);
 }
 #endif
 
@@ -519,6 +703,7 @@ int main(void)
   CameraPipeline_DisplayPipe_Start(lcd_bg_buffer, CMW_MODE_CONTINUOUS);
 
   /*** App header *************************************************************/
+#if APP_TRACE_STARTUP
   printf("========================================\n");
   printf("STM32N6-GettingStarted-ObjectDetection %s (%s)\n", APP_VERSION_STRING, APP_GIT_SHA1_STRING);
   printf("Build date & time: %s %s\n", __DATE__, __TIME__);
@@ -543,64 +728,54 @@ int main(void)
          (unsigned int) COLOR_MODE,
          (unsigned int) NN_INPUT_IS_CHANNEL_FIRST);
   printf("========================================\n");
+#endif
 
   /*** App Loop ***************************************************************/
   uint32_t app_loop_trace_count = 0;
-  while (1)
-  {
-    g_app_trace_frame_index = app_loop_trace_count;
-    CameraPipeline_IspUpdate();
-
-#if DCMIPP_NN_NEEDS_CROP
-    /* Start NN camera single capture Snapshot into intermediate buffer */
-    CameraPipeline_NNPipe_Start(dcmipp_out_nn, CMW_MODE_SNAPSHOT);
-#else
-    /* Start NN camera single capture Snapshot directly into NN input */
-    CameraPipeline_NNPipe_Start(nn_in, CMW_MODE_SNAPSHOT);
-#endif
-
-    g_app_trace_stage = APP_TRACE_STAGE_WAITING_FOR_FRAME;
-    uint32_t frame_wait_start = HAL_GetTick();
-    while (cameraFrameReceived == 0)
-    {
-      if ((HAL_GetTick() - frame_wait_start) > 500U)
-      {
-        printf("ERROR: main: timeout waiting for NN frame event after pipe2 snapshot start\n");
-        LogInferenceRuntimeState("main: nn-frame-timeout");
-        LogCameraPipelineState("main: nn-wait-timeout");
-        assert(0);
-      }
-    }
-    cameraFrameReceived = 0;
-    if (app_loop_trace_count < 5U)
-    {
-      printf("TRACE: main loop: frame=%lu camera frame received\n",
-             (unsigned long) app_loop_trace_count);
-    }
-
-    uint32_t ts[2] = { 0 };
 
 #if NN_INPUT_NEEDS_PREPROC
-    /*
-     * Crop/copy/quantize the camera frame into the NN input buffer.
-     * The DCMIPP hardware may pad each row to a 16-byte boundary, and
-     * channel-first models need the interleaved camera RGB transposed to CHW.
-     */
-    g_app_trace_stage = APP_TRACE_STAGE_PREPROCESS;
-#if DCMIPP_NN_NEEDS_CROP
-    SCB_InvalidateDCache_by_Addr(dcmipp_out_nn, sizeof(dcmipp_out_nn));
-    PreprocessCameraFrameToNNInput(dcmipp_out_nn, nn_in, pitch_nn);
-#else
-    SCB_InvalidateDCache_by_Addr(nn_in, nn_in_len);
-    PreprocessCameraFrameToNNInput(nn_in, nn_in, pitch_nn);
+  /*
+   * Overlapped capture/inference loop:
+   *   1. Capture one camera frame into a DMA-safe RGB/HWC buffer.
+   *   2. Convert that completed frame into nn_in, including HWC->CHW when needed.
+   *   3. Start the next camera capture before running the NPU.
+   *   4. Run inference/postprocess/display on the current frame.
+   *   5. Wait only for the next capture remainder; cam_wait=0 means it was hidden.
+   *
+   * This trades AXISRAM for lower exposed camera wait without changing model
+   * outputs or postprocessing behavior.
+   */
+  g_app_trace_frame_index = 0U;
+  StartNNFrameCapture(nn_camera_capture, 0U);
+  WaitForNNFrameCapture(0U);
 #endif
-    SCB_CleanInvalidateDCache_by_Addr(nn_in, nn_in_len);
+
+  while (1)
+  {
+    uint32_t loop_start_ms = HAL_GetTick();
+    uint32_t preprocess_ms = 0U;
+    uint32_t inference_ms = 0U;
+    uint32_t postprocess_ms = 0U;
+    uint32_t display_ms = 0U;
+    uint32_t camera_wait_ms = 0U;
+
+    g_app_trace_frame_index = app_loop_trace_count;
+
+#if NN_INPUT_NEEDS_PREPROC
+    uint32_t preprocess_start_ms = HAL_GetTick();
+    PrepareCapturedFrameForInference(nn_camera_capture, pitch_nn, nn_in_len);
+    preprocess_ms = HAL_GetTick() - preprocess_start_ms;
 #else
+    /* Start NN camera single capture Snapshot directly into NN input */
+    StartNNFrameCapture(nn_in, app_loop_trace_count);
+    camera_wait_ms = WaitForNNFrameCapture(app_loop_trace_count);
+
     g_app_trace_stage = APP_TRACE_STAGE_PREPROCESS;
     SCB_InvalidateDCache_by_Addr(nn_in, nn_in_len);
 #endif
 
-    ts[0] = HAL_GetTick();
+    uint32_t inference_start_ms = HAL_GetTick();
+#if APP_TRACE_NN_INPUT
     if (ShouldTraceFrame(app_loop_trace_count) != 0U)
     {
       uint32_t sample_len = (nn_in_len < 64U) ? nn_in_len : 64U;
@@ -617,29 +792,66 @@ int main(void)
              (unsigned int) nn_bytes[2U * plane_size],
              (long) nn_out_len[0]);
     }
+#endif
+
+#if NN_INPUT_NEEDS_PREPROC
+    StartNNFrameCapture(nn_camera_capture, app_loop_trace_count + 1U);
+#endif
+
     ret = RunInferenceWithTracing(app_loop_trace_count);
     assert(ret == 0);
-    ts[1] = HAL_GetTick();
+    inference_ms = HAL_GetTick() - inference_start_ms;
 
     g_app_trace_stage = APP_TRACE_STAGE_POSTPROCESS;
+    uint32_t postprocess_start_ms = HAL_GetTick();
     int32_t ret = app_postprocess_run((void **) nn_out, number_output, &pp_output, &pp_params);
     assert(ret == 0);
-    if (ShouldTraceFrame(app_loop_trace_count) != 0U)
-    {
-      printf("TRACE: frame summary: frame=%lu inference_ms=%lu detections=%lu\n",
-             (unsigned long) app_loop_trace_count,
-             (unsigned long) (ts[1] - ts[0]),
-             (unsigned long) pp_output.nb_detect);
-    }
+    postprocess_ms = HAL_GetTick() - postprocess_start_ms;
 
     g_app_trace_stage = APP_TRACE_STAGE_DISPLAY;
-    Display_NetworkOutput(&pp_output, ts[1] - ts[0]);
+    uint32_t display_start_ms = HAL_GetTick();
+    Display_NetworkOutput(&pp_output, inference_ms);
     /* Discard nn_out region (used by pp_input and pp_outputs variables) to avoid Dcache evictions during nn inference */
     for (int i = 0; i < number_output; i++)
     {
       void *tmp = nn_out[i];
       SCB_InvalidateDCache_by_Addr(tmp, nn_out_len[i]);
     }
+    display_ms = HAL_GetTick() - display_start_ms;
+
+#if NN_INPUT_NEEDS_PREPROC
+    camera_wait_ms = WaitForNNFrameCapture(app_loop_trace_count + 1U);
+#endif
+
+    g_last_loop_ms = HAL_GetTick() - loop_start_ms;
+    g_last_camera_wait_ms = camera_wait_ms;
+    g_last_loop_fps_x10 = FpsX10FromMs(g_last_loop_ms);
+    uint32_t headless_loop_ms = (g_last_loop_ms > display_ms) ? (g_last_loop_ms - display_ms) : g_last_loop_ms;
+    uint32_t compute_ms = preprocess_ms + inference_ms + postprocess_ms;
+
+#if APP_TRACE_DETECTIONS
+    uint8_t trace_detection = (pp_output.nb_detect > 0) &&
+                              ((g_last_detection_count != pp_output.nb_detect) ||
+                               (app_loop_trace_count < 5U) ||
+                               ((app_loop_trace_count % 10U) == 0U));
+
+    g_last_detection_count = pp_output.nb_detect;
+
+    if (trace_detection != 0U)
+    {
+      TraceDetections(app_loop_trace_count, &pp_output);
+    }
+#endif
+
+#if APP_TRACE_PERFORMANCE
+    if (ShouldTraceFrame(app_loop_trace_count) != 0U)
+    {
+      TraceFramePerformance(app_loop_trace_count, pp_output.nb_detect, g_last_loop_ms,
+                            headless_loop_ms, inference_ms, compute_ms, preprocess_ms,
+                            postprocess_ms, display_ms, camera_wait_ms);
+    }
+#endif
+
     app_loop_trace_count++;
   }
 }
@@ -896,6 +1108,7 @@ static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference
   static uint32_t display_frame_count = 0U;
   uint32_t roi_area_width = lcd_fg_area.XSize;
   uint32_t roi_area_height = lcd_fg_area.YSize;
+  uint32_t inference_fps_x10 = FpsX10FromMs(inference_ms);
   int ret;
 
   __disable_irq();
@@ -960,9 +1173,15 @@ static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference
 
   UTIL_LCD_SetBackColor(0x40000000);
   UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_WHITE);
-  UTIL_LCDEx_PrintfAt(0, LINE(0), LEFT_MODE, "Inference");
-  UTIL_LCDEx_PrintfAt(0, LINE(1), LEFT_MODE, "%ums", inference_ms);
+  UTIL_LCDEx_PrintfAt(0, LINE(0), LEFT_MODE, "Inf %ums", inference_ms);
+  UTIL_LCDEx_PrintfAt(0, LINE(1), LEFT_MODE, "NN %lu.%lufps",
+                      (unsigned long)(inference_fps_x10 / 10U),
+                      (unsigned long)(inference_fps_x10 % 10U));
+  UTIL_LCDEx_PrintfAt(0, LINE(2), LEFT_MODE, "Loop %lu.%lufps",
+                      (unsigned long)(g_last_loop_fps_x10 / 10U),
+                      (unsigned long)(g_last_loop_fps_x10 % 10U));
   UTIL_LCDEx_PrintfAt(0, LINE(0), RIGHT_MODE, "Objects %u", drawn_rois);
+  UTIL_LCDEx_PrintfAt(0, LINE(1), RIGHT_MODE, "Wait %lums", (unsigned long)g_last_camera_wait_ms);
   UTIL_LCD_SetBackColor(0);
 
   Display_WelcomeScreen();
@@ -989,7 +1208,7 @@ static void Display_NetworkOutput(od_pp_out_t *p_postprocess, uint32_t inference
   ret = SCRL_ReloadLayer(SCRL_LAYER_1);
   assert(ret == HAL_OK);
   __enable_irq();
-  lcd_fg_buffer_rd_idx = 1 - lcd_fg_buffer_rd_idx;
+  lcd_fg_buffer_rd_idx = (lcd_fg_buffer_rd_idx + 1) % LCD_FG_BUFFER_COUNT;
 }
 
 static uint32_t Display_GetBoxColor(uint32_t class_index)

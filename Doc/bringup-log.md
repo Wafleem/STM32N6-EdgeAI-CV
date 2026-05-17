@@ -1,4 +1,4 @@
-# Safal OBB Porting Log
+# Armor Plate Bring-Up Log
 
 This is the working log for porting a RoboMaster armor-plate detector from the Jetson CV repo into this STM32N6 Nucleo project.
 
@@ -65,6 +65,52 @@ TRACE: display: frame=... raw=... drawn=... fg=240x240@40,0 bg=240x240@40,0
 
 If boxes ever return to the black area, first check that foreground and background sizes/origins match in the `Display:` and `TRACE: display:` lines. If detection confidence collapses again, check the `chw=1`, `pitch=960`, and `TRACE: NN input` lines before retraining or recalibrating.
 
+## 2026-05-11 Performance And Headless Metrics
+
+After live boxes were working, the next question was whether the MCU path was actually efficient enough to be useful. The firmware was updated to print separate FPS metrics instead of one ambiguous number.
+
+Example trace:
+
+```text
+TRACE: perf: frame=1050 det=2 loop=67ms/14.9fps headless_est=58ms/17.2fps nn=39ms/25.6fps compute=44ms/22.7fps prep=2 post=3 uvc_display=9 cam_wait=14
+```
+
+Interpretation:
+
+- `nn` is NPU inference only.
+- `compute` is preprocessing + NPU inference + OBB postprocess.
+- `loop` is the full UVC/debug loop.
+- `headless_est` subtracts measured UVC display cost and is closer to how a robot-control build should behave.
+- `cam_wait` measures how much of the next camera capture was not hidden by overlap.
+
+The observed 320x320 performance story is:
+
+- NN-only inference is roughly `25-32 FPS`, depending on frame and measurement conditions.
+- Preprocess and postprocess add only a few milliseconds.
+- Full UVC/debug loop is lower, often around `15-21 FPS`.
+- A headless robot build should be closer to `headless_est` than to the visible UVC loop.
+
+Camera/inference overlap was added by using a separate camera capture buffer:
+
+```text
+capture frame N
+preprocess frame N into nn_in
+start capture frame N+1
+run inference on frame N
+postprocess/display frame N
+wait only if frame N+1 is not ready yet
+```
+
+This does not make the NPU faster. It hides camera acquisition behind inference/display work. When the overlay shows `Wait 0ms`, capture was fully hidden for that iteration.
+
+The tradeoff is RAM. The 320 build with overlap and UVC metrics fits, but tightly:
+
+```text
+AXISRAM1_S: ~1.676 MB / 1647 KB = 99.36%
+```
+
+That is acceptable for the current debug build, but future features must be careful with extra buffers, large arrays, and verbose debug strings.
+
 ## Model Search
 
 The external CV repo had multiple YOLO/OBB candidates. The important distinction was whether we wanted any usable RoboMaster detector or the model implied by Safal's Jetson launch path.
@@ -115,13 +161,13 @@ The generated model artifacts are separated by profile:
 - `Model/NUCLEO-N657X0-Q`
 - `Model/NUCLEO-N657X0-Q_SafalObb`
 
-The custom postprocessor decodes Ultralytics OBB output channels:
+The custom postprocessor decodes the active raw YOLO OBB-style output channels:
 
 - `cx`, `cy`, `w`, `h`
-- class confidence channels
-- final angle channel
+- class/object confidence
+- angle/rotation signal where present
 
-For now, the rotated OBB is converted to an axis-aligned box so it can reuse the existing display and targeting path. That means the screen should show normal rectangular boxes labeled `blue` or `red`, not rotated polygons.
+For now, the rotated OBB is converted to an axis-aligned box so it can reuse the existing display and targeting path. The active BestMerge profile has one class, `plate`, and the live UVC overlay intentionally draws only green rectangles and object counts instead of flooding the screen with labels.
 
 ## Resolution Experiments
 
@@ -137,9 +183,11 @@ Several input sizes were tested because memory fit was the main blocker.
 `320x320`:
 
 - Export, QDQ quantization, ST Edge AI generation, and full firmware build succeeded.
-- Output shape was `1x7x2100`.
-- This was the first safe fallback.
-- Verdict: works, but lower resolution than necessary.
+- Active BestMerge output shape is `1x6x2100`.
+- The channel-first input required an HWC-to-CHW camera preprocessing step.
+- After the display and preprocessing fixes, it produced stable live boxes on UVC.
+- With camera/inference overlap and UVC debug metrics, the full firmware build fits at about `99.36%` of `AXISRAM1_S`.
+- Verdict: current live profile and best working balance so far.
 
 `416x416`:
 
@@ -159,9 +207,36 @@ Several input sizes were tested because memory fit was the main blocker.
 - Output shape is `1x7x3024`.
 - ST Edge AI reported about `2.55 MiB` weights, `1.81 MiB` activations, and `4.36 MiB` total Neural-ART memory.
 - Full SafalObb firmware build fit in AXISRAM1_S at about `86.75%`.
-- Verdict: best current balance, and now the active profile.
+- Verdict: useful historical Nitish/Safal experiment, but not the current live flashed profile.
 
-## Reproduction Commands
+## Current 320 Reproduction Commands
+
+Generate STM32N6 artifacts from the current active BestMerge 320 ONNX:
+
+```powershell
+cd Model
+stedgeai generate `
+  --model bestmerge_320_robomaster_v4_clean_qdq.onnx `
+  --target stm32n6 `
+  --st-neural-art default@user_neuralart_NUCLEO-N657X0-Q.json `
+  --input-data-type uint8 `
+  --output-data-type int8 `
+  --verbosity 1
+```
+
+Build:
+
+```powershell
+.\scripts\stm32n6.ps1 -Action build -ModelProfile SafalObb -Jobs 2
+```
+
+Flash:
+
+```powershell
+.\scripts\stm32n6.ps1 -Action flash-all -ModelProfile SafalObb -Jobs 2
+```
+
+## Historical 384 Reproduction Commands
 
 Export:
 
@@ -218,28 +293,31 @@ Build:
 
 ## Benchmark Notes
 
-The Jetson launch path points to a `640x640` TensorRT INT8 engine. The STM32 profile uses the same Nitish checkpoint exported at `384x384`.
+The Jetson launch path originally pointed to a `640x640` TensorRT INT8 engine. The current STM32 live profile uses the BestMerge armor-plate OBB model at `320x320`.
 
-That is still a meaningful embedded benchmark because the model lineage is the same, but it is not an exact apples-to-apples comparison unless the Jetson is also run with the same `384x384` export. The future benchmark should report both facts clearly:
+That is still a meaningful embedded benchmark, but it is not an exact apples-to-apples comparison unless the Jetson is also run with the same exported model, input resolution, quantization assumptions, and postprocess path. Future benchmark reports should separate:
 
-- `Jetson real deployment`: Nitish TensorRT engine at `640x640`
-- `STM32 deployment`: same Nitish checkpoint at `384x384`, QDQ ONNX, ST Edge AI Neural-ART artifacts
+- `Jetson real deployment`: TensorRT engine and camera/ROS pipeline used on the robot
+- `STM32 deployment`: BestMerge 320 QDQ ONNX, ST Edge AI Neural-ART artifacts, MCU-side postprocess
+- `STM32 debug mode`: USB/UVC visible loop
+- `STM32 headless mode`: no UVC drawing, compact detections only
 
 ## Expected Deployment Behavior
 
-When flashed successfully, the board should boot the `SafalObb` profile and show `Nitish Safal OBB 384` in the startup text.
+When flashed successfully, the board should boot the `SafalObb` profile and show `BestMerge OBB 320 v4` in the startup text.
 
-The video overlay should draw axis-aligned boxes around detected armor plates with labels:
+The video overlay should draw green axis-aligned boxes around detected armor plates. The active live class table is:
 
-- `blue`
-- `red`
+- `plate`
 
 The current postprocess does not draw rotated boxes. If rotated polygon visualization becomes important, the OBB corner coordinates are already computed and can be carried through a richer display path later.
 
 ## Future Work
 
-- Flash on actual Nucleo hardware and confirm boot/video behavior.
+- Benchmark a true headless loop with UVC drawing disabled.
+- Print detection coordinates in pixels and with more decimal precision.
+- Add temporal holding/smoothing so brief detection flicker does not destabilize downstream control.
 - Tune confidence and IoU thresholds using real match footage.
 - Replace temporary RoboFlow calibration images with real camera frames from the deployment setup.
-- Benchmark Jetson with the same `384x384` checkpoint export if strict fairness is required.
+- Benchmark Jetson with the same exported model/input size if strict fairness is required.
 - Consider rotated-box display or downstream angle use once the basic detector is stable.
